@@ -1,0 +1,18 @@
+@charset "UTF-8";
+*{
+	color : white;
+}
+.bookInfo{
+	display:flex;
+	padding:0 150px 0 150px;
+	text-align:center;
+	justify-content:center;
+}
+.info{
+	display:flex;
+	flex-direction:column;
+	height:auto;
+}
+.img{
+	width:40%;
+}

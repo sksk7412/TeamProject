@@ -4,15 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>bookSearch</title>
+<title>bookInfo</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/bestPage.css">
+<link rel="stylesheet" href="css/bookInfo.css">
 </head>
+<%
+String isbn = request.getParameter("isbn");
+%>
 <body>
 	<div class="wrap">
 		<div class="header">
@@ -34,12 +37,16 @@
 				<p class="menu4">ABOUT</p>
 			</div>
 		</div>
-		<form class="searchWrap">
-			<input type="text" id="input"> <input type="button"
-				id="submit" value="검색" onclick="search(form)">
-		</form>
-		<div class="result"></div>
+<div class="main"></div>
+
+<input type="hidden" value="<%=isbn%>" id="isbn">
 	</div>
-	<script src="bookApi.js"></script>
+<script src="bookApi.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	let isbn = $('#isbn').val();
+	getBookForIsbn(isbn);
+});
+</script>
 </body>
 </html>
