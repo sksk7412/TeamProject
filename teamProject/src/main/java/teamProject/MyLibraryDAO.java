@@ -27,10 +27,6 @@ public class MyLibraryDAO {
 	private String password = "root";
 	Random ran = new Random();
 	
-//	public int addMyLibrary() {
-//		
-//	}
-	
 	// DB에서 값 불러오기
 	public Map getMap() {
 		Map<Integer, MyLibraryDTO> myBook = new HashMap<>();
@@ -67,6 +63,33 @@ public class MyLibraryDAO {
 			e.printStackTrace();
 		}
 		return myBook;
+	}
+	
+	// DB에 값 넣기
+	public int addBook(MyLibraryDTO LibraryDto) {
+		conn = DBManager.getConnection(database);
+		System.out.println("conn: " + conn);
+		String SQL = "INSERT INTO board VALUES (?,?,?,?,?,?,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1, LibraryDto.getTitle());
+			pstmt.setString(2, LibraryDto.getThumbnail());
+			pstmt.setString(3, LibraryDto.getIsbn());
+			pstmt.setInt(5, LibraryDto.getId());
+			pstmt.setString(6, LibraryDto.getAuthors());
+			pstmt.setString(7, LibraryDto.getContents());
+			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
+			pstmt.setTimestamp(8, modifiedAt);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return -1;
 	}
 
 }

@@ -59,8 +59,20 @@
         	}
         %>
         	<div class="dibBook">
-        		<div class="bookList">1</div>
-        		<div class="bookList">2</div>
+        		<div class="bookList">
+        			<img src="https://search.pstatic.net/common?type=o&size=174x260&expire=3&refresh=true&quality=75&direct=true&src=https%3A%2F%2Fbookthumb-phinf.pstatic.net%2Fcover%2F120%2F853%2F12085357.jpg%3Fudate%3D20200807">
+        			<%-- <%=thumbnail %> --%><br>
+        			<%=title %><br>
+        			<%=authors %><br>
+        			<%=createAt %>
+        		</div>
+        		<div class="bookList">
+        			<img src="https://search.pstatic.net/common?type=o&size=174x260&expire=3&refresh=true&quality=75&direct=true&src=https%3A%2F%2Fbookthumb-phinf.pstatic.net%2Fcover%2F120%2F853%2F12085357.jpg%3Fudate%3D20200807">
+        			<%-- <%=thumbnail %> --%><br>
+        			<%=title %><br>
+        			<%=authors %><br>
+        			<%=createAt %>
+        		</div>
         		<div class="bookList">3</div>
         		<div class="bookList">4</div>
         		<div class="bookList">5</div>
