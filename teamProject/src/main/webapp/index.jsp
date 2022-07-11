@@ -26,6 +26,7 @@
                 <p class="menu2">NEW</p>
                 <p class="menu3">HOW TO</p>
                 <p class="menu4">ABOUT</p>
+                
             </div>
         </div>
 

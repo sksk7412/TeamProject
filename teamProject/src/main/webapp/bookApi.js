@@ -10,7 +10,7 @@ function getResult(keyword){
         method : 'get',
         url :`https://dapi.kakao.com//v3/search/book`,
         headers: {
-            Authorization : 'KakaoAK ee5ab286710874c6781a0342217d1328'
+            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
         },
         data: {
            query: keyword,
@@ -20,15 +20,22 @@ function getResult(keyword){
     })
     .done(data =>{
         const result = data.documents;
-		
 		result.forEach(book=>{
+			console.log(book.valueOf());
+		const title = book.title;
+		const img = book.thumbnail;
+		const contents = book.contents;
+		const authors = book.authors;
+		const isbn = book.isbn;
 		
-		let html = `<div class='book' onclick="_0.detail.jsp">`;
+		
+		let html = `<div class='book' onclick="location.href='_0.detail.jsp?title=${title}&img=${img}&contents=${contents}&authors=${authors}&isbn=${isbn}'">`;
 		html += `<p><img src='${book.thumbnail}'></p>`;
-		html += `<span>'${book}'</span></div>`;
 		
 		$('.result').append(html);
         })
     })
 	
 }
+
+
