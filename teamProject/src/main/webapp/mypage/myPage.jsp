@@ -31,11 +31,11 @@
         
        	<div class="container">
        		<div class="userTitle">
-       			<img src="image/mypage.png">
+       			<p><img src="image/mypage.png"></p>
        			<span class=txt>
-       			<h1>님의 마이페이지</h1>
-       			<p>나의 이용권</p>
-       			<p>ㅇㅇㅇ 정기권</p>
+       				<h1>님의 마이페이지</h1>
+       				<p>나의 이용권</p>
+       				<h3>ㅇㅇㅇ 정기권</h3>
        			</span>
        			
        		</div>

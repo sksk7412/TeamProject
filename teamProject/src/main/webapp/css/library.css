@@ -79,8 +79,16 @@
     background-color: white;
 }
 .userTitle{
+	height:20vh;
 	display:flex;
+	text-align:left;
+	background-color:yellow;
+	padding-top:30px;
 }
 .userTitle img{
 	width:7vw;
+	margin-left:150px
+}
+.txt{
+	margin-top:10px;
 }
