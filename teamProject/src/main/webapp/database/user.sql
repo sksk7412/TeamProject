@@ -9,5 +9,5 @@ create table user(
     mobile varchar(13) not null,
     address varchar(500)
 );
-
+ 
 select * from user;
