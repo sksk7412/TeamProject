@@ -25,10 +25,11 @@ function getResult(keyword){
 		console.log(book);
 		
 		let html = `<div class='bookIMG'>`;
-		html += `<p><img src='${book.thumbnail}'</p></div>`;
+		html += `<p><img onclick ='getInfo(book)' src='${book.thumbnail}'</p></div>`;
 		
 		$('.result').append(html);
         })
     })
 	
 }
+
