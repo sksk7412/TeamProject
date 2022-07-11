@@ -12,8 +12,8 @@ function getResult(keyword){
             Authorization : 'KakaoAK ee5ab286710874c6781a0342217d1328'
         },
         data: {
-            query: keyword,
-            target: 'title'
+           // query: keyword,
+           // target: 'title'
         },
         encoding: 'UTF-8',
     })
