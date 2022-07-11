@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="teamProject.DibsBookDAO"%>
 <%@page import="teamProject.DibsBookDTO"%>
 <%@page import="java.util.Map" %>
@@ -34,23 +35,25 @@
                 
         <div class="dibsBookContents">
         <%
+        request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
         DibsBookDAO dao = DibsBookDAO.getInstance();
         
         Map<Integer, DibsBookDTO> temp = dao.getMap();
         Object[] keySet = temp.keySet().toArray();
         
-        	int id = 0;
         	String title = null;
         	String thumbnail = null;
         	String isbn = null;
+        	int id = 0;
         	String authors = null;
         	Timestamp createAt = null;
         	
         	for(Object b : keySet) {
-        		id = temp.get(b).getId();
         		title = temp.get(b).getTitle();
         		thumbnail = temp.get(b).getThumbnail();
         		isbn = temp.get(b).getIsbn();
+        		id = temp.get(b).getId();
         		authors = temp.get(b).getAuthors();
         		createAt = temp.get(b).getCreatedAt();
         	}

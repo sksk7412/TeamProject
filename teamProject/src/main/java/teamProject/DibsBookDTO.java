@@ -9,11 +9,11 @@ public class DibsBookDTO {
 	private String title, thumbnail, isbn, authors;
 	private Timestamp createdAt;
 	
-	public DibsBookDTO(int id, String title, String thumbnail, String isbn, String authors, Timestamp createdAt) {
-		this.id = id;
+	public DibsBookDTO(String title, String thumbnail, String isbn, int id, String authors, Timestamp createdAt) {
 		this.title = title;
 		this.thumbnail = thumbnail;
 		this.isbn = isbn;
+		this.id = id;
 		this.authors = authors;
 		this.createdAt = createdAt;
 

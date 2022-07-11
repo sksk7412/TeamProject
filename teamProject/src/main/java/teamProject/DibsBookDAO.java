@@ -26,49 +26,74 @@ public class DibsBookDAO {
 	private PreparedStatement pstmt = null;
 	private String log;
 	private String url = "jdbc:mysql://localhost:3306/";
-	private String database = "userdata";
+	private String database = "book";
 	private String user = "root";
 	private String password = "root";
 	Random ran = new Random();
 	
-	// DB에서 값 불러오기
-	public Map getMap() {
-		Map<Integer, DibsBookDTO> bookData = new HashMap<>();
+	public int addWrite(DibsBookDTO BoardDto) { 
 		
-		conn = DBManager.getConnection("book");
-		String sql = "select * from dibsBook";
-		pstmt = null;
-		
+		conn = DBManager.getConnection(database);
+		System.out.println("conn: "+conn);	
+		String SQL = "INSERT INTO board VALUES (?,?,?,?,?,?)";
+ 	
 		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
 			
-			int id;
-			String title, thumbnail, isbn, authors;
-			Timestamp createAt;
+			System.out.println("code: "+BoardDto.getId());
+			pstmt = conn.prepareStatement(SQL);
 			
-			while(rs.next()) {
-				id = rs.getInt(1);
-				title = rs.getString(2);
-				thumbnail = rs.getString(3);
-				isbn = rs.getString(4);
-				authors = rs.getString(5);
-				createAt = rs.getTimestamp(6);
+			pstmt.setString(1, BoardDto.getTitle());
+			pstmt.setString(2, BoardDto.getThumbnail());
+			pstmt.setString(3, BoardDto.getIsbn());
+			pstmt.setInt(4, 1);
+			pstmt.setString(5, BoardDto.getAuthors());
+			Timestamp createAt = new Timestamp(System.currentTimeMillis());
+			//pstmt.setString(4, createAt.toString());
+			pstmt.setTimestamp(6, createAt);
+
 				
-				DibsBookDTO dibs = new DibsBookDTO(id, title, thumbnail, isbn, authors, createAt);
-				
-				bookData.put(id, dibs);
-			}
+			return pstmt.executeUpdate();
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
-		return bookData;
+		return -1;
 	}
-	
-	
 
-
+	// DB에서 값 불러오기
+		public Map<Integer, DibsBookDTO> getMap() {
+			Map<Integer, DibsBookDTO> bookData = new HashMap<>();
+			
+			conn = DBManager.getConnection("book");
+			String sql = "select * from dibsBook";
+			pstmt = null;
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				int id;
+				String title, thumbnail, isbn, authors;
+				Timestamp createAt;
+				System.out.println("9999");
+				while(rs.next()) {
+					title = rs.getString(1);
+					thumbnail = rs.getString(2);
+					isbn = rs.getString(3);
+					id = rs.getInt(4);
+					authors = rs.getString(5);
+					createAt = rs.getTimestamp(6);
+					
+					DibsBookDTO dibs = new DibsBookDTO(title, thumbnail, isbn, id, authors, createAt);
+					
+					bookData.put(id, dibs);
+				}
+				System.out.println("11111111");
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("152545");
+			}
+			return bookData;
+		}
 
 }
