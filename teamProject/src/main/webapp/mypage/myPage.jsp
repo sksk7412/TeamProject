@@ -31,13 +31,17 @@
         
        	<div class="container">
        		<div class="userTitle">
-       			<p><img src="image/mypage.png"></p>
+       			<p><img src="image/mypage.png" class="myIicon"></p>
        			<span class=txt>
        				<h1>님의 마이페이지</h1>
        				<p>나의 이용권</p>
        				<h3>ㅇㅇㅇ 정기권</h3>
        			</span>
        			
+       			<span class="setting">
+       			<p><img src="image/setting.png" class="settingIcon"></p>
+       			<h4>회원정보 수정</h4>
+       			</span>
        		</div>
        	
        	</div>      	

@@ -7,6 +7,7 @@
     width:100vw;
     position: relative;
     height: 100vh;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 .header{
     width:100vw;
@@ -79,16 +80,37 @@
     background-color: white;
 }
 .userTitle{
+	
 	height:20vh;
 	display:flex;
 	text-align:left;
-	background-color:yellow;
+	background-color:#fff9ed;
 	padding-top:30px;
 }
-.userTitle img{
+.userTitle img {
 	width:7vw;
-	margin-left:250px
+	margin-left:17vw;
+	margin-top:10px;
+	color:#1b0f04;
 }
 .txt{
-	margin-top:10px;
+	color:#1b0f04;
+	margin-top:20px;
+	margin-left:2vw;
+}
+.txt p{
+	margin-top:0.5vh;
+}
+
+.setting{
+	display:flex;
+	margin-left:10vw;
+}
+ .setting .settingIcon{
+	width:1.5vw;
+	margin-top:5vh;
+	color:#1b0f04;
+}
+.setting h4{
+	margin:5vh 0 0 1vw;
 }
