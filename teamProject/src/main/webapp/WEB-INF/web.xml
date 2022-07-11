@@ -5,7 +5,7 @@
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
@@ -18,4 +18,15 @@
   	<servlet-name>Mypage</servlet-name> 
   	<url-pattern>/mypage</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>like</servlet-name>
+  	<servlet-class>controller.likeAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>like</servlet-name>
+  	<url-pattern>/like</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
