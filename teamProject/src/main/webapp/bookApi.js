@@ -5,6 +5,7 @@ function search(form){
 }
 
 function getResult(keyword){
+	console.log(keyword);
 	$.ajax({
         method : 'get',
         url :`https://dapi.kakao.com//v3/search/book`,
@@ -12,20 +13,19 @@ function getResult(keyword){
             Authorization : 'KakaoAK ee5ab286710874c6781a0342217d1328'
         },
         data: {
-           // query: keyword,
-           // target: 'title'
+           query: keyword,
+           target: 'title'
         },
         encoding: 'UTF-8',
     })
     .done(data =>{
         const result = data.documents;
 		
-		console.log(data.meta.pageable_count);
 		result.forEach(book=>{
-		console.log(book);
 		
-		let html = `<div class='bookIMG'>`;
-		html += `<p><img src='${book.thumbnail}'</p></div>`;
+		let html = `<div class='book' onclick="_0.detail.jsp">`;
+		html += `<p><img src='${book.thumbnail}'></p>`;
+		html += `<span>'${book}'</span></div>`;
 		
 		$('.result').append(html);
         })

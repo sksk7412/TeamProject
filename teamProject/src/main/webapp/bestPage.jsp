@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>bookSearch</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bestPage.css">
 </head>
 <body>
 	<div class="wrap">
@@ -26,13 +29,12 @@
                 <p class="menu4">ABOUT</p>
             </div>
         </div>
-            
+		<form class="searchWrap">
+			<input type="text" id="input">
+			<input type="button" id="submit" value="검색" onclick="search(form)">
+		</form>
+		<div class="result"></div>
       </div>
-	<form>
-		<input type="text" id="input">
-		<input type="button" id="submit" onclick="search(form)">
-	</form>
-	<div class="result"></div>
 	<script src="bookApi.js"></script>
 </body>
 </html>
