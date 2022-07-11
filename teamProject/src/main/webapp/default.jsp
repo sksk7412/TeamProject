@@ -11,6 +11,7 @@
         <div class="header">
             <p class="logo">LOGO</p>
             <div class="topMenu">
+            	<p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
                 <p class="search"><img src="image/search.png"></p>
                 <p class="login">LOGIN</p>
                 <p class="join">JOIN</p>
@@ -25,6 +26,7 @@
                 <p class="menu4">ABOUT</p>
             </div>
         </div>
+         <!-- 여기에다가 추가할거 적어주세요 -->
             
       </div>
 </body>
