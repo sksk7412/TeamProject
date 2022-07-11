@@ -12,6 +12,8 @@
         <div class="header">
             <p class="logo">LOGO</p>
             <div class="topMenu">
+            	
+                <p class="myPage"><img src="image/mypage.png"></p>
                 <p class="search"><img src="image/search.png"></p>
                 <p class="login">LOGIN</p>
                 <p class="join">JOIN</p>
