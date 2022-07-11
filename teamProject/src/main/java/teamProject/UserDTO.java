@@ -11,7 +11,7 @@ public class UserDTO {
 		this.name = name;
 		this.mobile = mobile;
 	}
-	
+	 
 	public UserDTO(int id, String userId, String userPw, String name, String mobile) {
 		this.id = id;
 		this.userId = userId;
