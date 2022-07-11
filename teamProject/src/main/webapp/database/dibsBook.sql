@@ -9,6 +9,6 @@ create table dibsBook(
     authors varchar(20) not null,
     createAt datetime,
     foreign key (usercode) references user(usercode)
-);
+); 
 
 select * from dibsBook;
