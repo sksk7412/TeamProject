@@ -1,3 +1,4 @@
+<%@page import="teamProject.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,12 +31,16 @@
                 <p class="menu4">ABOUT</p>
             </div>
         </div>
-        
+        <%
+        int log = (int)session.getAttribute("log");
+        UserDAO dao=UserDAO.getInstance();
+        String name= dao.getName(log);
+        %>
        	<div class="container">
        		<div class="userTitle">
        			<p><img src="./image/mypage.png" class="myIcon"></p>
        			<span class=txt>
-       				<h1>님의 마이페이지</h1>
+       				<h1><%=name %>님의 마이페이지</h1>
        				<p>나의 이용권</p>
        				<h3>ㅇㅇㅇ 정기권</h3>
        			</span>
@@ -64,6 +69,7 @@
        	</div>      	
         
       </div>
+      
 <script src="./js/validation.js"></script>
 </body> 
 </html>

@@ -1,3 +1,4 @@
+<%@page import="teamProject.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,23 +6,34 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
 <title>Main</title>
 </head>
 <body>
+<%	if(session.getAttribute("log")==null){
+		%>alert();<%
+	}
+       /*  UserDAO dao=UserDAO.getInstance(); */
+%>
 	 <div class="wrap">
         <div class="header">
             <p class="logo">LOGO</p>
             <div class="topMenu">
+             
                 <p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
+           
                 <p class="search"><img src="image/search.png"></p>
-                <p class="login">LOGIN</p>
-                <p class="join">JOIN</p>
+               <% if(session.getAttribute("log")!=null){%>
+                <p class="login" onclick="location.href='login.jsp'">LOGOUT</p>
+                <% }else{%> <p class="login" onclick="location.href='login.jsp'">LOGIN</p>
+				<% } %>
+                <p class="join" onclick="location.href='./join'">JOIN</p>
             </div>
         </div>
 
         <div class="nav">
-            <div>
+            <div>         
                 <p class="menu1">BEST</p>
                 <p class="menu2">NEW</p>
                 <p class="menu3">HOW TO</p>
@@ -39,5 +51,13 @@
             </div>
         </div>
     </div>
+    <script>
+    $('.mypage').on('click', e=>{
+    	<% if(session.getAttribute("log")==null){ %>
+    	alert("로그인 후 이용 가능합니다.");
+    	$(.mypage).prop(onclick="index.jsp");
+    	   <% }%>
+    })
+    </script>
 </body>
 </html>
