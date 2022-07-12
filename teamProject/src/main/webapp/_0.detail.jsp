@@ -8,7 +8,8 @@
 </head>
 <body>
 
-	<%
+	<%	
+		
 		String url = request.getParameter("url");
 		String title = request.getParameter("title");
 		String contents = request.getParameter("contents");

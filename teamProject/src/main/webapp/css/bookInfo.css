@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+* {
+	color: white;
+}
+
+.bookInfo {
+	display: flex;
+	padding: 0 150px 0 150px;
+	text-align: center;
+	justify-content: center;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+}
+.bookWrap{
+	width:60vw;
+	margin:auto;
+}
+.main {
+	width:60vw;
+	margin: auto;
+	margin-top:40px;
+	display:flex;
+}
+.title{
+	width:20vw;
+	text-align:left;
+	font-size:18pt;
+	font-weight:700;
+	margin-left:120px;
+}
+.authors{
+	width:12vw;
+	text-align:left;
+	font-size:12pt;
+	font-weight:500;
+	margin-left:120px;
+}
+.publisher{
+	width:12vw;
+	text-align:left;
+	font-size:12pt;
+	font-weight:500;
+	margin-left:120px;
+}
+.main2 {
+	margin: auto;
+}
+
+.titles {
+	font-size:15pt;
+	width: 60vw;
+	margin: auto;
+}
+
+.buttons {
+	text-align: center;
+	
+}
+
+.buttons button {
+	background-color: gray;
+	width: 180px;
+	height: 42px;
+	border-radius: 7px;
+}
+.starBox{
+	height: 150px;
+	border: solid 1px white;
+	text-align:center;
+	font-size:15pt;
+}
+.starBox h3{
+	margin-top:30px;
+}
+.starBox .score{
+	font-size:20pt;
+	display:flex;
+	justify-content: center
+}
+.starBox .totalScore{
+	font-size:16pt;
+	color:#b1b1b1;
+	margin-top:5px;
+}
