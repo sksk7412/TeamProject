@@ -13,9 +13,10 @@
         <div class="header">
             <p class="logo">LOGO</p>
             <div class="topMenu">
+                <p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
                 <p class="search"><img src="image/search.png"></p>
-                <p class="login">LOGIN</p>
-                <p class="join">JOIN</p>
+                <p class="login" onclick="location.href='login.jsp'">LOGIN</p>
+                <p class="join" onclick="location.href='./join'">JOIN</p>
             </div>
         </div>
 
