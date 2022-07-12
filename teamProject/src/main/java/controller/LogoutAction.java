@@ -30,7 +30,7 @@ public class LogoutAction extends HttpServlet {
 		response.getWriter().append("Serve at: ").append(request.getContextPath());
 		
 		request.removeAttribute("log");
-		String url ="index"; 
+		String url ="index.jsp"; 
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
