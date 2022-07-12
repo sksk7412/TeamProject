@@ -1,6 +1,7 @@
 package teamProject;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+
 import util.DBManager;
 
 public class DibsBookDAO {
@@ -31,26 +33,24 @@ public class DibsBookDAO {
 	private String password = "root";
 	Random ran = new Random();
 	
+	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
+	
 	public int addWrite(DibsBookDTO BoardDto) { 
 		
 		conn = DBManager.getConnection(database);
 		System.out.println("conn: "+conn);	
-		String SQL = "INSERT INTO board VALUES (?,?,?,?,?,?)";
+		String SQL = "INSERT INTO dibsBook VALUES (?,?,?)";
  	
 		try {
 			
 			System.out.println("code: "+BoardDto.getId());
 			pstmt = conn.prepareStatement(SQL);
 			
-			pstmt.setString(1, BoardDto.getTitle());
-			pstmt.setString(2, BoardDto.getThumbnail());
-			pstmt.setString(3, BoardDto.getIsbn());
-			pstmt.setInt(4, 1);
-			pstmt.setString(5, BoardDto.getAuthors());
+			pstmt.setString(1, BoardDto.getIsbn());
+			pstmt.setInt(2, 1);
 			Timestamp createAt = new Timestamp(System.currentTimeMillis());
 			//pstmt.setString(4, createAt.toString());
-			pstmt.setTimestamp(6, createAt);
-
+			pstmt.setTimestamp(3, createAt);
 				
 			return pstmt.executeUpdate();
 			
@@ -61,9 +61,50 @@ public class DibsBookDAO {
 	}
 
 	// DB에서 값 불러오기
+	public ArrayList<DibsBookDTO> getDibsBookDto() {
+		conn = DBManager.getConnection("book");
+		String sql = "select * from dibsBook";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			int id;
+			String isbn;
+			Timestamp createAt;
+			
+			while(rs.next()) {
+				id = rs.getInt(1);
+				isbn = rs.getString(2);
+				createAt = rs.getTimestamp(3);
+				
+				DibsBookDTO dibsBookDto = new DibsBookDTO(id, isbn, createAt);
+				dibs.add(dibsBookDto);
+			}
+			
+			return dibs;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				rs.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return null;
+	}
+	
+	
+	
+	// DB에서 값 불러오기
+	/*
 		public Map<Integer, DibsBookDTO> getMap() {
 			Map<Integer, DibsBookDTO> bookData = new HashMap<>();
-			
 			conn = DBManager.getConnection("book");
 			String sql = "select * from dibsBook";
 			pstmt = null;
@@ -75,7 +116,6 @@ public class DibsBookDAO {
 				int id;
 				String title, thumbnail, isbn, authors;
 				Timestamp createAt;
-				System.out.println("9999");
 				while(rs.next()) {
 					title = rs.getString(1);
 					thumbnail = rs.getString(2);
@@ -86,14 +126,44 @@ public class DibsBookDAO {
 					
 					DibsBookDTO dibs = new DibsBookDTO(title, thumbnail, isbn, id, authors, createAt);
 					
-					bookData.put(id, dibs);
+					bookData.put(, dibs);
 				}
-				System.out.println("11111111");
+				
 			} catch (Exception e) {
 				e.printStackTrace();
-				System.out.println("152545");
 			}
 			return bookData;
 		}
+	*/
+		
+	/*
+		public int getSize() {
+			conn = DBManager.getConnection("book");
+			String sql = "select count(*) from dibsBook";
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				rs.next();
+				int size = rs.getInt(1);
+				System.out.println(size+"**");
+				return size;
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				try {
+					pstmt.close();
+					conn.close();
+					rs.close();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+			}
+			return -1;
+		}
+	
+	*/
 
 }

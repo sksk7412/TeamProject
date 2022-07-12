@@ -54,8 +54,7 @@ public class MyLibraryDAO {
 				modifiedAt = rs.getTimestamp(7);
 				
 				MyLibraryDTO li = new MyLibraryDTO(title, thumbnail, isbn, id, authors, contents, modifiedAt); 
-				
-				myBook.put(id, li);
+				myBook.put(Integer.parseInt(isbn), li);
 			}
 			
 		} catch (Exception e) {

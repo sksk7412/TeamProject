@@ -6,15 +6,12 @@ import java.util.Date;
 public class DibsBookDTO {
 	
 	private int id;
-	private String title, thumbnail, isbn, authors;
+	private String isbn;
 	private Timestamp createdAt;
 	
-	public DibsBookDTO(String title, String thumbnail, String isbn, int id, String authors, Timestamp createdAt) {
-		this.title = title;
-		this.thumbnail = thumbnail;
-		this.isbn = isbn;
+	public DibsBookDTO(int id, String isbn, Timestamp createdAt) {
 		this.id = id;
-		this.authors = authors;
+		this.isbn = isbn;
 		this.createdAt = createdAt;
 
 	}
@@ -23,28 +20,25 @@ public class DibsBookDTO {
 		return id;
 	}
 
-	public String getTitle() {
-		return title;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-
-	public String getThumbnail() {
-		return thumbnail;
-	}
-
 
 	public String getIsbn() {
 		return isbn;
 	}
 
-
-	public String getAuthors() {
-		return authors;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
-
 
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+
 
 }
