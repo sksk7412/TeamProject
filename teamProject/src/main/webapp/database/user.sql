@@ -1,13 +1,15 @@
 create database book;
 
 use book;
-create table user(
-	id varchar(20) unique not null,
-    pw varchar(20) not null,
+
+create table users(
+    id int primary key,
+	userId varchar(20) unique not null,
+    userPw varchar(20) not null,
     `name` varchar(20) not null,
-    usercode smallint(8) primary key,
-    mobile varchar(13) not null,
-    address varchar(500)
+    mobile varchar(13) not null
 );
 
-select * from user;
+insert into users(userId,userPw,`name`,mobile) values('a','1111','°¡³ª´Ù','010-1111-1111');
+
+select * from users;
