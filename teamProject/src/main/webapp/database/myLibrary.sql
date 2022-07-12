@@ -8,6 +8,6 @@ create table myLibrary(
     modifiedAt datetime,
     foreign key (isbn) references dibsBook(isbn),
     foreign key (id) references users(id)
-);
+); 
 
 select * from myLibrary;
