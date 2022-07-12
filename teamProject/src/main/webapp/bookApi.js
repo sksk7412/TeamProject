@@ -19,6 +19,7 @@ function getResult(keyword){
     .done(data =>{
         const result = data.documents;
 	
+		$('.result').empty();
 		result.forEach(book=>{
 		const isbn = book.isbn;
 		
