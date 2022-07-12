@@ -12,6 +12,7 @@ create table dibsBook(
     foreign key (id) references users(id)
 );
 
-insert into dibsBook values('°­¾ÆÁö¶Ë','12345','0001',1,'±è³ª¿¬',"2022-07-11");
-
-select * from dibsBook;
+  
+insert into dibsBook values(1,"0001","2022-07-12");
+insert into dibsBook values(1,"0002","2022-07-12");
+insert into dibsBook values(1,"0003","2022-07-12");

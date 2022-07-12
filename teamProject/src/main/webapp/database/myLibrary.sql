@@ -14,7 +14,3 @@ create table myLibrary(
     foreign key (id) references users(id)
 );
 
-insert into myLibrary values('°­¾ÆÁö¶Ë','12345','0001',1,'±è³ª¿¬','°­¾ÆÁö´Â ±Í¿±´Ù.',"2022-07-11");
-
-
-select * from myLibrary;
