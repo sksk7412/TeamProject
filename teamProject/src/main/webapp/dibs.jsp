@@ -1,28 +1,27 @@
-<%@page import="java.util.HashMap"%>
 <%@page import="teamProject.DibsBookDAO"%>
 <%@page import="teamProject.DibsBookDTO"%>
-<%@page import="java.util.Map" %>
-<%@page import="java.sql.Timestamp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
-<title>Insert title here</title>
+<script src="bookApi.js"></script>
+<title>DibsBook</title>
 </head>
 <body>
 	<div class="wrap">
         <div class="header">
             <p class="logo">LOGO</p>
             <div class="topMenu">
-                <p class="search"></p>
+                <p class="search"><img src="image/search.png"></p>
                 <p class="login">LOGIN</p>
                 <p class="join">JOIN</p>
             </div>
         </div>
+	
         <div class="nav">
             <div>
                 <p class="menu1">BEST</p>
@@ -31,64 +30,36 @@
                 <p class="menu4">ABOUT</p>
             </div>
         </div>
-                
-        <div class="dibsBookContents">
-        <%
-        request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-        DibsBookDAO dao = DibsBookDAO.getInstance();
-        
-        Map<Integer, DibsBookDTO> temp = dao.getMap();
-        Object[] keySet = temp.keySet().toArray();
-        
-        	String title = null;
-        	String thumbnail = null;
-        	String isbn = null;
-        	int id = 0;
-        	String authors = null;
-        	Timestamp createAt = null;
-        	
-        	for(Object b : keySet) {
-        		title = temp.get(b).getTitle();
-        		thumbnail = temp.get(b).getThumbnail();
-        		isbn = temp.get(b).getIsbn();
-        		id = temp.get(b).getId();
-        		authors = temp.get(b).getAuthors();
-        		createAt = temp.get(b).getCreatedAt();
-        	System.out.print("ss"+temp.size());
-        %>
-        	<div class="dibBook">
-        		<div class="bookList">
-        			<%=thumbnail %><br>
-        			<%=title %><br>
-        			<%=authors %><br>
-        			<%=createAt %>
-        		</div>
-        		
-        		<%-- <div class="bookList">
-        			<img src="https://search.pstatic.net/common?type=o&size=174x260&expire=3&refresh=true&quality=75&direct=true&src=https%3A%2F%2Fbookthumb-phinf.pstatic.net%2Fcover%2F120%2F853%2F12085357.jpg%3Fudate%3D20200807">
-        			<%=thumbnail %><br>
-        			<%=title %><br>
-        			<%=authors %><br>
-        			<%=createAt %>
-        		</div>
-        		<div class="bookList">
-        			<img src="https://search.pstatic.net/common?type=o&size=174x260&expire=3&refresh=true&quality=75&direct=true&src=https%3A%2F%2Fbookthumb-phinf.pstatic.net%2Fcover%2F120%2F853%2F12085357.jpg%3Fudate%3D20200807">
-        			<%=thumbnail %><br>
-        			<%=title %><br>
-        			<%=authors %><br>
-        			<%=createAt %>
-        		</div>
-        		<div class="bookList">3</div>
-        		<div class="bookList">4</div>
-        		<div class="bookList">5</div> --%>
-        	</div>
-        	
-        	<%
-        	}
-        	%>
-        </div>
-            
-      </div>
+		
+		<div class="dibsBook">
+			<div class="dibBook">
+				<div class="bookList">
+					<div class="a">
+			            <%
+						DibsBookDAO dao = DibsBookDAO.getInstance();
+			            String a;
+						if(dao.getDibsBookDto().size() > 0) {
+							for(int i=0; i<dao.getSize(); i++){
+								DibsBookDTO dto = dao.getDibsBookDto().get(i);
+								a = dto.getIsbn();
+						%>
+						<input type="hidden" value="<%=a%>" id="isbn">
+			                <div class="dibsBookContents"></div>
+			            <%
+							}
+						}
+						%>
+			    	</div>
+				</div>
+			</div>
+		</div>            
+     </div>
+     
+    <script type="text/javascript">
+		$(document).ready(function() {
+				let isbn = $('#isbn').val();
+				getBookForIsbn(isbn);		
+		});
+	</script>
 </body>
 </html>

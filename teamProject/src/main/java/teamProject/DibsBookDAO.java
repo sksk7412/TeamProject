@@ -69,7 +69,7 @@ public class DibsBookDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
+			System.out.println(rs);
 			int id;
 			String isbn;
 			Timestamp createAt;

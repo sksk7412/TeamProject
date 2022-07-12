@@ -53,9 +53,45 @@ function getBookForIsbn(isbn){
 
 		result.forEach(book=>{
 			console.log(book.valueOf());
-			let html = `<div class="bookInfo"><div class="img"><img src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div><div class="contents">${book.contents}</div></div></div>`;
+			let html = `<div class="bookList"><img src = "${book.thumbnail}"></div>`;
+			html += `<div class="bookList">${book.title}</div>`;
+			html += `<div class="bookList">${book.authors}</div>`;
 			
-			$('.main').append(html);
+			$('.dibsBookContents').append(html);
+        })
+    })
+}
+function getLibraryForIsbn(isbn){
+	
+	let isbns = isbn.split(" ");
+	
+	$.ajax({
+        method : 'get',
+        url :`https://dapi.kakao.com//v3/search/book`,
+        headers: {
+            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+        },
+        data: {
+           query: isbns[0],
+           target: 'isbn'
+        },
+        encoding: 'UTF-8',
+    })
+    .done(data =>{
+        const result = data.documents;
+
+		result.forEach(book=>{
+			console.log(book.valueOf());
+			let htmlThum = `<div class="LibraryList"><img src = "${book.thumbnail}"></div>`;
+			let htmlTitle = `<div class="LibraryList">${book.title}</div>`;
+			let htmlAu = `<div class="LibraryList">${book.authors}</div>`;
+			let htmlCon = `<div class="LibraryList">${book.contents}</div>`;
+			
+			$('.bookThumnail').append(htmlThum);
+			$('.bookTitle').append(htmlTitle);
+			$('.bookAuthor').append(htmlAu);
+			$('.bookContent').append(htmlCon);
+			
         })
     })
 }

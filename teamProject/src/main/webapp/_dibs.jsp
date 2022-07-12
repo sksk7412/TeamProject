@@ -1,14 +1,15 @@
 <%@page import="teamProject.DibsBookDAO"%>
 <%@page import="teamProject.DibsBookDTO"%>
->% 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
-<script src=""></script>
+<script src="bookApi.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -30,31 +31,38 @@
                 <p class="menu4">ABOUT</p>
             </div>
         </div>
-
-		<div class="a">
-        <table border="1">
-            <thead></thead>
-            <tbody>
-            <%
-			DibsBookDAO dao = DibsBookDAO.getInstance();
 		
-			if(dao.getDibsBookDto().size() > 0) {
-				for(int i=0; i<dao.getSize(); i++){
-					DibsBookDTO dto = dao.getDibsBookDto().get(i);
-			%>
-                <tr>
-                    <td><%= %></td>
-                    <td><%= %></td>
-                    <td><%= %></td>
-                </tr>
-            <%
-				}
+		<div class="dibsBook">
+			<div class="dibBook">
+				<div class="bookList">
+					<div class="a">
+			            <%
+						DibsBookDAO dao = DibsBookDAO.getInstance();
+					
+						if(dao.getDibsBookDto().size() > 0) {
+							for(int i=0; i<dao.getSize(); i++){
+								DibsBookDTO dto = dao.getDibsBookDto().get(i);
+								String a = dto.getIsbn();
+						%>
+						<input type="hidden" value="<%=a%>" id="isbn">
+			                <div class="dibsBookContents"></div>
+			            <%
+							}
+						}
+						%>
+			    	</div>
+				</div>
+			</div>
+		</div>            
+     </div>
+     
+    <script type="text/javascript">
+		$(document).ready(function() {
+			for(let i=0; i<){
+				let isbn = $('#isbn').val();
+				getBookForIsbn(isbn);		
 			}
-			%>
-            </tbody>
-        </table>
-    </div>
-		            
-      </div>
+		});
+	</script>
 </body>
 </html>

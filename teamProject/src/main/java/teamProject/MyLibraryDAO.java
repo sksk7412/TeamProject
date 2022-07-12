@@ -94,37 +94,32 @@ public class MyLibraryDAO {
 		return null;
 	}
 	
-//	// DB에서 값 불러오기
-//	public Map getMap() {
-//		Map<Integer, MyLibraryDTO> myBook = new HashMap<>();
-//		
-//		conn = DBManager.getConnection("book");
-//		String sql = "select * from myLibrary";
-//		pstmt = null;
-//		
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			rs = pstmt.executeQuery();
-//			
-//			int id;
-//			String isbn;
-//			Timestamp modifiedAt;
-//			
-//			while(rs.next()) {
-//				id = rs.getInt(1);
-//				isbn = rs.getString(2);
-//				modifiedAt = rs.getTimestamp(3);
-//				
-//				MyLibraryDTO li = new MyLibraryDTO(id, isbn, modifiedAt);
-//				myBook.put(Integer.parseInt(isbn), li);
-//			}
-//			
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		return myBook;
-//	}
+	public int getSize() {
+		conn = DBManager.getConnection("book");
+		String sql = "select count(*) from myLibrary";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			int size = rs.getInt(1);
+			
+			return size;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return -1;
+	}
 	
 	
 

@@ -74,7 +74,8 @@
 .nav p:hover:before{
     width:100%;
 }
-.dibsBookContents{
+.dibsBook{
+	margin-top: 50px;
     width:100vw;
     background-color: white;
 }
@@ -82,10 +83,31 @@
 	width:60vw;
 	background-color: red;
 	margin: auto;
-	display: flex;
-	flex-wrap: wrap;
+
 }
 .bookList{
 	width:15vw;
 	background-color: yellow;
+	text-align: center;
+}
+.a{
+	width: 60vw;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+
+.boardListContainer, formContainer {
+    width: 80vw;
+    margin: auto;
+    margin-top: 50px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td{
+	padding:20px;
 }

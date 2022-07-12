@@ -10,11 +10,5 @@ create table dibsBook(
 );
 
   
-insert into dibsBook values(1,"0001","2022-07-12");
-insert into dibsBook values(1,"0002","2022-07-12");
-insert into dibsBook values(1,"0003","2022-07-12");
-insert into dibsBook values(1,"0001","2022-07-12");
-insert into dibsBook values(1,"0002","2022-07-12");
-insert into dibsBook values(1,"0003","2022-07-12");
 
 select * from dibsBook;
