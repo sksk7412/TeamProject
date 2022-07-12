@@ -1,28 +1,33 @@
+<%@page import="teamProject.BestBookDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="teamProject.BestBookDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
-<title>INDEX</title>
+<link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/bestBook.css">
+<title>BestBook</title>
 </head>
+<%
+        	BestBookDAO dao = BestBookDAO.getInstance();
+        	
+        	ArrayList<BestBookDTO> best_seller = dao.getBestBooks();
+%>
 <body>
 	<div class="wrap">
         <div class="header">
             <p class="logo" onclick="location.href='index.jsp'">LOGO</p>
             <div class="topMenu">
-                <p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
-<<<<<<< HEAD
-                <p class="search"><img src="image/search.png"></p>
-                <p class="login" onclick="location.href='login.jsp'">LOGIN</p>
-                <p class="join" onclick="location.href='./join'">JOIN</p>
-=======
+            	
+                <p class="myPage"><img src="image/mypage.png"></p>
                 <p class="search" onclick="location.href='bookSearch.jsp'"><img src="image/search.png"></p>
                 <p class="login">LOGIN</p>
                 <p class="join">JOIN</p>
->>>>>>> refs/remotes/origin/#04_dongho
             </div>
         </div>
 
@@ -32,19 +37,21 @@
                 <p class="menu2" onclick="location.href='newPage.jsp'">NEW</p>
                 <p class="menu3">HOW TO</p>
                 <p class="menu4">ABOUT</p>
-                
             </div>
         </div>
-
-        <div class="main">
-            <div class="txt">
-                <p class="txt1">세계 최대 온라인 공유도서관</p>
-                <p class="txt2">2011년 시작된 세계 최초의 공유도서관인 국민도서관 책꽂이는 책주인이 공유를 전제로 책을 보관하고, 다른 많은 사람들이 </p>
-                <button class="btn1">
-                    정기구독 신청하기
-                </button>
-            </div>
+        <p class="mainContents">BEST SELLER</p>
+        <div class="best_seller">
+	    	<div class = "book"></div>
         </div>
-    </div>
+		<script src="bookApi.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+			const bestSeller = [
+			<% for (int i = 0; i < best_seller.size(); i++) {%>
+			"<%= best_seller.get(i).getIsbn() %>"<%= i + 1 < best_seller.size() ? ",":"" %><% } %>];
+			getBookstoArray(bestSeller);
+			});
+		</script>
+	</div>
 </body>
 </html>

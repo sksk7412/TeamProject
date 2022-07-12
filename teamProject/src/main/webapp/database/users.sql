@@ -10,10 +10,6 @@ create table users(
     mobile varchar(13) not null
 );
 
-<<<<<<< HEAD
-insert into users(userId,userPw,`name`,mobile) values('a','1111','Â°Â¡Â³ÂªÂ´Ã™','010-1111-1111');
-=======
 insert into users(userId,userPw,`name`,mobile) values('a','1111','°¡³ª´Ù','010-1111-1111');
->>>>>>> refs/remotes/origin/#04_dongho
 
 select * from users;

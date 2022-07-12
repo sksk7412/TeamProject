@@ -21,7 +21,7 @@ String isbn = request.getParameter("isbn");
 <body>
 	<div class="wrap">
 		<div class="header">
-			<p class="logo">LOGO</p>
+			<p class="logo" onclick="location.href='./index.jsp'">LOGO</p>
 			<div class="topMenu">
 				<p class="search">
 					<img src="image/search.png">
