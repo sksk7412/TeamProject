@@ -30,7 +30,8 @@
             </div>
         </div>
            <h1>로그인</h1>
-	<form method="post" action="./login">
+	<form method="post" action="./Service">
+	<input type="hidden" name="command" value="login">
 		<input type="text" name="UserId" placeholder="아이디" class="req"><br>
 		<input type="password" name="UserPw" placeholder="비밀번호" class="req">
 		<div class="warning">
