@@ -3,6 +3,7 @@ create database book;
 use book;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 create table myLibrary(
 	id int,
     isbn varchar(30),
@@ -25,6 +26,9 @@ create table myLibrary(
 
     
     create table myLibrary(
+=======
+create table myLibrary(
+>>>>>>> refs/remotes/origin/#02-NaYeon
 	id int,
     isbn varchar(30),
     modifiedAt datetime,
@@ -32,7 +36,12 @@ create table myLibrary(
     foreign key (id) references users(id)
 );
 
-insert into myLibrary values(1,'0001',"2022-07-11");
+insert into myLibrary values(1,"8990982707 9788990982704","2022-07-11");
+insert into myLibrary values(1,"1169180949 9791169180948","2022-07-11");
 
+<<<<<<< HEAD
 select * from myLibrary;
 >>>>>>> refs/remotes/origin/#04_dongho
+=======
+select * from myLibrary;
+>>>>>>> refs/remotes/origin/#02-NaYeon

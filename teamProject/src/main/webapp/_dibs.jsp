@@ -53,13 +53,15 @@
 			    	</div>
 				</div>
 			</div>
-		</div>
+		</div>            
      </div>
      
     <script type="text/javascript">
 		$(document).ready(function() {
+			for(let i=0; i<){
 				let isbn = $('#isbn').val();
 				getBookForIsbn(isbn);		
+			}
 		});
 	</script>
 </body>
