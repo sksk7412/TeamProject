@@ -137,7 +137,7 @@ public class DibsBookDAO {
 		}
 	*/
 		
-	/*
+	
 		public int getSize() {
 			conn = DBManager.getConnection("book");
 			String sql = "select count(*) from dibsBook";
@@ -148,7 +148,7 @@ public class DibsBookDAO {
 				
 				rs.next();
 				int size = rs.getInt(1);
-				System.out.println(size+"**");
+				
 				return size;
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -165,6 +165,6 @@ public class DibsBookDAO {
 			return -1;
 		}
 	
-	*/
+	
 
 }
