@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/main.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
-<title>Main</title>
+<link rel="stylesheet" href="css/main.css">
+<title>INDEX</title>
 </head>
 <body>
-	 <div class="wrap">
+	<div class="wrap">
         <div class="header">
-            <p class="logo" onclick="location.href='./index.jsp'">LOGO</p>
+            <p class="logo" onclick="location.href='index.jsp'">LOGO</p>
             <div class="topMenu">
                 <p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
-                <p class="search" onclick="location.href='./bookSearch.jsp'"><img src="image/search.png"></p>
+                <p class="search" onclick="location.href='bookSearch.jsp'"><img src="image/search.png"></p>
                 <p class="login">LOGIN</p>
                 <p class="join">JOIN</p>
             </div>
@@ -22,8 +22,8 @@
 
         <div class="nav">
             <div>
-                <p class="menu1" onclick="location.href='./bestBook.jsp'">BEST</p>
-                <p class="menu2">NEW</p>
+                <p class="menu1" onclick="location.href='bestBook.jsp'">BEST</p>
+                <p class="menu2" onclick="location.href='newPage.jsp'">NEW</p>
                 <p class="menu3">HOW TO</p>
                 <p class="menu4">ABOUT</p>
             </div>

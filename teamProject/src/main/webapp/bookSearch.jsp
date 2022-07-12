@@ -10,7 +10,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/bookSearch.css">
 </head>
 <body>
@@ -35,8 +35,10 @@
 			</div>
 		</div>
 		<form class="searchWrap">
-			<input type="text" id="input"> <input type="button"
-				id="submit" value="검색" onclick="search(form)">
+			<div class="search_wrap">
+				<input type="text" id="input">
+				<input type="button" id="submit" value="" onclick="search(form)">
+			</div>
 		</form>
 		<div class="result"></div>
 	</div>

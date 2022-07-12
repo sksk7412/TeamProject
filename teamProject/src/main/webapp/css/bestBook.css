@@ -14,8 +14,9 @@
 	font-size: 18px;
     font-weight: 600;
 }
-img{
+#thumbnail{
 	border-radius:18px;
+	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
 }
 .mainContents{
 	text-align:center;
@@ -31,4 +32,5 @@ img{
 	white-space:nowrap;
 	width : 70%;
     margin: 0 auto;
+    padding:20px 0;
 }

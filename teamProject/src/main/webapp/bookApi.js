@@ -1,3 +1,4 @@
+// 검색어에 관한 책 값 가져오기
 function search(form) {
 	let text = $('#input').val();
 	getResult(text);
@@ -22,16 +23,19 @@ function getResult(keyword) {
 			$('.result').empty();
 			result.forEach(book => {
 				const isbn = book.isbn;
+				console.log(book.valueOf());
 
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
 				let html = `<div class='book' onclick="location.href='${url}'">`;
-				html += `<p><img src='${book.thumbnail}'></p>`;
+				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`;
 
 				$('.result').append(html);
 			})
 		})
 }
+
+// isbn을 이용해서 값 가져오기
 function getBookForIsbn(isbn) {
 
 	let isbns = isbn.split(" ");
@@ -51,13 +55,15 @@ function getBookForIsbn(isbn) {
 		.done(data => {
 			const result = data.documents;
 			result.forEach(book => {
-				let html = `<div class="bookInfo"><div class="img"><img src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div><div class="contents">${book.contents}</div></div></div>`;
+				let html = `<div class="bookInfo"><div class="img"><img id="thumbnail" src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div><div class="contents">${book.contents}</div></div></div>`;
 
 				$('.book').append(html);
 			})
 		})
 }
-function getBestSeller(bestSeller) {
+
+// 베스트셀러의 값 가져오기
+function getBookstoArray(bestSeller) {
 	for (let i = 0; i < bestSeller.length; i++) {
 		let num = bestSeller[i];
 		num = num.split(" ");
@@ -79,7 +85,7 @@ function getBestSeller(bestSeller) {
 			console.log(result);
 			result.forEach(book => {
 				
-				let html = `<div class="bookInfo"><div class="img"><img src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div></div></div>`;
+				let html = `<div class="bookInfo"><div class="img"><img id="thumbnail" src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div></div></div>`;
 
 				$('.book').append(html);
 			})
