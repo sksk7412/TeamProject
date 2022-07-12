@@ -11,12 +11,6 @@ import java.util.Map;
 
 public class MyLibraryDAO {
 	
-	private MyLibraryDAO() {}
-	private static MyLibraryDAO instance = new MyLibraryDAO();
-	
-	public static MyLibraryDAO getInstance() {
-		return instance;
-	}
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
@@ -25,7 +19,14 @@ public class MyLibraryDAO {
 	private String database = "book";
 	private String user = "root";
 	private String password = "root";
-	Random ran = new Random();
+	private Random ran = new Random();
+	
+	private MyLibraryDAO() {}
+	private static MyLibraryDAO instance = new MyLibraryDAO();
+	
+	public static MyLibraryDAO getInstance() {
+		return instance;
+	}
 	
 	// DB에서 값 불러오기
 	public Map getMap() {
