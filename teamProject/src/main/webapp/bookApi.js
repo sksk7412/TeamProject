@@ -6,7 +6,7 @@ function search(form) {
 
 function getResult(keyword) {
 	$.ajax({
-<<<<<<< HEAD
+
         method : 'get',
         url :`https://dapi.kakao.com//v3/search/book`,
         headers: {
@@ -24,11 +24,6 @@ function getResult(keyword) {
 
 		result.forEach(book=>{
 
-			console.log(book.valueOf());
-		const title = book.title;
-		const img = book.thumbnail;
-		const contents = book.contents;
-		const authors = book.authors;
 
 
 		const isbn = book.isbn;
@@ -61,28 +56,10 @@ function getBookForIsbn(isbn){
         },
         encoding: 'UTF-8',
     })
-    .done(data =>{
-        const result = data.documents;
-=======
-		method: 'get',
-		url: `https://dapi.kakao.com//v3/search/book`,
-		headers: {
-			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
-		},
-		data: {
-			query: keyword,
-			target: 'title'
-		},
-		encoding: 'UTF-8',
-	})
 		.done(data => {
 			const result = data.documents;
->>>>>>> refs/remotes/origin/#04_dongho
-
-<<<<<<< HEAD
 		result.forEach(book=>{
 			console.log(book.valueOf());
-<<<<<<< HEAD
 			let html = `<div class="bookInfo">
 							<div class="img"><img src="${book.thumbnail}"></div>
 							<div class="info">
@@ -93,16 +70,12 @@ function getBookForIsbn(isbn){
 							</div>
 						</div>`;
 			let html2 = `<div class="contents">${book.contents}</div>`;
-=======
 			let html = `<div class="bookList"><img src = "${book.thumbnail}"></div>`;
 			html += `<div class="bookList">${book.title}</div>`;
 			html += `<div class="bookList">${book.authors}</div>`;
->>>>>>> refs/remotes/origin/#02-NaYeon
 			
-<<<<<<< HEAD
 			$('.main').append(html);
 			$('.main2').append(html2);
-=======
 			$('.dibsBookContents').append(html);
         })
     })
@@ -138,11 +111,9 @@ function getLibraryForIsbn(isbn){
 			$('.bookAuthor').append(htmlAu);
 			$('.bookContent').append(htmlCon);
 			
->>>>>>> refs/remotes/origin/#02-NaYeon
         })
     })
 
-=======
 			$('.result').empty();
 			result.forEach(book => {
 				const isbn = book.isbn;
@@ -216,7 +187,4 @@ function getBookstoArray(bestSeller) {
 	}
 
 
-
-
->>>>>>> refs/remotes/origin/#04_dongho
 }
