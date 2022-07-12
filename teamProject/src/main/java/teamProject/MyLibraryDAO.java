@@ -39,21 +39,16 @@ public class MyLibraryDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			String title, thumbnail, isbn;
 			int id;
-			String authors, contents;
+			String isbn;
 			Timestamp modifiedAt;
 			
 			while(rs.next()) {
-				title = rs.getString(1);
-				thumbnail = rs.getString(2);
-				isbn = rs.getString(3);
-				id = rs.getInt(4);
-				authors = rs.getString(5);
-				contents = rs.getString(6);
-				modifiedAt = rs.getTimestamp(7);
+				id = rs.getInt(1);
+				isbn = rs.getString(2);
+				modifiedAt = rs.getTimestamp(3);
 				
-				MyLibraryDTO li = new MyLibraryDTO(title, thumbnail, isbn, id, authors, contents, modifiedAt); 
+				MyLibraryDTO li = new MyLibraryDTO(id, isbn, modifiedAt);
 				myBook.put(Integer.parseInt(isbn), li);
 			}
 			
@@ -65,30 +60,30 @@ public class MyLibraryDAO {
 	}
 	
 	// DB에 값 넣기
-	public int addBook(MyLibraryDTO LibraryDto) {
-		conn = DBManager.getConnection(database);
-		System.out.println("conn: " + conn);
-		String SQL = "INSERT INTO board VALUES (?,?,?,?,?,?,?)";
-		
-		try {
-			pstmt = conn.prepareStatement(SQL);
-			
-			pstmt.setString(1, LibraryDto.getTitle());
-			pstmt.setString(2, LibraryDto.getThumbnail());
-			pstmt.setString(3, LibraryDto.getIsbn());
-			pstmt.setInt(5, LibraryDto.getId());
-			pstmt.setString(6, LibraryDto.getAuthors());
-			pstmt.setString(7, LibraryDto.getContents());
-			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
-			pstmt.setTimestamp(8, modifiedAt);
-			
-			return pstmt.executeUpdate();
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return -1;
-	}
+//	public int addBook(MyLibraryDTO LibraryDto) {
+//		conn = DBManager.getConnection(database);
+//		System.out.println("conn: " + conn);
+//		String SQL = "INSERT INTO board VALUES (?,?,?,?,?,?,?)";
+//		
+//		try {
+//			pstmt = conn.prepareStatement(SQL);
+//			
+//			pstmt.setString(1, LibraryDto.getTitle());
+//			pstmt.setString(2, LibraryDto.getThumbnail());
+//			pstmt.setString(3, LibraryDto.getIsbn());
+//			pstmt.setInt(5, LibraryDto.getId());
+//			pstmt.setString(6, LibraryDto.getAuthors());
+//			pstmt.setString(7, LibraryDto.getContents());
+//			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
+//			pstmt.setTimestamp(8, modifiedAt);
+//			
+//			return pstmt.executeUpdate();
+//			
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//		return -1;
+//	}
 
 }

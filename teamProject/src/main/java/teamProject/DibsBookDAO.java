@@ -35,6 +35,7 @@ public class DibsBookDAO {
 	
 	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
 	
+	// DB에 값 넣기
 	public int addWrite(DibsBookDTO BoardDto) { 
 		
 		conn = DBManager.getConnection(database);
@@ -46,8 +47,8 @@ public class DibsBookDAO {
 			System.out.println("code: "+BoardDto.getId());
 			pstmt = conn.prepareStatement(SQL);
 			
-			pstmt.setString(1, BoardDto.getIsbn());
-			pstmt.setInt(2, 1);
+			pstmt.setInt(1, 1);
+			pstmt.setString(2, BoardDto.getIsbn());
 			Timestamp createAt = new Timestamp(System.currentTimeMillis());
 			//pstmt.setString(4, createAt.toString());
 			pstmt.setTimestamp(3, createAt);

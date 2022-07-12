@@ -4,43 +4,14 @@ import java.sql.Timestamp;
 
 public class MyLibraryDTO {
 	
-	private String title, thumbnail, isbn;
 	private int id;
-	private String authors, contents;
+	private String isbn;
 	private Timestamp modifiedAt;
 	
-	public MyLibraryDTO(String title, String thumbnail, String isbn, int id, String authors, String contents, Timestamp modifiedAt) {
-		this.title = title;
-		this.thumbnail = thumbnail;
-		this.isbn = isbn;
+	public MyLibraryDTO(int id, String isbn, Timestamp modifiedAt) {
 		this.id = id;
-		this.authors = authors;
-		this.contents = contents;
-		this.modifiedAt = modifiedAt;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getThumbnail() {
-		return thumbnail;
-	}
-
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
-	}
-
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+		this.modifiedAt = modifiedAt;
 	}
 
 	public int getId() {
@@ -51,20 +22,12 @@ public class MyLibraryDTO {
 		this.id = id;
 	}
 
-	public String getAuthors() {
-		return authors;
+	public String getIsbn() {
+		return isbn;
 	}
 
-	public void setAuthors(String authors) {
-		this.authors = authors;
-	}
-
-	public String getContents() {
-		return contents;
-	}
-
-	public void setContents(String contents) {
-		this.contents = contents;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public Timestamp getModifiedAt() {
@@ -74,7 +37,6 @@ public class MyLibraryDTO {
 	public void setModifiedAt(Timestamp modifiedAt) {
 		this.modifiedAt = modifiedAt;
 	}
-	
-	
 
+	
 }
