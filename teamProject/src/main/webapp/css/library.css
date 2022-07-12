@@ -79,6 +79,13 @@
     background-color: white;
 }
 .dibBook{
-	width:80vw;
+	width:60vw;
 	background-color: red;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+.bookList{
+	width:15vw;
+	background-color: yellow;
 }
