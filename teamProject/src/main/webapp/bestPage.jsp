@@ -28,7 +28,7 @@
 
 		<div class="nav">
 			<div>
-				<p class="menu1">BEST</p>
+				<p class="menu1" onclick="location.href='bestPage.jsp'">BEST</p>
 				<p class="menu2">NEW</p>
 				<p class="menu3">HOW TO</p>
 				<p class="menu4">ABOUT</p>
