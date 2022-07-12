@@ -4,12 +4,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
 <script src="bookApi.js"></script>
-<title>DibsBook</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<div class="wrap">
@@ -37,11 +38,11 @@
 					<div class="a">
 			            <%
 						DibsBookDAO dao = DibsBookDAO.getInstance();
-			            String a;
+					
 						if(dao.getDibsBookDto().size() > 0) {
 							for(int i=0; i<dao.getSize(); i++){
 								DibsBookDTO dto = dao.getDibsBookDto().get(i);
-								a = dto.getIsbn();
+								String a = dto.getIsbn();
 						%>
 						<input type="hidden" value="<%=a%>" id="isbn">
 			                <div class="dibsBookContents"></div>
@@ -52,7 +53,7 @@
 			    	</div>
 				</div>
 			</div>
-		</div>            
+		</div>
      </div>
      
     <script type="text/javascript">
