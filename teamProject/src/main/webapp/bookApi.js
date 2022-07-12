@@ -19,6 +19,7 @@ function getResult(keyword){
     .done(data =>{
         const result = data.documents;
 
+
 		result.forEach(book=>{
 
 			console.log(book.valueOf());
@@ -27,16 +28,13 @@ function getResult(keyword){
 		const contents = book.contents;
 		const authors = book.authors;
 
+
 		const isbn = book.isbn;
 		
-
-		
-		let html = `<div class='book' onclick="location.href='_0.detail.jsp?title=${title}&img=${img}&contents=${contents}&authors=${authors}&isbn=${isbn}'">`;
-
 		let url = `bookInfo.jsp?isbn=${isbn}`;
 		
-		html = `<div class='book' onclick="location.href='${url}'">`;
-
+		let html = `<div class='book' onclick="location.href='${url}'">`;
+	
 		html += `<p><img src='${book.thumbnail}'></p>`;
 		
 		$('.result').append(html);
@@ -45,7 +43,8 @@ function getResult(keyword){
 }
 
 function getBookForIsbn(isbn){
-	
+
+
 	let isbns = isbn.split(" ");
 	
 	$.ajax({
