@@ -23,7 +23,6 @@
                 <p class="join">JOIN</p>
             </div>
         </div>
-
         <div class="nav">
             <div>
                 <p class="menu1">BEST</p>
