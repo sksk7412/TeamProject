@@ -12,20 +12,24 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/bookSearch.css">
+<%
+	String pageNum = request.getParameter("page");
+%>
 </head>
 <body>
 	<div class="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
-		<form class="searchWrap">
+		<form class="searchWrap" action = "">
 			<div class="search_wrap">
 				<input type="text" id="input">
-				<input type="button" id="submit" value="검색" onclick="search()">
+				<input type="button" id="submit" value="검색" onclick="search(0)">
 			</div>
 		</form>
 		<div class="result"></div>
 		<div class="page_buttons">
+				<input type="button" id="preview" value="preview" onclick="search(1)">
 				<input type="hidden" id="page" name="page" value="1">
-				<input type="button" id="next" value="next" onclick="search()">
+				<input type="button" id="next" value="next" onclick="search(2)">
 		</div>
 	</div>
 <script src="bookApi.js"></script>

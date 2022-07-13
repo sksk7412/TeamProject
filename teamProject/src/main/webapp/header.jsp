@@ -14,8 +14,6 @@
 		System.out.println(log + "##");
 	}
 	%>
-
-	<div class="wrap">
 		<div class="header">
 			<p class="logo">LOGO</p>
 			<div class="topMenu">
@@ -64,13 +62,12 @@
 				<p class="menu4">ABOUT</p>
 			</div>
 		</div>
-	</div>
-		<script type="text/javascript">
+	<script type="text/javascript">
 	function clickEvent(){
-		let log = document.getElementById('logControl');
-		let hiddenIn = document.getElementById('hiddenInput');
-		hiddenIn.setAttribute('value','logout');
-		log.submit();
+	let log = document.getElementById('logControl');
+	let hiddenIn = document.getElementById('hiddenInput');
+	hiddenIn.setAttribute('value','logout');
+	log.submit();
 	}
 	
 	$('.mypage2').on('click', e=>{

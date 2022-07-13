@@ -1,14 +1,20 @@
 // 검색어에 관한 책 값 가져오기
-function search() {
-	
-	// 파라미터 page 존재여부 확인 후
-	
+let curpage = 1;	
+function search(dir) {
 	let text = $('#input').val();
 	$('.result').empty();
-	getResult(text, $("input#page").val());
+	
+	// 파라미터 page 존재여부 확인 후
+	getResult(text, dir);
 }
 
-function getResult(keyword, p) {
+function getResult(keyword, dir) {
+	if(dir === 2){
+		curpage++;
+	}
+	else if(dir === 1 && curpage > 1){
+		curpage--;
+	}
 	$.ajax({
 		method: 'get',
 		url: `https://dapi.kakao.com//v3/search/book`,
@@ -16,15 +22,15 @@ function getResult(keyword, p) {
 			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
 		},
 		data: {
+			page : `${curpage}`,
 			query: keyword,
-			target: 'title',
-			page: p
+			target: 'title'
 		},
 		encoding: 'UTF-8',
 	})
 		.done(data => {
 			const result = data.documents;
-
+			const metas = data.meta;
 			
 			result.forEach(book => {
 				const isbn = book.isbn;
@@ -37,15 +43,12 @@ function getResult(keyword, p) {
 
 				$('.result').append(html);
 			})
-			console.log(data.meta.is_end);
-			/*
-			if(!data.meta.is_end){
-				return getResult(keyword, ++p);				
-			}
-			else{
+			console.log("now"+curpage);
+			
+			if(metas.is_end){
+				curpage--;
 				return;
 			}
-			*/
 		})
 }
 
