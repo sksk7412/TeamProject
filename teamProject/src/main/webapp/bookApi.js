@@ -67,10 +67,25 @@ function getBookForIsbn(isbn) {
 	})
 		.done(data => {
 			const result = data.documents;
-			result.forEach(book => {
-				let html = `<div class="bookInfo"><div class="img"><img id="thumbnail" src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div><div class="contents">${book.contents}</div></div></div>`;
-
-				$('.book').append(html);
+		result.forEach(book=>{
+			console.log(book.valueOf());
+			let html = `<div class="bookInfo">
+							<div class="img"><img src="${book.thumbnail}"></div>
+							<div class="info">
+								<div class="title">${book.title}</div>
+								<div class="authors">${book.authors}</div>
+								<div class="publisher">${book.publisher}</div>
+								
+							</div>
+						</div>`;
+			let html2 = `<div class="contents">${book.contents}</div>`;
+			let html = `<div class="bookList"><img src = "${book.thumbnail}"></div>`;
+			html += `<div class="bookList">${book.title}</div>`;
+			html += `<div class="bookList">${book.authors}</div>`;
+			
+			$('.main').append(html);
+			$('.main2').append(html2);
+			$('.dibsBookContents').append(html);
 			})
 		})
 }

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Random;
 import util.DBManager;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,13 +30,35 @@ public class MyLibraryDAO {
 		return instance;
 	}
 	
-	// DB에서 값 불러오기
-	public Map getMap() {
-		Map<Integer, MyLibraryDTO> myBook = new HashMap<>();
+	private ArrayList<MyLibraryDTO> lis = new ArrayList<>();
+	
+	// DB에 값 넣기
+	public int addBook(MyLibraryDTO LibraryDto) {
+		conn = DBManager.getConnection(database);
+		System.out.println("conn: " + conn);
+		String SQL = "INSERT INTO board VALUES (?,?,?)";
 		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setInt(1, 1);
+			pstmt.setString(2, LibraryDto.getIsbn());
+			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
+			pstmt.setTimestamp(3, modifiedAt);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	// DB에서 값 불러오기
+	public ArrayList<MyLibraryDTO> getMyLibraryDto(){
 		conn = DBManager.getConnection("book");
 		String sql = "select * from myLibrary";
-		pstmt = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -49,42 +73,54 @@ public class MyLibraryDAO {
 				isbn = rs.getString(2);
 				modifiedAt = rs.getTimestamp(3);
 				
-				MyLibraryDTO li = new MyLibraryDTO(id, isbn, modifiedAt);
-				myBook.put(Integer.parseInt(isbn), li);
+				MyLibraryDTO myLibraryDto = new MyLibraryDTO(id, isbn, modifiedAt);
+				lis.add(myLibraryDto);
 			}
+			
+			return lis;
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				rs.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
-		return myBook;
+		return null;
 	}
 	
-	// DB에 값 넣기
-//	public int addBook(MyLibraryDTO LibraryDto) {
-//		conn = DBManager.getConnection(database);
-//		System.out.println("conn: " + conn);
-//		String SQL = "INSERT INTO board VALUES (?,?,?,?,?,?,?)";
-//		
-//		try {
-//			pstmt = conn.prepareStatement(SQL);
-//			
-//			pstmt.setString(1, LibraryDto.getTitle());
-//			pstmt.setString(2, LibraryDto.getThumbnail());
-//			pstmt.setString(3, LibraryDto.getIsbn());
-//			pstmt.setInt(5, LibraryDto.getId());
-//			pstmt.setString(6, LibraryDto.getAuthors());
-//			pstmt.setString(7, LibraryDto.getContents());
-//			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
-//			pstmt.setTimestamp(8, modifiedAt);
-//			
-//			return pstmt.executeUpdate();
-//			
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		return -1;
-//	}
+	public int getSize() {
+		conn = DBManager.getConnection("book");
+		String sql = "select count(*) from myLibrary";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			int size = rs.getInt(1);
+			
+			return size;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return -1;
+	}
+	
+	
 
 }

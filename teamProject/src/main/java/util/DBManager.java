@@ -3,10 +3,11 @@ package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+
 public class DBManager {
 
 	// DBManager.getConnection();
-	// ¿ÜºÎ Å¬·¡½º¿¡¼­ µğºñ ¿¬µ¿ÀÌ ÇÊ¿äÇÒ¶§ »ç¿ë°¡´É ConnectionÀ» ¾ò¾î°£´Ù. 
+	// ì™¸ë¶€ í´ë˜ìŠ¤ì—ì„œ ë””ë¹„ ì—°ë™ì´ í•„ìš”í• ë•Œ ì‚¬ìš©ê°€ëŠ¥ Connectionì„ ì–»ì–´ê°„ë‹¤. 
 	
 	public static Connection getConnection(String database) { 
 		 Connection conn = null;
@@ -18,14 +19,17 @@ public class DBManager {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(url, user, password);
-			System.out.println("DB ¿¬µ¿ ¼º°ø");
+			System.out.println("DB ì—°ë™ ì„±ê³µ");
 			return conn;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("DB ¿¬µ¿ ½ÇÆĞ");
+			System.out.println("DB ì—°ë™ ì‹¤íŒ¨");
 			return null;
 		}
 	}
-	
+
 }
+
+
+

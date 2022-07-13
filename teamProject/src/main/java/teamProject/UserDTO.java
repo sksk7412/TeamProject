@@ -1,7 +1,7 @@
 package teamProject;
 
 public class UserDTO {
-	
+
 	private int id;
 	private String userId, userPw, name, mobile;
 	
@@ -18,6 +18,10 @@ public class UserDTO {
 		this.userPw = userPw;
 		this.name = name;
 		this.mobile = mobile;
+	}
+	public UserDTO(String userId, String userPw) {
+		this.userId = userId;
+		this.userPw = userPw;
 	}
 
 	public int getId() {
@@ -61,3 +65,4 @@ public class UserDTO {
 	}
 
 }
+
