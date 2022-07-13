@@ -42,6 +42,7 @@
         <p class="mainContents">BEST SELLER</p>
         <div class="best_seller">
 	    	<div class = "book"></div>
+	    	
         </div>
 		<script src="bookApi.js"></script>
 		<script type="text/javascript">

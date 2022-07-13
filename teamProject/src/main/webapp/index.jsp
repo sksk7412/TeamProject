@@ -51,7 +51,7 @@
 				<%
 				} else {
 				%>
-				<p class="login" onclick="location.href='./login'">LOGIN</p>
+				<p class="login" onclick="location.href='./loginPage'">LOGIN</p>
 				<%
 				}
 				%>
