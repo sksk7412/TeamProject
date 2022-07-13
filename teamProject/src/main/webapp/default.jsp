@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
 
-=======
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
->>>>>>> refs/remotes/origin/#04_dongho
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -32,7 +30,7 @@
                 <p class="menu4">ABOUT</p>
             </div>
         </div>
-<<<<<<< HEAD
+
             
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
@@ -61,9 +59,9 @@
         </div>
             <!-- 여기에다가 추가할거 적어주세요 -->
 
-=======
+
             <!-- 여기에다가 추가할거 적어주세요 -->
->>>>>>> refs/remotes/origin/#04_dongho
+
       </div>
 </body>
 </html>

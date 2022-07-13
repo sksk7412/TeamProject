@@ -83,11 +83,11 @@ String isbn = request.getParameter("isbn");
 </div>
 	</div>
 <script src="bookApi.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-	let isbn = $('#isbn').val();
-	getBookForIsbn(isbn);
-});
+	<script type="text/javascript">
+	$(document).ready(function() {
+		let isbn = $('#isbn').val();
+		getBookForIsbn(isbn);
+	});
 </script>
 
 

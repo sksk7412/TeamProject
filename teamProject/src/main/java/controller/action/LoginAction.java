@@ -23,7 +23,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	
 	UserDTO user = new UserDTO (UserId, UserPw);
 	// id, password �Էµ� �κп� ���ؼ� ���� 
-
+	
 	String url = "";
 	
 	if (!dao.loginCheck(user)) {
