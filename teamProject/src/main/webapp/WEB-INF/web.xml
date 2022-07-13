@@ -9,7 +9,11 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+<<<<<<< HEAD
   
+=======
+  
+>>>>>>> refs/remotes/origin/siyeon
  <servlet>
   	<servlet-name>login</servlet-name>
   	<servlet-class>controller.LoginAction</servlet-class>
@@ -71,5 +75,8 @@
   	<servlet-name>Subscription</servlet-name>
   	<url-pattern>/subscription</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/siyeon
 </web-app>

@@ -8,35 +8,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Service
+ * Servlet implementation class LogoutAction
  */
-@WebServlet("/Service")
-public class Service extends HttpServlet {
+//@WebServlet("/LogoutAction")
+public class LogoutAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Service() {
+    public LogoutAction() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**안뇽~ 난 민트향 이클립스 라고해 만나서 반가워 하핫
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Serve at: ").append(request.getContextPath());
 		
-		String command = request.getParameter("command");
-		
-		ActionFactory af = ActionFactory.getInstance();
-		Action action = af.getAction(command);
-		
-		if(action != null)
-			action.execute(request, response);
-		
+		request.removeAttribute("log");
+		String url ="index.jsp"; 
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	/**

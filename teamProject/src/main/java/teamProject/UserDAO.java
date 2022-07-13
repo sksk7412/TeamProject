@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 
 import util.DBManager;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/siyeon
 public class UserDAO {
 	private static UserDAO instance=new UserDAO();
 	public static UserDAO getInstance() {
@@ -35,14 +39,16 @@ public class UserDAO {
 	public boolean addUser(UserDTO userDto) {
 
 		conn = DBManager.getConnection("book");
+		System.out.println( userDto.getUserId());
 		try {
-			String sql = "insert into users(userId,userPw,name,mobile) values(?,?,?,?)";
+			String sql = String.format("insert into users(userId,userPw,`name`,mobile) values('%s','%s','%s','%s')", userDto.getUserId(), userDto.getUserPw(), userDto.getName(),userDto.getMobile());
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, userDto.getUserId());
-			pstmt.setString(2, userDto.getUserPw());
-			pstmt.setString(3, userDto.getName());
-			pstmt.setString(4, userDto.getMobile());
+			/*
+			 * pstmt.setString(1, userDto.getUserId()); pstmt.setString(2,
+			 * userDto.getUserPw()); pstmt.setString(3, userDto.getName());
+			 * pstmt.setString(4, userDto.getMobile());
+			 */
 			
 			pstmt.execute();
 			System.out.println("insert done");
@@ -60,6 +66,36 @@ public class UserDAO {
 		}
 	return false;
 	}
+	
+	public String getName(int log) {
+		conn = DBManager.getConnection("book");
+		String name="";
+		try {
+			String sql = String.format("select name from users where id = '%d' ;",log);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				name = rs.getString(1);
+			}
+			System.out.println("성공");
+			return name;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		System.out.println("실패");
+		return null;
+	}
 	public int getId(String id) {
 		conn = DBManager.getConnection("book");
 		
@@ -72,7 +108,11 @@ public class UserDAO {
 			if(rs.next()) {
 				log = rs.getInt(1);
 			}
+<<<<<<< HEAD
 			System.out.println("로그입력성공");
+=======
+			System.out.println("�α��Է¼���");
+>>>>>>> refs/remotes/origin/siyeon
 			return log;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -87,7 +127,11 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
+<<<<<<< HEAD
 		System.out.println("로그인 실패");
+=======
+		System.out.println("�α��Է½���");
+>>>>>>> refs/remotes/origin/siyeon
 		return log;
 	}
 	
@@ -123,5 +167,9 @@ public class UserDAO {
 		}
 		return true;
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> refs/remotes/origin/siyeon
 }

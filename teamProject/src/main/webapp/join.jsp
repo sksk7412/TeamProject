@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/library.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
-<title>Insert title here</title>
+<title>Join</title>
 </head>
 <body>
 	<div class="wrap">
