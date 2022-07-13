@@ -11,9 +11,9 @@
 <title>Main</title>
 </head>
 <body>
-<<<<<<< HEAD
 	
 	<jsp:include page="header.jsp"></jsp:include>
+	
 		<div class="main">
 			<div class="txt">
 				<p class="txt1">세계 최대 온라인 공유도서관</p>
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	
-=======
+
 
 	<%
 	int log = -1;
