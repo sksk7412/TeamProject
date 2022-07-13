@@ -1,8 +1,13 @@
 // 검색어에 관한 책 값 가져오기
-function search(form) {
+function search() {
+	
+	// 파라미터 page 존재여부 확인 후
+	
 	let text = $('#input').val();
-	getResult(text);
+	$('.result').empty();
+	getResult(text, $("input#page").val());
 }
+<<<<<<< HEAD
 
 	function getResult(keyword) {
 		$.ajax({
@@ -44,7 +49,11 @@ function getBookForIsbn(isbn){
 
 	let isbns = isbn.split(" ");
 	
+=======
+function getResult(keyword, p) {
+>>>>>>> refs/remotes/origin/#04_dongho
 	$.ajax({
+<<<<<<< HEAD
         method : 'get',
         url :`https://dapi.kakao.com//v3/search/book`,
         headers: {
@@ -56,6 +65,20 @@ function getBookForIsbn(isbn){
         },
         encoding: 'UTF-8',
     })
+=======
+		method: 'get',
+		url: `https://dapi.kakao.com//v3/search/book`,
+		headers: {
+			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+		},
+		data: {
+			query: keyword,
+			target: 'title',
+			page: p
+		},
+		encoding: 'UTF-8',
+	})
+>>>>>>> refs/remotes/origin/#04_dongho
 		.done(data => {
 			const result = data.documents;
 		result.forEach(book=>{
@@ -81,6 +104,7 @@ function getBookForIsbn(isbn){
     })
 }
 
+<<<<<<< HEAD
 function getLibraryForIsbn(isbn){
 	
 	let isbns = isbn.split(" ");
@@ -116,19 +140,36 @@ function getLibraryForIsbn(isbn){
     })
 
 			$('.result').empty();
+=======
+			
+>>>>>>> refs/remotes/origin/#04_dongho
 			result.forEach(book => {
 				const isbn = book.isbn;
-				console.log(book.valueOf());
 
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
 				let html = `<div class='book' onclick="location.href='${url}'">`;
-				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`;
+				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`
+				html += `<span id="title">'${book.title}'</span></div>`;
 
 				$('.result').append(html);
 			})
+<<<<<<< HEAD
 		
 
+=======
+			console.log(data.meta.is_end);
+			/*
+			if(!data.meta.is_end){
+				return getResult(keyword, ++p);				
+			}
+			else{
+				return;
+			}
+			*/
+		})
+}
+>>>>>>> refs/remotes/origin/#04_dongho
 
 // isbn을 이용해서 값 가져오기
 function getBookForIsbn(isbn) {

@@ -11,15 +11,20 @@ public class DBManager {
 	
 	public static Connection getConnection(String database) { 
 		 Connection conn = null;
-		 String url = "jdbc:mysql://localhost:3306/";
+		 String url = String.format("jdbc:mysql://database-1.ckbmckfk9bod.ap-northeast-2.rds.amazonaws.com:3306/%s?serverTimezone=UTC", database);
 		
-		 String user = "root";
-		 String password = "root";
+		 String user = "admin";
+		 String password = "8EFBM59z#qZq";
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
+<<<<<<< HEAD
 			conn = DriverManager.getConnection(url+database, user, password);
 			System.out.println("DB ì—°ë™ ì„±ê³µ");
+=======
+			conn = DriverManager.getConnection(url, user, password);
+			System.out.println("DB ¿¬µ¿ ¼º°ø");
+>>>>>>> refs/remotes/origin/#04_dongho
 			return conn;
 			
 		} catch (Exception e) {
