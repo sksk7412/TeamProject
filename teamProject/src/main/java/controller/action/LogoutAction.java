@@ -14,7 +14,7 @@ public class LogoutAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	// TODO Auto-generated method stub
 		request.removeAttribute("log");
-		String url ="./main.jsp"; 
+		String url ="login.jsp"; 
 		request.getRequestDispatcher(url).forward(request, response);
 		System.out.println("로그아웃완료");
 	}

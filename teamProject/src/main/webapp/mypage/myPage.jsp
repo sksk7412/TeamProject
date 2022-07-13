@@ -12,10 +12,11 @@
 </head>
 <body>
      <%
+     if(session.getAttribute("log")!=null){
         int log = (int)session.getAttribute("log");
         UserDAO dao=UserDAO.getInstance();
-        String name= dao.getName(log);
-%>
+        String name= dao.getName(log);        
+	%>
 	<div class="wrap">
         <div class="header">
             <p class="logo">LOGO</p>
@@ -58,17 +59,15 @@
        			<button class="dibs">찜 목록</button>
        			<button class="review">마이 리뷰</button>
        		</div>
-       			<div class="ifr"> 				
-       				<iframe src="index.jsp" width="100%" height="100%" frameborder="0"
-       				scrolling="no" marginwidth="0" marginheight="0" class="reviewPage">
-       				</iframe>
-       			</div>
- 
-       				
+       		<div class="ifr"> 				
+       			<iframe src="index.jsp" width="100%" height="100%" frameborder="0"
+       			scrolling="no" marginwidth="0" marginheight="0" class="reviewPage">
+       			</iframe>
+       		</div>     				
        		</div>     	
        	</div>      	
-        
       </div>
+    <%}%>
       
 <script src="./js/validation.js"></script>
 </body> 
