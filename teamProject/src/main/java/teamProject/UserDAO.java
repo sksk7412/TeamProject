@@ -36,14 +36,16 @@ public class UserDAO {
 	public boolean addUser(UserDTO userDto) {
 
 		conn = DBManager.getConnection("book");
+		System.out.println( userDto.getUserId());
 		try {
-			String sql = "insert into users(userId,userPw,name,mobile) values(?,?,?,?)";
+			String sql = String.format("insert into users(userId,userPw,`name`,mobile) values('%s','%s','%s','%s')", userDto.getUserId(), userDto.getUserPw(), userDto.getName(),userDto.getMobile());
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, userDto.getUserId());
-			pstmt.setString(2, userDto.getUserPw());
-			pstmt.setString(3, userDto.getName());
-			pstmt.setString(4, userDto.getMobile());
+			/*
+			 * pstmt.setString(1, userDto.getUserId()); pstmt.setString(2,
+			 * userDto.getUserPw()); pstmt.setString(3, userDto.getName());
+			 * pstmt.setString(4, userDto.getMobile());
+			 */
 			
 			pstmt.execute();
 			System.out.println("insert done");
@@ -73,7 +75,7 @@ public class UserDAO {
 			if(rs.next()) {
 				name = rs.getString(1);
 			}
-			System.out.println("·Î±×ÀÔ·Â¼º°ø");
+			System.out.println("ï¿½Î±ï¿½ï¿½Ô·Â¼ï¿½ï¿½ï¿½");
 			return name;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -88,7 +90,7 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
-		System.out.println("·Î±×ÀÔ·Â½ÇÆÐ");
+		System.out.println("ï¿½Î±ï¿½ï¿½Ô·Â½ï¿½ï¿½ï¿½");
 		return null;
 	}
 	public int getId(String id) {
@@ -103,7 +105,7 @@ public class UserDAO {
 			if(rs.next()) {
 				log = rs.getInt(1);
 			}
-			System.out.println("·Î±×ÀÔ·Â¼º°ø");
+			System.out.println("ï¿½Î±ï¿½ï¿½Ô·Â¼ï¿½ï¿½ï¿½");
 			return log;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -118,7 +120,7 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
-		System.out.println("·Î±×ÀÔ·Â½ÇÆÐ");
+		System.out.println("ï¿½Î±ï¿½ï¿½Ô·Â½ï¿½ï¿½ï¿½");
 		return log;
 	}
 	
