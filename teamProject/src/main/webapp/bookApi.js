@@ -80,6 +80,7 @@ function getBookForIsbn(isbn){
         })
     })
 }
+
 function getLibraryForIsbn(isbn){
 	
 	let isbns = isbn.split(" ");
@@ -126,8 +127,8 @@ function getLibraryForIsbn(isbn){
 
 				$('.result').append(html);
 			})
-		})
-}
+		
+
 
 // isbn을 이용해서 값 가져오기
 function getBookForIsbn(isbn) {
@@ -187,4 +188,3 @@ function getBookstoArray(bestSeller) {
 	}
 
 
-}
