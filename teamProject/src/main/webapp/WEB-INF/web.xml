@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
   <display-name>teamProject</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  <servlet>
+
+
+
+<servlet>
   	<servlet-name>loginAction</servlet-name>
   	<servlet-class>controller.LoginAction</servlet-class>
   </servlet>
@@ -35,15 +37,9 @@
   	<url-pattern>/joinAction</url-pattern>
   </servlet-mapping>
   
+  
+  
   <servlet>
-  	<servlet-name>Mypage</servlet-name>
-  	<jsp-file>/mypage/myPage.jsp</jsp-file>
-  </servlet>
-   <servlet-mapping>
-  	<servlet-name>Mypage</servlet-name> 
-  	<url-pattern>/mypage</url-pattern>
-  </servlet-mapping>
-   <servlet>
   	<servlet-name>join</servlet-name>
   	<jsp-file>/join.jsp</jsp-file>
   </servlet>
@@ -51,7 +47,7 @@
   	<servlet-name>join</servlet-name>
   	<url-pattern>/join</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
   	<servlet-name>login</servlet-name>
   	<jsp-file>/login.jsp</jsp-file>
   </servlet>
@@ -61,4 +57,4 @@
   </servlet-mapping>
   
   
-</web-app>
+  </web-app>

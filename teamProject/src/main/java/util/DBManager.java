@@ -9,19 +9,19 @@ public class DBManager {
 		Connection conn = null ;
 		
 		
-		String url = "jdbc:mysql://localhost:3306/"; 
-		String user = "root"; 
-		String password = "root";  
+		String url = "jdbc:mysql://database-3.ch9twdxhwbh6.ap-northeast-2.rds.amazonaws.com:3306/firstJsp?serverTimezone=UTC"; 
+		String user = "admin"; 
+		String password = "65IHY0&KYROa";  
 		
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); 
 			conn = DriverManager.getConnection(url+dataBase, user, password);
-			System.out.println("DB ø¨µø º∫∞¯");
+			System.out.println("DB Ïó∞Îèô ÏÑ±Í≥µ");
 			return conn; 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("DB ø¨µø Ω«∆–");
+			System.out.println("DB Ïó∞Îèô Ïã§Ìå®");
 		}
 		return null; 
 	}

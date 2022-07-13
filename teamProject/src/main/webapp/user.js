@@ -1,4 +1,4 @@
-const node = $('#checkAll').get(0)
+const node = $('#checkAll').get(0);
 const checkboxes = $(':checkbox');
 const warning = $('.warning');
 const req = $(".req");

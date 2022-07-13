@@ -22,7 +22,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	String UserPw = request.getParameter("UserPw");
 	
 	UserDTO user = new UserDTO (UserId, UserPw);
-	// id, password ÀÔ·ÂµÈ ºÎºĞ¿¡ ´ëÇØ¼­ °ËÁõ 
+	// id, password ì…ë ¥ëœ ë¶€ë¶„ì— ëŒ€í•´ì„œ ê²€ì¦ 
 
 	String url = "";
 	if (!dao.loginCheck(user)) {
@@ -33,10 +33,10 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 		session.setAttribute("log", dao.getId(UserId));
 		
 		System.out.println(dao.getId(UserId));
-		System.out.println("¼º°ø");
+		System.out.println("ì„±ê³µ");
 	} else {
 		url = "login.jsp";
-		System.out.println("½ÇÆĞ");
+		System.out.println("ì‹¤íŒ¨");
 	}
 	request.getRequestDispatcher(url).forward(request, response);
 }
