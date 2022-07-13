@@ -7,6 +7,7 @@ function search() {
 	$('.result').empty();
 	getResult(text, $("input#page").val());
 }
+
 function getResult(keyword, p) {
 	$.ajax({
 		method: 'get',
