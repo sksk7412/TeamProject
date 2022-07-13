@@ -185,6 +185,7 @@ body {
 	width : 400px;
 	height : 30px;
 }
+
 input[type="submit"]{
 	width: 240px;
 	height : 60px;
@@ -193,4 +194,5 @@ input[type="submit"]{
     color: #FFFFFF;
     background-color: #111111;
 }
+
 
