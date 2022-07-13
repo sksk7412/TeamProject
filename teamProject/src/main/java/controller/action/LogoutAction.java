@@ -1,4 +1,5 @@
 
+
 package controller.action;
 
 import java.io.IOException;
@@ -22,3 +23,4 @@ public class LogoutAction implements Action{
 		System.out.println("로그아웃완료");
 	}
 }
+

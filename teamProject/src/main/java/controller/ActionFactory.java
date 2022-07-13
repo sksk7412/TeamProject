@@ -12,7 +12,7 @@ public class ActionFactory {
 	}
 	
 	public Action getAction(String command) {
-		Action action =null;
+		Action action = null;
 		
 		if (command.equals("join")) action = new JoinAction();
 		else if(command.equals("login")) action = new LoginAction();

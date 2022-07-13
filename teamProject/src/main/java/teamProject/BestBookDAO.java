@@ -32,7 +32,6 @@ public class BestBookDAO {
 			try {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
-				
 				best_seller = new ArrayList<>();
 				
 				String isbn;

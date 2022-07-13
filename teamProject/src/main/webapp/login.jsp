@@ -12,7 +12,11 @@
 	<jsp:include page="header.jsp"></jsp:include>
            <h1>로그인</h1>
 	<form method="post" action="./Service">
+<<<<<<< HEAD
 	<input  type="hidden" name="command" value="login">
+=======
+	<input type="hidden" name="command" value="login">
+>>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
 		<input type="text" name="UserId" placeholder="아이디" class="req"><br>
 		<input type="password" name="UserPw" placeholder="비밀번호" class="req">
 		<div class="warning">

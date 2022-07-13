@@ -76,10 +76,16 @@
 .nav p:hover:before{
     width:100%;
 }
+<<<<<<< HEAD
 .dibsBookContents{
+=======
+.dibsBook{
+	margin-top: 50px;
+>>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
     width:100vw;
     background-color: white;
 }
+<<<<<<< HEAD
 
 .userTitle{
 	
@@ -88,7 +94,15 @@
 	text-align:left;
 	background-color:#fff9ed;
 	padding-top:30px;
+=======
+.dibBook{
+	width:60vw;
+	background-color: red;
+	margin: auto;
+
+>>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
 }
+<<<<<<< HEAD
 .userTitle img {
 	width:7vw;
 	margin-left:17vw;
@@ -308,6 +322,8 @@
 	flex-wrap: wrap;
 >>>>>>> refs/remotes/origin/#04_dongho
 }
+=======
+>>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
 <<<<<<< HEAD
 .box div{
     width:300px;
@@ -316,6 +332,7 @@
     text-align:center;   
 }
 .box h2{
+<<<<<<< HEAD
     margin-top:20px;
 }
 =======
@@ -324,3 +341,42 @@
 	background-color: yellow;
 }
 >>>>>>> refs/remotes/origin/#04_dongho */
+=======
+    margin-top:20px;
+}
+.loginbox{
+	border : solid 1px black;
+
+=======
+.bookList{
+	width:15vw;
+	background-color: yellow;
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/#04_dongho
+}
+=======
+	text-align: center;
+}
+.a{
+	width: 60vw;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+
+.boardListContainer, formContainer {
+    width: 80vw;
+    margin: auto;
+    margin-top: 50px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td{
+	padding:20px;
+}
+>>>>>>> refs/remotes/origin/#02-NaYeon
+>>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git

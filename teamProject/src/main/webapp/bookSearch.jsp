@@ -13,35 +13,21 @@
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/bookSearch.css">
 </head>
-<body>
+<body>x
 	<div class="wrap">
-		<div class="header">
-			<p class="logo" onclick="location.href='./index.jsp'">LOGO</p>
-			<div class="topMenu">
-				<p class="search" onclick="location.href='bookSearch.jsp'">
-					<img src="image/search.png">
-				</p>
-				<p class="login">LOGIN</p>
-				<p class="join">JOIN</p>
-			</div>
-		</div>
-
-		<div class="nav">
-			<div>
-				<p class="menu1">BEST</p>
-				<p class="menu2">NEW</p>
-				<p class="menu3">HOW TO</p>
-				<p class="menu4">ABOUT</p>
-			</div>
-		</div>
+		<jsp:include page="header.jsp"></jsp:include>
 		<form class="searchWrap">
 			<div class="search_wrap">
 				<input type="text" id="input">
-				<input type="button" id="submit" value="" onclick="search(form)">
+				<input type="button" id="submit" value="검색" onclick="search()">
 			</div>
 		</form>
 		<div class="result"></div>
+		<div class="page_buttons">
+				<input type="hidden" id="page" name="page" value="1">
+				<input type="button" id="next" value="next" onclick="search()">
+		</div>
 	</div>
-	<script src="bookApi.js"></script>
+<script src="bookApi.js"></script>
 </body>
 </html>

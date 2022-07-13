@@ -105,7 +105,11 @@ public class UserDAO {
 			if(rs.next()) {
 				log = rs.getInt(1);
 			}
+
 			System.out.println("�α��Է¼���");
+
+			System.out.println("로그입력성공");
+
 			return log;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -120,7 +124,11 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
+
 		System.out.println("�α��Է½���");
+
+		System.out.println("로그인 실패");
+
 		return log;
 	}
 	

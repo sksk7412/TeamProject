@@ -29,11 +29,11 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 		
 	if(!temp.addUser(user)){
 		
-		System.out.println("È¸¿ø°¡ÀÔ ½ÇÆĞ!");
+		System.out.println("íšŒì›ê°€ì… ì‹¤íŒ¨!");
 		url = "join.jsp";
 	}
 	else{
-		System.out.println("È¸¿ø°¡ÀÔ ¼º°ø!");
+		System.out.println("íšŒì›ê°€ì… ì„±ê³µ!");
 		url = "login.jsp";
 	}
 	request.getRequestDispatcher(url).forward(request, response);
