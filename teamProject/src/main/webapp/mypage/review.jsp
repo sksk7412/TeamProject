@@ -4,9 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<link rel="stylesheet" href="css/library.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 </head>
@@ -15,12 +12,8 @@
         <div class="header">
             <p class="logo">LOGO</p>
             <div class="topMenu">
-
-            	<p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
-
             	
                 <p class="myPage"><img src="image/mypage.png"></p>
-
                 <p class="search"><img src="image/search.png"></p>
                 <p class="login">LOGIN</p>
                 <p class="join">JOIN</p>
@@ -35,12 +28,7 @@
                 <p class="menu4">ABOUT</p>
             </div>
         </div>
-
-         <!-- 여기에다가 추가할거 적어주세요! -->
-            
-
             <!-- 여기에다가 추가할거 적어주세요 -->
-
       </div>
 </body>
 </html>
