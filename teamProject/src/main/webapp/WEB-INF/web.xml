@@ -51,4 +51,22 @@
   	<servlet-name>join</servlet-name>
   	<url-pattern>/join</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>loginPage</servlet-name>
+  	<jsp-file>/login.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>loginPage</servlet-name>
+  	<url-pattern>/loginPage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Subscription</servlet-name>
+  	<jsp-file>/subscription.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Subscription</servlet-name>
+  	<url-pattern>/subscription</url-pattern>
+  </servlet-mapping>
 </web-app>

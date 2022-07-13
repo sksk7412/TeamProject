@@ -4,32 +4,26 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBManager {
-<<<<<<< HEAD
-	
-	public static Connection getConnection(String dataBase) {
-		Connection conn = null ;
-		
-		
-		String url = "jdbc:mysql://localhost:3306/"; 
-		String user = "root"; 
-		String password = "root";  
-		
-		
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver"); 
-			conn = DriverManager.getConnection(url+dataBase, user, password);
-			System.out.println("DB ¿¬µ¿ ¼º°ø");
-			return conn; 
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("DB ¿¬µ¿ ½ÇÆÐ");
-		}
-		return null; 
-	}
-=======
+	/*
+	 * <<<<<<< HEAD
+	 * 
+	 * public static Connection getConnection(String dataBase) { Connection conn =
+	 * null ;
+	 * 
+	 * 
+	 * String url = "jdbc:mysql://localhost:3306/"; String user = "root"; String
+	 * password = "root";
+	 * 
+	 * 
+	 * try { Class.forName("com.mysql.cj.jdbc.Driver"); conn =
+	 * DriverManager.getConnection(url+dataBase, user, password);
+	 * System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"); return conn; } catch (Exception e) {
+	 * e.printStackTrace(); System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"); } return null; }
+	 * =======
+	 */
 
 	// DBManager.getConnection();
-	// ¿ÜºÎ Å¬·¡½º¿¡¼­ µðºñ ¿¬µ¿ÀÌ ÇÊ¿äÇÒ¶§ »ç¿ë°¡´É ConnectionÀ» ¾ò¾î°£´Ù. 
+	// ï¿½Üºï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½ Connectionï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½. 
 	
 	public static Connection getConnection(String database) { 
 		 Connection conn = null;
@@ -41,15 +35,13 @@ public class DBManager {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(url+database, user, password);
-			System.out.println("DB ¿¬µ¿ ¼º°ø");
+			System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			return conn;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("DB ¿¬µ¿ ½ÇÆÐ");
+			System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			return null;
 		}
 	}
-	
->>>>>>> refs/remotes/origin/#04_dongho
 }

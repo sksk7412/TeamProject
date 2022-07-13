@@ -31,14 +31,25 @@
             <div class="box">
 
                 <div class="basic">
-                    <h2 class="bTxt1">Basic</h2>
-                    <p></p>
+                    <h2 class="bTxt1">Basic
+                    <p>베이직 요금제</p>
+                    <p class="price">월 5,500원</p>
+                    </h2>
+                    <p>eBook 무제한 도서</p>  
+                    <button>가입하기</button>                
                 </div>
-                <div class="standard">`
-                     <h2 class="bTxt1">Standard</h2>
+                <div class="standard">
+                     <h2 class="bTxt1">Standard
+                     <p>스탠다드 요금제</p>
+                    <p class="price">월 7,700원</p>
+                    </h2>
                 </div>
                 <div class="premium">
-                    <h2 class="bTxt1">Premium</h2>
+                    <h2 class="bTxt1">Premium
+                    <p>프리미엄 요금제</p>
+                    <p class="price">월 9,900원</p>
+                    </h2>
+                    </h2>
                 </div>
             </div>
         </div>

@@ -15,6 +15,3 @@ $('.myLibrary').on('click', e=>{
 	$('.review').css('background-color','#f0f0f0');
 })
 
-
-
-	
