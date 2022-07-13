@@ -74,7 +74,7 @@ public class UserDAO {
 			if(rs.next()) {
 				log = rs.getInt(1);
 			}
-			System.out.println("·Î±×ÀÔ·Â¼º°ø");
+			System.out.println("ë¡œê·¸ìž…ë ¥ì„±ê³µ");
 			return log;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -89,7 +89,7 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
-		System.out.println("·Î±×ÀÔ·Â½ÇÆÐ");
+		System.out.println("ë¡œê·¸ìž…ë ¥ì‹¤íŒ¨");
 		return log;
 	}
 	
