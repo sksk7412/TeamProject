@@ -23,12 +23,12 @@ function getResult(keyword) {
 			$('.result').empty();
 			result.forEach(book => {
 				const isbn = book.isbn;
-				console.log(book.valueOf());
 
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
 				let html = `<div class='book' onclick="location.href='${url}'">`;
-				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`;
+				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`
+				html += `<span id="title">'${book.title}'</span></div>`;
 
 				$('.result').append(html);
 			})

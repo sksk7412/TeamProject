@@ -10,10 +10,10 @@ public class DBManager {
 	
 	public static Connection getConnection(String database) { 
 		 Connection conn = null;
-		 String url = "jdbc:mysql://localhost:3306/";
+		 String url = "jdbc:mysql://database-1.ckbmckfk9bod.ap-northeast-2.rds.amazonaws.com:3306/firstJsp?serverTimezone=UTC";
 		
-		 String user = "root";
-		 String password = "root";
+		 String user = "admin";
+		 String password = "8EFBM59z#qZq";
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
