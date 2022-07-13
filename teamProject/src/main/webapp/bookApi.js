@@ -79,9 +79,6 @@ function getBookForIsbn(isbn) {
 							</div>
 						</div>`;
 			let html2 = `<div class="contents">${book.contents}</div>`;
-			let html = `<div class="bookList"><img src = "${book.thumbnail}"></div>`;
-			html += `<div class="bookList">${book.title}</div>`;
-			html += `<div class="bookList">${book.authors}</div>`;
 			
 			$('.main').append(html);
 			$('.main2').append(html2);

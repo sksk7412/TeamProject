@@ -65,7 +65,3 @@ public class UserDTO {
 	}
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/siyeon

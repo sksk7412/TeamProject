@@ -22,7 +22,6 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	String UserPw = request.getParameter("UserPw");
 	
 	UserDTO user = new UserDTO (UserId, UserPw);
-<<<<<<< HEAD
 	// id, password �Էµ� �κп� ���ؼ� ���� 
 	
 	String url = "";
@@ -43,24 +42,3 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	request.getRequestDispatcher(url).forward(request, response);
 }
 }
-=======
-	// id, password 입력된 부분에 대해서 검증 
-
-	String url = "";
-	if (!dao.loginCheck(user)) {
-		url = "index.jsp";
-		
-//		dao.getId(UserId);
-		
-		session.setAttribute("log", dao.getId(UserId));
-		
-		System.out.println(dao.getId(UserId));
-		System.out.println("성공");
-	} else {
-		url = "login.jsp";
-		System.out.println("실패");
-	}
-	request.getRequestDispatcher(url).forward(request, response);
-}
-}
->>>>>>> refs/remotes/origin/siyeon

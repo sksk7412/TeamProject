@@ -7,10 +7,6 @@ import java.sql.ResultSet;
 
 import util.DBManager;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/siyeon
 public class UserDAO {
 	private static UserDAO instance=new UserDAO();
 	public static UserDAO getInstance() {
@@ -21,15 +17,10 @@ public class UserDAO {
 	private ResultSet rs=null;
 	private PreparedStatement pstmt=null;
 	
-	
-	private String url="jdbc:mysql://localhost:3306/";
-	private String user="root";
-	private String password="root";
-	
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); //
-			conn=DriverManager.getConnection(url,user,password);
+			conn=DriverManager.getConnection("book");
 			return conn;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -108,11 +99,7 @@ public class UserDAO {
 			if(rs.next()) {
 				log = rs.getInt(1);
 			}
-<<<<<<< HEAD
 			System.out.println("로그입력성공");
-=======
-			System.out.println("�α��Է¼���");
->>>>>>> refs/remotes/origin/siyeon
 			return log;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -127,11 +114,7 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
-<<<<<<< HEAD
 		System.out.println("로그인 실패");
-=======
-		System.out.println("�α��Է½���");
->>>>>>> refs/remotes/origin/siyeon
 		return log;
 	}
 	
@@ -167,9 +150,4 @@ public class UserDAO {
 		}
 		return true;
 	}
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> refs/remotes/origin/siyeon
 }
