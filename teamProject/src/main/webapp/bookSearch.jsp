@@ -19,7 +19,7 @@
 		<form class="searchWrap">
 			<div class="search_wrap">
 				<input type="text" id="input">
-				<input type="button" id="submit" value="" onclick="search()">
+				<input type="button" id="submit" value="검색" onclick="search()">
 			</div>
 		</form>
 		<div class="result"></div>

@@ -18,13 +18,8 @@ public class DBManager {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-<<<<<<< HEAD
-			conn = DriverManager.getConnection(url+database, user, password);
-			System.out.println("DB 鞐半彊 靹标车");
-=======
 			conn = DriverManager.getConnection(url, user, password);
-			System.out.println("DB 楷悼 己傍");
->>>>>>> refs/remotes/origin/#04_dongho
+			System.out.println("DB 鞐半彊 靹标车");
 			return conn;
 			
 		} catch (Exception e) {

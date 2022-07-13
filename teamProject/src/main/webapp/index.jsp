@@ -38,7 +38,7 @@
 				}
 				%>
 
-				<p class="search">
+				<p class="search" onclick="location.href='bookSearch.jsp'">
 					<img src="image/search.png">
 				</p>
 				<%
