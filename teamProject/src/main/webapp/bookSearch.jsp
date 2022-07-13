@@ -14,8 +14,8 @@
 <link rel="stylesheet" href="css/bookSearch.css">
 </head>
 <body>x
-	<div class="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
+	<div class="wrap">
 		<form class="searchWrap">
 			<div class="search_wrap">
 				<input type="text" id="input">

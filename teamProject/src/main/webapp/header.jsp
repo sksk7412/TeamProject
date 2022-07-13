@@ -15,7 +15,7 @@
 	}
 	%>
 
-	<div class="wrap">
+	
 		<div class="header">
 			<p class="logo">LOGO</p>
 			<div class="topMenu">

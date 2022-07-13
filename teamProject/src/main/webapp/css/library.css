@@ -76,16 +76,12 @@
 .nav p:hover:before{
     width:100%;
 }
-<<<<<<< HEAD
-.dibsBookContents{
-=======
+
 .dibsBook{
 	margin-top: 50px;
->>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
     width:100vw;
     background-color: white;
 }
-<<<<<<< HEAD
 
 .userTitle{
 	
@@ -94,15 +90,12 @@
 	text-align:left;
 	background-color:#fff9ed;
 	padding-top:30px;
-=======
+}
 .dibBook{
 	width:60vw;
 	background-color: red;
 	margin: auto;
-
->>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
 }
-<<<<<<< HEAD
 .userTitle img {
 	width:7vw;
 	margin-left:17vw;
@@ -180,13 +173,13 @@
 	font-size:16pt;
 }
 .basic h2{
-	background-color:#e4d292;
+	background-color:#d0c09e;
 }
 .standard h2{
-	background-color:#ECCE61;
+	background-color:#af9a6d;
 }
 .premium h2{
-	background-color:#BAA24C;
+	background-color:#4f3f1c;
 }
 .myMenu .ifr{
 	width:60vw;
@@ -275,7 +268,7 @@
     display:flex;
 }
 .nav p{
-    margin-right: 15vw;
+    margin-right: 10vw;
     position:relative;
 }
 .nav p:before{
@@ -310,51 +303,14 @@
 	width:60vw;
 	margin:auto;
 }
-.subs .title{
-	
-}
-/* =======
-.dibBook{
-	width:60vw;
-	background-color: red;
-	margin: auto;
-	display: flex;
-	flex-wrap: wrap;
->>>>>>> refs/remotes/origin/#04_dongho
-}
-=======
->>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
-<<<<<<< HEAD
-.box div{
-    width:300px;
-    height: 500px;
-    border: solid 1px #1b0f04;
-    text-align:center;   
-}
-.box h2{
-<<<<<<< HEAD
-    margin-top:20px;
-}
-=======
-.bookList{
-	width:15vw;
-	background-color: yellow;
-}
->>>>>>> refs/remotes/origin/#04_dongho */
-=======
-    margin-top:20px;
-}
+
+
 .loginbox{
 	border : solid 1px black;
-
-=======
+}
 .bookList{
 	width:15vw;
 	background-color: yellow;
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/#04_dongho
-}
-=======
 	text-align: center;
 }
 .a{
@@ -378,5 +334,4 @@ table {
 td{
 	padding:20px;
 }
->>>>>>> refs/remotes/origin/#02-NaYeon
->>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
+
