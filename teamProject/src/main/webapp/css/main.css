@@ -8,7 +8,7 @@
     width:100vw;
     position: relative;
     background-image: url(../image/bg2.jpg);
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
 }
 

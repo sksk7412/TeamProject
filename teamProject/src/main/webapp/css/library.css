@@ -75,10 +75,11 @@
 .nav p:hover:before{
     width:100%;
 }
-.container{
+.dibsBookContents{
     width:100vw;
     background-color: white;
 }
+<<<<<<< HEAD
 .userTitle{
 	
 	height:20vh;
@@ -268,7 +269,16 @@
     display: flex;
     justify-content: space-around;
     margin-top: 100px;
+=======
+.dibBook{
+	width:60vw;
+	background-color: red;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+>>>>>>> refs/remotes/origin/#04_dongho
 }
+<<<<<<< HEAD
 .box div{
     width:300px;
     height: 500px;
@@ -279,3 +289,9 @@
 .box h2{
     margin-top:20px;
 }
+=======
+.bookList{
+	width:15vw;
+	background-color: yellow;
+}
+>>>>>>> refs/remotes/origin/#04_dongho

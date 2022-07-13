@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <link rel="stylesheet" href="css/main.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -12,13 +13,32 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap"
 	rel="stylesheet">
 <title>Main</title>
+=======
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<title>INDEX</title>
+>>>>>>> refs/remotes/origin/#04_dongho
 </head>
 <body>
+<<<<<<< HEAD
 	<%
 	int log=-1;
 	if(session.getAttribute("log")!=null){
 	log = (int)session.getAttribute("log");
+=======
+	<div class="wrap">
+        <div class="header">
+            <p class="logo" onclick="location.href='index.jsp'">LOGO</p>
+            <div class="topMenu">
+                <p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
+                <p class="search" onclick="location.href='bookSearch.jsp'"><img src="image/search.png"></p>
+                <p class="login">LOGIN</p>
+                <p class="join">JOIN</p>
+            </div>
+        </div>
+>>>>>>> refs/remotes/origin/#04_dongho
 
+<<<<<<< HEAD
 	System.out.println(log+"##");
 	}
 	%>
@@ -36,6 +56,16 @@
 					<img class="mypage2" src="image/mypage.png">
 				</p>
 				<%} %>
+=======
+        <div class="nav">
+            <div>
+                <p class="menu1" onclick="location.href='bestBook.jsp'">BEST</p>
+                <p class="menu2" onclick="location.href='newPage.jsp'">NEW</p>
+                <p class="menu3">HOW TO</p>
+                <p class="menu4">ABOUT</p>
+            </div>
+        </div>
+>>>>>>> refs/remotes/origin/#04_dongho
 
 				<p class="search">
 					<img src="image/search.png">
