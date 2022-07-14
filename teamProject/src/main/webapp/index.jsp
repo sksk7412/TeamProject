@@ -90,8 +90,6 @@
 		alert("로그인 후 이용 가능합니다.");
 	})
 	</script>
-=======
-	
 	<jsp:include page="header.jsp"></jsp:include>
 		<div class="main">
 			<div class="txt">
@@ -101,8 +99,6 @@
 				<button class="btn1">정기구독 신청하기</button>
 			</div>
 		</div>
-	</div>
 	
->>>>>>> refs/remotes/origin/siyeon
 </body>
 </html>

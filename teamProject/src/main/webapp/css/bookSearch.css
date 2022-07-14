@@ -1,18 +1,14 @@
 @charset "UTF-8";
-.search_wrap{
+.searchWrap{
 	display: flex;
+    padding: 4px 20px;
+    height: 30%;
     justify-content: center;
-    padding-top: 50px;
-    width: fit_content;
-    border-radius:16px;
-    padding:4px 20px;
+    align-items: center;
+    flex-direction:column;
 }
 .search_wrap input[type="text"]:focus{
 	outline:0;
-}
-.search_wrap input[type="submit"]{
-	border:0;
-	background-color: transparent;
 }
 #input{
 	width:600px;
@@ -20,12 +16,17 @@
 	border-radius:14px;
 	font-size:24px;
 }
-#submit{
+#button{
 	position: relative;
-	left:20px;
+	left:270px;
 	width:80px;
 	height:50px;
-	top:2px;
+	bottom:52px;
+	border:0;
+	background-color: transparent;
+}
+#searchIcon{
+	width:28px;
 }
 .book{
 	text-align:center;
@@ -56,8 +57,13 @@
 	border-radius:18px;
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
 }
-
-
+.page_buttons{
+	display:flex;
+	justify-content: center;
+}
+.page_buttons>*{
+	margin: 0 10px;
+}
 @media (max-width:720px) {
 	.book{
 		width:50%;

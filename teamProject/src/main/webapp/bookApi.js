@@ -14,6 +14,7 @@ function getResult(keyword, dir) {
 	else if(dir === 1 && curpage > 1){		// preview-button 의 value == 1
 		curpage--;							// page--
 	}
+	console.log("getResult");
 	$.ajax({
 		method: 'get',
 		url: `https://dapi.kakao.com//v3/search/book`,
@@ -39,10 +40,9 @@ function getResult(keyword, dir) {
 				let html = `<div class='book' onclick="location.href='${url}'">`;
 				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`
 				html += `<div class="title">'${book.title}'</div></div>`;
-
+				
 				$('.result').append(html);
 			})
-			
 			if(metas.is_end){
 				curpage--;
 				return;
@@ -88,7 +88,7 @@ function getBookForIsbn(isbn) {
 		})
 }
 
-// 베스트셀러의 값 가져오기
+// best_seller / new 책
 function getBookstoArray(bestSeller) {
 	for (let i = 0; i < bestSeller.length; i++) {
 		let num = bestSeller[i];
@@ -108,8 +108,11 @@ function getBookstoArray(bestSeller) {
 		}).done(data => {
 			const result = data.documents;
 			result.forEach(book => {
+				let isbns = book.isbn;
 				
-				let html = `<div class="bookInfo"><div class="img"><img id="thumbnail" src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div></div></div>`;
+				let url = `bookInfo.jsp?isbn=${isbns}`;
+				
+				let html = `<div class="bookInfo" onclick="location.href='${url}'"><div class="img"><img id="thumbnail" src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div></div></div>`;
 
 				$('.book').append(html);
 			})

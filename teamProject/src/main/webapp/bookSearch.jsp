@@ -16,18 +16,19 @@
 <body>
 	<div class="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
-		<form class="searchWrap">
-			<div class="search_wrap">
-				<input type="text" id="input">
-				<input type="button" id="submit" value="검색" onclick="search(0)">
-			</div>
-		</form>
+		<div class="searchWrap">
+			<input type="text" id="input">
+			<button id="button" onclick="search(0)">
+				<img src="image/search.png" id="searchIcon">
+			</button>
+		</div>
 		<div class="result"></div>
 		<div class="page_buttons">
-				<input type="button" id="preview" value="preview" onclick="search(1)">
-				<p></p>
-				<p></p>
-				<input type="button" id="next" value="next" onclick="search(2)">
+			<button id="pre"></button>
+			<p id="nowP"></p>
+			<p>/</p>
+			<p id="totlaP"></p>
+			<button id="next"></button>
 		</div>
 	</div>
 <script src="bookApi.js"></script>

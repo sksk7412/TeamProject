@@ -45,4 +45,6 @@ create table board(
     createdAt datetime
 );
 
+
+
 --drop database book;
