@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
-
->>>>>>> refs/heads/master
 package controller.action;
 
 import java.io.IOException;
@@ -24,9 +19,6 @@ public class LogoutAction implements Action{
 		request.getRequestDispatcher(url).forward(request, response);
 		System.out.println("로그아웃완료");
 	}
-<<<<<<< HEAD
 }	
-=======
-}
 
->>>>>>> refs/heads/master
+

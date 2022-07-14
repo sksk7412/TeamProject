@@ -18,17 +18,8 @@ public class LoginAction implements Action {
 		HttpSession session = request.getSession();
 		UserDAO dao = UserDAO.getInstance(); //
 	
-<<<<<<< HEAD
-	UserDTO user = new UserDTO (UserId, UserPw);
-	// id, password 입력된 부분에 대해서 검증 
-
-	String url = "";
-	if (!dao.loginCheck(user)) {
-		url = "index.jsp";
-=======
 		String UserId = request.getParameter("UserId");
 		String UserPw = request.getParameter("UserPw");
->>>>>>> refs/heads/master
 		
 		UserDTO user = new UserDTO (UserId, UserPw);
 	
@@ -50,12 +41,4 @@ public class LoginAction implements Action {
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
-<<<<<<< HEAD
-	request.getRequestDispatcher(url).forward(request, response);
 }
-}
-=======
-}
-
-
->>>>>>> refs/heads/master

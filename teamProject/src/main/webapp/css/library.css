@@ -141,7 +141,7 @@
 }
 .button{
 	margin-top:10px;
-	hegiht:7vh;
+	height:7vh;
 	display:flex;
 	flex-wrap:wrap;
 }
@@ -531,7 +531,7 @@
 .loginbox{
 	border : solid 1px black;
 }
-}
+
 .bookList{
 	width:15vw;
 	background-color: yellow;
@@ -561,8 +561,6 @@ td{
 }
 .bookList{
 	width:15vw;
-=======
->>>>>>> refs/heads/master
 	background-color: yellow;
 	text-align: center;
 }
