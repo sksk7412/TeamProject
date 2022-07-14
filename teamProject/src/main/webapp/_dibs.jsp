@@ -4,13 +4,14 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/books.css">
 <script src="bookApi.js"></script>
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -32,37 +33,56 @@
             </div>
         </div>
 		
+		<script>
+			let name = "";
+			let isbn = "";
+		</script>
+		
 		<div class="dibsBook">
 			<div class="dibBook">
-				<div class="bookList">
-					<div class="a">
+				<div class="bookList2">
+					
 			            <%
 						DibsBookDAO dao = DibsBookDAO.getInstance();
 					
 						if(dao.getDibsBookDto().size() > 0) {
+							//System.out.println(dao.getSize());
+							
+							
 							for(int i=0; i<dao.getSize(); i++){
+								
 								DibsBookDTO dto = dao.getDibsBookDto().get(i);
 								String a = dto.getIsbn();
 						%>
-						<input type="hidden" value="<%=a%>" id="isbn">
-			                <div class="dibsBookContents"></div>
+						
+						<input type="hidden" value="<%=dto.getIsbn()%>" id="isbn" class="isbn<%=i %>">
+			                <script>
+			                	name = '.isbn' + <%=i%>;
+				                isbn = $(name).val();
+				                getBookForIsbn(isbn);
+			                </script>
 			            <%
 							}
 						}
 						%>
-			    	</div>
+						
+			        	<div class="dibsBookContents">	</div>
+			    	
 				</div>
 			</div>
 		</div>            
      </div>
-     
+     <%--
     <script type="text/javascript">
-		$(document).ready(function() {
-			for(let i=0; i<){
-				let isbn = $('#isbn').val();
-				getBookForIsbn(isbn);		
-			}
-		});
+    $(document).ready(function() {
+    	for (let j = 0; j < <%=dao.getSize()%>; j++) {
+    		console.log($(`#isbn`).val());
+			let isbn = String($(`.isbn${j}`).val());
+			//getBookForIsbn(isbn);					    		
+    	}
+	});
 	</script>
+	 --%>
+	 
 </body>
 </html>
