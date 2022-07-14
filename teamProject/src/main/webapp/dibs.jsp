@@ -72,17 +72,5 @@
 			</div>
 		</div>            
      </div>
-     <%--
-    <script type="text/javascript">
-    $(document).ready(function() {
-    	for (let j = 0; j < <%=dao.getSize()%>; j++) {
-    		console.log($(`#isbn`).val());
-			let isbn = String($(`.isbn${j}`).val());
-			//getBookForIsbn(isbn);					    		
-    	}
-	});
-	</script>
-	 --%>
-	 
 </body>
 </html>
