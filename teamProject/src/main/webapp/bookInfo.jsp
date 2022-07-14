@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/bookInfo.css">
 
 </head>
-<%	
+<%
 	int id = -1;
 	if(session.getAttribute("log")!= null){
 		 id = (int) session.getAttribute("log");	
@@ -24,19 +24,21 @@
 	String isbns[] = isbn.split(" ");
 %>
 <body>
-	
-	<jsp:include page="header.jsp"></jsp:include>
+
+	<div class="wrap">
+		<jsp:include page="header.jsp"></jsp:include>
+		
 		
 	<div class="bookWrap">
 	<div class="main">
 	</div>
-		<%
+	<%
 			if(id != -1){
 				// 선주형 바보 
 		%>
     	 	
 			<form method="post" action="./Service">
-				<input type="hidden" name="command" value="DibsBook" >
+				<input type="hidden" name="command" value="Dibsbook" >
 				<input type="hidden" value="<%=isbns[0]%>" name="isbn">
 					<div class="buttons">
 			       		<input type="submit" value="♡ 찜하기"><br>
@@ -79,17 +81,16 @@
             <tbody >
             <tr>
                 <td><%=i+1%></td>
-                <td><%=board.getTitle()%></td>     //
-                <td><%=board.getContents()%></td>  //내용
-                <td><%=board.getCreatedAt()%></td> // 작성일지
+                <td><%=board.getTitle()%></td>
+                <td><%=board.getContents()%></td>
+                <td><%=board.getCreatedAt()%></td>
             </tr>                    
         
           </tbody>
            <% }} %> --%>
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
-
-</div> 
+</div>
 	</div>
 <script src="bookApi.js"></script>
 	<script type="text/javascript">
