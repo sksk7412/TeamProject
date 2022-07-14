@@ -14,21 +14,6 @@
         int log = (int)session.getAttribute("log");
         UserDAO dao=UserDAO.getInstance();
         String name= dao.getName(log);        
-<<<<<<< HEAD
-     //  String isbn = request.getParameter("isbn");
-	%>
-	<div class="wrap">
-      
-     <jsp:include page="header.jsp"></jsp:include>
-     
-     <div class="container">
-     <form method="post" action="./Service">
-     	<input type="hidden" name="command" value="writeReview">
-     	<label for="rate1">⭐</label>
-     	<input type="text" name="contents" placeholder="최소 10자이상 입력해주세요" minlength="10">
-     	<button>취소</button>
-     	<input type="submit" value="등록">
-=======
 	%>
 	<div class="wrap">
       
@@ -39,7 +24,6 @@
      	<input type="text" name="contents" placeholder="최소 10자이상 입력해주세요" minlength="10">
      	<input type="submit">
      
->>>>>>> refs/heads/master
      </form>
      </div>
          	

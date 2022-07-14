@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>teamProject</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -9,10 +9,6 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-<<<<<<< HEAD
-  
-=======
->>>>>>> refs/heads/master
   
  <servlet>
   	<servlet-name>login</servlet-name>
@@ -73,8 +69,6 @@
   	<servlet-name>Subscription</servlet-name>
   	<url-pattern>/subscription</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-
   
   <servlet>
   	<servlet-name>WriteReview</servlet-name>
@@ -84,6 +78,13 @@
   	<servlet-name>WriteReview</servlet-name>
   	<url-pattern>/write</url-pattern>
   </servlet-mapping>
-=======
->>>>>>> refs/heads/master
+
+  <servlet>
+  	<servlet-name>Review</servlet-name>
+  	<jsp-file>/review.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Review</servlet-name>
+  	<url-pattern>/review</url-pattern>
+  </servlet-mapping>
 </web-app>
