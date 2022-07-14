@@ -16,7 +16,8 @@
 
 </head>
 <%
-String isbn = request.getParameter("isbn");
+	String isbn = request.getParameter("isbn");
+	String isbns[] = isbn.split(" ");
 %>
 <body>
 	<div class="wrap">
@@ -43,10 +44,17 @@ String isbn = request.getParameter("isbn");
 	<div class="bookWrap">
 	<div class="main">
 	</div>
-		<div class="buttons">
-			<button onclick="location.href='index.jsp'">♡ 찜하기</button>
+	
+    	 	
+			<form method="post" action="./Service">
+				<input type="hidden" name="command" value="DibsBook" >
+				<input type="hidden" value="<%=isbns[0]%>" name="isbn">
+					<div class="buttons">
+			       		<input type="submit" value="♡ 찜하기"><br>
+			       	</div>
+			</form>
 			<button onclick="location.href='index.jsp'">바로 보기</button>
-		</div>
+		
 	<div class="titles"> <h3>책 소개</h3></div><br><br>
 	<div class="main2"></div><br><br><br>
 	<div class ="star">
@@ -71,16 +79,17 @@ String isbn = request.getParameter("isbn");
             <tbody >
             <tr>
                 <td><%=i+1%></td>
-                <td><%=board.getTitle()%></td>
-                <td><%=board.getContents()%></td>
-                <td><%=board.getCreatedAt()%></td>
+                <td><%=board.getTitle()%></td>     //
+                <td><%=board.getContents()%></td>  //내용
+                <td><%=board.getCreatedAt()%></td> // 작성일지
             </tr>                    
         
           </tbody>
            <% }} %> --%>
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
-</div>
+
+</div> 
 	</div>
 <script src="bookApi.js"></script>
 	<script type="text/javascript">

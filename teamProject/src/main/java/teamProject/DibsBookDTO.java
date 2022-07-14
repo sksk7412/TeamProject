@@ -20,24 +20,12 @@ public class DibsBookDTO {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-
 	public Timestamp getCreatedAt() {
 		return createdAt;
-	}
-
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
 	}
 
 

@@ -48,7 +48,11 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 			const bestSeller = [
-			<%	for(int i = 0; i < best_seller.size(); i++){%>"<%= best_seller.get(i).getIsbn() %>"<%= i + 1 < best_seller.size() ? ",":"" %><% } %>];
+			<%	for(int i = 0; i < best_seller.size(); i++){%>
+				"<%= best_seller.get(i).getIsbn() %>"
+				<%= i + 1 < best_seller.size() ? ",":"" %>
+				<% } 
+			%>];
 			getBookstoArray(bestSeller);
 			});
 		</script>

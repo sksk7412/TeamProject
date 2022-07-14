@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/bookSearch.css">
 </head>
-<body>x
+<body>
 	<div class="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
 		<form class="searchWrap">

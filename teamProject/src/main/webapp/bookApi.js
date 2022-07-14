@@ -117,8 +117,4 @@ function getBookstoArray(bestSeller) {
 			})
 		})
 	}
-
-
-
-
 }

@@ -15,9 +15,7 @@ import util.DBManager;
 
 public class DibsBookDAO {
 	
-	private DibsBookDAO() {
-//		list = new ArrayList<UserDTO>();
-	}
+	private DibsBookDAO() {}
 	private static DibsBookDAO instance = new DibsBookDAO();
 	
 	public static DibsBookDAO getInstance() {
@@ -35,33 +33,33 @@ public class DibsBookDAO {
 	
 	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
 	
-	// DBø° ∞™ ≥÷±‚
-	public int addWrite(DibsBookDTO BoardDto) { 
+	// DBÍ∞í ÎÑ£Í∏∞
+	public boolean addWrite(DibsBookDTO BoardDto) { 
 		
 		conn = DBManager.getConnection(database);
 		System.out.println("conn: "+conn);	
 		String SQL = "INSERT INTO dibsBook VALUES (?,?,?)";
- 	
+		
+		// ÏïÑÏù¥Îîî Ï†ïÎ≥¥ Ï∞ú ÎÇ†Ïßú~	
 		try {
-			
+
 			System.out.println("code: "+BoardDto.getId());
 			pstmt = conn.prepareStatement(SQL);
 			
-			pstmt.setInt(1, 1);
+			pstmt.setInt(1, BoardDto.getId());
 			pstmt.setString(2, BoardDto.getIsbn());
-			Timestamp createAt = new Timestamp(System.currentTimeMillis());
-			//pstmt.setString(4, createAt.toString());
-			pstmt.setTimestamp(3, createAt);
-				
-			return pstmt.executeUpdate();
+			pstmt.setTimestamp(3, BoardDto.getCreatedAt());
+			
+			return true;
 			
 		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
-		return -1;
+		return false;
 	}
 
-	// DBø°º≠ ∞™ ∫“∑Øø¿±‚
+	// DBÍ∞í Î∂àÎü¨Ïò§Í∏∞
 	public ArrayList<DibsBookDTO> getDibsBookDto() {
 		conn = DBManager.getConnection("book");
 		String sql = "select * from dibsBook";
@@ -100,44 +98,7 @@ public class DibsBookDAO {
 		return null;
 	}
 	
-	
-	
-	// DBø°º≠ ∞™ ∫“∑Øø¿±‚
-	/*
-		public Map<Integer, DibsBookDTO> getMap() {
-			Map<Integer, DibsBookDTO> bookData = new HashMap<>();
-			conn = DBManager.getConnection("book");
-			String sql = "select * from dibsBook";
-			pstmt = null;
-			
-			try {
-				pstmt = conn.prepareStatement(sql);
-				rs = pstmt.executeQuery();
-				
-				int id;
-				String title, thumbnail, isbn, authors;
-				Timestamp createAt;
-				while(rs.next()) {
-					title = rs.getString(1);
-					thumbnail = rs.getString(2);
-					isbn = rs.getString(3);
-					id = rs.getInt(4);
-					authors = rs.getString(5);
-					createAt = rs.getTimestamp(6);
-					
-					DibsBookDTO dibs = new DibsBookDTO(title, thumbnail, isbn, id, authors, createAt);
-					
-					bookData.put(, dibs);
-				}
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return bookData;
-		}
-	*/
-		
-	
+	// Ï±Ö Î∂àÎü¨Ïò¨ÎñÑ
 		public int getSize() {
 			conn = DBManager.getConnection("book");
 			String sql = "select count(*) from dibsBook";
@@ -164,7 +125,5 @@ public class DibsBookDAO {
 			}
 			return -1;
 		}
-	
-	
 
 }
