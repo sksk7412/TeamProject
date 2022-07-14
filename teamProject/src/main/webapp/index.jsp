@@ -15,7 +15,6 @@
 	int log = -1;
 	if (session.getAttribute("log") != null) {
 		log = (int) session.getAttribute("log");
-		System.out.println(log + "##");
 	}
 	%>
 

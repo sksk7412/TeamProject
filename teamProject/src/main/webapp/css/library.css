@@ -41,6 +41,13 @@
     width:24px;
     margin-top:3px;
 }
+#logo img{
+    font-weight: 700;
+    font-size: 35pt;
+    margin-left: 2vw;
+    padding-top:3vh;
+    width:280px;
+}
 .nav{
     width:100vw;
     font-family: 'Noto Sans KR', sans-serif;
@@ -76,7 +83,9 @@
 .nav p:hover:before{
     width:100%;
 }
-.dibsBookContents{
+
+.dibsBook{
+	margin-top: 50px;
     width:100vw;
     background-color: white;
 }
@@ -88,6 +97,11 @@
 	text-align:left;
 	background-color:#fff9ed;
 	padding-top:30px;
+}
+.dibBook{
+	width:60vw;
+	background-color: red;
+	margin: auto;
 }
 .userTitle img {
 	width:7vw;
@@ -166,13 +180,13 @@
 	font-size:16pt;
 }
 .basic h2{
-	background-color:#e4d292;
+	background-color:#d0c09e;
 }
 .standard h2{
-	background-color:#ECCE61;
+	background-color:#af9a6d;
 }
 .premium h2{
-	background-color:#BAA24C;
+	background-color:#4f3f1c;
 }
 .myMenu .ifr{
 	width:60vw;
@@ -198,10 +212,10 @@
 	width:19vw;
 	height:14vh;
 	border:none;
-	background-color:white;
+	background-color:#f8f8f8;
 	font-size:13pt;
 	margin-top:20px;
-	
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 }
 .boardTop{
 	display:flex;
@@ -261,7 +275,7 @@
     display:flex;
 }
 .nav p{
-    margin-right: 15vw;
+    margin-right: 10vw;
     position:relative;
 }
 .nav p:before{
@@ -296,31 +310,35 @@
 	width:60vw;
 	margin:auto;
 }
-.subs .title{
-	
+
+
+.loginbox{
+	border : solid 1px black;
 }
-/* =======
-.dibBook{
-	width:60vw;
-	background-color: red;
-	margin: auto;
-	display: flex;
-	flex-wrap: wrap;
->>>>>>> refs/remotes/origin/#04_dongho
-}
-<<<<<<< HEAD
-.box div{
-    width:300px;
-    height: 500px;
-    border: solid 1px #1b0f04;
-    text-align:center;   
-}
-.box h2{
-    margin-top:20px;
-}
-=======
 .bookList{
 	width:15vw;
 	background-color: yellow;
+	text-align: center;
 }
->>>>>>> refs/remotes/origin/#04_dongho */
+.a{
+	width: 60vw;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+
+.boardListContainer, formContainer {
+    width: 80vw;
+    margin: auto;
+    margin-top: 50px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td{
+	padding:20px;
+}
+
