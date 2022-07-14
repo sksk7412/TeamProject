@@ -11,8 +11,18 @@
 <title>Main</title>
 </head>
 <body>
-	
+	<%
+	int log = -1;
+	if (session.getAttribute("log") != null) {
+		log = (int) session.getAttribute("log");
+		System.out.println(log + "##");
+	}
+	%>
+
+	<div class="wrap">
+
 	<jsp:include page="header.jsp"></jsp:include>
+
 		<div class="main">
 			<div class="txt">
 				<p class="txt1">세계 최대 온라인 공유도서관</p>
@@ -21,7 +31,8 @@
 				<button class="btn1">정기구독 신청하기</button>
 			</div>
 		</div>
+		
 	</div>
-	
+
 </body>
 </html>
