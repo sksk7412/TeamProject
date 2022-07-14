@@ -29,13 +29,13 @@ public class DibsBookDAO {
 	private String log;
 	private String url = "jdbc:mysql://localhost:3306/";
 	private String database = "book";
-	private String user = "root";
+	private String user = "root"; 
 	private String password = "root";
 	Random ran = new Random();
 	
 	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
 	
-	// DBø° ∞™ ≥÷±‚
+	// DBÏóê Í∞í ÎÑ£Í∏∞
 	public int addWrite(DibsBookDTO BoardDto) { 
 		
 		conn = DBManager.getConnection(database);
@@ -50,7 +50,6 @@ public class DibsBookDAO {
 			pstmt.setInt(1, 1);
 			pstmt.setString(2, BoardDto.getIsbn());
 			Timestamp createAt = new Timestamp(System.currentTimeMillis());
-			//pstmt.setString(4, createAt.toString());
 			pstmt.setTimestamp(3, createAt);
 				
 			return pstmt.executeUpdate();
@@ -61,7 +60,30 @@ public class DibsBookDAO {
 		return -1;
 	}
 
-	// DBø°º≠ ∞™ ∫“∑Øø¿±‚
+	// DB Í∞í ÏÇ≠Ï†ú
+	public int deleteBook(DibsBookDTO DibsDto) {
+		
+		conn = DBManager.getConnection(database);
+		String sql = "DELETE FROM dibsBook where isbn=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, 1);
+			pstmt.setString(2, DibsDto.getIsbn());
+			Timestamp createAt = new Timestamp(System.currentTimeMillis());
+			pstmt.setTimestamp(3, createAt);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
+	// DBÏóêÏÑú Í∞í Î∂àÎü¨Ïò§Í∏∞
 	public ArrayList<DibsBookDTO> getDibsBookDto() {
 		conn = DBManager.getConnection("book");
 		String sql = "select * from dibsBook";
@@ -69,7 +91,7 @@ public class DibsBookDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
+			System.out.println(rs);
 			int id;
 			String isbn;
 			Timestamp createAt;
@@ -100,71 +122,33 @@ public class DibsBookDAO {
 		return null;
 	}
 	
-	
-	
-	// DBø°º≠ ∞™ ∫“∑Øø¿±‚
-	/*
-		public Map<Integer, DibsBookDTO> getMap() {
-			Map<Integer, DibsBookDTO> bookData = new HashMap<>();
-			conn = DBManager.getConnection("book");
-			String sql = "select * from dibsBook";
-			pstmt = null;
-			
-			try {
-				pstmt = conn.prepareStatement(sql);
-				rs = pstmt.executeQuery();
-				
-				int id;
-				String title, thumbnail, isbn, authors;
-				Timestamp createAt;
-				while(rs.next()) {
-					title = rs.getString(1);
-					thumbnail = rs.getString(2);
-					isbn = rs.getString(3);
-					id = rs.getInt(4);
-					authors = rs.getString(5);
-					createAt = rs.getTimestamp(6);
-					
-					DibsBookDTO dibs = new DibsBookDTO(title, thumbnail, isbn, id, authors, createAt);
-					
-					bookData.put(, dibs);
-				}
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return bookData;
-		}
-	*/
+	public int getSize() {
+		conn = DBManager.getConnection("book");
+		String sql = "select count(*) from dibsBook";
 		
-	/*
-		public int getSize() {
-			conn = DBManager.getConnection("book");
-			String sql = "select count(*) from dibsBook";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 			
+			rs.next();
+			int size = rs.getInt(1);
+			
+			return size;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
 			try {
-				pstmt = conn.prepareStatement(sql);
-				rs = pstmt.executeQuery();
-				
-				rs.next();
-				int size = rs.getInt(1);
-				System.out.println(size+"**");
-				return size;
-			} catch (Exception e) {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (Exception e2) {
 				// TODO: handle exception
-				e.printStackTrace();
-			} finally {
-				try {
-					pstmt.close();
-					conn.close();
-					rs.close();
-				} catch (Exception e2) {
-					// TODO: handle exception
-				}
 			}
-			return -1;
 		}
+		return -1;
+	}
 	
-	*/
+	
 
 }
