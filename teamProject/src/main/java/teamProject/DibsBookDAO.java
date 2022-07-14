@@ -34,7 +34,7 @@ public class DibsBookDAO {
 	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
 	
 	// DB값 넣기
-	public boolean addWrite(DibsBookDTO BoardDto) { 
+	public boolean addWrite(DibsBookDTO BoardDto) {
 		
 		conn = DBManager.getConnection(database);
 		System.out.println("conn: "+conn);	
@@ -65,16 +65,42 @@ public class DibsBookDAO {
 		}
 		return false;
 	}
+	
+	// DB값 삭제
+	public boolean deleteBook(DibsBookDTO DibsDto) {
+		
+		conn = DBManager.getConnection(database);
+		String sql = "DELETE FROM dibsBook where isbn=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, DibsDto.getIsbn());
+			pstmt.execute();
+			return true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return false;
+	}
 
 	// DB값 불러오기
-	public ArrayList<DibsBookDTO> getDibsBookDto() {
-		conn = DBManager.getConnection("book");
-		String sql = "select * from dibsBook";
+	public ArrayList<DibsBookDTO> getDibsBookDto(int log) {
+		conn = DBManager.getConnection(database);
+		String sql = String.format("select * from dibsBook where id =%d", log);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			System.out.println(rs);
 			int id;
 			String isbn;
 			Timestamp createAt;
@@ -106,9 +132,9 @@ public class DibsBookDAO {
 	}
 	
 	// 책 불러올떄
-		public int getSize() {
-			conn = DBManager.getConnection("book");
-			String sql = "select count(*) from dibsBook";
+		public int getSize(int log) {
+			conn = DBManager.getConnection(database);
+			String sql = String.format("select count(*) from dibsBook where id=%d", log);
 			
 			try {
 				pstmt = conn.prepareStatement(sql);

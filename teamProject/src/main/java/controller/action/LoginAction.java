@@ -25,6 +25,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	// id, password 입력된 부분에 대해서 검증 
 
 	String url = "";
+	
 	if (!dao.loginCheck(user)) {
 		url = "index.jsp";
 		

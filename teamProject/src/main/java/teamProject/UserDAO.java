@@ -108,7 +108,6 @@ public class UserDAO {
 				log = rs.getInt(1);
 			}
 			System.out.println("로그입력성공");
-			System.out.println("�α��Է¼���");
 			return log;
 		} catch (Exception e) {
 			// TODO: handle exception

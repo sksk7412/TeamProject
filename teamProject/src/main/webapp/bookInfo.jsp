@@ -22,6 +22,7 @@
 	}
 	String isbn = request.getParameter("isbn");
 	String isbns[] = isbn.split(" ");
+	System.out.println("id: "+ id);
 %>
 <body>
 	<div class="wrap">
@@ -50,7 +51,6 @@
 	</div>
 		<%
 			if(id != -1){
-				// 선주형 바보 
 		%>
     	 	
 			<form method="post" action="./Service">

@@ -51,8 +51,87 @@ function getResult(keyword, dir) {
 		})
 }
 
+
+
+
+function getBookForIsbn(isbn){
+	
+	let isbns = isbn.split(" ");
+
+	$.ajax({
+        method : 'get',
+        url :`https://dapi.kakao.com//v3/search/book`,
+        headers: {
+            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+        },
+        data: {
+           query: isbns[0],
+           target: 'isbn'
+        },
+        encoding: 'UTF-8',
+    })
+    .done(data =>{
+        const result = data.documents;
+		result.forEach(book=>{
+			console.log(book.valueOf());
+			let html = `<div class="bookList"><img src = "${book.thumbnail}">`;
+			html += `<div class="bookInfo">${book.title}</div>`;
+			html += `<div class="bookInfo">${book.authors}</div></div>`;
+			
+			$('.dibsBookContents').append(html);
+        })
+    })
+}
+
+function getLibraryForIsbn(isbn){
+	
+	let isbns = isbn.split(" ");
+	
+	$.ajax({
+        method : 'get',
+        url :`https://dapi.kakao.com//v3/search/book`,
+        headers: {
+            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+        },
+        data: {
+           query: isbns[0],
+           target: 'isbn'
+        },
+        encoding: 'UTF-8',
+    })
+    .done(data =>{
+        const result = data.documents;
+
+		result.forEach(book=>{
+			console.log(book.valueOf());
+			/*let htmlThum = `<div class="LibraryList"><img src = "${book.thumbnail}"></div>`;
+			let htmlTitle = `<div class="LibraryList">${book.title}</div>`;
+			let htmlAu = `<div class="LibraryList">${book.authors}</div>`;
+			let htmlCon = `<div class="LibraryList">${book.contents}</div>`;*/
+			
+			let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
+			 html+= `<td class="bookTitle">${book.title}</td>`;
+			 html+= `<td class="bookAuthor">${book.authors}</td>`;
+			 html+= `<td class="bookContent">${book.contents}</td>`;
+			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`
+			$('tbody').append(html);
+			/*$('.bookThumnail').append(htmlThum);
+			$('.bookTitle').append(htmlTitle);
+			$('.bookAuthor').append(htmlAu);
+			$('.bookContent').append(htmlCon);*/
+			
+        })
+    })
+}
+
+
+
+
+
+
+
 // isbn을 이용해서 값 가져오기
-function getBookForIsbn(isbn) {
+/*function getBookForIsbn(isbn) {
 	let isbns = isbn.split(" ");
 
 	$.ajax({
@@ -87,7 +166,7 @@ function getBookForIsbn(isbn) {
 			$('.dibsBookContents').append(html);
 			})
 		})
-}
+}*/
 
 // best_seller / new 책
 function getBookstoArray(bestSeller) {
