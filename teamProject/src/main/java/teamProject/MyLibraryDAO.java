@@ -32,7 +32,7 @@ public class MyLibraryDAO {
 	
 	private ArrayList<MyLibraryDTO> lis = new ArrayList<>();
 	
-	// DB¿¡ °ª ³Ö±â
+	// DBï¿½ï¿½ ï¿½ï¿½ ï¿½Ö±ï¿½
 	public int addBook(MyLibraryDTO LibraryDto) {
 		conn = DBManager.getConnection(database);
 		System.out.println("conn: " + conn);
@@ -55,7 +55,7 @@ public class MyLibraryDAO {
 		return -1;
 	}
 	
-	// DB¿¡¼­ °ª ºÒ·¯¿À±â
+	// DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	public ArrayList<MyLibraryDTO> getMyLibraryDto(){
 		conn = DBManager.getConnection("book");
 		String sql = "select * from myLibrary";

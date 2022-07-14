@@ -55,6 +55,13 @@ public class DibsBookDAO {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
 		return false;
 	}

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.dibsBook{
+	margin-top: 50px;
+    width:100vw;
+    background-color: white;
+}
+.dibBook{
+	width:60vw;
+	background-color: lightgray;
+	margin: auto;
+
+}
+
+.bookList{
+	width: 15vw;
+	background-color: #ffff80;
+	text-align: center;
+}
+.dibsBookContents{
+	width: 60vw;
+	backgroud-color: red;
+	display: flex;
+}
+
+
+
+.boardListContainer, formContainer {
+    width: 80vw;
+    margin: auto;
+    margin-top: 50px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td{
+	padding:20px; 
+}

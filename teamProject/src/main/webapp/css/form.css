@@ -1,4 +1,7 @@
 @charset "UTF-8";
+.wrap{
+	text-align:center;
+}
 .loginbox{
 	border : solid 1px black;
 	width : 480px;
