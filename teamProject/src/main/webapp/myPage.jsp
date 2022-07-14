@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/myPage.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <title>My page</title>
@@ -19,14 +20,13 @@
 	%>
 	<div class="wrap">
       
-      <jsp:include page="./header.jsp"></jsp:include>
+      <jsp:include page="header.jsp"></jsp:include>
        	<div class="container">
        		<div class="userTitle">
        			<p><img src="./image/mypage.png" class="myIcon"></p>
        			<span class=txt>
        				<h1><%=name%>님의 마이페이지</h1>
-       				<p>나의 이용권</p>
-       				<h3>ㅇㅇㅇ 정기권</h3>
+   
        			</span>
        			
        			<span class="setting">
@@ -41,9 +41,10 @@
        			<button class="myLibrary">나의 서재</button>
        			<button class="dibs">찜 목록</button>
        			<button class="review">마이 리뷰</button>
+       			<H2 class="title">나의 서재</H2>
        		</div>
        		<div class="ifr"> 				
-       			<iframe src="index.jsp" width="100%" height="100%" frameborder="0"
+       			<iframe src="myLibrary.jsp" width="100%" height="100%" frameborder="0"
        			scrolling="no" marginwidth="0" marginheight="0" class="reviewPage">
        			</iframe>
        		</div>     				

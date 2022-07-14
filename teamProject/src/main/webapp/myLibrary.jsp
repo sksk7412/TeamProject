@@ -13,7 +13,6 @@
 <title>MyLibrary</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
 		
 		<div class="boardListContainer">
 	        <table border="1">
