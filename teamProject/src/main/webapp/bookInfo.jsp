@@ -15,7 +15,11 @@
 <link rel="stylesheet" href="css/bookInfo.css">
 
 </head>
-<%
+<%	
+	int id = -1;
+	if(session.getAttribute("log")!= null){
+		 id = (int) session.getAttribute("log");	
+	}
 	String isbn = request.getParameter("isbn");
 	String isbns[] = isbn.split(" ");
 %>
@@ -44,7 +48,10 @@
 	<div class="bookWrap">
 	<div class="main">
 	</div>
-	
+		<%
+			if(id != -1){
+				// 선주형 바보 
+		%>
     	 	
 			<form method="post" action="./Service">
 				<input type="hidden" name="command" value="DibsBook" >
@@ -54,7 +61,18 @@
 			       	</div>
 			</form>
 			<button onclick="location.href='index.jsp'">바로 보기</button>
-		
+		<%
+			}
+		%>
+		<%
+			if(id == -1){
+		%>	
+			<div class="buttons">
+				<button onclick="location.href='subscription.jsp'">구독하기</button>
+			</div>
+		<%
+			}
+		%>
 	<div class="titles"> <h3>책 소개</h3></div><br><br>
 	<div class="main2"></div><br><br><br>
 	<div class ="star">
