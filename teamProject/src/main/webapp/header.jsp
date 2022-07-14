@@ -50,8 +50,10 @@
 				<p class="login" onclick="location.href='./loginPage'">LOGIN</p>
 				<%
 				}
-				%>
+				
+				if (session.getAttribute("log") == null) {%>
 				<p class="join" onclick="location.href='./join'">JOIN</p>
+				<%} %>
 			</div>
 		</div>
 
