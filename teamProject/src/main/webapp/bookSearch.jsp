@@ -14,18 +14,31 @@
 <link rel="stylesheet" href="css/bookSearch.css">
 </head>
 <body>
-	<div class="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
+	<div class="wrap">
+<<<<<<< HEAD
+		<jsp:include page="header.jsp"></jsp:include>
+=======
+>>>>>>> refs/remotes/origin/siyeon
 		<form class="searchWrap">
 			<div class="search_wrap">
 				<input type="text" id="input">
+<<<<<<< HEAD
 				<input type="button" id="submit" value="검색" onclick="search()">
+=======
+				<input type="button" id="submit" value="검색" onclick="search(2)">
+>>>>>>> refs/remotes/origin/siyeon
 			</div>
 		</form>
 		<div class="result"></div>
 		<div class="page_buttons">
 				<input type="hidden" id="page" name="page" value="1">
+<<<<<<< HEAD
 				<input type="button" id="next" value="next" onclick="search()">
+=======
+				<input type="button" id="preview" value="preview" onclick="search(1)">
+				<input type="button" id="next" value="next" onclick="search(2)">
+>>>>>>> refs/remotes/origin/siyeon
 		</div>
 	</div>
 <script src="bookApi.js"></script>

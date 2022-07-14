@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,28 +7,73 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="header">
-		<p class="logo">LOGO</p>
-		<div class="topMenu">
+<%
+	int log = -1;
+	if (session.getAttribute("log") != null) {
+		log = (int) session.getAttribute("log");
+		System.out.println(log + "##");
+	}
+	%>
+		<div class="header">
+			<a href="index.jsp" id="logo">
+			<img src="image/logo.png"></a>
+			<div class="topMenu">
+				<%
+				if (session.getAttribute("log") != null) {
+				%>
+				<p class="mypage" onclick="location.href='./mypage'">
+					<img src="image/mypage.png">
+				</p>
+				<%
+				} else {
+				%>
+				<p>
+					<img class="mypage2" src="image/mypage.png">
+				</p>
+				<%
+				}
+				%>
 
-			<p class="myPage">
-				<img src="image/mypage.png">
-			</p>
-			<p class="search">
-				<img src="image/search.png">
-			</p>
-			<p class="login">LOGIN</p>
-			<p class="join">JOIN</p>
+				<p class="search" onclick="location.href='bookSearch.jsp'">
+					<img src="image/search.png">
+				</p>
+				<%
+				if (session.getAttribute("log") != null) {
+				%>
+				<form id="logControl" method="post" action="./Service">
+					<input id="hiddenInput" type="hidden" name="command" value="">
+					<p class="login" onclick="clickEvent()">LOGOUT</p>
+				</form>
+				<%
+				} else {
+				%>
+				<p class="login" onclick="location.href='./loginPage'">LOGIN</p>
+				<%
+				}
+				%>
+				<p class="join" onclick="location.href='./join'">JOIN</p>
+			</div>
 		</div>
-	</div>
 
-	<div class="nav">
-		<div>
-			<p class="menu1">BEST</p>
-			<p class="menu2">NEW</p>
-			<p class="menu3">HOW TO</p>
-			<p class="menu4">ABOUT</p>
+		<div class="nav">
+			<div>
+				<p class="menu1" onclick="location.href='bestBook.jsp'">BEST</p>
+				<p class="menu2" onclick="location.href='newPage.jsp'">NEW</p>
+				<p class="menu3" onclick ="location.href='./subscription'">HOW TO</p>
+				<p class="menu4">ABOUT</p>
+			</div>
 		</div>
-	</div>
+		<script type="text/javascript">
+	function clickEvent(){
+		let log = document.getElementById('logControl');
+		let hiddenIn = document.getElementById('hiddenInput');
+		hiddenIn.setAttribute('value','logout');
+		log.submit();
+	}
+	
+	$('.mypage2').on('click', e=>{
+		alert("로그인 후 이용 가능합니다.");
+	})
+	</script>
 </body>
 </html>

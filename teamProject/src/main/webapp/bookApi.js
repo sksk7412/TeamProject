@@ -43,6 +43,7 @@ function getResult(keyword, dir) {
 				
 				$('.result').append(html);
 			})
+			
 			if(metas.is_end){
 				curpage--;
 				return;
@@ -123,3 +124,4 @@ function getBookstoArray(bestSeller) {
 
 
 }
+
