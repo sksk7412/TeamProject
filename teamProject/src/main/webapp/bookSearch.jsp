@@ -22,13 +22,19 @@
 				<img src="image/search.png" id="searchIcon">
 			</button>
 		</div>
-		<div class="result"></div>
+		<div class="section">
+			<div class="left" onclick="search(1)">
+				<img src="image/left_arrow.png">
+			</div>
+			<div class="result"></div>
+			<div class="right" onclick="search(2)">
+				<img src="image/right_arrow.png">
+			</div>
+		</div>
 		<div class="page_buttons">
-			<button id="pre"></button>
 			<p id="nowP"></p>
 			<p>/</p>
-			<p id="totlaP"></p>
-			<button id="next"></button>
+			<p id="totalP"></p>
 		</div>
 	</div>
 <script src="bookApi.js"></script>

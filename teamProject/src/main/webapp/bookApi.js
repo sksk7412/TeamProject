@@ -47,7 +47,11 @@ function getResult(keyword, dir) {
 				curpage--;
 				return;
 			}
-		})
+			$('#nowP').text(curpage);
+			$('#totalP').text(Math.ceil(metas.pageable_count / 10));
+			console.log(curpage);
+			console.log(metas.pageable_count);
+			})
 }
 
 // isbn을 이용해서 값 가져오기
