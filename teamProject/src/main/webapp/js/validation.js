@@ -22,3 +22,15 @@ $('.dibs').on('click', e=>{
 	$('.myLibrary').css('background-color','#f0f0f0');
 })
 
+$('.write').on('click', e=>{
+	
+	$('iframe').prop('src','./myReview.jsp');
+	
+})
+
+$('.wrote').on('click', e=>{
+	
+	$('iframe').prop('src','reviewBoard.jsp');
+	
+})
+

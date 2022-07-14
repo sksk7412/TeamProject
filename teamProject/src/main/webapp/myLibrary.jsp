@@ -15,13 +15,13 @@
 </head>
 <body>
 	<div class="wrap">
-	 <jsp:include page="header.jsp"></jsp:include>
+	<%--  <jsp:include page="header.jsp"></jsp:include> --%>
         
         <script>
         	let name = "";
 			let isbn = "";
 		</script>
-		
+		<h2>나의 서재</h2>
 		<div class="boardListContainer">
 	        <table border="1">
 	            <thead>

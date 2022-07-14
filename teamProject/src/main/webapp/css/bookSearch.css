@@ -10,6 +10,7 @@
 .search_wrap input[type="text"]:focus{
 	outline:0;
 }
+
 .search_wrap input[type="submit"]{
 	border:0;
 	background-color: transparent;
