@@ -18,25 +18,8 @@
         String name= dao.getName(log);        
 	%>
 	<div class="wrap">
-        <div class="header">
-            <p class="logo">LOGO</p>
-            <div class="topMenu">
-            <p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
-                <p class="search"><img src="./image/search.png"></p>
-                <p class="login">LOGIN</p>
-                <p class="join">JOIN</p>
-            </div>
-        </div>
-
-        <div class="nav">
-            <div>
-                <p class="menu1">BEST</p>
-                <p class="menu2">NEW</p>
-                <p class="menu3">HOW TO</p>
-                <p class="menu4">ABOUT</p>
-            </div>
-        </div>
-       
+      
+      <jsp:include page="./header.jsp"></jsp:include>
        	<div class="container">
        		<div class="userTitle">
        			<p><img src="./image/mypage.png" class="myIcon"></p>

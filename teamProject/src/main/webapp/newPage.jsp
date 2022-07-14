@@ -19,6 +19,7 @@
         	ArrayList<BestBookDTO> new_books = dao.getNewBooks();
 %>
 <body>
+<div class="wrap">
 	<jsp:include page="header.jsp"></jsp:include>
         <p class="mainContents">NEW</p>
         <div class="best_seller">
@@ -33,6 +34,7 @@
 			getBookstoArray(bestSeller);
 			});
 		</script>
+      </div>
       </div>
 </body>
 </html>

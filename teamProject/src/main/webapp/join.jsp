@@ -59,11 +59,11 @@
 				동의(선택)<br> <input type="checkbox" name="agree" value="3">성별,생년
 				정보 제공 동의(선택)<br> <input type="checkbox" name="agree" value="4">개인
 				정보 수집 및 이용 동의(필수)<br>
+		<input type="submit" class="join-btn" value="가입하기"
+			onclick="checkVal(form)">
 
 			</form>
 		</div>
-		<input type="submit" class="join-btn" value="가입하기"
-			onclick="checkVal(form)">
 	</div>
 	<script src="user.js"></script>
 </body>

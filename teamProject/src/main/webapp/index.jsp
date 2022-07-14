@@ -31,6 +31,7 @@
 				<button class="btn1">정기구독 신청하기</button>
 			</div>
 		</div>
+		
 	</div>
 
 </body>
