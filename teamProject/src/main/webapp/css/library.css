@@ -41,6 +41,13 @@
     width:24px;
     margin-top:3px;
 }
+#logo img{
+    font-weight: 700;
+    font-size: 35pt;
+    margin-left: 2vw;
+    padding-top:3vh;
+    width:280px;
+}
 .nav{
     width:100vw;
     font-family: 'Noto Sans KR', sans-serif;

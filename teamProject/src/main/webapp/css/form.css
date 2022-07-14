@@ -1,1 +1,94 @@
 @charset "UTF-8";
+.loginbox{
+	border : solid 1px black;
+	width : 480px;
+	margin: auto; 
+	margin-top : 90px;
+}
+.loginbox h2{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.loginbox input{
+	margin-top: 10px;
+	width : 418px;
+}	
+.loginbox .req{
+	height : 36px;
+}
+.buttons input[type="submit"],input[type="button"]{
+	height : 44px;
+	margin-bottom : 10px;
+	width : 418px;
+}
+.buttons .login-btn{
+	margin-top: 10px;
+}
+.joinBtn{
+	color: #FFFFFF;
+    background-color: #111111;
+}
+	
+.box h2{
+    margin-top:20px;
+}
+.hr-sect {
+        display: flex;
+        flex-basis: 100%;
+        align-items: center;
+        color: rgba(0, 0, 0, 0.35);
+        font-size: 12px;
+        margin: 8px 0px;
+      }
+      .hr-sect::before,
+      .hr-sect::after {
+        content: "";
+        flex-grow: 1;
+        background: rgba(0, 0, 0, 0.35);
+        height: 1px;
+        font-size: 0px;
+        line-height: 0px;
+        margin: 0px 16px;
+      }
+      
+.joinbox{
+	border : solid 1px black;
+	width : 1000px;
+	margin: auto; 
+	margin-top : 90px;
+	text-align : left;
+	padding-left: 30px;
+	padding-bottom: 30px;
+}
+.joinbox h3{
+	margin-top : 30px;
+	margin-bottom : 20px;
+}
+.joinbox input[type="button"]{
+	margin-right :15px;
+	width : 162px;
+	height : 52px;
+}
+.label{
+	margin-left:10px;
+	display:flex;
+}
+.label p{
+	width : 120px;
+	height : 20px;
+	color:darkgrey;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.label .req{
+	width : 400px;
+	height : 30px;
+}
+input[type="submit"]{
+	width: 240px;
+	height : 60px;
+	margin-top : 10px;
+	
+    color: #FFFFFF;
+    background-color: #111111;
+}

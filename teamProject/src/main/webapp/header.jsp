@@ -14,10 +14,9 @@
 		System.out.println(log + "##");
 	}
 	%>
-
-	
 		<div class="header">
-			<p class="logo">LOGO</p>
+			<a href="index.jsp" id="logo">
+			<img src="./image/logo.png"></a>
 			<div class="topMenu">
 				<%
 				if (session.getAttribute("log") != null) {
@@ -35,7 +34,7 @@
 				}
 				%>
 
-				<p class="search">
+				<p class="search" onclick="location.href='bookSearch.jsp'">
 					<img src="image/search.png">
 				</p>
 				<%
