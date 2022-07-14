@@ -21,7 +21,7 @@
         	let name = "";
 			let isbn = "";
 		</script>
-		<h2>나의 서재</h2>
+		<!-- <h2>나의 서재</h2> -->
 		<div class="boardListContainer">
 	        <table border="1">
 	            <thead>

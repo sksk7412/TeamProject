@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/myPage.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <title>My page</title>
@@ -40,6 +41,7 @@
        			<button class="myLibrary">나의 서재</button>
        			<button class="dibs">찜 목록</button>
        			<button class="review">마이 리뷰</button>
+       			<H2 class="title">나의 서재</H2>
        		</div>
        		<div class="ifr"> 				
        			<iframe src="myLibrary.jsp" width="100%" height="100%" frameborder="0"

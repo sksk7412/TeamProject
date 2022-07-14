@@ -21,7 +21,7 @@
 			let name = "";
 			let isbn = "";
 		</script>
-		<h2>찜한 목록</h2>
+		<!-- <h2>찜한 목록</h2> -->
 		<div class="dibsBook">
 			<div class="dibBook">
 				<div class="bookList2">

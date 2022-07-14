@@ -45,9 +45,9 @@
 #logo img{
     font-weight: 700;
     font-size: 35pt;
-    margin-left: 2vw;
+    margin-left: 2.2vw;
     padding-top:3vh;
-    width:280px;
+    width:240px;
 }
 .nav{
     width:100vw;
@@ -91,70 +91,14 @@
     background-color: white;
 }
 
-.userTitle{
-	
-	height:20vh;
-	display:flex;
-	text-align:left;
-	background-color:#fff9ed;
-	padding-top:30px;
-}
+
 .dibBook{
 	width:60vw;
 	background-color: red;
 	margin: auto;
 }
-.userTitle img {
-	width:7vw;
-	margin-left:17vw;
-	margin-top:10px;
-	color:#1b0f04;
-}
-.txt{
-	color:#1b0f04;
-	margin-top:20px;
-	margin-left:2vw;
-}
-.txt p{
-	margin-top:0.5vh;
-}
 
-.setting{
-	display:flex;
-	margin-left:10vw;
-}
- .setting .settingIcon{
-	width:1.5vw;
-	margin-top:5vh;
-	color:#1b0f04;
-}
-.setting h4{
-	margin:5vh 0 0 1vw;
-}
-.myMenu{
-	width:60vw;
-	margin:auto;
-	
-}
-.button{
-	margin-top:10px;
-	hegiht:7vh;
-	display:flex;
-	flex-wrap:wrap;
-}
-.myMenu .myLibrary{
-	background-color:#d0c09e;
-}
-.myMenu button{
-	width:20vw;
-	height:7vh;
-	font-family: 'Noto Sans KR', sans-serif;
-	border:none;
-	font-size:15pt;
-}
-.myMenu button:hover{
-	background-color:#d0c09e;
-}
+
 
 .box{
     display: flex;
@@ -204,31 +148,7 @@
 	font-size:16pt;
 }
 
-.reviewTable{
-	width:100%;
-	margin-top:20px;
-	text-align:center;
-}
-.allView{
-	width:19vw;
-	height:14vh;
-	border:none;
-	background-color:#f8f8f8;
-	font-size:13pt;
-	margin-top:20px;
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-}
-.boardTop{
-	display:flex;
-	justify-content: space-between;
-	
-}
-.writeBtn{
-	width:130px;
-	height:45px;
-	border:1.5px solid #d0c09e;
-	background-color:white;
-}
+
 
 .header{
     width:100vw;
@@ -313,33 +233,5 @@
 }
 
 
-.loginbox{
-	border : solid 1px black;
-}
-.bookList{
-	width:15vw;
-	background-color: yellow;
-	text-align: center;
-}
-.a{
-	width: 60vw;
-	display: flex;
-	flex-wrap: wrap;
-}
 
-
-
-.boardListContainer, formContainer {
-    width: 80vw;
-    margin: auto;
-    margin-top: 50px;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-td{
-	padding:20px;
-}
 

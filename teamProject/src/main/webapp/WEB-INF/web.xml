@@ -78,4 +78,13 @@
   	<servlet-name>WriteReview</servlet-name>
   	<url-pattern>/write</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>Review</servlet-name>
+  	<jsp-file>/review.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Review</servlet-name>
+  	<url-pattern>/review</url-pattern>
+  </servlet-mapping>
 </web-app>

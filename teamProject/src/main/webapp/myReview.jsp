@@ -12,8 +12,8 @@
 	<div class="wrap">
 
 		<div class="boardTop">
-		<h2>작성 가능한 리뷰</h2>
-		<input type="button" class="allView" value="전체보기">
+		<p class="title"></p>
+		<input type="button" class="allView" value="전체보기" onclick="location.href='./review'">
 		</div>
 		<table class="reviewTable">
             <tbody>
