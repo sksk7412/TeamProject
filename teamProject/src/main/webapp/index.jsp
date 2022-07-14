@@ -11,8 +11,6 @@
 <title>Main</title>
 </head>
 <body>
-<<<<<<< HEAD
-
 	<%
 	int log = -1;
 	if (session.getAttribute("log") != null) {

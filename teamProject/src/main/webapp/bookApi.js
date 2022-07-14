@@ -1,19 +1,18 @@
 // 검색어에 관한 책 값 가져오기
-let curpage = 1;	
+let curpage = 1;							// 최초 페이지
 function search(dir) {
-	let text = $('#input').val();
-	$('.result').empty();
+	let text = $('#input').val();			// 검색어 정
+	$('.result').empty();					// 검색 후 다시 검색 시 해당구역 초기화
 	
-	// 파라미터 page 존재여부 확인 후
 	getResult(text, dir);
 }
 
 function getResult(keyword, dir) {
-	if(dir === 2){
-		curpage++;
+	if(dir === 2){							// next-button 의 value == 2
+		curpage++;							// page++
 	}
-	else if(dir === 1 && curpage > 1){
-		curpage--;
+	else if(dir === 1 && curpage > 1){		// preview-button 의 value == 1
+		curpage--;							// page--
 	}
 	$.ajax({
 		method: 'get',
@@ -39,11 +38,10 @@ function getResult(keyword, dir) {
 
 				let html = `<div class='book' onclick="location.href='${url}'">`;
 				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`
-				html += `<span id="title">'${book.title}'</span></div>`;
+				html += `<div class="title">'${book.title}'</div></div>`;
 
 				$('.result').append(html);
 			})
-			console.log("now"+curpage);
 			
 			if(metas.is_end){
 				curpage--;
@@ -54,7 +52,6 @@ function getResult(keyword, dir) {
 
 // isbn을 이용해서 값 가져오기
 function getBookForIsbn(isbn) {
-
 	let isbns = isbn.split(" ");
 
 	$.ajax({
@@ -96,7 +93,6 @@ function getBookstoArray(bestSeller) {
 	for (let i = 0; i < bestSeller.length; i++) {
 		let num = bestSeller[i];
 		num = num.split(" ");
-		console.log(num);
 
 		$.ajax({
 			method: 'get',
@@ -111,7 +107,6 @@ function getBookstoArray(bestSeller) {
 			encoding: 'UTF-8',
 		}).done(data => {
 			const result = data.documents;
-			console.log(result);
 			result.forEach(book => {
 				
 				let html = `<div class="bookInfo"><div class="img"><img id="thumbnail" src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div></div></div>`;

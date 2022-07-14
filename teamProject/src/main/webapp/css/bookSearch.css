@@ -34,14 +34,17 @@
 }
 .result{
 	margin: 0;
-	padding-top:100px;
+	padding-top:50px;
 	width:100%;
 	display:flex;
 	flex-wrap:wrap;
 	justify-content: center;
 	
 }
-#title{
+.title{
+	text-align: center;
+    font-size: 18px;
+    font-weight: 600;
 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
