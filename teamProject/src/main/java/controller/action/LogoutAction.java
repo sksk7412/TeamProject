@@ -11,9 +11,10 @@ import controller.Action;
 public class LogoutAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	// TODO Auto-generated method stub
-		request.removeAttribute("log");
-		String url ="index"; 
+		request.getSession().invalidate();
+		//	request.removeAttribute("log");
+		String url ="login.jsp"; 
 		request.getRequestDispatcher(url).forward(request, response);
+		System.out.println("로그아웃완료");
 	}
 }
