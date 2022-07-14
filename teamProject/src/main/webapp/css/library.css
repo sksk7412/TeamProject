@@ -48,6 +48,9 @@
     margin-left: 2vw;
     padding-top:3vh;
     width:280px;
+    margin-left: 2.2vw;
+    padding-top:3vh;
+    width:240px;
 }
 .nav{
     width:100vw;
@@ -350,7 +353,7 @@
 }
 .button{
 	margin-top:10px;
-	hegiht:7vh;
+	height:7vh;
 	display:flex;
 	flex-wrap:wrap;
 }
@@ -528,6 +531,7 @@
 .loginbox{
 	border : solid 1px black;
 }
+}
 .bookList{
 	width:15vw;
 	background-color: yellow;
@@ -557,6 +561,8 @@ td{
 }
 .bookList{
 	width:15vw;
+=======
+>>>>>>> refs/heads/master
 	background-color: yellow;
 	text-align: center;
 }

@@ -7,7 +7,11 @@ import java.sql.ResultSet;
 
 import util.DBManager;
 
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> refs/heads/master
 public class UserDAO {
 	private static UserDAO instance=new UserDAO();
 	public static UserDAO getInstance() {
@@ -107,8 +111,18 @@ public class UserDAO {
 			if(rs.next()) {
 				log = rs.getInt(1);
 			}
-			System.out.println("로그입력성공");
+<<<<<<< HEAD
+=======
+
 			System.out.println("�α��Է¼���");
+
+>>>>>>> refs/heads/master
+			System.out.println("로그입력성공");
+<<<<<<< HEAD
+			System.out.println("�α��Է¼���");
+=======
+
+>>>>>>> refs/heads/master
 			return log;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -123,7 +137,17 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
+<<<<<<< HEAD
+=======
+
+		System.out.println("�α��Է½���");
+
+>>>>>>> refs/heads/master
 		System.out.println("로그인 실패");
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/heads/master
 		return log;
 	}
 	
@@ -159,6 +183,9 @@ public class UserDAO {
 		}
 		return true;
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> refs/heads/master
 
 }

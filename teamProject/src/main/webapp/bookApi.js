@@ -43,7 +43,10 @@ function getResult(keyword, dir) {
 				
 				$('.result').append(html);
 			})
+<<<<<<< HEAD
 			
+=======
+>>>>>>> refs/heads/master
 			if(metas.is_end){
 				curpage--;
 				return;

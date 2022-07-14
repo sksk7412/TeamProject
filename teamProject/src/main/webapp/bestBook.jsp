@@ -20,25 +20,7 @@
 %>
 <body>
 	<div class="wrap">
-        <div class="header">
-            <p class="logo" onclick="location.href='index.jsp'">LOGO</p>
-            <div class="topMenu">
-            	
-                <p class="myPage"><img src="image/mypage.png"></p>
-                <p class="search" onclick="location.href='bookSearch.jsp'"><img src="image/search.png"></p>
-                <p class="login">LOGIN</p>
-                <p class="join">JOIN</p>
-            </div>
-        </div>
-
-        <div class="nav">
-            <div>
-                <p class="menu1" onclick="location.href='bestBook.jsp'">BEST</p>
-                <p class="menu2" onclick="location.href='newPage.jsp'">NEW</p>
-                <p class="menu3">HOW TO</p>
-                <p class="menu4">ABOUT</p>
-            </div>
-        </div>
+	<jsp:include page="header.jsp"></jsp:include>
         <p class="mainContents">BEST SELLER</p>
         <div class="best_seller">
 	    	<div class = "book"></div>

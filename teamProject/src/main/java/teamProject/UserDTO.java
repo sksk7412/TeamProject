@@ -65,3 +65,7 @@ public class UserDTO {
 	}
 
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/heads/master

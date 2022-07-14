@@ -16,7 +16,11 @@
 	%>
 		<div class="header">
 			<a href="index.jsp" id="logo">
+<<<<<<< HEAD
 			<img src="image/logo.png"></a>
+=======
+			<img src="./image/logo.png"></a>
+>>>>>>> refs/heads/master
 			<div class="topMenu">
 				<%
 				if (session.getAttribute("log") != null) {

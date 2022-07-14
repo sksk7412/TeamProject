@@ -16,7 +16,11 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
+<<<<<<< HEAD
 	<div class="wrap">
+=======
+		
+>>>>>>> refs/heads/master
 		<div class="boardListContainer">
 			<table border="1">
 				<thead>
