@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/books.css">
 <script src="bookApi.js"></script>
-<title>Insert title here</title>
+<title>DibsBook</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>

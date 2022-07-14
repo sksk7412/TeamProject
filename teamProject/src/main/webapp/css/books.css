@@ -6,13 +6,11 @@
 }
 .dibBook{
 	width:60vw;
-	background-color: lightgray;
 	margin: auto;
 
 }
 .bookList{
 	width: 15vw;
-	background-color: #ffff80;
 	text-align: center;
 }
 .dibsBookContents{
