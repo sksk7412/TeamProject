@@ -90,6 +90,7 @@ function getBookForIsbn(isbn) {
 
 // best_seller / new 책
 function getBookstoArray(bestSeller) {
+	
 	for (let i = 0; i < bestSeller.length; i++) {
 		let num = bestSeller[i];
 		num = num.split(" ");
