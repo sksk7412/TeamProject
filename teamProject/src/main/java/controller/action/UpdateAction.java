@@ -27,7 +27,8 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	user = new UserDTO(UserPw,name,mobile);	
 	
 	String url = "";
-		
+	
+	System.out.println(UserPw);
 		
 	if(!temp.updateUser(user, log)){
 		
