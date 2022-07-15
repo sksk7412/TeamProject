@@ -14,7 +14,6 @@ function getResult(keyword, dir) {
 	else if(dir === 1 && curpage > 1){		// preview-button 의 value == 1
 		curpage--;							// page--
 	}
-	console.log("getResult");
 	$.ajax({
 		method: 'get',
 		url: `https://dapi.kakao.com//v3/search/book`,
@@ -34,6 +33,8 @@ function getResult(keyword, dir) {
 			
 			result.forEach(book => {
 				const isbn = book.isbn;
+				
+				
 
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
@@ -41,13 +42,22 @@ function getResult(keyword, dir) {
 				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`
 				html += `<div class="title">'${book.title}'</div></div>`;
 				
+				let pageButton = `<p id='nowP'></p>`
+				pageButton += `<p>/</p>`
+				pageButton += `<p id='totalP'></p>`
+				
 				$('.result').append(html);
+				$('.page_buttons').append(pageButton);
 			})
-			if(metas.is_end){
+			let maxPage = Math.ceil(metas.pageable_count / 10);
+			if(metas.is_end && curpage > maxPage){
 				curpage--;
 				return;
 			}
-		})
+			
+			$('#nowP').text(curpage);
+			$('#totalP').text(maxPage);
+			})
 }
 
 // isbn을 이용해서 값 가져오기

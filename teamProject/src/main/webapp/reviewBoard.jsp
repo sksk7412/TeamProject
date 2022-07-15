@@ -8,9 +8,10 @@
 <title>Review Board</title>
 </head>
 <body>
+
 	<div class="wrap">
 	<div class="container">
-		  <h2>작성한 리뷰</h2>
+	<H2>comming soon...</H2>
 	</div>
 	</div>
 	

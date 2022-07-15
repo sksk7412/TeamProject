@@ -27,6 +27,7 @@
 .setting{
 	display:flex;
 	margin-left:10vw;
+	cursor:pointer;
 }
  .setting .settingIcon{
 	width:1.5vw;

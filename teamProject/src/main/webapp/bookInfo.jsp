@@ -11,42 +11,52 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/bookInfo.css">
 
 </head>
 <%
-String isbn = request.getParameter("isbn");
+	int id = -1;
+	if(session.getAttribute("log")!= null){
+		 id = (int) session.getAttribute("log");	
+	}
+	String isbn = request.getParameter("isbn");
+	String isbns[] = isbn.split(" ");
 %>
 <body>
-	<div class="wrap">
-		<div class="header">
-			<p class="logo" onclick="location.href='./index.jsp'">LOGO</p>
-			<div class="topMenu">
-				<p class="search">
-					<img src="image/search.png">
-				</p>
-				<p class="login">LOGIN</p>
-				<p class="join">JOIN</p>
-			</div>
-		</div>
 
-		<div class="nav">
-			<div>
-				<p class="menu1">BEST</p>
-				<p class="menu2">NEW</p>
-				<p class="menu3">HOW TO</p>
-				<p class="menu4">ABOUT</p>
-			</div>
-		</div>
+	<div class="wrap">
+		<jsp:include page="header.jsp"></jsp:include>
+		
 		
 	<div class="bookWrap">
 	<div class="main">
 	</div>
-		<div class="buttons">
-			<button onclick="location.href='index.jsp'">♡ 찜하기</button>
-			<button onclick="location.href='index.jsp'">바로 보기</button>
+	<%
+			if(id != -1){
+				// 선주형 바보 
+		%>
+    	 	
+			<form method="post" action="./Service">
+				<input type="hidden" name="command" value="Dibsbook" >
+				<input type="hidden" value="<%=isbns[0]%>" name="isbn">
+					<div class="buttons">
+			       		<input type="submit" value="♡ 찜하기"><br>
+			       		<button onclick="location.href='index.jsp'" class="watch">바로 보기</button>
+			</form>
 		</div>
+		<%
+			}
+		%>
+		<%
+			if(id == -1){
+		%>	
+			<div class="buttons2">
+				<button onclick="location.href='subscription.jsp'">구독하기</button>
+			</div>
+		<%
+			}
+		%>
 	<div class="titles"> <h3>책 소개</h3></div><br><br>
 	<div class="main2"></div><br><br><br>
 	<div class ="star">

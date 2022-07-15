@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
-* {
-	color: white;
+.bookWrap{
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #1b0f04;
+	background-color:#f8f8f8;
 }
-
 .bookInfo {
 	display: flex;
 	padding: 0 150px 0 150px;
@@ -26,6 +27,9 @@
 	margin-top:40px;
 	display:flex;
 }
+.img img{
+	margin-top:15px;	
+	}
 .title{
 	width:20vw;
 	text-align:left;
@@ -36,8 +40,8 @@
 .authors{
 	width:12vw;
 	text-align:left;
-	font-size:12pt;
-	font-weight:500;
+	font-size:13pt;
+	font-weight:700;
 	margin-left:120px;
 }
 .publisher{
@@ -48,6 +52,7 @@
 	margin-left:120px;
 }
 .main2 {
+	width:60vw;
 	margin: auto;
 }
 
@@ -55,18 +60,35 @@
 	font-size:15pt;
 	width: 60vw;
 	margin: auto;
+	margin-top:30px;
 }
 
 .buttons {
 	text-align: center;
-	
+	margin-left:390px;
+	display:flex;
 }
 
-.buttons button {
-	background-color: gray;
+.buttons input, .watch {
+	background-color: #1b0f04;;
 	width: 180px;
 	height: 42px;
 	border-radius: 7px;
+	color:#fff9ed;
+	margin-right:20px;
+}
+
+.buttons2 {
+	text-align: center;
+
+	
+}
+.buttons2 button{
+	background-color: #1b0f04;;
+	width: 180px;
+	height: 42px;
+	border-radius: 7px;
+	color:#fff9ed;
 }
 .starBox{
 	height: 150px;

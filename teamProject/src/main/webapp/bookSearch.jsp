@@ -14,19 +14,24 @@
 <link rel="stylesheet" href="css/bookSearch.css">
 </head>
 <body>
-		<jsp:include page="header.jsp"></jsp:include>
 	<div class="wrap">
-		<form class="searchWrap">
-			<div class="search_wrap">
-				<input type="text" id="input">
-				<input type="button" id="submit" value="검색" onclick="search(2)">
+		<jsp:include page="header.jsp"></jsp:include>
+		<div class="searchWrap">
+			<input type="text" id="input">
+			<button id="button" onclick="search(0)">
+				<img src="image/search.png" id="searchIcon">
+			</button>
+		</div>
+		<div class="section">
+			<div class="arrow" onclick="search(1)">
+				<img src="image/left_arrow.png">
 			</div>
-		</form>
-		<div class="result"></div>
+			<div class="result"></div>
+			<div class="arrow" onclick="search(2)">
+				<img src="image/right_arrow.png">
+			</div>
+		</div>
 		<div class="page_buttons">
-				<input type="hidden" id="page" name="page" value="1">
-				<input type="button" id="preview" value="preview" onclick="search(1)">
-				<input type="button" id="next" value="next" onclick="search(2)">
 		</div>
 	</div>
 <script src="bookApi.js"></script>
