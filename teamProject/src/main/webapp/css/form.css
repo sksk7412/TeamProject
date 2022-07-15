@@ -200,7 +200,7 @@ input[type="submit"]{
 .btns{
 	display: flex;
 }
-.btns img{
+.btns .kakao{
 	cursor : pointer;
 	margin-right: 60px;
 }
