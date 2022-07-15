@@ -16,7 +16,7 @@
 	%>
 		<div class="header">
 			<a href="index.jsp" id="logo">
-			<img src="image/logo.png"></a>
+			<img src="./image/logo.png"></a>
 			<div class="topMenu">
 				<%
 				if (session.getAttribute("log") != null) {
@@ -37,9 +37,11 @@
 				<p class="search" onclick="location.href='bookSearch.jsp'">
 					<img src="image/search.png">
 				</p>
+				
 				<%
 				if (session.getAttribute("log") != null) {
 				%>
+				
 				<form id="logControl" method="post" action="./Service">
 					<input id="hiddenInput" type="hidden" name="command" value="">
 					<p class="login" onclick="clickEvent()">LOGOUT</p>
@@ -50,8 +52,10 @@
 				<p class="login" onclick="location.href='./loginPage'">LOGIN</p>
 				<%
 				}
-				%>
+				
+				if (session.getAttribute("log") == null) {%>
 				<p class="join" onclick="location.href='./join'">JOIN</p>
+				<%} %>
 			</div>
 		</div>
 

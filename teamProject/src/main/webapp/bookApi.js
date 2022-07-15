@@ -3,9 +3,12 @@ let curpage = 1;							// 최초 페이지
 function search(dir) {
 	let text = $('#input').val();			// 검색어 정
 	$('.result').empty();					// 검색 후 다시 검색 시 해당구역 초기화
-	
+	$('.left_arrow').empty();
+	$('.right_arrow').empty();
+	$('.page_buttons').empty();
 	getResult(text, dir);
 }
+
 
 function getResult(keyword, dir) {
 	if(dir === 2){							// next-button 의 value == 2
@@ -14,7 +17,6 @@ function getResult(keyword, dir) {
 	else if(dir === 1 && curpage > 1){		// preview-button 의 value == 1
 		curpage--;							// page--
 	}
-	console.log("getResult");
 	$.ajax({
 		method: 'get',
 		url: `https://dapi.kakao.com//v3/search/book`,
@@ -34,21 +36,39 @@ function getResult(keyword, dir) {
 			
 			result.forEach(book => {
 				const isbn = book.isbn;
-
+				
+				if(book.thumbnail !== ""){
+					
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
 				let html = `<div class='book' onclick="location.href='${url}'">`;
 				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`
 				html += `<div class="title">'${book.title}'</div></div>`;
 				
+				
 				$('.result').append(html);
+				}
 			})
 			
-			if(metas.is_end){
+			let maxPage = Math.ceil(metas.pageable_count / 10);
+			
+			let left_arrow = `<img src="image/left_arrow.png" id="arrow">`
+			let right_arrow = `<img src="image/right_arrow.png" id="arrow">`
+			$('.left_arrow').append(left_arrow);
+			$('.right_arrow').append(right_arrow);
+
+			if(metas.is_end && curpage > maxPage){
 				curpage--;
 				return;
 			}
-		})
+			let pageButton = `<p id='nowP'></p>`
+			pageButton += `<p>/</p>`
+			pageButton += `<p id='totalP'></p>`
+			
+			$('.page_buttons').append(pageButton);
+			$('#nowP').text(curpage);
+			$('#totalP').text(maxPage);
+			})
 }
 
 // isbn을 이용해서 값 가져오기
@@ -89,6 +109,46 @@ function getBookForIsbn(isbn) {
 		})
 }
 
+function getLibraryForIsbn(isbn){
+
+	
+	$.ajax({
+        method : 'get',
+        url :`https://dapi.kakao.com//v3/search/book`,
+        headers: {
+            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+        },
+        data: {
+           query: isbn,
+           target: 'isbn'
+        },
+        encoding: 'UTF-8',
+    })
+    .done(data =>{
+        const result = data.documents;
+
+		result.forEach(book=>{
+			console.log(book.valueOf());
+			/*let htmlThum = `<div class="LibraryList"><img src = "${book.thumbnail}"></div>`;
+			let htmlTitle = `<div class="LibraryList">${book.title}</div>`;
+			let htmlAu = `<div class="LibraryList">${book.authors}</div>`;
+			let htmlCon = `<div class="LibraryList">${book.contents}</div>`;*/
+			
+			let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
+			 html+= `<td class="bookTitle">${book.title}</td>`;
+			 html+= `<td class="bookAuthor">${book.authors}</td>`;
+			 html+= `<td class="bookContent">${book.contents}</td>`;
+			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`
+			$('tbody').append(html);
+			/*$('.bookThumnail').append(htmlThum);
+			$('.bookTitle').append(htmlTitle);
+			$('.bookAuthor').append(htmlAu);
+			$('.bookContent').append(htmlCon);*/
+			
+        })
+    })
+}
+
 // best_seller / new 책
 function getBookstoArray(bestSeller) {
 	for (let i = 0; i < bestSeller.length; i++) {
@@ -124,4 +184,3 @@ function getBookstoArray(bestSeller) {
 
 
 }
-
