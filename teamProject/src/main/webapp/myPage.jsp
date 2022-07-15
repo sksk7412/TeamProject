@@ -16,7 +16,7 @@
      if(session.getAttribute("log")!=null){
         int log = (int)session.getAttribute("log");
         UserDAO dao=UserDAO.getInstance();
-        String name= dao.getName(log);        
+        String name= dao.getName(log);
 	%>
 	<div class="wrap">
       

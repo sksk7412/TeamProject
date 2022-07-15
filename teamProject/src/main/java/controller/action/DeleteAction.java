@@ -26,7 +26,8 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	Timestamp createAt = new Timestamp(System.currentTimeMillis());
 	
 	user = new DibsBookDTO(id, isbn, createAt);
-	System.out.println(isbn);
+	System.out.println(id);
+	System.out.println("isbn: "+isbn);
 	
 	String url = "";
 	

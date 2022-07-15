@@ -13,11 +13,11 @@
 <link rel="stylesheet" href="css/bestBook.css">
 <title>BestBook</title>
 </head>
-<%
-        	BestBookDAO dao = BestBookDAO.getInstance();
+	<%
+        BestBookDAO dao = BestBookDAO.getInstance();
         	
-        	ArrayList<BestBookDTO> best_seller = dao.getBestBooks();
-%>
+        ArrayList<BestBookDTO> best_seller = dao.getBestBooks();
+	%>
 <body>
 	<div class="wrap">
         <div class="header">

@@ -31,7 +31,7 @@ public class DibsBookDAO {
 	private String password = "root";
 	Random ran = new Random();
 	
-	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
+	private ArrayList<DibsBookDTO> dibs;
 	
 	// DB값 넣기
 	public boolean addWrite(DibsBookDTO BoardDto) {
@@ -71,7 +71,8 @@ public class DibsBookDAO {
 		
 		conn = DBManager.getConnection(database);
 		System.out.println( DibsDto.getIsbn());
-		String sql = String.format("DELETE FROM dibsBook where isbn = '%s'", DibsDto.getIsbn());
+		String[] isbn = DibsDto.getIsbn().split(",");
+		String sql = String.format("DELETE FROM dibsBook where isbn = '%s'", isbn[0]);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -96,6 +97,7 @@ public class DibsBookDAO {
 
 	// DB값 불러오기
 	public ArrayList<DibsBookDTO> getDibsBookDto(int log) {
+		dibs = new ArrayList<>();
 		conn = DBManager.getConnection(database);
 		String sql = String.format("select * from dibsBook where id = %d", log);
 		
@@ -120,6 +122,7 @@ public class DibsBookDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			System.out.println("딥스 북 오류");
 		} finally {
 			try {
 				pstmt.close();
