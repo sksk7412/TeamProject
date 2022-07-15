@@ -71,4 +71,6 @@ public class BoardDAO {
 		}
 		return -1;
 	}
+	
+	
 }

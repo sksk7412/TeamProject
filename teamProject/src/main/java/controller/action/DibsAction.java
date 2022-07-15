@@ -35,7 +35,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	if(temp.addWrite(user)){
 		
 		System.out.println("찜 성공!!");
-		url = "index.jsp";
+		url = "";
 	}
 	else{
 		System.out.println("찜 실패!!");

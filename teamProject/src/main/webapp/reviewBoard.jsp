@@ -8,10 +8,17 @@
 <title>Review Board</title>
 </head>
 <body>
-
+<%
+if(session.getAttribute("log")!=null) {
+	int log = (int)session.getAttribute("log");
+%>
 	<div class="wrap">
 	<div class="container">
-	<H2>comming soon...</H2>
+	<table>
+		<div>
+			
+		</div>
+	</table>
 	</div>
 	</div>
 	
