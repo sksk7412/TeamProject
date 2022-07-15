@@ -38,6 +38,7 @@ function getResult(keyword, dir) {
 				
 				if(book.thumbnail == null){
 					return;
+					// 수정된 부
 				}
 
 				let url = `bookInfo.jsp?isbn=${isbn}`;
