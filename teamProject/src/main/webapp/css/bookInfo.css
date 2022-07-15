@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+.container{
+	background-color:#f8f8f8;
+}
 .bookWrap{
 	font-family: 'Noto Sans KR', sans-serif;
 	color: #1b0f04;
@@ -54,6 +56,7 @@
 .main2 {
 	width:60vw;
 	margin: auto;
+	background-color:#f8f8f8;
 }
 
 .titles {
@@ -80,7 +83,6 @@
 
 .buttons2 {
 	text-align: center;
-
 	
 }
 .buttons2 button{

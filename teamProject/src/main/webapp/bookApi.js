@@ -3,7 +3,9 @@ let curpage = 1;							// 최초 페이지
 function search(dir) {
 	let text = $('#input').val();			// 검색어 정
 	$('.result').empty();					// 검색 후 다시 검색 시 해당구역 초기화
-	
+	$('.left_arrow').empty();
+	$('.right_arrow').empty();
+	$('.page_buttons').empty();
 	getResult(text, dir);
 }
 
@@ -34,7 +36,10 @@ function getResult(keyword, dir) {
 			result.forEach(book => {
 				const isbn = book.isbn;
 				
-				
+				console.log(book.thumbnail);				
+				if(book.thumbnail !== ""){
+					
+					// 수정된 부
 
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
@@ -42,12 +47,9 @@ function getResult(keyword, dir) {
 				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`
 				html += `<div class="title">'${book.title}'</div></div>`;
 				
-				let pageButton = `<p id='nowP'></p>`
-				pageButton += `<p>/</p>`
-				pageButton += `<p id='totalP'></p>`
 				
 				$('.result').append(html);
-				$('.page_buttons').append(pageButton);
+				}
 			})
 			let maxPage = Math.ceil(metas.pageable_count / 10);
 			if(metas.is_end && curpage > maxPage){
@@ -55,47 +57,92 @@ function getResult(keyword, dir) {
 				return;
 			}
 			
+			let left_arrow = `<img src="image/left_arrow.png" id="arrow">`
+			let right_arrow = `<img src="image/right_arrow.png" id="arrow">`
+
+			let pageButton = `<p id='nowP'></p>`
+			pageButton += `<p>/</p>`
+			pageButton += `<p id='totalP'></p>`
+			
+			$('.page_buttons').append(pageButton);
+			$('.left_arrow').append(left_arrow);
+			$('.right_arrow').append(right_arrow);
 			$('#nowP').text(curpage);
 			$('#totalP').text(maxPage);
 			})
 }
 
 // isbn을 이용해서 값 가져오기
-function getBookForIsbn(isbn) {
+function getBookForIsbn(isbn){
+	
+//	let isbns = String(isbn).split(" ");
 	let isbns = isbn.split(" ");
 
+
 	$.ajax({
-		method: 'get',
-		url: `https://dapi.kakao.com//v3/search/book`,
-		headers: {
-			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
-		},
-		data: {
-			query: isbns[0],
-			target: 'isbn'
-		},
-		encoding: 'UTF-8',
-	})
-		.done(data => {
-			const result = data.documents;
+        method : 'get',
+        url :`https://dapi.kakao.com//v3/search/book`,
+        headers: {
+            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+        },
+        data: {
+           query: isbns[0],
+           target: 'isbn'
+        },
+        encoding: 'UTF-8',
+    })
+    .done(data =>{
+        const result = data.documents;
 		result.forEach(book=>{
 			console.log(book.valueOf());
-			let html = `<div class="bookInfo">
-							<div class="img"><img src="${book.thumbnail}"></div>
-							<div class="info">
-								<div class="title">${book.title}</div>
-								<div class="authors">${book.authors}</div>
-								<div class="publisher">${book.publisher}</div>
-								
-							</div>
-						</div>`;
-			let html2 = `<div class="contents">${book.contents}</div>`;
+			let html = `<div class="bookList"><img src = "${book.thumbnail}">`;
+			html += `<div class="bookInfo">${book.title}</div>`;
+			html += `<div class="bookInfo">${book.authors}</div></div>`;
 			
-			$('.main').append(html);
-			$('.main2').append(html2);
 			$('.dibsBookContents').append(html);
-			})
-		})
+        })
+    })
+}
+
+function getLibraryForIsbn(isbn){
+	
+	let isbns = isbn.split(" ");
+	
+	$.ajax({
+        method : 'get',
+        url :`https://dapi.kakao.com//v3/search/book`,
+        headers: {
+            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+        },
+        data: {
+           query: isbns[0],
+           target: 'isbn'
+        },
+        encoding: 'UTF-8',
+    })
+    .done(data =>{
+        const result = data.documents;
+
+		result.forEach(book=>{
+			console.log(book.valueOf());
+			/*let htmlThum = `<div class="LibraryList"><img src = "${book.thumbnail}"></div>`;
+			let htmlTitle = `<div class="LibraryList">${book.title}</div>`;
+			let htmlAu = `<div class="LibraryList">${book.authors}</div>`;
+			let htmlCon = `<div class="LibraryList">${book.contents}</div>`;*/
+			
+			let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
+			 html+= `<td class="bookTitle">${book.title}</td>`;
+			 html+= `<td class="bookAuthor">${book.authors}</td>`;
+			 html+= `<td class="bookContent">${book.contents}</td>`;
+			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`
+			$('tbody').append(html);
+			/*$('.bookThumnail').append(htmlThum);
+			$('.bookTitle').append(htmlTitle);
+			$('.bookAuthor').append(htmlAu);
+			$('.bookContent').append(htmlCon);*/
+			
+        })
+    })
 }
 
 // best_seller / new 책

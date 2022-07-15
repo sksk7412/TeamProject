@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/bookInfo.css">
 <meta charset="UTF-8">
 <title>bookInfo</title>
 <script
@@ -11,10 +13,9 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="css/library.css">
-<link rel="stylesheet" href="css/bookInfo.css">
 
 </head>
+<body>
 <%
 	int id = -1;
 	if(session.getAttribute("log")!= null){
@@ -23,18 +24,16 @@
 	String isbn = request.getParameter("isbn");
 	String isbns[] = isbn.split(" ");
 %>
-<body>
-
 	<div class="wrap">
-		<jsp:include page="header.jsp"></jsp:include>
-		
-		
+	
+		<jsp:include page="header.jsp"></jsp:include>		
+	
+	<div class="container">
 	<div class="bookWrap">
 	<div class="main">
 	</div>
 	<%
 			if(id != -1){
-				// 선주형 바보 
 		%>
     	 	
 			<form method="post" action="./Service">
@@ -68,9 +67,10 @@
 	
 		</div>
 	
-	</div>
+	
 	<br><br><br>
 	<div class="titles"> 고객 리뷰</div><br><br><br>
+	</div>
 		
   	<%-- 	   <%
            if(dao.getBoardList().size()>0){
@@ -90,6 +90,7 @@
            <% }} %> --%>
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
+</div>
 </div>
 	</div>
 <script src="bookApi.js"></script>

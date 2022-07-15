@@ -13,7 +13,9 @@
 	margin-top:10px;
 	color:#1b0f04;
 }
-
+.ifr{
+	height:100vh;
+}
 .txt{
 	color:#1b0f04;
 	margin-top:20px;
