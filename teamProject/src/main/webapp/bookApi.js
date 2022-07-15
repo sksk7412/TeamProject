@@ -36,10 +36,10 @@ function getResult(keyword, dir) {
 			result.forEach(book => {
 				const isbn = book.isbn;
 				
-				if(book.thumbnail == null){
-					return;
+				console.log(book.thumbnail);				
+				if(book.thumbnail !== ""){
+					
 					// 수정된 부
-				}
 
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
@@ -49,6 +49,7 @@ function getResult(keyword, dir) {
 				
 				
 				$('.result').append(html);
+				}
 			})
 			let maxPage = Math.ceil(metas.pageable_count / 10);
 			if(metas.is_end && curpage > maxPage){
