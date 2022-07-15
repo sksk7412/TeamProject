@@ -36,7 +36,6 @@ function getResult(keyword, dir) {
 			result.forEach(book => {
 				const isbn = book.isbn;
 				
-				console.log(book.thumbnail);				
 				if(book.thumbnail !== ""){
 					
 				let url = `bookInfo.jsp?isbn=${isbn}`;
@@ -49,22 +48,23 @@ function getResult(keyword, dir) {
 				$('.result').append(html);
 				}
 			})
+			
 			let maxPage = Math.ceil(metas.pageable_count / 10);
+			
+			let left_arrow = `<img src="image/left_arrow.png" id="arrow">`
+			let right_arrow = `<img src="image/right_arrow.png" id="arrow">`
+			$('.left_arrow').append(left_arrow);
+			$('.right_arrow').append(right_arrow);
+
 			if(metas.is_end && curpage > maxPage){
 				curpage--;
 				return;
 			}
-			
-			let left_arrow = `<img src="image/left_arrow.png" id="arrow">`
-			let right_arrow = `<img src="image/right_arrow.png" id="arrow">`
-
 			let pageButton = `<p id='nowP'></p>`
 			pageButton += `<p>/</p>`
 			pageButton += `<p id='totalP'></p>`
 			
 			$('.page_buttons').append(pageButton);
-			$('.left_arrow').append(left_arrow);
-			$('.right_arrow').append(right_arrow);
 			$('#nowP').text(curpage);
 			$('#totalP').text(maxPage);
 			})
