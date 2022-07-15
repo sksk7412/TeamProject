@@ -36,7 +36,9 @@ function getResult(keyword, dir) {
 			result.forEach(book => {
 				const isbn = book.isbn;
 				
-				
+				if(book.thumbnail == null){
+					return;
+				}
 
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
