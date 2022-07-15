@@ -67,7 +67,6 @@ public class DibsBookDAO {
 		String sql = "select * from dibsBook";
 		
 		try {
-			
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			System.out.println(rs);

@@ -32,7 +32,7 @@
 	<div class="bookWrap">
 	<div class="main">
 	</div>
-	<%
+		<%
 			if(id != -1){
 				// 선주형 바보 
 		%>
