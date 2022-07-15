@@ -26,6 +26,7 @@ $('#checkAll').click(e => {
         }
     }
 })
+
 Kakao.init('3f31e8bd109b34cf032b507e1c53d24e');
 console.log(Kakao.isInitialized());
 function kakaoLogin() {
