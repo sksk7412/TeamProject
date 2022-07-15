@@ -20,7 +20,8 @@
         	<div class="joinbox">
             	<h3>간편 회원가입</h3>
 					<div class="btns">
-			       		<input type="button" name="kakao" value="카카오 간편 로그인" onclick="kakaoLogin();">
+			       		<img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+    						width="203" height="44" alt="카카오 로그인 버튼" class="kakao" onclick="kakaoLogin();" >
 			       		<div id="naverIdLogin"></div>
 			       	
        				</div>
