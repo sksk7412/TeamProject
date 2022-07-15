@@ -49,7 +49,7 @@ public class DibsBookDAO {
 			pstmt.setInt(1, BoardDto.getId());
 			pstmt.setString(2, BoardDto.getIsbn());
 			pstmt.setTimestamp(3, BoardDto.getCreatedAt());
-			
+			pstmt.executeUpdate();
 			return true;
 			
 		} catch (Exception e) {
@@ -135,14 +135,13 @@ public class DibsBookDAO {
 		public int getSize(int log) {
 			conn = DBManager.getConnection(database);
 			String sql = String.format("select count(*) from dibsBook where id=%d", log);
-			
+			int size = -1;
 			try {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
 				rs.next();
-				int size = rs.getInt(1);
-				
+				 size = rs.getInt(1);
 				return size;
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -156,7 +155,8 @@ public class DibsBookDAO {
 					// TODO: handle exception
 				}
 			}
-			return -1;
+			System.out.println(size);
+			return size;
 		}
 
 }
