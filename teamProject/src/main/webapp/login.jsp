@@ -31,7 +31,8 @@
        		<br>
        	</div>
        	<div class="buttons">
-       		<input type="button" class="kakao" name="kakao" value="카카오로 로그인" onclick="kakaoLogin();" ><br>
+       		<img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+    		width="210" alt="카카오 로그인 버튼" class="kakao" onclick="kakaoLogin();" ><br>
        		<div id="naverIdLogin"></div><br>
        		<input type="button" class="joinBtn"  name="join" value="회원가입" onclick="location.href='join.jsp'" >
        	</div>

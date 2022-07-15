@@ -200,3 +200,6 @@ input[type="submit"]{
 .btns{
 	display: flex;
 }
+.buttons img{
+	cursor : pointer;
+}
