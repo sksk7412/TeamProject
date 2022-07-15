@@ -26,6 +26,7 @@
     font-size: 35pt;
     margin-left: 7vw;
     padding-top:2vh;
+    cursor:pointer;
 }
 .topMenu{
     float:right;
@@ -36,10 +37,12 @@
 }
 .topMenu p{
     margin-left: 20px;
+    cursor:pointer;
 }
 .topMenu img{
     width:24px;
     margin-top:3px;
+    cursor:pointer;
 }
 #logo img{
     font-weight: 700;
@@ -57,7 +60,7 @@
    
 }
 .nav div{
-    width:80vw;
+    width:100vw;
     margin-left: 20vw;
     font-size: 16pt;
     display:flex;

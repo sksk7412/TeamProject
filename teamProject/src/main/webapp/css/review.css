@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.container{
+	width:60vw;
+	margin:auto;
+}
+.btn{
+	margin-top:40px;
+}
+.btn button{
+	background-color:white;
+	border:none;
+	margin-left:40px;
+	font-size:15pt;
+}
+.reviewTable{
+	width:100%;
+	margin-top:20px;
+	text-align:center;
+}
+.allView{
+	width:19vw;
+	height:8vh;
+	border:none;
+	background-color:#f8f8f8;
+	font-size:13pt;
+	margin-top:20px;
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+}
+.boardTop{
+	display:flex;
+	justify-content: space-between;
+	
+}
+.writeBtn{
+	width:130px;
+	height:45px;
+	border:1.5px solid #d0c09e;
+	background-color:white;
+}

@@ -1,18 +1,21 @@
+
 <%@page import="java.util.ArrayList"%>
+<%@page import="teamProject.BoardDAO"%>
+<%@page import="teamProject.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/bookInfo.css">
 <meta charset="UTF-8">
-<title>bookInfo</title>
+<title>BookInfo</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/bookInfo.css">
 
 </head>
 <%
@@ -24,31 +27,16 @@
 	String isbns[] = isbn.split(" ");
 %>
 <body>
-	<div class="wrap">
-		<div class="header">
-			<p class="logo" onclick="location.href='./index.jsp'">LOGO</p>
-			<div class="topMenu">
-				<p class="search">
-					<img src="image/search.png">
-				</p>
-				<p class="login">LOGIN</p>
-				<p class="join">JOIN</p>
-			</div>
-		</div>
 
-		<div class="nav">
-			<div>
-				<p class="menu1">BEST</p>
-				<p class="menu2">NEW</p>
-				<p class="menu3">HOW TO</p>
-				<p class="menu4">ABOUT</p>
-			</div>
-		</div>
-		
+	<div class="wrap">
+	
+		<jsp:include page="header.jsp"></jsp:include>		
+	
+	<div class="container">
 	<div class="bookWrap">
 	<div class="main">
 	</div>
-	<%
+		<%
 			if(id != -1){
 				// 선주형 바보 
 		%>
@@ -67,7 +55,7 @@
 		<%
 			if(id == -1){
 		%>	
-			<div class="buttons">
+			<div class="buttons2">
 				<button onclick="location.href='subscription.jsp'">구독하기</button>
 			</div>
 		<%
@@ -84,28 +72,36 @@
 	
 		</div>
 	
-	</div>
+	
 	<br><br><br>
 	<div class="titles"> 고객 리뷰</div><br><br><br>
+	</div>
 		
-  	<%-- 	   <%
-           if(dao.getBoardList().size()>0){
-           for(int i=dao.getSize()-1; i>=0; i--){
-            	BoardDTO board = dao.getBoardList().get(i);
-            	System.out.println(board.getCode());
-            %>
-            <tbody >
-            <tr>
-                <td><%=i+1%></td>
-                <td><%=board.getTitle()%></td>
-                <td><%=board.getContents()%></td>
-                <td><%=board.getCreatedAt()%></td>
-            </tr>                    
-        
-          </tbody>
-           <% }} %> --%>
+	  		<%
+				BoardDAO dao = BoardDAO.getInstance();
+	  		
+				System.out.println("log: " + log);
+				System.out.println("1111111: " + dao.getDibsBookDto(log).size());
+				System.out.println("2222: : " + dao.getSize(log));
+				if(dao.getDibsBookDto(log).size() > 0) {
+					for(int i=0; i < dao.getSize(log); i++){
+						DibsBookDTO dto = dao.getDibsBookDto(log).get(i);
+						String a = dto.getIsbn();
+			%>
+							
+				<input type="hidden" value="<%=dto.getIsbn()%>" id="isbn" class="isbn<%=i %>">
+				       <script>
+				             name = '.isbn' + <%=i%>;
+					         isbn = $(name).val();
+					         getBookForIsbn(isbn);
+				       </script>
+				 <%
+					}
+				}
+			%>
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
+</div>
 </div>
 	</div>
 <script src="bookApi.js"></script>

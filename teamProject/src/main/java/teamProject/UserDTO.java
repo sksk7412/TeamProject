@@ -23,6 +23,12 @@ public class UserDTO {
 		this.userId = userId;
 		this.userPw = userPw;
 	}
+	
+	public UserDTO(String userPw, String name, String mobile) {
+		this.userPw = userPw;
+		this.name = name;
+		this.mobile = mobile;
+	}
 
 	public int getId() {
 		return id;

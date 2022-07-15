@@ -37,7 +37,7 @@
   
   <servlet>
   	<servlet-name>Mypage</servlet-name>
-  	<jsp-file>/mypage/myPage.jsp</jsp-file>
+  	<jsp-file>/myPage.jsp</jsp-file>
   </servlet>
    <servlet-mapping>
   	<servlet-name>Mypage</servlet-name> 
@@ -68,5 +68,32 @@
   <servlet-mapping>
   	<servlet-name>Subscription</servlet-name>
   	<url-pattern>/subscription</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>WriteReview</servlet-name>
+  	<jsp-file>/writeReview.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>WriteReview</servlet-name>
+  	<url-pattern>/write</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>Review</servlet-name>
+  	<jsp-file>/review.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Review</servlet-name>
+  	<url-pattern>/review</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UserUpdate</servlet-name>
+  	<jsp-file>/userInfo.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserUpdate</servlet-name>
+  	<url-pattern>/userUpdate</url-pattern>
   </servlet-mapping>
 </web-app>
