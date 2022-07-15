@@ -3,7 +3,9 @@ let curpage = 1;							// 최초 페이지
 function search(dir) {
 	let text = $('#input').val();			// 검색어 정
 	$('.result').empty();					// 검색 후 다시 검색 시 해당구역 초기화
-	
+	$('.left_arrow').empty();
+	$('.right_arrow').empty();
+	$('.page_buttons').empty();
 	getResult(text, dir);
 }
 
@@ -42,12 +44,8 @@ function getResult(keyword, dir) {
 				html += `<p><img id="thumbnail" src='${book.thumbnail}'></p>`
 				html += `<div class="title">'${book.title}'</div></div>`;
 				
-				let pageButton = `<p id='nowP'></p>`
-				pageButton += `<p>/</p>`
-				pageButton += `<p id='totalP'></p>`
 				
 				$('.result').append(html);
-				$('.page_buttons').append(pageButton);
 			})
 			let maxPage = Math.ceil(metas.pageable_count / 10);
 			if(metas.is_end && curpage > maxPage){
@@ -55,6 +53,16 @@ function getResult(keyword, dir) {
 				return;
 			}
 			
+			let left_arrow = `<img src="image/left_arrow.png" id="arrow">`
+			let right_arrow = `<img src="image/right_arrow.png" id="arrow">`
+
+			let pageButton = `<p id='nowP'></p>`
+			pageButton += `<p>/</p>`
+			pageButton += `<p id='totalP'></p>`
+			
+			$('.page_buttons').append(pageButton);
+			$('.left_arrow').append(left_arrow);
+			$('.right_arrow').append(right_arrow);
 			$('#nowP').text(curpage);
 			$('#totalP').text(maxPage);
 			})

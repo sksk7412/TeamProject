@@ -23,12 +23,12 @@
 			</button>
 		</div>
 		<div class="section">
-			<div class="arrow" onclick="search(1)">
-				<img src="image/left_arrow.png">
+			<div class="left_arrow" onclick="search(1)">
+				
 			</div>
 			<div class="result"></div>
-			<div class="arrow" onclick="search(2)">
-				<img src="image/right_arrow.png">
+			<div class="right_arrow" onclick="search(2)">
+				
 			</div>
 		</div>
 		<div class="page_buttons">

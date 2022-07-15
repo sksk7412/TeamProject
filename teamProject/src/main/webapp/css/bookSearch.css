@@ -56,6 +56,9 @@
     margin: 0 auto;
     padding:20px 0;
 }
+#arrow{
+	height:160px;
+}
 #thumbnail{
 	border-radius:18px;
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
@@ -67,7 +70,7 @@
 .page_buttons>*{
 	margin: 0 10px;
 }
-.arrow > img{
+.section > img{
 	height : 170px;
 }
 @media (max-width:720px) {
