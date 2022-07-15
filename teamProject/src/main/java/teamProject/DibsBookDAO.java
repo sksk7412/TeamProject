@@ -96,7 +96,7 @@ public class DibsBookDAO {
 	// DB값 불러오기
 	public ArrayList<DibsBookDTO> getDibsBookDto(int log) {
 		conn = DBManager.getConnection(database);
-		String sql = String.format("select * from dibsBook where id =%d", log);
+		String sql = String.format("select * from dibsBook where id = %d", log);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

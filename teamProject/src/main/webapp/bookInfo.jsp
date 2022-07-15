@@ -4,52 +4,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/bookInfo.css">
 <meta charset="UTF-8">
-<title>bookInfo</title>
+<title>BookInfo</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/bookInfo.css">
 
 </head>
-<%	
+<body>
+<%
 	int id = -1;
 	if(session.getAttribute("log")!= null){
 		 id = (int) session.getAttribute("log");	
 	}
 	String isbn = request.getParameter("isbn");
 	String isbns[] = isbn.split(" ");
-	System.out.println("id: "+ id);
 %>
-<body>
 	<div class="wrap">
-		<div class="header">
-			<p class="logo" onclick="location.href='./index.jsp'">LOGO</p>
-			<div class="topMenu">
-				<p class="search">
-					<img src="image/search.png">
-				</p>
-				<p class="login">LOGIN</p>
-				<p class="join">JOIN</p>
-			</div>
-		</div>
-
-		<div class="nav">
-			<div>
-				<p class="menu1">BEST</p>
-				<p class="menu2">NEW</p>
-				<p class="menu3">HOW TO</p>
-				<p class="menu4">ABOUT</p>
-			</div>
-		</div>
-		
+	
+		<jsp:include page="header.jsp"></jsp:include>		
+	
+	<div class="container">
 	<div class="bookWrap">
 	<div class="main">
 	</div>
-		<%
+	<%
 			if(id != -1){
 		%>
     	 	
@@ -58,16 +41,16 @@
 				<input type="hidden" value="<%=isbns[0]%>" name="isbn">
 					<div class="buttons">
 			       		<input type="submit" value="♡ 찜하기"><br>
-			       	</div>
+			       		<button onclick="location.href='index.jsp'" class="watch">바로 보기</button>
 			</form>
-			<button onclick="location.href='index.jsp'">바로 보기</button>
+		</div>
 		<%
 			}
 		%>
 		<%
 			if(id == -1){
 		%>	
-			<div class="buttons">
+			<div class="buttons2">
 				<button onclick="location.href='subscription.jsp'">구독하기</button>
 			</div>
 		<%
@@ -84,9 +67,10 @@
 	
 		</div>
 	
-	</div>
+	
 	<br><br><br>
 	<div class="titles"> 고객 리뷰</div><br><br><br>
+	</div>
 		
   	<%-- 	   <%
            if(dao.getBoardList().size()>0){
@@ -97,17 +81,17 @@
             <tbody >
             <tr>
                 <td><%=i+1%></td>
-                <td><%=board.getTitle()%></td>     //
-                <td><%=board.getContents()%></td>  //내용
-                <td><%=board.getCreatedAt()%></td> // 작성일지
+                <td><%=board.getTitle()%></td>
+                <td><%=board.getContents()%></td>
+                <td><%=board.getCreatedAt()%></td>
             </tr>                    
         
           </tbody>
            <% }} %> --%>
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
-
-</div> 
+</div>
+</div>
 	</div>
 <script src="bookApi.js"></script>
 	<script type="text/javascript">

@@ -33,9 +33,7 @@
 					
 			            <%
 						DibsBookDAO dao = DibsBookDAO.getInstance();
-			            System.out.println("log: " + log);
-						System.out.println("1111111: " + dao.getDibsBookDto(log).size());
-						System.out.println("2222: : " + dao.getSize(log));
+			            
 						if(dao.getDibsBookDto(log).size() > 0) {
 							for(int i=0; i < dao.getSize(log); i++){
 								DibsBookDTO dto = dao.getDibsBookDto(log).get(i);
@@ -48,6 +46,7 @@
 				                isbn = $(name).val();
 				                getBookForIsbn(isbn);
 			                </script>
+			            <!-- <input type="button" value="삭제"> -->
 			            <%
 							}
 						}

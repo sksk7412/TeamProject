@@ -13,13 +13,13 @@
 
 .bookList{
 	width: 15vw;
-	/* background-color: #ffff80; */
+	background-color: #ffff80;
 	text-align: center;
 }
 .dibsBookContents{
 	width: 60vw;
-/* 	backgroud-color: red;
- */	display: flex;
+	backgroud-color: red;
+	display: flex;
 }
 
 
