@@ -15,7 +15,7 @@ import util.DBManager;
 
 public class DibsBookDAO {
 	
-	private DibsBookDAO() {}
+	private DibsBookDAO() {} 
 	private static DibsBookDAO instance = new DibsBookDAO();
 	
 	public static DibsBookDAO getInstance() {
@@ -70,13 +70,14 @@ public class DibsBookDAO {
 	public boolean deleteBook(DibsBookDTO DibsDto) {
 		
 		conn = DBManager.getConnection(database);
-		String sql = "DELETE FROM dibsBook where isbn=?";
+		System.out.println( DibsDto.getIsbn());
+		String sql = String.format("DELETE FROM dibsBook where isbn = '%s'", DibsDto.getIsbn());
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, DibsDto.getIsbn());
-			pstmt.execute();
+			pstmt.executeUpdate();
+			
 			return true;
 			
 		} catch (Exception e) {

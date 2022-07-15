@@ -71,7 +71,7 @@ function getResult(keyword, dir) {
 			})
 }
 
-// isbn을 이용해서 값 가져오기
+// isbn을 이용해서 찜하기에 값 가져오기
 function getBookForIsbn(isbn) {
 	let isbns = isbn.split(" ");
 
@@ -97,18 +97,20 @@ function getBookForIsbn(isbn) {
 								<div class="title">${book.title}</div>
 								<div class="authors">${book.authors}</div>
 								<div class="publisher">${book.publisher}</div>
-								
+								<input type="submit" class="delete" value="삭제">
 							</div>
 						</div>`;
 			let html2 = `<div class="contents">${book.contents}</div>`;
 			
 			$('.main').append(html);
 			$('.main2').append(html2);
-			$('.dibsBookContents').append(html);
+			$('.results').append(html);
 			})
 		})
 }
 
+
+// isbn을 이용하여 나의 서재에 값 가져오기
 function getLibraryForIsbn(isbn){
 	
 	let isbns = isbn.split(" ");

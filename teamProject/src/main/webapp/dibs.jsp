@@ -38,6 +38,7 @@
 							for(int i=0; i < dao.getSize(log); i++){
 								DibsBookDTO dto = dao.getDibsBookDto(log).get(i);
 								String a = dto.getIsbn();
+								out.println("isbn: " + a);
 						%>
 						
 						<input type="hidden" value="<%=dto.getIsbn()%>" id="isbn" class="isbn<%=i %>">
@@ -52,7 +53,11 @@
 						}
 						%>
 						
-			        	<div class="dibsBookContents">	</div>
+			        	<div class="dibsBookContents">
+			        		<form class="results" action="./Service">
+			        			<input type="hidden" name="command" value="deleteDibs">
+			        		</form>
+			        	</div>
 			    	
 				</div>
 			</div>
