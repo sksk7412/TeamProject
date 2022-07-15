@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.update{
+	width:60vw;
+	margin:auto;
+	margin-top:30px;
+	display:block;
+	text-align:center
+}
+.update input{
+	margin-top:20px;
+	height:20px;
+	width:200px;
+}
+
+.btn{
+	width:150px;
+	hegith:40px;
+}

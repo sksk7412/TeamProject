@@ -19,20 +19,6 @@ public class UserDAO {
 	private PreparedStatement pstmt=null;
 	
 	
-	private String url="jdbc:mysql://localhost:3306/";
-	private String user="root";
-	private String password="root";
-	
-	public Connection getConnection() {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver"); //
-			conn=DriverManager.getConnection(url,user,password);
-			return conn;
-		}catch(Exception e){
-			e.printStackTrace();
-			return null;
-		}
-	}
 	public boolean addUser(UserDTO userDto) {
 
 		conn = DBManager.getConnection("book");
@@ -44,7 +30,37 @@ public class UserDAO {
 			/*
 			 * pstmt.setString(1, userDto.getUserId()); pstmt.setString(2,
 			 * userDto.getUserPw()); pstmt.setString(3, userDto.getName());
-			 * pstmt.setString(4, userDto.getMobile());
+			 * pstmt.setString(4, use2rDto.getMobile());
+			 */
+			
+			pstmt.execute();
+			System.out.println("insert done");
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("insert fail");
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	return false;
+	}
+	public boolean updateUser(UserDTO userDto, int log) {
+
+		conn = DBManager.getConnection("book");
+		System.out.println( userDto.getUserId());
+		try {
+			String sql = String.format("update users set userPw='%s',`name` = '%s' ,mobile=%s where id=%d", userDto.getUserPw(), userDto.getName(),userDto.getMobile(), log);
+			pstmt = conn.prepareStatement(sql);
+			
+			/*
+			 * pstmt.setString(1, userDto.getUserId()); pstmt.setString(2,
+			 * userDto.getUserPw()); pstmt.setString(3, userDto.getName());
+			 * pstmt.setString(4, use2rDto.getMobile());
 			 */
 			
 			pstmt.execute();
@@ -97,7 +113,7 @@ public class UserDAO {
 		conn = DBManager.getConnection("book");
 		String mobile="";
 		try {
-			String sql = String.format("select mobile from users where id = '%d' ;",log);
+			String sql = String.format("select mobile from users where id = '%d';",log);
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -105,6 +121,7 @@ public class UserDAO {
 				mobile = rs.getString(1);
 			}
 			System.out.println("성공");
+			System.out.println(mobile);
 			return mobile;
 		} catch (Exception e) {
 			// TODO: handle exception

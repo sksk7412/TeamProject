@@ -16,11 +16,12 @@ if(session.getAttribute("log")!=null) {
 	<div class="container">
 	<table>
 		<div>
-			
+		<br>
+			<h2>coming soon</h2>
 		</div>
 	</table>
 	</div>
 	</div>
-	
+	<%} %>
 </body>
 </html>
