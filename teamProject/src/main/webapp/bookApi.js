@@ -9,6 +9,7 @@ function search(dir) {
 	getResult(text, dir);
 }
 
+
 function getResult(keyword, dir) {
 	if(dir === 2){							// next-button 의 value == 2
 		curpage++;							// page++
