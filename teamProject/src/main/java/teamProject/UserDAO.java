@@ -93,6 +93,65 @@ public class UserDAO {
 		System.out.println("실패");
 		return null;
 	}
+	public String getMobile(int log) {
+		conn = DBManager.getConnection("book");
+		String mobile="";
+		try {
+			String sql = String.format("select mobile from users where id = '%d' ;",log);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mobile = rs.getString(1);
+			}
+			System.out.println("성공");
+			return mobile;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		System.out.println("실패");
+		return null;
+	}
+	
+	public String getUserId(int log) {
+		conn = DBManager.getConnection("book");
+		String userId="";
+		try {
+			String sql = String.format("select userId from users where id = '%d' ;",log);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				userId = rs.getString(1);
+			}
+			System.out.println("성공");
+			return userId;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		System.out.println("실패");
+		return null;
+	}
 	public int getId(String id) {
 		conn = DBManager.getConnection("book");
 		
