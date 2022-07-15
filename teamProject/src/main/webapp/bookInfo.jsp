@@ -77,7 +77,7 @@
 	<div class="titles"> 고객 리뷰</div><br><br><br>
 	</div>
 		
-	  		<%
+	  	<%-- 	<%
 				BoardDAO dao = BoardDAO.getInstance();
 	  		
 				System.out.println("log: " + log);
@@ -98,7 +98,7 @@
 				 <%
 					}
 				}
-			%>
+			%> --%>
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
 </div>
