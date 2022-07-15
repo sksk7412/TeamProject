@@ -39,8 +39,6 @@ function getResult(keyword, dir) {
 				console.log(book.thumbnail);				
 				if(book.thumbnail !== ""){
 					
-					// 수정된 부
-
 				let url = `bookInfo.jsp?isbn=${isbn}`;
 
 				let html = `<div class='book' onclick="location.href='${url}'">`;
