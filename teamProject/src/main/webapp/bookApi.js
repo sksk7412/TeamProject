@@ -110,8 +110,7 @@ function getBookForIsbn(isbn) {
 }
 
 function getLibraryForIsbn(isbn){
-	
-	let isbns = isbn.split(" ");
+
 	
 	$.ajax({
         method : 'get',
@@ -120,7 +119,7 @@ function getLibraryForIsbn(isbn){
             Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
         },
         data: {
-           query: isbns[0],
+           query: isbn,
            target: 'isbn'
         },
         encoding: 'UTF-8',
