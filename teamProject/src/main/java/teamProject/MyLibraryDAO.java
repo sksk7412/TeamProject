@@ -56,7 +56,7 @@ public class MyLibraryDAO {
 	}
 	
 	// DB���� �� �ҷ�����
-	public ArrayList<MyLibraryDTO> getMyLibraryDto(){
+	public ArrayList<MyLibraryDTO> getMyLibraryDto(int log){
 		conn = DBManager.getConnection("book");
 		String sql = "select * from myLibrary";
 		
@@ -94,7 +94,7 @@ public class MyLibraryDAO {
 		return null;
 	}
 	
-	public int getSize() {
+	public int getSize(int log) {
 		conn = DBManager.getConnection("book");
 		String sql = "select count(*) from myLibrary";
 		

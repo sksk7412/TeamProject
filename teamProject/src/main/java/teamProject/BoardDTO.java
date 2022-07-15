@@ -15,7 +15,14 @@ public class BoardDTO {
 		this.contents=contents;
 		this.createdAt=createdAt;
 	}
-
+	
+	public BoardDTO(int log, String contents, Timestamp createdAt) {
+		this.log=log;
+		this.contents=contents;
+		this.createdAt=createdAt;
+	}
+	
+	
 	public int getLog() {
 		return log;
 	}

@@ -3,6 +3,9 @@ package teamProject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Map;
 
 import util.DBManager;
 
@@ -16,7 +19,10 @@ public class BoardDAO {
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
-
+	
+	private ArrayList<BoardDTO> board = new ArrayList<>();
+	
+	
 	public boolean addReview(BoardDTO board) {
 		conn = DBManager.getConnection("book");
 		
@@ -43,6 +49,47 @@ public class BoardDAO {
 		}
 		return false;
 	}
+
+	//리뷰 가져오기
+	public ArrayList<BoardDTO> getDibsBookDto() {
+		conn = DBManager.getConnection("book");
+		String sql = "select * from Board";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			System.out.println(rs);
+			
+			int id;
+			String contents;
+			Timestamp createAt;
+			
+			while(rs.next()) {
+				id = rs.getInt(1);
+				contents = rs.getString(3);
+				createAt = rs.getTimestamp(4);
+				
+				BoardDTO dibsBookDto = new BoardDTO(id, contents, createAt);
+				board.add(dibsBookDto);
+			}
+			
+			return board;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				rs.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return null;
+	}
+	
 	
 	public int getSize() {
 		conn = DBManager.getConnection("book");

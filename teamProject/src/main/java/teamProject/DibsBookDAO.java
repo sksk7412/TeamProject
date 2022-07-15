@@ -25,10 +25,7 @@ public class DibsBookDAO {
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
 	private String log;
-	private String url = "jdbc:mysql://localhost:3306/";
 	private String database = "book";
-	private String user = "root";
-	private String password = "root";
 	Random ran = new Random();
 	
 	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
@@ -38,18 +35,16 @@ public class DibsBookDAO {
 		
 		conn = DBManager.getConnection(database);
 		System.out.println("conn: "+conn);	
-		String SQL = "INSERT INTO dibsBook VALUES (?,?,?)";
+	//	String sql = "INSERT INTO dibsBook VALUES (?,?,?)";
+				
+		String sql = String.format("insert into dibsBook values('%s','%s','%s')", BoardDto.getId(), BoardDto.getIsbn(), BoardDto.getCreatedAt());
 		
 		// 아이디 정보 찜 날짜~	
 		try {
-
+			
 			System.out.println("code: "+BoardDto.getId());
-			pstmt = conn.prepareStatement(SQL);
-			
-			pstmt.setInt(1, BoardDto.getId());
-			pstmt.setString(2, BoardDto.getIsbn());
-			pstmt.setTimestamp(3, BoardDto.getCreatedAt());
-			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
 			return true;
 			
 		} catch (Exception e) {
@@ -67,11 +62,12 @@ public class DibsBookDAO {
 	}
 
 	// DB값 불러오기
-	public ArrayList<DibsBookDTO> getDibsBookDto() {
+	public ArrayList<DibsBookDTO> getDibsBookDto(int log) {
 		conn = DBManager.getConnection("book");
 		String sql = "select * from dibsBook";
 		
 		try {
+			
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			System.out.println(rs);
@@ -106,7 +102,7 @@ public class DibsBookDAO {
 	}
 	
 	// 책 불러올떄
-		public int getSize() {
+		public int getSize(int log) {
 			conn = DBManager.getConnection("book");
 			String sql = "select count(*) from dibsBook";
 			
