@@ -27,6 +27,7 @@
 		</div>
 		<table class="reviewTable">
 		</table>
+		
 	</div>
 <script src="bookApi.js"></script>
 		<script type="text/javascript">
