@@ -15,7 +15,6 @@
 	rel="stylesheet">
 
 </head>
-<body>
 <%
 	int id = -1;
 	if(session.getAttribute("log")!= null){
@@ -24,6 +23,8 @@
 	String isbn = request.getParameter("isbn");
 	String isbns[] = isbn.split(" ");
 %>
+<body>
+
 	<div class="wrap">
 	
 		<jsp:include page="header.jsp"></jsp:include>		
@@ -32,18 +33,19 @@
 	<div class="bookWrap">
 	<div class="main">
 	</div>
-	<%
+		<%
 			if(id != -1){
+				// 선주형 바보 
 		%>
     	 	
 			<form method="post" action="./Service">
-				<input type="hidden" name="command" value="Dibsbook" >
+				<input type="hidden" name="command" value="DibsBook" >
 				<input type="hidden" value="<%=isbns[0]%>" name="isbn">
 					<div class="buttons">
 			       		<input type="submit" value="♡ 찜하기"><br>
-			       		<button onclick="location.href='index.jsp'" class="watch">바로 보기</button>
+			       	</div>
 			</form>
-		</div>
+			<button onclick="location.href='index.jsp'">바로 보기</button>
 		<%
 			}
 		%>

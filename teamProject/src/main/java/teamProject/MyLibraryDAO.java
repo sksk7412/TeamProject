@@ -30,9 +30,9 @@ public class MyLibraryDAO {
 		return instance;
 	}
 	
-	private ArrayList<MyLibraryDTO> lis = new ArrayList<>();
+	private ArrayList<MyLibraryDTO> lis;
 	
-	// DB¿¡ °ª ³Ö±â
+	// DBï¿½ï¿½ ï¿½ï¿½ ï¿½Ö±ï¿½
 	public int addBook(MyLibraryDTO LibraryDto) {
 		conn = DBManager.getConnection(database);
 		System.out.println("conn: " + conn);
@@ -55,10 +55,11 @@ public class MyLibraryDAO {
 		return -1;
 	}
 	
-	// DB¿¡¼­ °ª ºÒ·¯¿À±â
-	public ArrayList<MyLibraryDTO> getMyLibraryDto(){
+	// DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
+	public ArrayList<MyLibraryDTO> getMyLibraryDTO(int log){
+		lis = new ArrayList<>();
 		conn = DBManager.getConnection("book");
-		String sql = "select * from myLibrary";
+		String sql = String.format("select * from myLibrary where id = %d", log);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
