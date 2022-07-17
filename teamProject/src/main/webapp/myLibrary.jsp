@@ -1,3 +1,4 @@
+<%@page import="teamProject.UserDAO"%>
 <%@page import="teamProject.MyLibraryDAO"%>
 <%@page import="teamProject.MyLibraryDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,40 +14,43 @@
 <title>MyLibrary</title>
 </head>
 <body>
-		
-		<div class="boardListContainer">
-	        <table border="1">
-	            <thead>
-	                <th>책 이미지</th>
-	                <th>책 제목</th>
-	                <th>작가명</th>
-	                <th>도서 소개</th>
-	            </thead>
-	            
-	            <tbody class="LibraryList">
-	            	<%
-	            	MyLibraryDAO dao = MyLibraryDAO.getInstance();
-	            	String a;
-	            	System.out.println();
-	            	if(dao.getMyLibraryDto().size() > 0) {
-	            		for(int i=0; i<dao.getSize(); i++) {
-	            			MyLibraryDTO dto = dao.getMyLibraryDto().get(i);
-	            			a = dto.getIsbn();
-	            	%>
-	                <input type="hidden" value="<%=a%>" id="isbn">
-	                <tr class="pab">
-	                    <td class="bookThumnail"></td>
-	                    <td class="bookTitle"></td>
-	                    <td class="bookAuthor"></td>
-	                    <td class="bookContent"></td>
-	                </tr>
-	                <%
-	            		}
-	            	}
-	                %>
-	            </tbody>
-	        </table>
-    	</div>
+	<%
+		if(session.getAttribute("log")!=null) {
+		int log = (int)session.getAttribute("log");
+	%>
+	<div class="boardListContainer">
+		    <table border="1">
+		        <thead>
+		            <th>책 이미지</th>
+		            <th>책 제목</th>
+		            <th>작가명</th>
+		            <th>도서 소개</th>
+		        </thead>
+		        
+		        <tbody class="LibraryList">
+		        	<%
+		        	MyLibraryDAO dao = MyLibraryDAO.getInstance();
+		        	String a;
+		        	
+		        	if(dao.getMyLibraryDto(log).size() > 0) {
+		        		for(int i=0; i<dao.getSize(log); i++) {
+		        			MyLibraryDTO dto = dao.getMyLibraryDto(log).get(i);
+		        			a = dto.getIsbn();
+		        	%>
+		            <input type="hidden" value="<%=a%>" id="isbn">
+		            <tr class="pab">
+		                <td class="bookThumnail"></td>
+		                <td class="bookTitle"></td>
+		                <td class="bookAuthor"></td>
+		                <td class="bookContent"></td>
+		            </tr>
+		            <%
+		        		}
+		        	}
+		            %>
+		        </tbody>
+		    </table>
+	   </div>
     </div>
     <script type="text/javascript">
 		$(document).ready(function() {
@@ -54,5 +58,8 @@
 				getLibraryForIsbn(isbn);		
 		});
 	</script>
+	<%
+	    }
+	%>
 </body>
 </html>

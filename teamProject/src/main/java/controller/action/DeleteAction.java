@@ -12,36 +12,35 @@ import controller.Action;
 import teamProject.DibsBookDAO;
 import teamProject.DibsBookDTO;
 
-public class DibsAction implements Action {
+public class DeleteAction implements Action {
 @Override
 public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	// TODO Auto-generated method stub
 	HttpSession session = request.getSession();
 	DibsBookDTO user = null;
-	DibsBookDAO temp = DibsBookDAO.getInstance();
+	DibsBookDAO dao = DibsBookDAO.getInstance();
 	
-	String isbn = request.getParameter("isbn");
 	int id = (int) session.getAttribute("log");
+	String isbn = request.getParameter("isbn");
 	
-	System.out.println("isbn: " + isbn);
-	System.out.println("id:" + id);
 	Timestamp createAt = new Timestamp(System.currentTimeMillis());
 	
-	// id isbn 날짜
-	user = new DibsBookDTO(id,isbn,createAt);	
+	user = new DibsBookDTO(id, isbn, createAt);
+	System.out.println(id);
+	System.out.println("isbn: "+isbn);
 	
 	String url = "";
-		
-	if(temp.addWrite(user)){
-		
-		System.out.println("찜 성공!!");
-		url = "bookInfo.jsp?isbn="+isbn;
-		url = "index.jsp";
+	
+	if(dao.deleteBook(user)) {
+		System.out.println("삭제 성공");
+		url = "dibs.jsp";
 	}
-	else{
-		System.out.println("찜 실패!!");
-		url = "index.jsp";
+	else {
+		System.out.println("삭제 실패");
+		url = "dibs.jsp";
 	}
+	
 	request.getRequestDispatcher(url).forward(request, response);
+	
 }
 }

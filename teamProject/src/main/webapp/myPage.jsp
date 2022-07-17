@@ -16,7 +16,7 @@
      if(session.getAttribute("log")!=null){
         int log = (int)session.getAttribute("log");
         UserDAO dao=UserDAO.getInstance();
-        String name= dao.getName(log);        
+        String name= dao.getName(log);
 	%>
 	<div class="wrap">
       
@@ -29,7 +29,7 @@
    
        			</span>
        			
-       			<span class="setting" onclick="location.href='./userUpdate'">
+       			<span class="setting">
        				<p><img src="./image/setting.png" class="settingIcon"></p>
        				<h4>회원정보 수정</h4>
        			</span>

@@ -15,7 +15,7 @@ import util.DBManager;
 
 public class DibsBookDAO {
 	
-	private DibsBookDAO() {}
+	private DibsBookDAO() {} 
 	private static DibsBookDAO instance = new DibsBookDAO();
 	
 	public static DibsBookDAO getInstance() {
@@ -31,48 +31,79 @@ public class DibsBookDAO {
 	private String password = "root";
 	Random ran = new Random();
 	
-	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
+	private ArrayList<DibsBookDTO> dibs;
 	
 	// DB값 넣기
-		public boolean addWrite(DibsBookDTO BoardDto) { 
+	public boolean addWrite(DibsBookDTO BoardDto) {
+		
+		conn = DBManager.getConnection(database);
+		System.out.println("conn: "+conn);	
+		String SQL = "INSERT INTO dibsBook VALUES (?,?,?)";
+		
+		// 아이디 정보 찜 날짜~	
+		try {
+
+			System.out.println("code: "+BoardDto.getId());
+			pstmt = conn.prepareStatement(SQL);
 			
-			conn = DBManager.getConnection(database);
-			System.out.println("conn: "+conn);	
-		//	String sql = "INSERT INTO dibsBook VALUES (?,?,?)";
-					
-			String sql = String.format("insert into dibsBook values('%s','%s','%s')", BoardDto.getId(), BoardDto.getIsbn(), BoardDto.getCreatedAt());
+			pstmt.setInt(1, BoardDto.getId());
+			pstmt.setString(2, BoardDto.getIsbn());
+			pstmt.setTimestamp(3, BoardDto.getCreatedAt());
+			pstmt.executeUpdate();
+			return true;
 			
-			// 아이디 정보 찜 날짜~	
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}finally {
 			try {
-				
-				System.out.println("code: "+BoardDto.getId());
-				pstmt = conn.prepareStatement(sql);
-				pstmt.executeUpdate();
-				return true;
-				
-			} catch (Exception e) {
-				
-				e.printStackTrace();
-			}finally {
-				try {
-					pstmt.close();
-					conn.close();
-				} catch (Exception e2) {
-					// TODO: handle exception
-				}
+				pstmt.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
 			}
-			return false;
 		}
+		return false;
+	}
+	
+	// DB값 삭제
+	public boolean deleteBook(DibsBookDTO DibsDto) {
+		
+		conn = DBManager.getConnection(database);
+		System.out.println( DibsDto.getIsbn());
+		String[] isbn = DibsDto.getIsbn().split(",");
+		String sql = String.format("DELETE FROM dibsBook where isbn = '%s'", isbn[0]);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.executeUpdate();
+			
+			return true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return false;
+	}
 
 	// DB값 불러오기
 	public ArrayList<DibsBookDTO> getDibsBookDto(int log) {
-		conn = DBManager.getConnection("book");
-		String sql = "select * from dibsBook";
+		dibs = new ArrayList<>();
+		conn = DBManager.getConnection(database);
+		String sql = String.format("select * from dibsBook where id = %d", log);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			System.out.println(rs);
 			int id;
 			String isbn;
 			Timestamp createAt;
@@ -91,6 +122,7 @@ public class DibsBookDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			System.out.println("딥스 북 오류");
 		} finally {
 			try {
 				pstmt.close();
@@ -105,16 +137,15 @@ public class DibsBookDAO {
 	
 	// 책 불러올떄
 		public int getSize(int log) {
-			conn = DBManager.getConnection("book");
-			String sql = "select count(*) from dibsBook";
-			
+			conn = DBManager.getConnection(database);
+			String sql = String.format("select count(*) from dibsBook where id=%d", log);
+			int size = -1;
 			try {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
 				rs.next();
-				int size = rs.getInt(1);
-				
+				 size = rs.getInt(1);
 				return size;
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -128,7 +159,8 @@ public class DibsBookDAO {
 					// TODO: handle exception
 				}
 			}
-			return -1;
+			System.out.println(size);
+			return size;
 		}
 
 }

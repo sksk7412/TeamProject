@@ -23,7 +23,7 @@
 	}
 	String isbn = request.getParameter("isbn");
 	System.out.println(isbn);
-	/* String isbns[] = isbn.split(" "); */
+	String isbns[] = isbn.split(" ");
 %>
 	<div class="wrap">
 	
@@ -38,7 +38,7 @@
 		%>
     	 	
 			<form method="post" action="./Service">
-				<input type="hidden" name="command" value="Dibsbook" >
+				<input type="hidden" name="command" value="DibsBook" >
 				<input type="hidden" value="<%=isbns[0]%>" name="isbn">
 					<div class="buttons">
 			       		<input type="submit" value="♡ 찜하기"><br>

@@ -7,7 +7,7 @@ create table users(
     `name` varchar(20) not null,
     mobile varchar(13) not null
 );
---insert into users(userId,userPw,`name`,mobile) values('a','1111','������','010-1111-1111');
+--insert into users(userId,userPw,`name`,mobile) values('a','1111','�赿ȣ','010-1111-1111');
 
 --create table dibsBook(
 --	id int,

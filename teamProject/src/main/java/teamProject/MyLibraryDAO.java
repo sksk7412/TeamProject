@@ -32,31 +32,56 @@ public class MyLibraryDAO {
 	
 	private ArrayList<MyLibraryDTO> lis;
 	
-	// DB�� �� �ֱ�
-	public int addBook(MyLibraryDTO LibraryDto) {
+	// DB 값 넣기
+	public boolean addBook(MyLibraryDTO LibraryDto) {
+		
 		conn = DBManager.getConnection(database);
-		System.out.println("conn: " + conn);
-		String SQL = "INSERT INTO board VALUES (?,?,?)";
+		String sql = "INSERT INTO myLibrary VALUES (?,?,?)";
 		
 		try {
-			pstmt = conn.prepareStatement(SQL);
+			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, 1);
+			pstmt.setInt(1, LibraryDto.getId());
 			pstmt.setString(2, LibraryDto.getIsbn());
-			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
-			pstmt.setTimestamp(3, modifiedAt);
+			pstmt.setTimestamp(3, LibraryDto.getModifiedAt());
 			
-			return pstmt.executeUpdate();
+			pstmt.execute();
+			
+			return true;
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		return -1;
+		return false;
 	}
 	
-	// DB���� �� �ҷ�����
-	public ArrayList<MyLibraryDTO> getMyLibraryDto(){
+	// DB에 값 넣기
+//	public int addbook(MyLibraryDTO LibraryDto) {
+//		
+//		conn = DBManager.getConnection(database);
+//		System.out.println("conn: " + conn);
+//		String SQL = "INSERT INTO board VALUES (?,?,?)";
+//		
+//		try {
+//			pstmt = conn.prepareStatement(SQL);
+//			
+//			pstmt.setInt(1, 1);
+//			pstmt.setString(2, LibraryDto.getIsbn());
+//			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
+//			pstmt.setTimestamp(3, modifiedAt);
+//			
+//			return pstmt.executeUpdate();
+//			
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//		return -1;
+//	}
+	
+	// DB 값 불러오기
+	public ArrayList<MyLibraryDTO> getMyLibraryDto(int log){
 		conn = DBManager.getConnection("book");
 		String sql = "select * from myLibrary";
 		lis = new ArrayList<>();
@@ -94,7 +119,7 @@ public class MyLibraryDAO {
 		return null;
 	}
 	
-	public int getSize() {
+	public int getSize(int log) {
 		conn = DBManager.getConnection("book");
 		String sql = "select count(*) from myLibrary";
 		

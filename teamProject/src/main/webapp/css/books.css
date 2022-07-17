@@ -3,24 +3,22 @@
 	margin-top: 50px;
     width:100vw;
     background-color: white;
-}
-.dibBook{
-	width:60vw;
-	background-color: lightgray;
-	margin: auto;
-
+   height:100%;
 }
 
-.bookList{
-	width: 15vw;
+
+.bookList2{
+
 	background-color: #ffff80;
 	text-align: center;
+	display: flex;
+	height:100%;
 }
 .dibsBookContents{
-	width: 60vw;
-	backgroud-color: red;
-	display: flex;
+	background-color: red;
+	
 }
+
 
 
 

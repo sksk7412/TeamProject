@@ -16,6 +16,7 @@
 		<a href= './review' target="_top">
 		<input type="button" class="allView" value="전체보기" >
 		</a>
+		<input type="button" class="allView" value="전체보기" onclick="location.href='./review'">
 		</div>
 		<table class="reviewTable">
             <tbody>
