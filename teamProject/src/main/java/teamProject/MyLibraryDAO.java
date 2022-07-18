@@ -93,6 +93,7 @@ public class MyLibraryDAO {
 	public ArrayList<MyLibraryDTO> getMyLibraryDto(int log){
 		lis = new ArrayList<>();
 		conn = DBManager.getConnection(database);
+		System.out.println("log: " + log);
 		String sql = String.format("select * from myLibrary where id = %d", log);
 		
 		try {

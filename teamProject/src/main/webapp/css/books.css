@@ -8,13 +8,10 @@
 
 
 .bookList2{
-
-	background-color: #ffff80;
 	text-align: center;
 	display: flex;
 }
 .dibsBookContents{
-	background-color: #ff8080;
 	display:flex;
 }
 .bookInfo{

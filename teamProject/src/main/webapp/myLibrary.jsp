@@ -21,7 +21,6 @@
 			int log = (int)session.getAttribute("log");
 			MyLibraryDAO dao = MyLibraryDAO.getInstance();
 			ArrayList<MyLibraryDTO> lis = dao.getMyLibraryDto(log);
-			System.out.println("lis: " + lis.size());
 	%>
 	<div class="boardListContainer">
 		<form method="post" action="./Service">
@@ -42,9 +41,11 @@
 
 	<script src="bookApi.js"></script>
 	<script type="text/javascript">
+		<% if(lis.size() > 0) { %>
 		$(document).ready(function() {
 		const isbn = [
-		<%	for(int i = 0; i < lis.size(); i++){%>
+		<%
+		for(int i = 0; i < lis.size(); i++) {%>
 			"<%= lis.get(i).getIsbn() %>"
 			<%= i + 1 < lis.size() ? ",":"" %>
 			<% } 
@@ -54,6 +55,7 @@
 	</script>
 	<%
 	    }
+		}
 	%>
 </body>
 </html>
