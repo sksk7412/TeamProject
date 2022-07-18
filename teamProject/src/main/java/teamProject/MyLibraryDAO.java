@@ -56,31 +56,32 @@ public class MyLibraryDAO {
 		return false;
 	}
 	
-	
-	
-	// DB에 값 넣기
-//	public int addbook(MyLibraryDTO LibraryDto) {
-//		
-//		conn = DBManager.getConnection(database);
-//		System.out.println("conn: " + conn);
-//		String SQL = "INSERT INTO board VALUES (?,?,?)";
-//		
-//		try {
-//			pstmt = conn.prepareStatement(SQL);
-//			
-//			pstmt.setInt(1, 1);
-//			pstmt.setString(2, LibraryDto.getIsbn());
-//			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
-//			pstmt.setTimestamp(3, modifiedAt);
-//			
-//			return pstmt.executeUpdate();
-//			
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		return -1;
-//	}
+	// DB 값 삭제
+	public boolean deleteBook(MyLibraryDTO LibraryDto) {
+		conn = DBManager.getConnection(database);
+		String[] isbn = LibraryDto.getIsbn().split(",");
+		String sql = String.format("DELETE FROM myLibrary where isbn = '%s'", isbn[0]);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.executeUpdate();
+			
+			return true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return false;
+	}
 	
 	// DB 값 불러오기
 	public ArrayList<MyLibraryDTO> getMyLibraryDto(int log){

@@ -71,8 +71,10 @@ function getResult(keyword, dir) {
 			})
 }
 
-// isbn을 이용해서 찜하기에 값 가져오기
-function getBookForIsbn(isbns) {
+// isbn을 이용해서 값 가져오기
+function getBookForIsbn(isbn) {
+	let isbns = isbn.split(" ");
+
 	$.ajax({
 		method: 'get',
 		url: `https://dapi.kakao.com//v3/search/book`,
@@ -80,7 +82,45 @@ function getBookForIsbn(isbns) {
 			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
 		},
 		data: {
-			query: isbns,
+			query: isbns[0],
+			target: 'isbn'
+		},
+		encoding: 'UTF-8',
+	})
+		.done(data => {
+			const result = data.documents;
+		result.forEach(book=>{
+			console.log(book.valueOf());
+			let html = `<div class="bookInfo">
+							<div class="img"><img src="${book.thumbnail}"></div>
+							<div class="info">
+								<div class="title">${book.title}</div>
+								<div class="authors">${book.authors}</div>
+								<div class="publisher">${book.publisher}</div>
+								
+							</div>
+						</div>`;
+			let html2 = `<div class="contents">${book.contents}</div>`;
+			
+			$('.main').append(html);
+			$('.main2').append(html2);
+			$('.dibsBookContents').append(html);
+			})
+		})
+}
+
+// 찜하기에 책 불러오기
+function getDibs(isbns) {
+	for(let i=0; i<isbns.length; i++) {
+	
+	$.ajax({
+		method: 'get',
+		url: `https://dapi.kakao.com//v3/search/book`,
+		headers: {
+			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+		},
+		data: {
+			query: isbns[i],
 			target: 'isbn'
 		},
 		encoding: 'UTF-8',
@@ -107,50 +147,8 @@ function getBookForIsbn(isbns) {
 			$('.results').append(html);
 			})
 		})
-}
-
-/*function getDibs(dib) {
-	
-	for(let i=0; i<dib.length; i++){
-		console.log(dib[i]);
-	$.ajax({
-		method: 'get',
-		url: `https://dapi.kakao.com//v3/search/book`,
-		headers: {
-			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
-		},
-		data: {
-			query: dib[i],
-			target: 'isbn'
-		},
-		encoding: 'UTF-8',
-	})
-		.done(data => {
-			const result = data.documents;
-		result.forEach(book=>{
-			console.log(book.valueOf());
-			let isbns = book.isbn.split(" ");
-			let html = `<div class="bookInfo">
-							<div class="img"><img src="${book.thumbnail}"></div>
-							<div class="info">
-							<input type="hidden" value="${isbns}" name="isbn">
-								<div class="title">${book.title}</div>
-								<div class="authors">${book.authors}</div>
-								<div class="publisher">${book.publisher}</div>
-								<input type="submit" class="delete" value="삭제">
-							</div>
-						</div>`;
-			let html2 = `<div class="contents">${book.contents}</div>`;
-			
-			$('.main').append(html);
-			$('.main2').append(html2);
-			$('.wrap').append(html);
-			})
-		})
 	}
-	
-}*/
-
+}
 
 // isbn을 이용하여 나의 서재에 값 가져오기
 function getLibraryForIsbn(isbn){
@@ -173,22 +171,22 @@ function getLibraryForIsbn(isbn){
         const result = data.documents;
 
 		result.forEach(book=>{
-			console.log(book.valueOf());
-			/*let htmlThum = `<div class="LibraryList"><img src = "${book.thumbnail}"></div>`;
-			let htmlTitle = `<div class="LibraryList">${book.title}</div>`;
-			let htmlAu = `<div class="LibraryList">${book.authors}</div>`;
-			let htmlCon = `<div class="LibraryList">${book.contents}</div>`;*/
 			
-			let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
+			let html = `<tr>
+							<td class="bookThumnail"><img src = "${book.thumbnail}"></td>
+							<td class="bookTitle">${book.title}</td>
+							<td class="bookAuthor">${book.authors}</td>
+							<td class="bookContent">${book.contents}</td>
+							<td class="delete"><input type="submit" value="삭제"></td>
+						</tr>
+						`;
+			
+			/*let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
 			 html+= `<td class="bookTitle">${book.title}</td>`;
 			 html+= `<td class="bookAuthor">${book.authors}</td>`;
 			 html+= `<td class="bookContent">${book.contents}</td>`;
-			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`
+			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`;*/
 			$('tbody').append(html);
-			/*$('.bookThumnail').append(htmlThum);
-			$('.bookTitle').append(htmlTitle);
-			$('.bookAuthor').append(htmlAu);
-			$('.bookContent').append(htmlCon);*/
 			
         })
     })

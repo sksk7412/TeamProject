@@ -37,17 +37,19 @@
 		        			MyLibraryDTO dto = dao.getMyLibraryDto(log).get(i);
 		        			a = dto.getIsbn();
 		        	%>
-		            <input type="hidden" value="<%=a%>" id="isbn">
-		            <tr class="pab">
-		                <td class="bookThumnail"></td>
-		                <td class="bookTitle"></td>
-		                <td class="bookAuthor"></td>
-		                <td class="bookContent"></td>
-		            </tr>
+		        	<form action="./Service">
+			            <input type="hidden" value="<%=a%>" id="isbn">
+		        	</form>
 		            <%
 		        		}
 		        	}
 		            %>
+		            <!-- <tr class="pab">
+		                <td class="bookThumnail"></td>
+		                <td class="bookTitle"></td>
+		                <td class="bookAuthor"></td>
+		                <td class="bookContent"></td>
+		            </tr> -->
 		        </tbody>
 		    </table>
 	   </div>

@@ -35,13 +35,13 @@
 <script src="bookApi.js"></script>
 	<script type="text/javascript">
 			$(document).ready(function() {
-			const dib = [
+			const isbn = [
 			<%	for(int i = 0; i < dibs.size(); i++){%>
 				"<%= dibs.get(i).getIsbn() %>"
 				<%= i + 1 < dibs.size() ? ",":"" %>
 				<% } 
 			%>];
-			getBookForIsbn(dib);
+			getDibs(isbn);
 			});
 		</script>
 	<%
