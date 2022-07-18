@@ -25,7 +25,8 @@
 	}
 	String isbn = request.getParameter("isbn");
 	System.out.println(isbn);
-	/* String isbns[] = isbn.split(" "); */
+	 String isbns[] = isbn.split(" ");
+	 
 %>
 <body>
 
