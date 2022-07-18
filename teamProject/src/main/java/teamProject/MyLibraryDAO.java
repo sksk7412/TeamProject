@@ -13,6 +13,12 @@ import java.util.Map;
 
 public class MyLibraryDAO {
 	
+	private MyLibraryDAO() {}
+	private static MyLibraryDAO instance = new MyLibraryDAO();
+	
+	public static MyLibraryDAO getInstance() {
+		return instance;
+	}
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
@@ -23,12 +29,6 @@ public class MyLibraryDAO {
 	private String password = "root";
 	private Random ran = new Random();
 	
-	private MyLibraryDAO() {}
-	private static MyLibraryDAO instance = new MyLibraryDAO();
-	
-	public static MyLibraryDAO getInstance() {
-		return instance;
-	}
 	
 	private ArrayList<MyLibraryDTO> lis;
 	
@@ -45,13 +45,20 @@ public class MyLibraryDAO {
 			pstmt.setString(2, LibraryDto.getIsbn());
 			pstmt.setTimestamp(3, LibraryDto.getModifiedAt());
 			
-			pstmt.execute();
+			pstmt.executeUpdate();
 			
 			return true;
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
 		return false;
 	}
@@ -85,9 +92,10 @@ public class MyLibraryDAO {
 	
 	// DB 값 불러오기
 	public ArrayList<MyLibraryDTO> getMyLibraryDto(int log){
-		conn = DBManager.getConnection("book");
-		String sql = "select * from myLibrary";
 		lis = new ArrayList<>();
+		conn = DBManager.getConnection(database);
+		String sql = String.format("select * from myLibrary where id = %d", log);
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -110,6 +118,7 @@ public class MyLibraryDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			System.out.println("라이브러리 오류");
 		} finally {
 			try {
 				pstmt.close();
@@ -123,15 +132,16 @@ public class MyLibraryDAO {
 	}
 	
 	public int getSize(int log) {
-		conn = DBManager.getConnection("book");
-		String sql = "select count(*) from myLibrary";
+		conn = DBManager.getConnection(database);
+		String sql = String.format("select count(*) from myLibrary where id = %d", log);
+		int size = -1;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			rs.next();
-			int size = rs.getInt(1);
+			size = rs.getInt(1);
 			
 			return size;
 		} catch (Exception e) {
@@ -146,7 +156,7 @@ public class MyLibraryDAO {
 				// TODO: handle exception
 			}
 		}
-		return -1;
+		return size;
 	}
 	
 	

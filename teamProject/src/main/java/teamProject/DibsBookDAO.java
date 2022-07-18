@@ -104,6 +104,7 @@ public class DibsBookDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
+			
 			int id;
 			String isbn;
 			Timestamp createAt;
@@ -146,6 +147,7 @@ public class DibsBookDAO {
 				
 				rs.next();
 				 size = rs.getInt(1);
+				 
 				return size;
 			} catch (Exception e) {
 				// TODO: handle exception
