@@ -14,6 +14,7 @@
 </head>
 <body>
 <%
+
 	int log = (int) session.getAttribute("log");
 	MyLibraryDAO dao = MyLibraryDAO.getInstance();
 	ArrayList<MyLibraryDTO> lbry = dao.getMyLibraryDTO(log);
