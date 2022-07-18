@@ -11,6 +11,12 @@
 	<div class="wrap">
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="container">
+	<table>
+		<div>
+		<br>
+			<h2>coming soon</h2>
+		</div>
+	</table>
 		<button class="writed">작성 한 리뷰</button>
 		<button class="write">작성 가능한 리뷰</button>
 		<div class="ifr"> 				

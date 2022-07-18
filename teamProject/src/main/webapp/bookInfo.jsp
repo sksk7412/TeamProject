@@ -22,6 +22,7 @@
 		 id = (int) session.getAttribute("log");	
 	}
 	String isbn = request.getParameter("isbn");
+	System.out.println(isbn);
 	String isbns[] = isbn.split(" ");
 %>
 	<div class="wrap">

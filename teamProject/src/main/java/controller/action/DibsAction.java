@@ -35,6 +35,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	if(temp.addWrite(user)){
 		
 		System.out.println("찜 성공!!");
+		url = "bookInfo.jsp?isbn="+isbn;
 		url = "index.jsp";
 	}
 	else{

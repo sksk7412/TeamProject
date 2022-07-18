@@ -30,7 +30,7 @@ public class MyLibraryDAO {
 		return instance;
 	}
 	
-	private ArrayList<MyLibraryDTO> lis = new ArrayList<>();
+	private ArrayList<MyLibraryDTO> lis;
 	
 	// DB 값 넣기
 	public boolean addBook(MyLibraryDTO LibraryDto) {
@@ -87,7 +87,7 @@ public class MyLibraryDAO {
 	public ArrayList<MyLibraryDTO> getMyLibraryDto(int log){
 		conn = DBManager.getConnection("book");
 		String sql = "select * from myLibrary";
-		
+		lis = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
