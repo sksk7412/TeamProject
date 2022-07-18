@@ -70,7 +70,7 @@
 		<h3>총 별점</h3>
 		<p>★★★★☆</p>
 	
-		<span class="score">4.2<p class="totalScore">/5</p></span>
+		<span class="score">4.3s<p class="totalScore">/5</p></span>
 	
 		</div>
 	
@@ -78,29 +78,7 @@
 	<br><br><br>
 	<div class="titles"> 고객 리뷰</div><br><br><br>
 	</div>
-		
-	  	<%-- 	<%
-				BoardDAO dao = BoardDAO.getInstance();
-	  		
-				System.out.println("log: " + log);
-				System.out.println("1111111: " + dao.getDibsBookDto(log).size());
-				System.out.println("2222: : " + dao.getSize(log));
-				if(dao.getDibsBookDto(log).size() > 0) {
-					for(int i=0; i < dao.getSize(log); i++){
-						DibsBookDTO dto = dao.getDibsBookDto(log).get(i);
-						String a = dto.getIsbn();
-			%>
-							
-				<input type="hidden" value="<%=dto.getIsbn()%>" id="isbn" class="isbn<%=i %>">
-				       <script>
-				             name = '.isbn' + <%=i%>;
-					         isbn = $(name).val();
-					         getBookForIsbn(isbn);
-				       </script>
-				 <%
-					}
-				}
-			%> --%>
+
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
 </div>
