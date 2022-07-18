@@ -12,7 +12,7 @@ import controller.Action;
 import teamProject.DibsBookDAO;
 import teamProject.DibsBookDTO;
 
-public class DeleteAction implements Action {
+public class DeleteDibsAction implements Action {
 @Override
 public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	// TODO Auto-generated method stub

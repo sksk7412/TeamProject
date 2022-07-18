@@ -1,6 +1,7 @@
 package controller;
 
-import controller.action.DeleteAction;
+import controller.action.DeleteDibsAction;
+import controller.action.DeleteLisAction;
 import controller.action.DibsAction;
 import controller.action.JoinAction;
 import controller.action.LoginAction;
@@ -25,7 +26,8 @@ public class ActionFactory {
 		else if(command.equals("writeReview")) action = new WriteReviewAction();
 		else if(command.equals("Dibsbook")) action = new DibsAction();
 		else if(command.equals("updateUser")) action = new UpdateAction();
-		else if(command.equals("deleteDibs")) action = new DeleteAction();
+		else if(command.equals("deleteDibs")) action = new DeleteDibsAction();
+		else if(command.equals("deleteLis")) action = new DeleteLisAction();
 		else if(command.equals("updateBoard")) action = null;
 		else if(command.equals("deleteBoard")) action = null;
 		

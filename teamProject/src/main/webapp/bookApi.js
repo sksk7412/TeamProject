@@ -152,7 +152,7 @@ function getDibs(isbns) {
 
 // isbn을 이용하여 나의 서재에 값 가져오기
 function getLibraryForIsbn(isbn){
-
+	for(let i=0; i<isbn.length; i++) {
 	
 	$.ajax({
         method : 'get',
@@ -161,14 +161,14 @@ function getLibraryForIsbn(isbn){
             Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
         },
         data: {
-           query: isbn,
+           query: isbn[i],
            target: 'isbn'
         },
         encoding: 'UTF-8',
     })
-    .done(data =>{
-        const result = data.documents;
-
+	    .done(data =>{
+	        const result = data.documents;
+	
 		result.forEach(book=>{
 			
 			let html = `<tr>
@@ -185,10 +185,11 @@ function getLibraryForIsbn(isbn){
 			 html+= `<td class="bookAuthor">${book.authors}</td>`;
 			 html+= `<td class="bookContent">${book.contents}</td>`;
 			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`;*/
-			$('tbody').append(html);
+			$('.LibraryList').append(html);
 			
-        })
-    })
+		    })
+	    })
+	}
 }
 
 // best_seller / new 책

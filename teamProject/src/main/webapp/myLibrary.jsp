@@ -38,26 +38,20 @@
 		        			a = dto.getIsbn();
 		        	%>
 		        	<form action="./Service">
-			            <input type="hidden" value="<%=a%>" id="isbn">
+			            <input type="hidden" value="<%=a%>" id="isbn" name="command" value="deleteLis">
 		        	</form>
 		            <%
 		        		}
 		        	}
 		            %>
-		            <!-- <tr class="pab">
-		                <td class="bookThumnail"></td>
-		                <td class="bookTitle"></td>
-		                <td class="bookAuthor"></td>
-		                <td class="bookContent"></td>
-		            </tr> -->
 		        </tbody>
 		    </table>
 	   </div>
     </div>
     <script type="text/javascript">
 		$(document).ready(function() {
-				let isbn = $('#isbn').val();
-				getLibraryForIsbn(isbn);		
+			let isbn = $('#isbn').val();
+			getLibraryForIsbn(isbn);		
 		});
 	</script>
 	<%
