@@ -10,10 +10,15 @@ public class BoardDTO {
 	private Timestamp createdAt;
 	
 	public BoardDTO(int log, int isbn, String contents, Timestamp createdAt) {
-		this.log=log;
-		this.isbn=isbn;
-		this.contents=contents;
-		this.createdAt=createdAt;
+		this.log = log;
+		this.isbn = isbn;
+		this.contents = contents;
+		this.createdAt = createdAt;
+	}
+	public BoardDTO(int log, String contents, Timestamp createdAt) {
+		this.log = log;
+		this.contents = contents;
+		this.createdAt = createdAt;
 	}
 
 	public int getLog() {

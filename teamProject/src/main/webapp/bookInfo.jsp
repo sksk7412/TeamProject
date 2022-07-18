@@ -1,4 +1,7 @@
+
 <%@page import="java.util.ArrayList"%>
+<%@page import="teamProject.BoardDAO"%>
+<%@page import="teamProject.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,7 +24,9 @@
 		 id = (int) session.getAttribute("log");	
 	}
 	String isbn = request.getParameter("isbn");
-	String isbns[] = isbn.split(" ");
+	System.out.println(isbn);
+	 String isbns[] = isbn.split(" ");
+	 
 %>
 <body>
 
@@ -74,22 +79,28 @@
 	<div class="titles"> 고객 리뷰</div><br><br><br>
 	</div>
 		
-  	<%-- 	   <%
-           if(dao.getBoardList().size()>0){
-           for(int i=dao.getSize()-1; i>=0; i--){
-            	BoardDTO board = dao.getBoardList().get(i);
-            	System.out.println(board.getCode());
-            %>
-            <tbody >
-            <tr>
-                <td><%=i+1%></td>
-                <td><%=board.getTitle()%></td>
-                <td><%=board.getContents()%></td>
-                <td><%=board.getCreatedAt()%></td>
-            </tr>                    
-        
-          </tbody>
-           <% }} %> --%>
+	  	<%-- 	<%
+				BoardDAO dao = BoardDAO.getInstance();
+	  		
+				System.out.println("log: " + log);
+				System.out.println("1111111: " + dao.getDibsBookDto(log).size());
+				System.out.println("2222: : " + dao.getSize(log));
+				if(dao.getDibsBookDto(log).size() > 0) {
+					for(int i=0; i < dao.getSize(log); i++){
+						DibsBookDTO dto = dao.getDibsBookDto(log).get(i);
+						String a = dto.getIsbn();
+			%>
+							
+				<input type="hidden" value="<%=dto.getIsbn()%>" id="isbn" class="isbn<%=i %>">
+				       <script>
+				             name = '.isbn' + <%=i%>;
+					         isbn = $(name).val();
+					         getBookForIsbn(isbn);
+				       </script>
+				 <%
+					}
+				}
+			%> --%>
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
 </div>
