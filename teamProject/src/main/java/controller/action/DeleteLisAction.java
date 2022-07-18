@@ -30,7 +30,6 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	System.out.println("isbn: "+isbn);
 	
 	String url = "";
-	
 	if(dao.deleteBook(book)) {
 		System.out.println("삭제 성공");
 		url = "myLibrary.jsp";

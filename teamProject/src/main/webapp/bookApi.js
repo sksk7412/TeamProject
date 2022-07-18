@@ -176,6 +176,7 @@ function getLibraryForIsbn(isbn){
 							<td class="bookTitle">${book.title}</td>
 							<td class="bookAuthor">${book.authors}</td>
 							<td class="bookContent">${book.contents}</td>
+							<input type="hidden" value=${book.isbn} name="isbn">
 							<td class="delete"><input type="submit" value="삭제"></td>
 						</tr>
 						`;

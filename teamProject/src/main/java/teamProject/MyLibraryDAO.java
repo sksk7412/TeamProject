@@ -68,7 +68,6 @@ public class MyLibraryDAO {
 		conn = DBManager.getConnection(database);
 		String[] isbn = LibraryDto.getIsbn().split(",");
 		String sql = String.format("DELETE FROM myLibrary where isbn = '%s'", isbn[0]);
-		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
