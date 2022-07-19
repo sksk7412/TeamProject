@@ -42,7 +42,7 @@
 
 	<script src="bookApi.js"></script>
 	<script type="text/javascript">
-		<% if(lis.size() > 0) { %>
+		<% if(lis != null) { %>
 		$(document).ready(function() {
 		const isbn = [
 		<%

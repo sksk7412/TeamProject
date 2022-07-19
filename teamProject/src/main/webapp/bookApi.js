@@ -177,6 +177,7 @@ function getDibs(isbns) {
 			
 			let html = `
 						<div class="bookInfo">
+					
 							<div class="img" onclick="view()"><img src="${book.thumbnail}"></div>
 							<div class="info">
 							<input type="hidden" value="${isbn}" name="isbn">
@@ -188,7 +189,7 @@ function getDibs(isbns) {
 							</div>
 						</div>`;
 			let html2 = `<tr>
-							<td class="bookThumnail"><img src = "${book.thumbnail}"></td>
+							<td class="bookThumbnail"><img src = "${book.thumbnail}"></td>
 							<td class="bookTitle">${book.title}</td>
 							<td class="bookAuthor">${book.authors}</td>
 							<td class="bookContent">${book.contents}</td>
@@ -206,8 +207,10 @@ function getDibs(isbns) {
 }
 
 
-function view(isbn){
-	alert(isbn);
+function view(){
+	alert();
+	$('.del').prop('value','view');
+
 }
 
 // best_seller / new 책

@@ -26,7 +26,7 @@
 				<div class="bookList2">
 			        	<div class="dibsBookContents">
 			        		<form class="results" action="./Service">
-			        			<input type="hidden" name="command" value="deleteDibs">
+			        			<input type="hidden" name="command" value="deleteDibs" class="del">
 			        		</form>
 			        	</div>
 				</div>
