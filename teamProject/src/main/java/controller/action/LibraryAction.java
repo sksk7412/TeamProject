@@ -9,38 +9,35 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.Action;
-import teamProject.DibsBookDAO;
-import teamProject.DibsBookDTO;
+import teamProject.MyLibraryDAO;
+import teamProject.MyLibraryDTO;
 
-public class DibsAction implements Action {
+public class LibraryAction implements Action {
 @Override
 public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	// TODO Auto-generated method stub
 	HttpSession session = request.getSession();
-	DibsBookDTO user = null;
-	DibsBookDAO temp = DibsBookDAO.getInstance();
+	MyLibraryDTO book = null;
+	MyLibraryDAO dao = MyLibraryDAO.getInstance();
 	
-	String isbn = request.getParameter("isbn");
 	int id = (int) session.getAttribute("log");
+	String isbn = request.getParameter("isbn");
 	
-	System.out.println("isbn: " + isbn);
+	Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
+	
+	book = new MyLibraryDTO(id, isbn, modifiedAt);
+	
 	System.out.println("id:" + id);
-	Timestamp createAt = new Timestamp(System.currentTimeMillis());
-	
-	// id isbn 날짜
-	user = new DibsBookDTO(id,isbn,createAt);	
+	System.out.println("isbn: " + isbn);
 	
 	String url = "";
-		
-	if(temp.addWrite(user)){
-		
-		System.out.println("찜 성공!!");
-		url = "bookInfo.jsp?isbn="+isbn;
-		url = "index.jsp";
+	if(dao.addBook(book)){
+		System.out.println("읽기 성공");
+		url = "myLibrary.jsp";
 	}
 	else{
-		System.out.println("찜 실패!!");
-		url = "index.jsp";
+		System.out.println("읽기 실패");
+		url = "myLibrary.jsp";
 	}
 	request.getRequestDispatcher(url).forward(request, response);
 }

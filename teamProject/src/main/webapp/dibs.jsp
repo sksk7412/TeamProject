@@ -1,8 +1,8 @@
-<%@page import="teamProject.UserDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="teamProject.DibsBookDAO"%>
 <%@page import="teamProject.DibsBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,64 +16,37 @@
 </head>
 <body>
 	<%
-	if(session.getAttribute("log")!=null) {
-	int log = (int)session.getAttribute("log");
+		if(session.getAttribute("log")!=null) {
+			int log = (int)session.getAttribute("log");
+			DibsBookDAO dao = DibsBookDAO.getInstance();
+			ArrayList<DibsBookDTO> dibs = dao.getDibsBookDto(log);
+			
 	%>
 	<div class="wrap">
-        <div class="header">
-            <p class="logo">LOGO</p>
-            <div class="topMenu">
-                <p class="search"><img src="image/search.png"></p>
-                <p class="login">LOGIN</p>
-                <p class="join">JOIN</p>
-            </div>
-        </div>
-	
-        <div class="nav">
-            <div>
-                <p class="menu1">BEST</p>
-                <p class="menu2">NEW</p>
-                <p class="menu3">HOW TO</p>
-                <p class="menu4">ABOUT</p>
-            </div>
-        </div>
-		
-		<script>
-			let name = "";
-			let isbn = "";
-		</script>
 		<div class="dibsBook">
-			<div class="dibBook">
-				<div class="bookList2">
-					
-			            <%
-						DibsBookDAO dao = DibsBookDAO.getInstance();
-						if(dao.getDibsBookDto().size() > 0) {
-							//System.out.println(dao.getSize());
-							
-							
-							for(int i=0; i<dao.getSize(); i++){
-								
-								DibsBookDTO dto = dao.getDibsBookDto().get(i);
-								String a = dto.getIsbn();
-						%>
-						
-						<input type="hidden" value="<%=dto.getIsbn()%>" id="isbn" class="isbn<%=i %>">
-			                <script>
-			                	name = '.isbn' + <%=i%>;
-				                isbn = $(name).val();
-				                getBookForIsbn(isbn);
-			                </script>
-			            <%
-							}
-						}
-						%>
-						
-			        	<div class="dibsBookContents">	</div>
-			    	
+			<div class="bookList2">
+				<div class="dibsBookContents">
+					<form class="results" action="./Service">
+						<input type="hidden" name="command" value="deleteDibs">
+					</form>
 				</div>
 			</div>
-		</div>            
-     </div>
+		</div>
+	</div>
+	<script src="bookApi.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function() {
+			const isbn = [
+			<%	for(int i = 0; i < dibs.size(); i++){%>
+				"<%= dibs.get(i).getIsbn() %>"
+				<%= i + 1 < dibs.size() ? ",":"" %>
+				<% } 
+			%>];
+			getDibs(isbn);
+			});
+		</script>
+	<%
+	}
+	%>
 </body>
 </html>

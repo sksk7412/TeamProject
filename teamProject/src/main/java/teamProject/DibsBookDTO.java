@@ -21,25 +21,34 @@ public class DibsBookDTO {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> refs/remotes/origin/#02-NaYeon
+=======
+>>>>>>> refs/remotes/origin/nnnayeon
 	public String getIsbn() {
 		return isbn;
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> refs/remotes/origin/#02-NaYeon
+=======
+>>>>>>> refs/remotes/origin/nnnayeon
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 <<<<<<< HEAD
 
 
+<<<<<<< HEAD
 
 =======
 >>>>>>> refs/remotes/origin/#02-NaYeon
+=======
+>>>>>>> refs/remotes/origin/nnnayeon
 }

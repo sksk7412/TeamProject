@@ -8,6 +8,10 @@ create table users(
     `name` varchar(20) not null,
     mobile varchar(13) not null
 );
+<<<<<<< HEAD
+=======
+--insert into users(userId,userPw,`name`,mobile) values('a','1111','�赿ȣ','010-1111-1111');
+>>>>>>> refs/remotes/origin/nnnayeon
 
 -- 찜한 책 목록 테이블 
 create table dibsBook(

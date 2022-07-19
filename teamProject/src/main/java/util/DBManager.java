@@ -4,30 +4,42 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 
 >>>>>>> refs/remotes/origin/#02-NaYeon
+=======
+
+>>>>>>> refs/remotes/origin/nnnayeon
 public class DBManager {
 
 	// DBManager.getConnection();
 <<<<<<< HEAD
 	// ì™¸ë¶€ í´ëž˜ìŠ¤ì—ì„œ ë””ë¹„ ì—°ë™ì´ í•„ìš”í• ë•Œ ì‚¬ìš©ê°€ëŠ¥ Connectionì„ ì–»ì–´ê°„ë‹¤. 
+<<<<<<< HEAD
 =======
 	// ¿ÜºÎ Å¬·¡½º¿¡¼­ µðºñ ¿¬µ¿ÀÌ ÇÊ¿äÇÒ¶§ »ç¿ë°¡´É ConnectionÀ» ¾ò¾î°£´Ù. 
+=======
+>>>>>>> refs/remotes/origin/nnnayeon
 
 	
 >>>>>>> refs/remotes/origin/#02-NaYeon
 	public static Connection getConnection(String database) { 
 		 Connection conn = null;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> refs/remotes/origin/nnnayeon
 			/*
 			 * String url =
 			 * "jdbc:mysql://database-1.ckbmckfk9bod.ap-northeast-2.rds.amazonaws.com:3306/firstJsp?serverTimezone=UTC"
 			 */;
 		 String url = String.format("jdbc:mysql://database-1.ckbmckfk9bod.ap-northeast-2.rds.amazonaws.com:3306/%s?serverTimezone=UTC", database);
 
+<<<<<<< HEAD
 =======
 
 			/*
@@ -38,6 +50,9 @@ public class DBManager {
 
 		
 >>>>>>> refs/remotes/origin/#02-NaYeon
+=======
+		
+>>>>>>> refs/remotes/origin/nnnayeon
 		 String user = "admin";
 		 String password = "8EFBM59z#qZq";
 		
@@ -57,6 +72,7 @@ public class DBManager {
 			return null;
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	}
 }
 =======
@@ -65,3 +81,8 @@ public class DBManager {
 }
 
 >>>>>>> refs/remotes/origin/#02-NaYeon
+=======
+
+	}
+}
+>>>>>>> refs/remotes/origin/nnnayeon

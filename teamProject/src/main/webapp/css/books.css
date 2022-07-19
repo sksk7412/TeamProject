@@ -3,21 +3,38 @@
 	margin-top: 50px;
     width:100vw;
     background-color: white;
+<<<<<<< HEAD
 }
 .dibBook{
 	width:60vw;
 	margin: auto;
 
+=======
+   	height:100%;
+>>>>>>> refs/remotes/origin/nnnayeon
 }
+<<<<<<< HEAD
 .bookList{
 	width: 15vw;
+=======
+
+
+.bookList2{
+>>>>>>> refs/remotes/origin/nnnayeon
 	text-align: center;
-}
-.dibsBookContents{
-	width: 60vw;
-	backgroud-color: red;
 	display: flex;
 }
+.dibsBookContents{
+	display:flex;
+}
+.bookInfo{
+	background-color: gray;
+}
+.results{
+	display:flex;
+	width: 15vw;
+}
+
 
 
 

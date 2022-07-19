@@ -185,8 +185,7 @@ function getDibs(isbns) {
 
 // isbn을 이용하여 나의 서재에 값 가져오기
 function getLibraryForIsbn(isbn){
-	
-	let isbns = isbn.split(" ");
+	for(let i=0; i<isbn.length; i++) {
 	
 	$.ajax({
         method : 'get',
@@ -195,22 +194,32 @@ function getLibraryForIsbn(isbn){
             Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
         },
         data: {
-           query: isbns[0],
+           query: isbn[i],
            target: 'isbn'
         },
         encoding: 'UTF-8',
     })
-    .done(data =>{
-        const result = data.documents;
-
+	    .done(data =>{
+	        const result = data.documents;
+	
 		result.forEach(book=>{
-			// 김나연이 쓰는 부분
-			let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
+			
+			let html = `<tr>
+							<td class="bookThumnail"><img src = "${book.thumbnail}"></td>
+							<td class="bookTitle">${book.title}</td>
+							<td class="bookAuthor">${book.authors}</td>
+							<td class="bookContent">${book.contents}</td>
+							<input type="hidden" value=${book.isbn} name="isbn">
+							<td class="delete"><input type="submit" value="삭제"></td>
+						</tr>
+						`;
+			
+			/*let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
 			 html+= `<td class="bookTitle">${book.title}</td>`;
 			 html+= `<td class="bookAuthor">${book.authors}</td>`;
 			 html+= `<td class="bookContent">${book.contents}</td>`;
-			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`
-			$('tbody').append(html);
+			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`;*/
+			$('.LibraryList').append(html);
 			
 			// 김동호가 쓰는 부분
 			let html2 = "<div class='book'>";
