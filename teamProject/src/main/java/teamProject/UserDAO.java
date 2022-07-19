@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
 import util.DBManager;
 
 
@@ -234,6 +239,16 @@ public class UserDAO {
 			}
 		}
 		return true;
+	}
+	
+	public String getUserlog(int log) {
+	
+		conn = DBManager.getConnection("book");
+		String SQL = "select id from dibsbook where userId=?";
+//		String sql = String.format("select * from dibsbook where userId='%s'", );
+		
+		return null;
+		
 	}
 	
 

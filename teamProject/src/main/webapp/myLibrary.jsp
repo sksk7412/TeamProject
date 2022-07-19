@@ -1,6 +1,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="teamProject.MyLibraryDAO"%>
 <%@page import="teamProject.MyLibraryDTO"%>
+<%@page import="teamProject.UserDAO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,6 +23,8 @@
 		if(session.getAttribute("log")!=null) {
 			int log = (int)session.getAttribute("log");
 			MyLibraryDAO dao = MyLibraryDAO.getInstance();
+			UserDAO udao = UserDAO.getInstance();
+			udao.getUserId(log);
 			ArrayList<MyLibraryDTO> lis = dao.getMyLibraryDto(log);
 	%>
 	<div class="boardListContainer">

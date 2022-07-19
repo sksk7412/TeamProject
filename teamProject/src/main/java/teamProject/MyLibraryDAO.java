@@ -3,13 +3,9 @@ package teamProject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.util.Random;
 import util.DBManager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MyLibraryDAO {
 	
@@ -27,8 +23,6 @@ public class MyLibraryDAO {
 	private String database = "book";
 	private String user = "root";
 	private String password = "root";
-	private Random ran = new Random();
-	
 	
 	private ArrayList<MyLibraryDTO> lis;
 	
@@ -36,19 +30,16 @@ public class MyLibraryDAO {
 	public boolean addBook(MyLibraryDTO LibraryDto) {
 		
 		conn = DBManager.getConnection(database);
-		String sql = "INSERT INTO myLibrary VALUES (?,?,?,?)";
-		System.out.println("222222222222222222222");
+		String sql = "INSERT INTO myLibrary VALUES (?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, LibraryDto.getId());
+			pstmt.setString(1, LibraryDto.getUserId());
 			pstmt.setString(2, LibraryDto.getIsbn());
-			pstmt.setTimestamp(3, LibraryDto.getModifiedAt());
-			pstmt.setInt(4, LibraryDto.getIsReviewed());
+			pstmt.setInt(3, LibraryDto.getIsReviewed());
 			
 			pstmt.executeUpdate();
-			System.out.println("111111111111111111111111111");
 			return true;
 			
 		} catch (Exception e) {
@@ -96,24 +87,21 @@ public class MyLibraryDAO {
 		lis = new ArrayList<>();
 		conn = DBManager.getConnection(database);
 		System.out.println("log: " + log);
-		String sql = String.format("select * from myLibrary where id = %d", log);
+		String sql = String.format("select * from myLibrary where userId = %d", log);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			int id;
-			String isbn;
-			Timestamp modifiedAt;
+			String userId, isbn;
 			int isReviewed;
 			
 			while(rs.next()) {
-				id = rs.getInt(1);
+				userId = rs.getString(1);
 				isbn = rs.getString(2);
-				modifiedAt = rs.getTimestamp(3);
-				isReviewed = rs.getInt(4);
+				isReviewed = rs.getInt(3);
 				
-				MyLibraryDTO myLibraryDto = new MyLibraryDTO(id, isbn, modifiedAt, isReviewed);
+				MyLibraryDTO myLibraryDto = new MyLibraryDTO(userId, isbn, isReviewed);
 				lis.add(myLibraryDto);
 			}
 			
@@ -137,7 +125,7 @@ public class MyLibraryDAO {
 	
 	public int getSize(int log) {
 		conn = DBManager.getConnection(database);
-		String sql = String.format("select count(*) from myLibrary where id = %d", log);
+		String sql = String.format("select count(*) from myLibrary where userId = %d", log);
 		int size = -1;
 		
 		try {

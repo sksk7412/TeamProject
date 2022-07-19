@@ -184,7 +184,6 @@ function getDibs(isbns) {
 								<div class="title">${book.title}</div>
 								<div class="authors">${book.authors}</div>
 								<div class="publisher">${book.publisher}</div>
-								
 								<input type="submit" class="delete" value="삭제">
 							</div>
 						</div>`;
@@ -209,7 +208,7 @@ function getDibs(isbns) {
 
 function view(){
 	alert();
-	$('.del').prop('value','view');
+	$('.del').prop('value','addLibrary');
 
 }
 

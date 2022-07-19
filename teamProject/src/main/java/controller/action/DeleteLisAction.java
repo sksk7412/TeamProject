@@ -20,15 +20,13 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	MyLibraryDTO book = null;
 	MyLibraryDAO dao = MyLibraryDAO.getInstance();
 	
-	int id = (int) session.getAttribute("log");
+	String userId = (String) session.getAttribute("log");
 	String isbn = request.getParameter("isbn");
 	
 	Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
 	
 	
-	book = new MyLibraryDTO(id, isbn, modifiedAt, 0);
-	System.out.println(id);
-	System.out.println("isbn: "+isbn);
+	book = new MyLibraryDTO(userId, isbn, 0);
 	
 	String url = "";
 	if(dao.deleteBook(book)) {

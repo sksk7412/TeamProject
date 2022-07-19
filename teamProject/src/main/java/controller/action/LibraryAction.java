@@ -1,7 +1,6 @@
 package controller.action;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,15 +19,10 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	MyLibraryDTO book = null;
 	MyLibraryDAO dao = MyLibraryDAO.getInstance();
 	
-	int id = (int) session.getAttribute("log");
+	String userId = (String) session.getAttribute("log");
 	String isbn = request.getParameter("isbn");
 	
-	Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
-	
-	book = new MyLibraryDTO(id, isbn, modifiedAt, 0);
-	
-	System.out.println("id:" + id);
-	System.out.println("isbn: " + isbn);
+	book = new MyLibraryDTO(userId, isbn, 0);
 	
 	String url = "";
 	if(dao.addBook(book)){
