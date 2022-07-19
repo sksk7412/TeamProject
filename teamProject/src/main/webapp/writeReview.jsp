@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/review.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <title>Review Write</title>
 </head>
 <body>
@@ -15,7 +16,8 @@
 		int log = (int) session.getAttribute("log");
 		UserDAO dao = UserDAO.getInstance();
 		String name = dao.getName(log);
-		//  String isbn = request.getParameter("isbn");
+		String isbn = request.getParameter("isbn");
+		System.out.println(isbn);
 	%>
 	<div class="wrap">
 
@@ -36,6 +38,8 @@
 		</div>
 
 	</div>
+	<script src=bookApi.js></script>
+	<script>getLibraryForIsbn(<%=isbn%>)</script>
 	<%
 	}
 	%>

@@ -1,48 +1,49 @@
-use book;
+USE book;
 
-create table users(
-    id int primary key,
-	userId varchar(20) unique not null,
-    userPw varchar(20) not null,
-    `name` varchar(20) not null,
-    mobile varchar(13) not null
-);
+CREATE TABLE users
+  (
+     id     INT PRIMARY KEY,
+     userid VARCHAR(20) UNIQUE NOT NULL,
+     userpw VARCHAR(20) NOT NULL,
+     `name` VARCHAR(20) NOT NULL,
+     mobile VARCHAR(13) NOT NULL
+  );
+
 --insert into users(userId,userPw,`name`,mobile) values('a','1111','������','010-1111-1111');
+CREATE TABLE dibsbook
+  (
+     id       INT,
+     isbn     VARCHAR(30) PRIMARY KEY,
+     createat DATETIME,
+     FOREIGN KEY (id) REFERENCES users(id)
+  );
 
---create table dibsBook(
---	  id int,
---    isbn varchar(30) primary key,
---    createAt datetime,
---    foreign key (id) references users(id)
---);
-    
-	--create table myLibrary(
-	--	  id int,
-	--    isbn varchar(30),
-	--    modifiedAt datetime,
-	--    foreign key (isbn) references dibsBook(isbn),
-	--    foreign key (id) references users(id)
-	--);
+CREATE TABLE myLibrary
+  (
+     id         INT not null primary key,
+     isbn       VARCHAR(30),
+     modifiedat DATETIME,
+     FOREIGN KEY (id) REFERENCES users(id)
+  );
 
 --insert into myLibrary values(1,"0001","2022-07-11");
---
---insert into dibsBook values(1,"0001","2022-07-12");
---insert into dibsBook values(1,"0002","2022-07-12");
---insert into dibsBook values(1,"0003","2022-07-12");
---insert into dibsBook values(1,"0001","2022-07-12");
---insert into dibsBook values(1,"0002","2022-07-12");
---insert into dibsBook values(1,"0003","2022-07-12");
---
---select * from dibsBook;
---
---
---create table best_book(
---    isbn varchar(30) primary key
---);
---
---select * from myLibrary;
---
---insert into users(userId,userPw,`name`,mobile) values('a','1111','������','010-1111-1111');
---
---select * from users;
---drop database book;
+CREATE TABLE best_book
+  (
+     isbn VARCHAR(30) PRIMARY KEY
+  );
+
+CREATE TABLE new_book
+  (
+     isbn VARCHAR(30) PRIMARY KEY
+  );
+
+CREATE TABLE board
+  (
+     id        INT PRIMARY KEY,
+     userid    INT,
+     isbn      VARCHAR(30) NOT NULL,
+     contents  VARCHAR(2000) NOT NULL,
+     createdat DATETIME,
+     FOREIGN KEY (isbn) REFERENCES mylibrary(isbn),
+     FOREIGN KEY (userid) REFERENCES users(id)
+  ); 

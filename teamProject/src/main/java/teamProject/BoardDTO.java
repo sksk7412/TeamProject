@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 public class BoardDTO {
 	
 	private int log;
-	private int isbn;
+	private String isbn;
 	private String contents;
 	private Timestamp createdAt;
 	
-	public BoardDTO(int log, int isbn, String contents, Timestamp createdAt) {
+	public BoardDTO(int log, String isbn, String contents, Timestamp createdAt) {
 		this.log = log;
 		this.isbn = isbn;
 		this.contents = contents;
@@ -29,11 +29,11 @@ public class BoardDTO {
 		this.log = log;
 	}
 
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 

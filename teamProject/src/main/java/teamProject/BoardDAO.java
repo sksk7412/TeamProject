@@ -25,18 +25,23 @@ public class BoardDAO {
 		conn = DBManager.getConnection("book");
 		
 		int log = board.getLog();
-		int isbn = board.getIsbn();
+		String isbn = board.getIsbn();
 		String contents = board.getContents();
 		String createdAt = String.valueOf(board.getCreatedAt());
-		String sql=String.format("insert into board(userId,isbn,contents,createdAt) values('%d','%s','%s','%s')",log,isbn,contents,createdAt);
+		String sql = String.format("insert into board(userId,isbn,contents,createdAt) values('%d','%s','%s','%s')",log,isbn,contents,createdAt);
+		
+		String update = String.format("update myLibrary set isReviewed = '1' where id = %d and isbn = '%s'", log, isbn);
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.execute();
-			
+			pstmt = conn.prepareStatement(update);
+			pstmt.execute();
+			System.out.println("리뷰 작성");
 			return true;
 		} catch (Exception e) { // TODO: handle exception } }
 			e.printStackTrace();
-			System.out.println("추가 실패");
+			System.out.println("리뷰작성 시ㄹ패");
 		}finally {
 			try {
 				conn.close();
