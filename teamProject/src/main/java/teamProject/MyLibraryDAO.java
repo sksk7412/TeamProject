@@ -37,6 +37,7 @@ public class MyLibraryDAO {
 		
 		conn = DBManager.getConnection(database);
 		String sql = "INSERT INTO myLibrary VALUES (?,?,?)";
+		System.out.println("222222222222222222222");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -46,7 +47,7 @@ public class MyLibraryDAO {
 			pstmt.setTimestamp(3, LibraryDto.getModifiedAt());
 			
 			pstmt.executeUpdate();
-			
+			System.out.println("111111111111111111111111111");
 			return true;
 			
 		} catch (Exception e) {

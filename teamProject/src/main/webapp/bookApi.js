@@ -109,7 +109,7 @@ function getBookForIsbn(isbn) {
 		})
 }
 
-// 찜하기에 책 불러오기
+/*// 찜하기에 책 불러오기
 function getDibs(isbns) {
 	for(let i=0; i<isbns.length; i++) {
 	
@@ -148,30 +148,43 @@ function getDibs(isbns) {
 			})
 		})
 	}
-}
+}*/
 
-// isbn을 이용하여 나의 서재에 값 가져오기
-function getLibraryForIsbn(isbn){
-	for(let i=0; i<isbn.length; i++) {
+// 찜하기에 책 불러오기
+function getDibs(isbns) {
+	for(let i=0; i<isbns.length; i++) {
 	
 	$.ajax({
-        method : 'get',
-        url :`https://dapi.kakao.com//v3/search/book`,
-        headers: {
-            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
-        },
-        data: {
-           query: isbn[i],
-           target: 'isbn'
-        },
-        encoding: 'UTF-8',
-    })
-	    .done(data =>{
-	        const result = data.documents;
-	
+		method: 'get',
+		url: `https://dapi.kakao.com//v3/search/book`,
+		headers: {
+			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+		},
+		data: {
+			query: isbns[i],
+			target: 'isbn'
+		},
+		encoding: 'UTF-8',
+	})
+		.done(data => {
+			const result = data.documents;
 		result.forEach(book=>{
-			
-			let html = `<tr>
+			console.log(book.valueOf());
+			let isbns = book.isbn.split(" ");
+			let html = `
+						<div class="bookInfo">
+							<div class="image"><img src="${book.thumbnail}"></div>
+							<div class="info">
+							<input type="hidden" value="${isbns}" name="isbn">
+								<div class="title">${book.title}</div>
+								<div class="authors">${book.authors}</div>
+								<div class="publisher">${book.publisher}</div>
+								<input type="submit" class="delete" value="삭제">
+							</div>
+						</div>
+						</form>
+						`;
+			let html2 = `<tr>
 							<td class="bookThumnail"><img src = "${book.thumbnail}"></td>
 							<td class="bookTitle">${book.title}</td>
 							<td class="bookAuthor">${book.authors}</td>
@@ -181,17 +194,16 @@ function getLibraryForIsbn(isbn){
 						</tr>
 						`;
 			
-			/*let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
-			 html+= `<td class="bookTitle">${book.title}</td>`;
-			 html+= `<td class="bookAuthor">${book.authors}</td>`;
-			 html+= `<td class="bookContent">${book.contents}</td>`;
-			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`;*/
-			$('.LibraryList').append(html);
-			
-		    })
-	    })
+			$('.main').append(html);
+			$('.results').append(html);
+			$('.LibraryList').append(html2);
+			})
+		})
 	}
 }
+
+
+
 
 // best_seller / new 책
 function getBookstoArray(bestSeller) {

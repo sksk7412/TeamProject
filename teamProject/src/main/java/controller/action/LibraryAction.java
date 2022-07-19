@@ -37,7 +37,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	}
 	else{
 		System.out.println("읽기 실패");
-		url = "myLibrary.jsp";
+		url = "dibs.jsp";
 	}
 	request.getRequestDispatcher(url).forward(request, response);
 }
