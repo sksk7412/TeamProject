@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrap{
+    width:100vw;
+    position: relative;
+    background-image: url(../image/bg2.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+
+.header{
+    width:100vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #eee6df;
+    opacity: 0.6;
+    height: 10vh;
+    display: flex;
+    color:#1b0f04;
+    justify-content: space-between;
+    
+}
+.logo{
+    font-weight: 700;
+    font-size: 35pt;
+    margin-left: 7vw;
+    padding-top:2vh;
+}
+.topMenu{
+    float:right;
+    display: flex;
+    font-weight: 500;
+    margin:10px 150px;
+    /* color:#1b0f04; */
+}
+.topMenu p{
+    margin-left: 20px;
+}
+.topMenu img{
+    width:24px;
+    margin-top:3px;
+}
+.nav{
+    width:100vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #eee6df;
+    opacity: 0.6;
+    height: 5vh;
+   
+}
+.nav div{
+    width:80vw;
+    margin-left: 20vw;
+    font-size: 16pt;
+    display:flex;
+}
+.nav p{
+    margin-right: 15vw;
+    position:relative;
+}
+.nav p:before{
+    content: '';
+    position: absolute; /*부모 요소에는 position: relative를 주어야 한다.*/
+    background-color: #1b0f04;
+    height: 2px; /*밑줄 굵기*/
+
+    width: 0; /*초기에 보이지 않도록*/
+    bottom: 0; /*a태그 아래에 위치시키기*/
+    transition: 0.7s; /*애니메이션 동작 실행 시간 정의*/
+
+    /*가상 요소를 가운데로 이동시키기*/
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+.nav p:hover:before{
+    width:100%;
+}
+
+.main{
+    width:100vw;
+}
+.txt{
+    width:24.7vw;
+    display: flex;
+    flex-wrap: wrap;
+    color:white;
+    /* background-color: darkblue; */
+
+    margin-top:22vh;;
+    margin-left:14vw;
+}
+.txt1{
+    font-family: 'Song Myung', serif;
+    font-size: 47pt;
+    text-shadow: 3px 3px black;
+}
+.txt2{
+    font-size:12pt;
+    margin-top:10px;
+    font-weight: 500;
+    letter-spacing: -0.8pt;
+    line-height: 1.5em;
+}
+.txt .btn1{
+    width:9vw;
+    height:4vh;
+    border:none;
+    border-radius: 4.5vw;
+    background-color: #d0c09e;
+    font-weight: 700;
+    color:#1b0f04;
+    margin-top:20px;
+    font-size:11pt;
+}
+.txt .btn1:hover{
+    opacity: 0.6;
+}
+
+
