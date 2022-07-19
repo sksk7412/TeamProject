@@ -18,25 +18,35 @@ public class BoardDAO {
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
-	private ArrayList<BoardDTO> dibs = null;
+	private ArrayList<BoardDTO> reviewList;
 	
-	
+	// 작성한 리뷰 db에 넣기
 	public boolean addReview(BoardDTO board) {
 		conn = DBManager.getConnection("book");
 		
-		int log = board.getLog();
+		String userId = findUserId(board.getLog());
+		
+		if(userId == null)
+			return false;
+		
 		String isbn = board.getIsbn();
 		String contents = board.getContents();
 		String createdAt = String.valueOf(board.getCreatedAt());
-		String sql=String.format("insert into board(userId,isbn,contents,createdAt) values('%d','%s','%s','%s')",log,isbn,contents,createdAt);
+		String sql = String.format("insert into board(userId,isbn,contents,createdAt) values('%s','%s','%s','%s')",userId,isbn,contents,createdAt);
+		
+		String update = String.format("update myLibrary set isReviewed = '1' where userId = '%s' and isbn = '%s'", userId, isbn);
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.execute();
+			pstmt = conn.prepareStatement(update);
+			pstmt.execute();
 			
+			System.out.println("리뷰 작성");
 			return true;
 		} catch (Exception e) { // TODO: handle exception } }
 			e.printStackTrace();
-			System.out.println("추가 실패");
+			System.out.println("리뷰작성 실패");
 		}finally {
 			try {
 				conn.close();
@@ -48,38 +58,61 @@ public class BoardDAO {
 		return false;
 	}
 	
+	// userId 찾기
+	private String findUserId(int log) {
+		conn = DBManager.getConnection("book");
+		
+		String sql = String.format("select * from users where id = %d", log);
+		
+		String userId = "";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				userId = rs.getString(2);
+			}
+			
+			return userId;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println("유저 아이디 찾기 실");
+		}
+		return null;
+	}
+	
 		// DB값 불러오기
 		public ArrayList<BoardDTO> getBoardDto(String isbn) {
-			
-		//	String sql = "select * from Board where isbn = %s";
-		//  String sql = String.format("select userId from users where id = '%d' ;",log);
+			reviewList = new ArrayList<>();
+
 			conn = DBManager.getConnection("book");
-			String sql = String.format("select * from board where isbn= '%s';",isbn);
-			try {
+			String sql = String.format("select * from board where isbn ='%s'", isbn);
 			
-				dibs = new ArrayList<>();
+			try {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
-						
-				int log;
+				
+				String userId;
 				String contents;
-				Timestamp createAt;
+				Timestamp createdAt;
 				
 				while(rs.next()) {
-					System.out.println("22222222222222222");
-					log = rs.getInt(1);
+					userId = rs.getString(2);
 					contents = rs.getString(4);
-					createAt = rs.getTimestamp(5);
+					createdAt = rs.getTimestamp(5);
 					
-					BoardDTO dibsBookDto = new BoardDTO(log, contents, createAt);
-					dibs.add(dibsBookDto);
+					BoardDTO review = new BoardDTO(userId, contents, createdAt);
+					reviewList.add(review);
 				}
-		
-				return dibs;
+				
+				System.out.println("리뷰 리스트 불러오기 성공");
+				return reviewList;
 				
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
+				System.out.println("리뷰 리스트 불러오기 실패");
 			} finally {
 				try {
 					pstmt.close();
@@ -91,34 +124,10 @@ public class BoardDAO {
 			}
 			return null;
 		}
-	
-	
-	public int getSize() {
-		conn = DBManager.getConnection("book");
-		String sql = "select count(*) from board";
-
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-
-			rs.next();
-			int size = rs.getInt(1);
+		
+		public void isReviewed() {
 			
-			return size;
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			try {
-				conn.close();
-				pstmt.close();
-				rs.close();
-			} catch (Exception e2) {
-				// TODO: handle exception
-			}
 		}
-		return -1;
-	}
-	
-	
+		
+		
 }

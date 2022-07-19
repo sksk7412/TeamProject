@@ -1,4 +1,5 @@
 
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="teamProject.BoardDAO"%>
 <%@page import="teamProject.BoardDTO"%>
@@ -28,89 +29,101 @@
 	BoardDAO dao = BoardDAO.getInstance();
 	System.out.println("isbn: "+ isbns[0]);
 	ArrayList<BoardDTO> bto = dao.getBoardDto(isbns[0]); 
-	System.out.println("bto: "+ bto.size());
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+	
 %>
 <body>
 
 	<div class="wrap">
-	
-		<jsp:include page="header.jsp"></jsp:include>		
-	
-	<div class="container">
-	<div class="bookWrap">
-	<div class="main">
-	</div>
-		<%
+
+		<jsp:include page="header.jsp"></jsp:include>
+
+		<div class="container">
+			<div class="bookWrap">
+				<div class="main"></div>
+				<%
 			if(id != -1){
 				// 선주형 바보 
 		%>
-    	 	
-			<form method="post" action="./Service">
-				<input type="hidden" name="command" value="DibsBook" >
-				<input type="hidden" value="<%=isbns[0]%>" name="isbn">
+
+				<form method="post" action="./Service">
+					<input type="hidden" name="command" value="DibsBook"> <input
+						type="hidden" value="<%=isbns[0]%>" name="isbn">
 					<div class="buttons">
-			       		<input type="submit" value="♡ 찜하기"><br>
-			       	</div>
-			</form>
-			<button onclick="location.href='index.jsp'">바로 보기</button>
-		<%
+						<input type="submit" value="♡ 찜하기"><br>
+					</div>
+				</form>
+				<button onclick="location.href='index.jsp'">바로 보기</button>
+				<%
 			}
 		%>
-		<%
+				<%
 			if(id == -1){
-		%>	
-			<div class="buttons2">
-				<button onclick="location.href='subscription.jsp'">구독하기</button>
-			</div>
-		<%
+		%>
+				<div class="buttons2">
+					<button onclick="location.href='subscription.jsp'">구독하기</button>
+				</div>
+				<%
 			}
 		%>
-	<div class="titles"> <h3>책 소개</h3></div><br><br>
-	<div class="main2"></div><br><br><br>
-	<div class ="star">
-		<div class="starBox">
-		<h3>총 별점</h3>
-		<p>★★★★☆</p>
-	
-		<span class="score">4.3s<p class="totalScore">/5</p></span>
-	
-		</div>
-	
-	
-	<br><br><br>
-	<div class="titles"> 고객 리뷰</div><br><br><br>
-	</div>
-<<<<<<< HEAD
+				<div class="titles">
+					<h3>책 소개</h3>
+				</div>
+				<br>
+				<br>
+				<div class="main2"></div>
+				<br>
+				<br>
+				<br>
+				<div class="star">
+					<div class="starBox">
+						<h3>총 별점</h3>
+						<p>★★★★☆</p>
+
+						<span class="score">4.3s
+							<p class="totalScore">/5</p>
+						</span>
+
+					</div>
+
+
+					<br>
+					<br>
+					<br>
+					<div class="titles">고객 리뷰</div>
+					<br>
+					<br>
+					<br>
+				</div>
+
+				<table border="1">
+					<%	
+	if(bto != null){
 		
-	<table border="1">
- 	<%	
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		
-		for(int i = 0; i < dao.getSize(); i++){
+		for(int i = 0; i < bto.size(); i++){
 			BoardDTO bodt = bto.get(i);
 			System.out.println("log: "+bto.get(i).getLog());
-	%>	
-				<thead>
-						<th><%=bodt.getUserid()%></th>
+	%>
+					<thead>
+						<th><%=bodt.getUserId()%></th>
 						<th><%=bodt.getContents()%></th>
-						<th><%=bodt.getCreatedAt()%></th>			
-				</thead>
-	 <%
+						<th><%=bodt.getCreatedAt()%></th>
+					</thead>
+					<%
 						
 			}
-	 %> 	
-	</table>
-=======
+	}
+	 %>
+				</table>
 
->>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
 
-<input type="hidden" value="<%=isbn%>" id="isbn">
-</div>
-</div>
+				<input type="hidden" value="<%=isbn%>" id="isbn">
+			</div>
+		</div>
 	</div>
-<script src="bookApi.js"></script>
+	<script src="bookApi.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		let isbn = $('#isbn').val();

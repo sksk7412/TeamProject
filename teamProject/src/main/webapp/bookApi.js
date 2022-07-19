@@ -221,12 +221,9 @@ function getBookstoArray(bestSeller) {
 			})
 		})
 	}
-<<<<<<< HEAD
 }
-=======
 
 
-}
 
 ///나의 라이브러리 테이블 값 가져오기
 function getMyLb(myLb) {
@@ -264,4 +261,3 @@ function getMyLb(myLb) {
 }
 
 
->>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
