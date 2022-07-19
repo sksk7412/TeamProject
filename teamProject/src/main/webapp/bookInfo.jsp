@@ -73,7 +73,7 @@
 		<h3>총 별점</h3>
 		<p>★★★★☆</p>
 	
-		<span class="score">4.2<p class="totalScore">/5</p></span>
+		<span class="score">4.3s<p class="totalScore">/5</p></span>
 	
 		</div>
 	
@@ -81,6 +81,7 @@
 	<br><br><br>
 	<div class="titles"> 고객 리뷰</div><br><br><br>
 	</div>
+<<<<<<< HEAD
 		
 	<table border="1">
  	<%	
@@ -101,6 +102,9 @@
 			}
 	 %> 	
 	</table>
+=======
+
+>>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
 </div>

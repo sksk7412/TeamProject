@@ -10,19 +10,19 @@ create table users(
 --insert into users(userId,userPw,`name`,mobile) values('a','1111','������','010-1111-1111');
 
 --create table dibsBook(
---	id int,
+--	  id int,
 --    isbn varchar(30) primary key,
 --    createAt datetime,
 --    foreign key (id) references users(id)
 --);
     
---create table myLibrary(
---	id int,
---    isbn varchar(30),
---    modifiedAt datetime,
---    foreign key (isbn) references dibsBook(isbn),
---    foreign key (id) references users(id)
---);
+	--create table myLibrary(
+	--	  id int,
+	--    isbn varchar(30),
+	--    modifiedAt datetime,
+	--    foreign key (isbn) references dibsBook(isbn),
+	--    foreign key (id) references users(id)
+	--);
 
 --insert into myLibrary values(1,"0001","2022-07-11");
 --

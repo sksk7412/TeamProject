@@ -9,6 +9,7 @@
     height: 100vh;
     font-family: 'Noto Sans KR', sans-serif;
     background-color:#f8f8f8;
+    overflow:auto;
 }
 .header{
     width:100vw;
