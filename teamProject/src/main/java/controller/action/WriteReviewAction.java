@@ -18,7 +18,7 @@ public class WriteReviewAction implements Action{
 			
 			HttpSession session = request.getSession();
 			int log = (int)session.getAttribute("log");
-			int isbn=0;
+			String isbn = null;
 			String contents = request.getParameter("contents");
 			Long date = System.currentTimeMillis();
 			

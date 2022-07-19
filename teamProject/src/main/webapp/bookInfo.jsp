@@ -24,9 +24,12 @@
 		 id = (int) session.getAttribute("log");	
 	}
 	String isbn = request.getParameter("isbn");
-	System.out.println(isbn);
 	 String isbns[] = isbn.split(" ");
-	 
+	BoardDAO dao = BoardDAO.getInstance();
+	System.out.println("isbn: "+ isbns[0]);
+	ArrayList<BoardDTO> bto = dao.getBoardDto(isbns[0]); 
+	System.out.println("bto: "+ bto.size());
+
 %>
 <body>
 
@@ -79,28 +82,25 @@
 	<div class="titles"> 고객 리뷰</div><br><br><br>
 	</div>
 		
-	  	<%-- 	<%
-				BoardDAO dao = BoardDAO.getInstance();
-	  		
-				System.out.println("log: " + log);
-				System.out.println("1111111: " + dao.getDibsBookDto(log).size());
-				System.out.println("2222: : " + dao.getSize(log));
-				if(dao.getDibsBookDto(log).size() > 0) {
-					for(int i=0; i < dao.getSize(log); i++){
-						DibsBookDTO dto = dao.getDibsBookDto(log).get(i);
-						String a = dto.getIsbn();
-			%>
-							
-				<input type="hidden" value="<%=dto.getIsbn()%>" id="isbn" class="isbn<%=i %>">
-				       <script>
-				             name = '.isbn' + <%=i%>;
-					         isbn = $(name).val();
-					         getBookForIsbn(isbn);
-				       </script>
-				 <%
-					}
-				}
-			%> --%>
+	<table border="1">
+ 	<%	
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		for(int i = 0; i < dao.getSize(); i++){
+			BoardDTO bodt = bto.get(i);
+			System.out.println("log: "+bto.get(i).getLog());
+	%>	
+				<thead>
+						<th><%=bodt.getUserid()%></th>
+						<th><%=bodt.getContents()%></th>
+						<th><%=bodt.getCreatedAt()%></th>			
+				</thead>
+	 <%
+						
+			}
+	 %> 	
+	</table>
 
 <input type="hidden" value="<%=isbn%>" id="isbn">
 </div>

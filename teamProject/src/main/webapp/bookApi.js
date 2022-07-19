@@ -179,8 +179,4 @@ function getBookstoArray(bestSeller) {
 			})
 		})
 	}
-
-
-
-
 }

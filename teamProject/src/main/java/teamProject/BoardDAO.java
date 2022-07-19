@@ -18,14 +18,14 @@ public class BoardDAO {
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
-	private ArrayList<BoardDTO> dibs = new ArrayList<>();
+	private ArrayList<BoardDTO> dibs = null;
 	
 	
 	public boolean addReview(BoardDTO board) {
 		conn = DBManager.getConnection("book");
 		
 		int log = board.getLog();
-		int isbn = board.getIsbn();
+		String isbn = board.getIsbn();
 		String contents = board.getContents();
 		String createdAt = String.valueOf(board.getCreatedAt());
 		String sql=String.format("insert into board(userId,isbn,contents,createdAt) values('%d','%s','%s','%s')",log,isbn,contents,createdAt);
@@ -49,29 +49,32 @@ public class BoardDAO {
 	}
 	
 		// DB값 불러오기
-		public ArrayList<BoardDTO> getBoardDto(int lsbn) {
+		public ArrayList<BoardDTO> getBoardDto(String isbn) {
 			
+		//	String sql = "select * from Board where isbn = %s";
+		//  String sql = String.format("select userId from users where id = '%d' ;",log);
 			conn = DBManager.getConnection("book");
-			String sql = "select * from Board";
-			
+			String sql = String.format("select * from board where isbn= '%s';",isbn);
 			try {
+			
+				dibs = new ArrayList<>();
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
-				System.out.println(rs);
-				
-				int id;
+						
+				int log;
 				String contents;
 				Timestamp createAt;
 				
 				while(rs.next()) {
-					id = rs.getInt(1);
-					contents = rs.getString(3);
-					createAt = rs.getTimestamp(4);
+					System.out.println("22222222222222222");
+					log = rs.getInt(1);
+					contents = rs.getString(4);
+					createAt = rs.getTimestamp(5);
 					
-					BoardDTO dibsBookDto = new BoardDTO(id, contents, createAt);
+					BoardDTO dibsBookDto = new BoardDTO(log, contents, createAt);
 					dibs.add(dibsBookDto);
 				}
-				
+		
 				return dibs;
 				
 			} catch (Exception e) {
@@ -101,7 +104,6 @@ public class BoardDAO {
 			rs.next();
 			int size = rs.getInt(1);
 			
-			System.out.println(size);
 			return size;
 		} catch (Exception e) {
 			// TODO: handle exception
