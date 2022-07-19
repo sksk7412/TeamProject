@@ -29,7 +29,7 @@
    
        			</span>
        			
-       			<span class="setting">
+       			<span class="setting" onclick="location.href='./userUpdate'">
        				<p><img src="./image/setting.png" class="settingIcon"></p>
        				<h4>회원정보 수정</h4>
        			</span>

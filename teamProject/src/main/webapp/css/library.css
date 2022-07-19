@@ -10,7 +10,6 @@
     font-family: 'Noto Sans KR', sans-serif;
     background-color:#f8f8f8;
 }
-
 .header{
     width:100vw;
     font-family: 'Noto Sans KR', sans-serif;
@@ -27,6 +26,7 @@
     font-size: 35pt;
     margin-left: 7vw;
     padding-top:2vh;
+    cursor:pointer;
 }
 .topMenu{
     float:right;
@@ -37,10 +37,12 @@
 }
 .topMenu p{
     margin-left: 20px;
+    cursor:pointer;
 }
 .topMenu img{
     width:24px;
     margin-top:3px;
+    cursor:pointer;
 }
 #logo img{
     font-weight: 700;
@@ -58,7 +60,7 @@
    
 }
 .nav div{
-    width:80vw;
+    width:100vw;
     margin-left: 20vw;
     font-size: 16pt;
     display:flex;
@@ -91,48 +93,72 @@
     background-color: white;
 }
 
-
+.userTitle{
+	
+	height:20vh;
+	display:flex;
+	text-align:left;
+	background-color:#fff9ed;
+	padding-top:30px;
+}
 .dibBook{
 	width:60vw;
 	background-color: red;
 	margin: auto;
 }
+.userTitle img {
+	width:7vw;
+	margin-left:17vw;
+	margin-top:10px;
+	color:#1b0f04;
+}
+.txt{
+	color:#1b0f04;
+	margin-top:20px;
+	margin-left:2vw;
+}
+.txt p{
+	margin-top:0.5vh;
+}
 
-
-
-.box{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 100px;
+.setting{
+	display:flex;
+	margin-left:10vw;
 }
-.box div{
-    width:300px;
-    height: 400px;
-    border: solid 1px #838383;
-    text-align:center;
-    background-color:white;
-    
+ .setting .settingIcon{
+	width:1.5vw;
+	margin-top:5vh;
+	color:#1b0f04;
 }
-.box h2{
-    padding:20px 0 20px 0;
-    color:white;
+.setting h4{
+	margin:5vh 0 0 1vw;
 }
-.box h2 p{
-	font-size:12pt;
-	font-weight:400;
+.myMenu{
+	width:60vw;
+	margin:auto;
+	
 }
-.box h2 .price{
-	font-size:16pt;
+.button{
+	margin-top:10px;
+	hegiht:7vh;
+	display:flex;
+	flex-wrap:wrap;
 }
-.basic h2{
+.myMenu .myLibrary{
 	background-color:#d0c09e;
 }
-.standard h2{
-	background-color:#af9a6d;
+.myMenu button{
+	width:20vw;
+	height:7vh;
+	font-family: 'Noto Sans KR', sans-serif;
+	border:none;
+	font-size:15pt;
 }
-.premium h2{
-	background-color:#4f3f1c;
+.myMenu button:hover{
+	background-color:#d0c09e;
 }
+
+
 .myMenu .ifr{
 	width:60vw;
 }
@@ -148,7 +174,31 @@
 	font-size:16pt;
 }
 
-
+.reviewTable{
+	width:100%;
+	margin-top:20px;
+	text-align:center;
+}
+.allView{
+	width:19vw;
+	height:30px;
+	border:none;
+	background-color:#f8f8f8;
+	font-size:13pt;
+	margin-top:20px;
+	
+}
+.boardTop{
+	display:flex;
+	justify-content: space-between;
+	
+}
+.writeBtn{
+	width:130px;
+	height:45px;
+	border:1.5px solid #d0c09e;
+	background-color:white;
+}
 
 .header{
     width:100vw;
@@ -196,8 +246,9 @@
     display:flex;
 }
 .nav p{
-    margin-right: 10vw;
+    margin-right: 15vw;
     position:relative;
+    cursor:pointer;
 }
 .nav p:before{
     content: '';
@@ -227,11 +278,32 @@
     margin-top: 100px;
 }
 
-.subs{
-	width:60vw;
-	margin:auto;
+
+.loginbox{
+	border : solid 1px black;
+}
+.bookList{
+	width:15vw;
+	background-color: yellow;
+	text-align: center;
+}
+.a{
+	width: 60vw;
+	display: flex;
+	flex-wrap: wrap;
 }
 
+.boardListContainer, formContainer {
+    width: 80vw;
+    margin: auto;
+    margin-top: 50px;
+}
 
+table {
+    border-collapse: collapse;
+}
 
+td{
+	padding:20px;
+}
 

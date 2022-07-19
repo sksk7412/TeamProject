@@ -4,24 +4,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/form.css">
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
-<title>Insert title here</title>
+<title>JOIN</title>
 </head>
 <body>
 	<div class="wrap">
-     
+       <jsp:include page="header.jsp"></jsp:include>
 		<form method="post" action="./Service">
 					<input type="hidden" name="command" value="join">
         	<div class="joinbox">
             	<h3>간편 회원가입</h3>
-					<div class="buttons">
-			       		<input type="button" name="kakao" value="카카오 간편 로그인">
-			       		<input type="button" name="naver" value="네이버 로그인">
-			       		<input type="button" name="payco" value="페이코 로그인">
-			       		<input type="button" name="apple" value="Apple로 로그인">
-			       		<input type="button" name="facebook" value="페이스북 로그인">
+					<div class="btns">
+			       		<img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+    						width="203" height="44" alt="카카오 로그인 버튼" class="kakao" onclick="kakaoLogin();" >
+			       		<div id="naverIdLogin"></div>
+			       	
        				</div>
      <h3>필수 입력 정보</h3>
      <div class="label"><p>아이디</p> <input type="text" name="UserId" placeholder="아이디를 입력해주세요." class="req"></div> <br>

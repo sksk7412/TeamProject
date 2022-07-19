@@ -1,8 +1,10 @@
 package controller;
 
+import controller.action.DibsAction;
 import controller.action.JoinAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
+import controller.action.UpdateAction;
 import controller.action.WriteReviewAction;
 
 public class ActionFactory {
@@ -19,8 +21,8 @@ public class ActionFactory {
 		else if(command.equals("login")) action = new LoginAction();
 		else if(command.equals("logout")) action = new LogoutAction();
 		else if(command.equals("writeReview")) action = new WriteReviewAction();
-		else if(command.equals("updateBoard")) action = null;
-		else if(command.equals("deleteBoard")) action = null;
+		else if(command.equals("Dibsbook")) action = new DibsAction();
+		else if(command.equals("updateUser")) action = new UpdateAction();
 		
 		return action;
 	}

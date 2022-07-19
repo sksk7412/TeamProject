@@ -87,4 +87,22 @@
   	<servlet-name>Review</servlet-name>
   	<url-pattern>/review</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UserUpdate</servlet-name>
+  	<jsp-file>/userInfo.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserUpdate</servlet-name>
+  	<url-pattern>/userUpdate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Payment</servlet-name>
+  	<jsp-file>/payment.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Payment</servlet-name>
+  	<url-pattern>/payment</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -32,5 +32,6 @@
          	
     </div>
     <%}%>
+    <script type="js/validation.js"></script>
 </body>
 </html>

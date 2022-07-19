@@ -1,3 +1,4 @@
+<%@page import="teamProject.UserDAO"%>
 <%@page import="teamProject.DibsBookDAO"%>
 <%@page import="teamProject.DibsBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,6 +15,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
+	<%
+	if(session.getAttribute("log")!=null) {
+	int log = (int)session.getAttribute("log");
+	%>
 	<div class="wrap">
        <%--  <jsp:include page="header.jsp"></jsp:include> --%>
 		
@@ -28,14 +33,12 @@
 					
 			            <%
 						DibsBookDAO dao = DibsBookDAO.getInstance();
-					
-						if(dao.getDibsBookDto().size() > 0) {
-							//System.out.println(dao.getSize());
-							
-							
-							for(int i=0; i<dao.getSize(); i++){
-								
-								DibsBookDTO dto = dao.getDibsBookDto().get(i);
+			            System.out.println("log: " + log);
+						System.out.println("1111111: " + dao.getDibsBookDto(log).size());
+						System.out.println("2222: : " + dao.getSize(log));
+						if(dao.getDibsBookDto(log).size() > 0) {
+							for(int i=0; i < dao.getSize(log); i++){
+								DibsBookDTO dto = dao.getDibsBookDto(log).get(i);
 								String a = dto.getIsbn();
 						%>
 						
@@ -56,5 +59,8 @@
 			</div>
 		</div>            
      </div>
+     <%
+	}
+     %>
 </body>
 </html>

@@ -8,11 +8,20 @@
 <title>Review Board</title>
 </head>
 <body>
+<%
+if(session.getAttribute("log")!=null) {
+	int log = (int)session.getAttribute("log");
+%>
 	<div class="wrap">
 	<div class="container">
-		  <h2>작성한 리뷰</h2>
+	<table>
+		<div>
+		<br>
+			<h2>coming soon</h2>
+		</div>
+	</table>
 	</div>
 	</div>
-	
+	<%} %>
 </body>
 </html>

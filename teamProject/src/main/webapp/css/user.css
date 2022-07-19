@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.update{
+	width:60vw;
+	margin:auto;
+	margin-top:30px;
+	display:block;
+	text-align:center
+}
+.update input{
+	margin-top:20px;
+	height:20px;
+	width:200px;
+}
+
+.btn{
+	width:150px;
+	heigth:40px;
+}
+.title{
+	margin-top:50px;
+	color:#1b0f04;
+	padding-bottom:15px;
+	border:1px bottom solid #69615b;
+	font-size:20pt;
+	text-align:left;
+}

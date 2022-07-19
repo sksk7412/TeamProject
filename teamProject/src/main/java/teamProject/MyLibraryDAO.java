@@ -30,9 +30,9 @@ public class MyLibraryDAO {
 		return instance;
 	}
 	
-	private ArrayList<MyLibraryDTO> lis = new ArrayList<>();
+	private ArrayList<MyLibraryDTO> lis;
 	
-	// DB에 값 넣기
+	// DB�� �� �ֱ�
 	public int addBook(MyLibraryDTO LibraryDto) {
 		conn = DBManager.getConnection(database);
 		System.out.println("conn: " + conn);
@@ -55,35 +55,11 @@ public class MyLibraryDAO {
 		return -1;
 	}
 	
-	// DB 값 삭제
-	public int deleteBook(MyLibraryDTO LiDto) {
-		
-		conn = DBManager.getConnection(database);
-		String sql = "DELETE FROM myLibrary where isbn = ?";
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, 1);
-			pstmt.setString(2, LiDto.getIsbn());
-			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
-			pstmt.setTimestamp(3, modifiedAt);
-			
-			return pstmt.executeUpdate();
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return -1;
-		
-	}
-	
-	// DB에서 값 불러오기
+	// DB���� �� �ҷ�����
 	public ArrayList<MyLibraryDTO> getMyLibraryDto(){
 		conn = DBManager.getConnection("book");
 		String sql = "select * from myLibrary";
-		
+		lis = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
