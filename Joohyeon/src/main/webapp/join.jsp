@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/form.css">
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
 <title>Insert title here</title>
@@ -21,25 +22,7 @@ alert("이미 등록된 아이디입니다.");
 <%}%>
 <body>
 	<div class="wrap">
-        <div class="header">
-            <p class="logo">LOGO</p>
-            <div class="topMenu">
-            	
-               <p class="mypage" onclick="location.href='./mypage'"><img src="image/mypage.png"></p>
-                <p class="search"><img src="image/search.png"></p>
-                <p class="login" onclick="location.href='login.jsp'">LOGIN</p>
-                <p class="join" onclick="location.href='join.jsp'">JOIN</p>
-            </div>
-        </div>
-
-        <div class="nav">
-            <div>
-                <p class="menu1">BEST</p>
-                <p class="menu2">NEW</p>
-                <p class="menu3">HOW TO</p>
-                <p class="menu4">ABOUT</p>
-            </div>
-        </div>
+	<jsp:include page="header.jsp"></jsp:include>
 		<form class="test" method="post" action="./Service">
 		<input type="hidden" name="command" value="join">
         	<div class="joinbox">
@@ -47,7 +30,7 @@ alert("이미 등록된 아이디입니다.");
 					<div class="btns">
 			       		<img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
     						width="203" height="44" alt="카카오 로그인 버튼" class="kakao" onclick="kakaoLogin2();" >
-			       		<div id="naverIdLogin"></div>
+			       		<div id="naver_id_login"></div>
 			       		
        				</div>
      <h3>필수 입력 정보</h3>

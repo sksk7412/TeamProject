@@ -28,7 +28,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	System.out.println("UserId ="+UserId);
 	System.out.println("UserPW ="+UserPw);
 	if (!dao.loginCheck(user)) {
-		url = "index.jsp";
+		url = "./index";
 		
 //		dao.getId(UserId);
 		

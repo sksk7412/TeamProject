@@ -95,13 +95,18 @@ function kakaoLogin2() {
     })
   }
 
-
-const naverLogin = new naver.LoginWithNaverId(
-			{
-				clientId: "8Y65VuJ4FktggRb3Yxgs",
-				callbackUrl: "http://localhost:8081/naver.Login",
-				loginButton: {color: "green", type: 3, height: 44}
-			}
-		);
- naverLogin.init(); // 로그인 설정
-
+var naver_id_login = new naver_id_login("8Y65VuJ4FktggRb3Yxgs", "http://localhost:8081/naver_callback.jsp");
+	var state = naver_id_login.getUniqState();
+	naver_id_login.setButton("green", 3 , 44);
+	naver_id_login.setDomain("login.jsp");
+	naver_id_login.setState(state);
+	naver_id_login.setPopup();
+	naver_id_login.init_naver_id_login();
+	
+	function naverSignInCallback() {
+		// naver_id_login.getProfileData('프로필항목명');
+		// 프로필 항목은 개발가이드를 참고하시기 바랍니다.
+		alert(naver_id_login.getProfileData('email'));
+		alert(naver_id_login.getProfileData('nickname'));
+		alert(naver_id_login.getProfileData('age'));
+		}
