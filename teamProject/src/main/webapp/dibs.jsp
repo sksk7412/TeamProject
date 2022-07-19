@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/books.css">
 <title>Dibs</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 	<%
@@ -43,6 +43,7 @@
 			%>];
 			getDibs(isbn);
 			});
+			
 		</script>
 	<%
 	}

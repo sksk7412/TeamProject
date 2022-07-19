@@ -36,7 +36,7 @@ public class MyLibraryDAO {
 	public boolean addBook(MyLibraryDTO LibraryDto) {
 		
 		conn = DBManager.getConnection(database);
-		String sql = "INSERT INTO myLibrary VALUES (?,?,?)";
+		String sql = "INSERT INTO myLibrary VALUES (?,?,?,?)";
 		System.out.println("222222222222222222222");
 		
 		try {
@@ -45,6 +45,7 @@ public class MyLibraryDAO {
 			pstmt.setInt(1, LibraryDto.getId());
 			pstmt.setString(2, LibraryDto.getIsbn());
 			pstmt.setTimestamp(3, LibraryDto.getModifiedAt());
+			pstmt.setInt(4, LibraryDto.getIsReviewed());
 			
 			pstmt.executeUpdate();
 			System.out.println("111111111111111111111111111");
@@ -104,13 +105,15 @@ public class MyLibraryDAO {
 			int id;
 			String isbn;
 			Timestamp modifiedAt;
+			int isReviewed;
 			
 			while(rs.next()) {
 				id = rs.getInt(1);
 				isbn = rs.getString(2);
 				modifiedAt = rs.getTimestamp(3);
+				isReviewed = rs.getInt(4);
 				
-				MyLibraryDTO myLibraryDto = new MyLibraryDTO(id, isbn, modifiedAt);
+				MyLibraryDTO myLibraryDto = new MyLibraryDTO(id, isbn, modifiedAt, isReviewed);
 				lis.add(myLibraryDto);
 			}
 			

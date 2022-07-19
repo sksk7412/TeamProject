@@ -25,7 +25,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	
 	Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
 	
-	book = new MyLibraryDTO(id, isbn, modifiedAt);
+	book = new MyLibraryDTO(id, isbn, modifiedAt, 0);
 	
 	System.out.println("id:" + id);
 	System.out.println("isbn: " + isbn);

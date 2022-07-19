@@ -153,7 +153,10 @@ function getDibs(isbns) {
 // 찜하기에 책 불러오기
 function getDibs(isbns) {
 	for(let i=0; i<isbns.length; i++) {
-	
+/*	let ib =isbn[i];*/
+	console.log(isbns[i]);
+	let isbn = isbns[i].split(" ");
+
 	$.ajax({
 		method: 'get',
 		url: `https://dapi.kakao.com//v3/search/book`,
@@ -161,29 +164,29 @@ function getDibs(isbns) {
 			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
 		},
 		data: {
-			query: isbns[i],
+			query: isbn,
 			target: 'isbn'
 		},
 		encoding: 'UTF-8',
 	})
+	
 		.done(data => {
 			const result = data.documents;
 		result.forEach(book=>{
 			console.log(book.valueOf());
-			let isbns = book.isbn.split(" ");
+			
 			let html = `
 						<div class="bookInfo">
-							<div class="image"><img src="${book.thumbnail}"></div>
+							<div class="img" onclick="view()"><img src="${book.thumbnail}"></div>
 							<div class="info">
-							<input type="hidden" value="${isbns}" name="isbn">
+							<input type="hidden" value="${isbn}" name="isbn">
 								<div class="title">${book.title}</div>
 								<div class="authors">${book.authors}</div>
 								<div class="publisher">${book.publisher}</div>
+								
 								<input type="submit" class="delete" value="삭제">
 							</div>
-						</div>
-						</form>
-						`;
+						</div>`;
 			let html2 = `<tr>
 							<td class="bookThumnail"><img src = "${book.thumbnail}"></td>
 							<td class="bookTitle">${book.title}</td>
@@ -203,7 +206,9 @@ function getDibs(isbns) {
 }
 
 
-
+function view(isbn){
+	alert(isbn);
+}
 
 // best_seller / new 책
 function getBookstoArray(bestSeller) {
@@ -235,8 +240,5 @@ function getBookstoArray(bestSeller) {
 			})
 		})
 	}
-
-
-
 
 }

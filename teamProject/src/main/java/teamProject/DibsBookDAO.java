@@ -38,7 +38,7 @@ public class DibsBookDAO {
 		
 		conn = DBManager.getConnection(database);
 		System.out.println("conn: "+conn);	
-		String SQL = "INSERT INTO dibsBook VALUES (?,?,?)";
+		String SQL = "INSERT INTO dibsbook VALUES (?,?,?)";
 		
 		// 아이디 정보 찜 날짜~	
 		try {
@@ -72,7 +72,7 @@ public class DibsBookDAO {
 		conn = DBManager.getConnection(database);
 		System.out.println( DibsDto.getIsbn());
 		String[] isbn = DibsDto.getIsbn().split(",");
-		String sql = String.format("DELETE FROM dibsBook where isbn = '%s'", isbn[0]);
+		String sql = String.format("DELETE FROM dibsbook where isbn = '%s'", isbn[0]);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -99,7 +99,7 @@ public class DibsBookDAO {
 	public ArrayList<DibsBookDTO> getDibsBookDto(int log) {
 		dibs = new ArrayList<>();
 		conn = DBManager.getConnection(database);
-		String sql = String.format("select * from dibsBook where id = %d", log);
+		String sql = String.format("select * from dibsbook where id = %d", log);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -139,7 +139,7 @@ public class DibsBookDAO {
 	// 책 불러올떄
 		public int getSize(int log) {
 			conn = DBManager.getConnection(database);
-			String sql = String.format("select count(*) from dibsBook where id=%d", log);
+			String sql = String.format("select count(*) from dibsbook where id=%d", log);
 			int size = -1;
 			try {
 				pstmt = conn.prepareStatement(sql);
