@@ -3,11 +3,24 @@ package teamProject;
 import java.sql.Timestamp;
 
 public class BoardDTO {
-	
 	private int log;
+	private String userId;
 	private String isbn;
 	private String contents;
 	private Timestamp createdAt;
+	
+	public BoardDTO(String userId, String isbn, String contents, Timestamp createdAt) {
+		this.userId = userId;
+		this.isbn = isbn;
+		this.contents = contents;
+		this.createdAt = createdAt;
+	}
+	
+	public BoardDTO(String userId, String contents, Timestamp createdAt) {
+		this.userId = userId;
+		this.contents = contents;
+		this.createdAt = createdAt;
+	}
 	
 	public BoardDTO(int log, String isbn, String contents, Timestamp createdAt) {
 		this.log = log;
@@ -15,20 +28,15 @@ public class BoardDTO {
 		this.contents = contents;
 		this.createdAt = createdAt;
 	}
-	public BoardDTO(int log, String contents, Timestamp createdAt) {
-		this.log = log;
-		this.contents = contents;
-		this.createdAt = createdAt;
-	}
-
+	
 	public int getLog() {
 		return log;
 	}
-
-	public void setLog(int log) {
-		this.log = log;
+	
+	public String getUserId() {
+		return userId;
 	}
-
+	
 	public String getIsbn() {
 		return isbn;
 	}

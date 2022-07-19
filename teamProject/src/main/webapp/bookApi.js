@@ -151,8 +151,6 @@ function getDibs(isbns) {
 
 // isbn을 이용하여 나의 서재에 값 가져오기
 function getLibraryForIsbn(isbn){
-	console.log("121212");
-	console.log(isbn)
 	
 	$.ajax({
         method : 'get',

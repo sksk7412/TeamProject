@@ -22,7 +22,7 @@
 	MyLibraryDAO dao = MyLibraryDAO.getInstance();
 	ArrayList<MyLibraryDTO> lbry = dao.getMyLibraryDTO(log);
 	
-	if(lbry.size() > 0){
+	if(lbry != null){
 		
 %>
 	<div class="boardTop">
