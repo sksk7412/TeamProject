@@ -13,32 +13,11 @@
 <title>MyLibrary</title>
 </head>
 <body>
-	<div class="wrap">
-        <div class="header">
-            <p class="logo">LOGO</p>
-            <div class="topMenu">
-            	
-                <p class="myPage"><img src="image/mypage.png"></p>
-                <p class="search"><img src="image/search.png"></p>
-                <p class="login">LOGIN</p>
-                <p class="join">JOIN</p>
-            </div>
-        </div>
-
-        <div class="nav">
-            <div>
-                <p class="menu1">BEST</p>
-                <p class="menu2">NEW</p>
-                <p class="menu3">HOW TO</p>
-                <p class="menu4">ABOUT</p>
-            </div>
-        </div>
-		
 		<div class="boardListContainer">
 	        <table border="1">
 	            <thead>
-	                <th>책 이미지</th>
-	                <th>책 제목</th>
+	                <th>image</th>
+	                <th>title</th>
 	                <th>작가명</th>
 	                <th>도서 소개</th>
 	            </thead>
@@ -48,9 +27,9 @@
 	            	MyLibraryDAO dao = MyLibraryDAO.getInstance();
 	            	String a;
 	            	System.out.println();
-	            	if(dao.getMyLibraryDto().size() > 0) {
+	            	if(dao.getMyLibraryDTO(1).size() > 0) {
 	            		for(int i=0; i<dao.getSize(); i++) {
-	            			MyLibraryDTO dto = dao.getMyLibraryDto().get(i);
+	            			MyLibraryDTO dto = dao.getMyLibraryDTO(1).get(i);
 	            			a = dto.getIsbn();
 	            	%>
 	                <input type="hidden" value="<%=a%>" id="isbn">

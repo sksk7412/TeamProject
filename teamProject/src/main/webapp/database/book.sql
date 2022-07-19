@@ -9,6 +9,7 @@ create table users(
     mobile varchar(13) not null
 );
 
+<<<<<<< HEAD
 -- 찜한 책 목록 테이블 
 create table dibsBook(
 	id int,
@@ -16,6 +17,22 @@ create table dibsBook(
     createAt datetime,
     foreign key (id) references users(id)
 );
+=======
+--create table dibsBook(
+--	  id int,
+--    isbn varchar(30) primary key,
+--    createAt datetime,
+--    foreign key (id) references users(id)
+--);
+    
+	--create table myLibrary(
+	--	  id int,
+	--    isbn varchar(30),
+	--    modifiedAt datetime,
+	--    foreign key (isbn) references dibsBook(isbn),
+	--    foreign key (id) references users(id)
+	--);
+>>>>>>> refs/heads/master
 
 -- 유저들이 읽은 책의 정
 create table myLibrary(

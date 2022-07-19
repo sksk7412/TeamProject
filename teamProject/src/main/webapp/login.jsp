@@ -5,35 +5,41 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/form.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
 <title>LogIn</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
-           <h1>로그인</h1>
+	<div class="wrap">
+      <jsp:include page="header.jsp"></jsp:include>
+        <div class="loginbox">
+           <h2>로그인</h2>
 	<form method="post" action="./Service">
-<<<<<<< HEAD
-	<input type="hidden" name="command" value="login">
-=======
 	<input  type="hidden" name="command" value="login">
->>>>>>> refs/remotes/origin/siyeon
 		<input type="text" name="UserId" placeholder="아이디" class="req"><br>
 		<input type="password" name="UserPw" placeholder="비밀번호" class="req">
 		<div class="warning">
            	<span>이메일 또는 비밀번호가 올바르지 않습니다.</span>
        	</div>
        	<div class="buttons">
-       		<input type="submit" class="login" value="로그인"><br>
-       		또는<br>
+       		<input type="submit" class="login-btn" value="로그인">
+       		<br>
+       		<div class="hr-sect">또는</div>
+       		<br>
        	</div>
        	<div class="buttons">
-       		<input type="button" name="kakao" value="카카오로 로그인"><br>
-       		<input type="button" name="naver" value="네이버로 로그인"><br>
-       		<input type="button" name="apple" value="Apple로 로그인"><br>
+       		<img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+    		width="205" height="45" alt="카카오 로그인 버튼" class="kakao" onclick="kakaoLogin();" ><br>
+       		<div id="naverIdLogin"></div><br>
+       		<input type="button" class="joinBtn"  name="join" value="회원가입" onclick="location.href='join.jsp'" >
        	</div>
-		<a class="signup-btn" href="join.jsp">회원가입</a>
 	</form>
 	<script src="user.js"></script>
+	
+      </div>
       </div>
 </body>
 </html>

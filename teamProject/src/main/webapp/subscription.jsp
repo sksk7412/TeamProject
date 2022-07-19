@@ -10,6 +10,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
+	<div class="wrap">
         <div class="container">
         <div class="subs">
         <h2 class="title">월 정기구독</h2>
