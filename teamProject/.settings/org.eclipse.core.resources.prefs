@@ -1,2 +1,8 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=refs/remotes/origin/\#02-NaYeon
 eclipse.preferences.version=1
-encoding/<project>=UTF-8
+encoding//src/main/java/teamProject/DibsBookDAO.java=UTF-8
+encoding//src/main/webapp/database=UTF-8
+encoding//src/main/webapp/database/book.sql=UTF-8
+encoding/<project>=MS949

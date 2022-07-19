@@ -55,9 +55,38 @@ public class MyLibraryDAO {
 		return -1;
 	}
 	
+<<<<<<< HEAD
 	// DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	public ArrayList<MyLibraryDTO> getMyLibraryDTO(int log){
 		lis = new ArrayList<>();
+=======
+	// DB °ª »èÁ¦
+	public int deleteBook(MyLibraryDTO LiDto) {
+		
+		conn = DBManager.getConnection(database);
+		String sql = "DELETE FROM myLibrary where isbn = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, 1);
+			pstmt.setString(2, LiDto.getIsbn());
+			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
+			pstmt.setTimestamp(3, modifiedAt);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return -1;
+		
+	}
+	
+	// DB¿¡¼­ °ª ºÒ·¯¿À±â
+	public ArrayList<MyLibraryDTO> getMyLibraryDto(){
+>>>>>>> refs/remotes/origin/#02-NaYeon
 		conn = DBManager.getConnection("book");
 		String sql = String.format("select * from myLibrary where id = %d", log);
 		

@@ -20,17 +20,26 @@ public class DibsBookDTO {
 		return id;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/#02-NaYeon
 	public String getIsbn() {
 		return isbn;
 	}
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> refs/remotes/origin/#02-NaYeon
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> refs/remotes/origin/#02-NaYeon
 }

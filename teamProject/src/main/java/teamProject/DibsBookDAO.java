@@ -33,7 +33,8 @@ public class DibsBookDAO {
 	
 	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
 	
-	// DB값 넣기
+<<<<<<< HEAD
+	// DB媛� �꽔湲�
 		public boolean addWrite(DibsBookDTO BoardDto) { 
 			
 			conn = DBManager.getConnection(database);
@@ -41,8 +42,23 @@ public class DibsBookDAO {
 		//	String sql = "INSERT INTO dibsBook VALUES (?,?,?)";
 					
 			String sql = String.format("insert into dibsBook values('%s','%s','%s')", BoardDto.getId(), BoardDto.getIsbn(), BoardDto.getCreatedAt());
+=======
+	// DB값 넣기
+	public boolean addWrite(DibsBookDTO BoardDto) { 
+		
+		conn = DBManager.getConnection(database);
+		System.out.println("conn: "+conn);	
+		String SQL = "INSERT INTO dibsBook VALUES (?,?,?)";
+		
+		// 아이디 정보 찜 날짜~	
+		try {
+
+			System.out.println("code: "+BoardDto.getId());
+			pstmt = conn.prepareStatement(SQL);
+>>>>>>> refs/remotes/origin/#02-NaYeon
 			
-			// 아이디 정보 찜 날짜~	
+<<<<<<< HEAD
+			// �븘�씠�뵒 �젙蹂� 李� �궇吏�~	
 			try {
 				
 				System.out.println("code: "+BoardDto.getId());
@@ -62,10 +78,78 @@ public class DibsBookDAO {
 				}
 			}
 			return false;
+=======
+			pstmt.setInt(1, BoardDto.getId());
+			pstmt.setString(2, BoardDto.getIsbn());
+			pstmt.setTimestamp(3, BoardDto.getCreatedAt());
+			
+			return true;
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean deletebook(DibsBookDTO DibsDto) {
+		
+		conn = DBManager.getConnection(database);
+		String sql = "DELETE FROM dibsBook where isbn=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, DibsDto.getId());
+			pstmt.setString(2, DibsDto.getIsbn());
+			pstmt.setTimestamp(3, DibsDto.getCreatedAt());
+			
+			return true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return false;
+	}
+	
+	
+	// DB 값 삭제
+	public int deleteBook(DibsBookDTO DibsDto) {
+		
+		conn = DBManager.getConnection(database);
+		String sql = "DELETE FROM dibsBook where isbn=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, DibsDto.getId());
+			pstmt.setString(2, DibsDto.getIsbn());
+			Timestamp createAt = new Timestamp(System.currentTimeMillis());
+			pstmt.setTimestamp(3, createAt);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+>>>>>>> refs/remotes/origin/#02-NaYeon
 		}
 
-	// DB값 불러오기
+<<<<<<< HEAD
+	// DB媛� 遺덈윭�삤湲�
 	public ArrayList<DibsBookDTO> getDibsBookDto(int log) {
+=======
+	// DB값 불러오기
+	public ArrayList<DibsBookDTO> getDibsBookDto() {
+>>>>>>> refs/remotes/origin/#02-NaYeon
 		conn = DBManager.getConnection("book");
 		String sql = "select * from dibsBook";
 		
@@ -103,8 +187,13 @@ public class DibsBookDAO {
 		return null;
 	}
 	
-	// 책 불러올떄
+<<<<<<< HEAD
+	// 梨� 遺덈윭�삱�뻹
 		public int getSize(int log) {
+=======
+	// 책 불러올떄
+		public int getSize() {
+>>>>>>> refs/remotes/origin/#02-NaYeon
 			conn = DBManager.getConnection("book");
 			String sql = "select count(*) from dibsBook";
 			

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/books.css">
 <script src="bookApi.js"></script>
-<title>Dibs</title>
+<title>DibsBook</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
@@ -20,23 +20,41 @@
 	int log = (int)session.getAttribute("log");
 	%>
 	<div class="wrap">
+        <div class="header">
+            <p class="logo">LOGO</p>
+            <div class="topMenu">
+                <p class="search"><img src="image/search.png"></p>
+                <p class="login">LOGIN</p>
+                <p class="join">JOIN</p>
+            </div>
+        </div>
+	
+        <div class="nav">
+            <div>
+                <p class="menu1">BEST</p>
+                <p class="menu2">NEW</p>
+                <p class="menu3">HOW TO</p>
+                <p class="menu4">ABOUT</p>
+            </div>
+        </div>
+		
 		<script>
 			let name = "";
 			let isbn = "";
 		</script>
-		<!-- <h2>찜한 목록</h2> -->
 		<div class="dibsBook">
 			<div class="dibBook">
 				<div class="bookList2">
 					
 			            <%
 						DibsBookDAO dao = DibsBookDAO.getInstance();
-			            System.out.println("log: " + log);
-						System.out.println("1111111: " + dao.getDibsBookDto(log).size());
-						System.out.println("2222: : " + dao.getSize(log));
-						if(dao.getDibsBookDto(log).size() > 0) {
-							for(int i=0; i < dao.getSize(log); i++){
-								DibsBookDTO dto = dao.getDibsBookDto(log).get(i);
+						if(dao.getDibsBookDto().size() > 0) {
+							//System.out.println(dao.getSize());
+							
+							
+							for(int i=0; i<dao.getSize(); i++){
+								
+								DibsBookDTO dto = dao.getDibsBookDto().get(i);
 								String a = dto.getIsbn();
 						%>
 						
@@ -57,8 +75,5 @@
 			</div>
 		</div>            
      </div>
-     <%
-	}
-     %>
 </body>
 </html>
