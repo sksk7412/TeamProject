@@ -28,12 +28,26 @@
 
 	<div class="update">
 	<h3 class="title">회원정보 수정</h3><hr>
-
+	<div class="info">
+	<div class="bd">
+	<span class="inputName">아이디</span>
 	<input type="text" value="<%=id%>" readonly><br>
+	</div>
+	<div class="bd">
+	<span class="inputName">비밀번호</span>
 	<input type="password" placeholder="변경 할 비밀번호" name="UserPw" required><Br>
+	</div>
+	<div class="bd">
+	<span class="inputName">이름</span>
 	<input type="text" value="<%=name%>" name="name"><br>
+	</div>
+	<div class="bd">
+	<span class="inputName">연락처</span>
 	<input type="text" value="<%=mobile%>" name="mobile"><Br>
+	</div>
+	
 	<input type="submit" value="수정하기" class="btn"><br>
+	</div>
 	</div>
 </form>	
 </div>

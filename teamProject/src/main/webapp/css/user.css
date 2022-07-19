@@ -3,20 +3,15 @@
 .update{
 	width:60vw;
 	margin:auto;
-	margin-top:30px;
-	display:block;
-	text-align:center
+	margin-top:40px;
 }
-.update input{
-	margin-top:20px;
-	height:20px;
-	width:200px;
+.update input[type="text"], input[type="password"]{
+	margin-top:30px;
+	height:30px;
+	width:240px;
+	margin-left:10px;
 }
 
-.btn{
-	width:150px;
-	heigth:40px;
-}
 .title{
 	margin-top:50px;
 	color:#1b0f04;
@@ -24,4 +19,37 @@
 	border:1px bottom solid #69615b;
 	font-size:20pt;
 	text-align:left;
+}
+.info{
+	text-align:center;
+	margin-top:50px;
+}
+.bd{
+	margin-top:20px;
+	margin-left:20px;
+	
+}
+.inputName{
+	display:inline-block;
+	width:100px;
+	margin-top:10px;
+	text-left:left;
+	color:#a1a1a1;
+}
+.btn{	
+	width:170px;
+	height:40px;
+	text-decoration:none;
+	color:black;
+	border: none;
+	cursor:pointer;
+	background-color:#edeae3;
+	margin-top:60px;
+	box-shadow:1px 1px #434240;
+	font-weight:700;
+	color:#1b0f04;
+}
+
+.btn:hover{
+	background-color:#d7cbb3;
 }
