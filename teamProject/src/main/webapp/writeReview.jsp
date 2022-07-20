@@ -28,7 +28,7 @@
 				<div class="reviewContents">
 					<div class="bookInfo"></div>
 					<input type="text" name="contents" placeholder="최소 10자이상 입력해주세요" minlength="10" id="texts">
-					<div>
+					<div class="buttons">
 						<button>취소</button>
 						<input type="submit" value="등록">
 					</div>

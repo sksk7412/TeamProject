@@ -2,37 +2,89 @@
 .dibsBook{
 	margin-top: 50px;
     width:100vw;
-    background-color: white;
+    background-color: #f8f8f8;
    	height:100%;
 }
 
-
+.dibsBook img{
+	width:120px;
+	/* margin-left:30px; */
+}
 .bookList2{
 	text-align: center;
-	display: flex;
+	
 }
-.dibsBookContents{
+.dibsBookContents form{
+	width:100vw;
+	height:100%;
+	margin:auto;
 	display:flex;
+	flex-wrap:wrap;
+	    justify-content: space-around;
 }
 .bookInfo{
-	background-color: gray;
+	margin-right:40px;
+	margin-top:30px;
 }
 .results{
 	display:flex;
 	width: 15vw;
 }
 
+.info{
+	width:170px;
+	height:130px;
+	position: relative;
+}
+
+/* .delbtn{
+	background-color: #d0c09e;
+	border-radius: calc(70vw * (51 / 1920));
+	border: none;
+	width: 80px;
+	height: 25px;
+} */
+
+.delbtn{
+	bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+	width: 24px;
+	color: #d0c09e;
+}
+
+.delbtn1{
+	width: 24px;
+}
+
+.title{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+
 
 .boardListContainer, formContainer {
-    width: 80vw;
+    width: 100vw;
     margin: auto;
     margin-top: 50px;
 }
 
 table {
     border-collapse: collapse;
+    border:1px solid #d0c09e;
+}
+
+th {
+	border: 2px;
+	background-color: #d0c09e;
 }
 
 td{
-	padding:20px; 
+	padding:10px; 
 }

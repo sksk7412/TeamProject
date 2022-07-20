@@ -23,7 +23,7 @@
 						<a href="mailto:nnnnayeon12@gmail.com">
 						<p>nnnnayeon12@gmail.com</p></a>
 						<p>Position: 서기/막내</p>
-						<p>Function: 찜 목록/나의 서재</p>
+						<p>Function: 찜 목록 / 나의 서재</p>
 					</span>
 				</div>				
 			</div><hr>
@@ -34,7 +34,7 @@
 						<a href="mailto:greene246@naver.com">
 						<p>greene246@naver.com</p></a>
 						<p>Position: 넷째</p>
-						<p>Fuction: DB관리/책 목록(카카오API 사용)/리뷰</p>
+						<p>Fuction: DB관리 / 책 목록(카카오API 사용) / 리뷰</p>
 					</span>
 				</div>
 				<img src="./image/t4.jpg">
@@ -47,7 +47,7 @@
 						<a href="mailto:ekflal330@gmail.com">
 						<p>ekflal330@gmail.com</p></a>
 						<p>Position: 조장</p>
-						<p>Fuction: 상세페이지/리뷰쓰기/찜하기/DB연동</p>
+						<p>Fuction: 상세페이지 / 리뷰출력 / 찜하기 / DB연동</p>
 					</span>
 				</div>
 			</div><hr>
@@ -57,8 +57,8 @@
 					<span>
 						<a href="mailto:siyeonz@naver.com">
 						<p>siyeonz@naver.com</p></a>
-						<p>Position: 둘째</p>
-						<p>Function: 메인페이지/구독페이지(결제)/about</p>
+						<p>Position: 둘째 형</p>
+						<p>Function: 메인페이지 / 구독페이지(결제) / ABOUT</p>
 					</span>
 				</div>
 				<img src="./image/t2.jpg">
@@ -71,7 +71,7 @@
 						<a href="mailto:wngusl1380@gmail.com">
 						<p>wngusl1380@gmail.com</p></a>
 						<p>Position: 첫째</p>
-						<p>Function: 회원가입/로그인(카카오API 사용)</p>
+						<p>Function: 회원가입 / 로그인(카카오API 사용)</p>
 					</span>
 				</div>
 			</div><hr>		

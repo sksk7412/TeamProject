@@ -132,6 +132,11 @@
 				</div>
 
 				<table border="1">
+				<thead>
+					<th>아이디</th>
+					<th>내 용</th>
+					<th>작성 일자</th>
+				</thead>
 					<%	
 	if(bto != null){
 		
@@ -139,11 +144,11 @@
 			BoardDTO bodt = bto.get(i);
 			System.out.println("log: "+bto.get(i).getLog());
 	%>
-					<thead>
+					<tbody>
 						<th><%=bodt.getUserId()%></th>
 						<th><%=bodt.getContents()%></th>
 						<th><%=bodt.getCreatedAt()%></th>
-					</thead>
+					</tbody>
 					<%
 						
 			}

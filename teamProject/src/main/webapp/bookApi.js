@@ -141,7 +141,7 @@ function getDibs(isbns) {
 								<div class="title">${book.title}</div>
 								<div class="authors">${book.authors}</div>
 								<div class="publisher">${book.publisher}</div>
-								<input type="submit" class="delete" value="삭제">
+								<input type="IMAGE" src="image/trashcan.png" class="delbtn" name="submit" value="submit">
 							</div>
 						</div>`;
 			let html2 = `<tr>
@@ -150,7 +150,7 @@ function getDibs(isbns) {
 							<td class="bookAuthor">${book.authors}</td>
 							<td class="bookContent">${book.contents}</td>
 							<input type="hidden" value=${book.isbn} name="isbn">
-							<td class="delete"><input type="submit" value="삭제"></td>
+							<td class="delete"><input type="IMAGE" src="image/trashcan.png" class="delbtn1" name="submit" value="submit"></td>
 						</tr>
 						`;
 			
@@ -162,43 +162,9 @@ function getDibs(isbns) {
 	}
 }
 
-
 function view(){
 	$('.del').prop('value','addLibrary');
 	$('.results').submit();
-
-}
-
-// best_seller / new 책
-function getBookstoArray(bestSeller) {
-	for (let i = 0; i < bestSeller.length; i++) {
-		let num = bestSeller[i];
-		num = num.split(" ");
-
-		$.ajax({
-			method: 'get',
-			url: `https://dapi.kakao.com//v3/search/book`,
-			headers: {
-				Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
-			},
-			data: {
-				query: num,
-				target: 'isbn'
-			},
-			encoding: 'UTF-8',
-		}).done(data => {
-			const result = data.documents;
-			result.forEach(book => {
-				let isbns = book.isbn;
-				
-				let url = `bookInfo.jsp?isbn=${isbns}`;
-				
-				let html = `<div class="bookInfo" onclick="location.href='${url}'"><div class="img"><img id="thumbnail" src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div></div></div>`;
-
-				$('.book').append(html);
-			})
-		})
-	}
 
 }
 
@@ -253,7 +219,7 @@ function getMyLb(myLb) {
 				let title = book.title;
 				let authors = book.authors;
 
-				let html = "<div clss='bookInfo'>"
+				let html = "<div class='bookInfo'>"
 				html += `<a class='thumbnail'><img src=${thumbnail}></a>`
 				html += `<a class='title'>${title}</a>`
 				html += `<a class='authors'>'${authors}'</a>`

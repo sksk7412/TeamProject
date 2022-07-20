@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/review.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link
@@ -17,29 +18,23 @@
 </head>
 <body>
 	<%
-
 	int log = (int) session.getAttribute("log");
 	MyLibraryDAO dao = MyLibraryDAO.getInstance();
 	ArrayList<MyLibraryDTO> lbry = dao.getLi(log);
-	
-	if(lbry != null){
-		
-%>
+
+	if (lbry != null) {
+	%>
 	<div class="boardTop">
 		<p class="title"></p>
-		<a href='./review' target="_top"> <input type="button"
-			class="allView" value="전체보기">
-		</a> <input type="button" class="allView" value="전체보기"
-			onclick="location.href='./review'">
 	</div>
 	<div class="wrap">
-		<table class="reviewTable"></table>
+		<div class="reviewTable"></div>
 	</div>
 	<script src="bookApi.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 		const myLb = [
-		<%	for(int i = 0; i < lbry.size(); i++){%>"<%= lbry.get(i).getIsbn() %>"<%= i + 1 < lbry.size() ? ",":"" %><% } %>];
+		<%for (int i = 0; i < lbry.size(); i++) {%>"<%=lbry.get(i).getIsbn()%>"<%=i + 1 < lbry.size() ? "," : ""%><%}%>];
 		getMyLb(myLb);
 		});
 	</script>
