@@ -33,15 +33,38 @@
 
 .info{
 	width:170px;
+	height:130px;
+	position: relative;
 }
 
-.delbtn{
+/* .delbtn{
 	background-color: #d0c09e;
 	border-radius: calc(70vw * (51 / 1920));
 	border: none;
 	width: 80px;
 	height: 25px;
+} */
+
+.delbtn{
+	bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+	width: 24px;
+	color: #d0c09e;
 }
+
+.delbtn1{
+	width: 24px;
+}
+
+.title{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
 
 
 

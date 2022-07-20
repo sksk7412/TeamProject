@@ -141,7 +141,7 @@ function getDibs(isbns) {
 								<div class="title">${book.title}</div>
 								<div class="authors">${book.authors}</div>
 								<div class="publisher">${book.publisher}</div>
-								<input type="submit" class="delbtn" value="삭제">
+								<input type="IMAGE" src="image/trashcan.png" class="delbtn" name="submit" value="submit">
 							</div>
 						</div>`;
 			let html2 = `<tr>
@@ -150,7 +150,7 @@ function getDibs(isbns) {
 							<td class="bookAuthor">${book.authors}</td>
 							<td class="bookContent">${book.contents}</td>
 							<input type="hidden" value=${book.isbn} name="isbn">
-							<td class="delete"><input type="submit" value="삭제"></td>
+							<td class="delete"><input type="IMAGE" src="image/trashcan.png" class="delbtn1" name="submit" value="submit"></td>
 						</tr>
 						`;
 			
