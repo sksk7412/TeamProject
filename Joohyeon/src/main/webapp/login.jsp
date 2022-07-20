@@ -7,12 +7,12 @@
 <link rel="stylesheet" href="css/form.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
 <%if(request.getParameter("check")!= null){ %>
@@ -42,7 +42,7 @@ alert("회원정보를 확인하세요.");
        	<div class="buttons">
        		<img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
     		width="205" height="45" alt="카카오 로그인 버튼" class="kakao" onclick="kakaoLogin()" ><br>
-       		<div id="naver_id_login"></div><br>
+       		 <div class="loginnaver" id="naverIdLogin"></div><br>
        		<input type="button" class="joinBtn"  name="join" value="회원가입" onclick="location.href='./join'" >
        	</div>
 	</form>
@@ -50,5 +50,23 @@ alert("회원정보를 확인하세요.");
 	
       </div>
       </div>
+      
+      <script type="text/javascript">
+if(sessionStorage.getItem("user_info") != null){
+	let id = sessionStorage.getItem("user_info").substr(1,17);
+	let pw = sessionStorage.getItem("naver_name");
+	let name = sessionStorage.getItem("naver_name"); 
+	console.log(id);
+	console.log(pw);
+	
+$(document).ready(function(form) {
+	$('#testId').val(id);
+	$('#testPw').val(pw);
+	
+	$('.login-btn').trigger('click');
+});
+}
+</script>
+      
 </body>
 </html>

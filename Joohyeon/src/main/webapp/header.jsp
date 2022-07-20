@@ -7,13 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	int log = -1;
-	if (session.getAttribute("log") != null) {
-		log = (int) session.getAttribute("log");
-		System.out.println(log + "##");
-	}
-	%>
 		<div class="header">
 			<a href="index.jsp" id="logo">
 			<img src="./image/logo.png"></a>

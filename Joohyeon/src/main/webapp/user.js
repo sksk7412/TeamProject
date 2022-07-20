@@ -7,14 +7,7 @@ function checkVal(form) {
     if (checkboxes.get(1).checked && checkboxes.get(4).checked){
 		form.submit();
 		}
-		/*else if ( ){
-			let id = $('#UserId').val();
-		for(let i=0; i<users.length; i++){
-		if(id.valueOf() === users[i].valueOf()){
-			alert("asdasd");
-		}
-	}
-		}*/
+		
     else {
         alert('필수항목에 동의해주세요.');
         for (let i = 0; i < warning.length; i++) {
@@ -95,18 +88,14 @@ function kakaoLogin2() {
     })
   }
 
-var naver_id_login = new naver_id_login("8Y65VuJ4FktggRb3Yxgs", "http://localhost:8081/naver_callback.jsp");
-	var state = naver_id_login.getUniqState();
-	naver_id_login.setButton("green", 3 , 44);
-	naver_id_login.setDomain("login.jsp");
-	naver_id_login.setState(state);
-	naver_id_login.setPopup();
-	naver_id_login.init_naver_id_login();
-	
-	function naverSignInCallback() {
-		// naver_id_login.getProfileData('프로필항목명');
-		// 프로필 항목은 개발가이드를 참고하시기 바랍니다.
-		alert(naver_id_login.getProfileData('email'));
-		alert(naver_id_login.getProfileData('nickname'));
-		alert(naver_id_login.getProfileData('age'));
-		}
+  var naverLogin = new naver.LoginWithNaverId({
+        clientId: '8Y65VuJ4FktggRb3Yxgs',
+        callbackUrl: 'http://localhost:8081/Joohyeon/naver_callback.jsp',
+        isPopup: false /* 팝업을 통한 연동처리 여부 */,
+        loginButton: { color: 'green', type: 3, height: 44 } /* 로그인 버튼의 타입을 지정 */,
+      });
+
+      /* 설정정보를 초기화하고 연동을 준비 */
+      naverLogin.init();
+
+
