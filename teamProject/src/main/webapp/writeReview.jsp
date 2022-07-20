@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/review.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <title>Review Write</title>
 </head>
 <body>
@@ -15,7 +16,8 @@
 		int log = (int) session.getAttribute("log");
 		UserDAO dao = UserDAO.getInstance();
 		String name = dao.getName(log);
-		//  String isbn = request.getParameter("isbn");
+		String isbn = request.getParameter("isbn");
+		System.out.println(isbn);
 	%>
 	<div class="wrap">
 
@@ -36,8 +38,25 @@
 		</div>
 
 	</div>
+	<script src=bookApi.js></script>
+	<script>getLibraryForIsbn(<%=isbn%>)</script>
 	<%
 	}
 	%>
+      
+     <jsp:include page="header.jsp"></jsp:include>
+     
+     <div class="container">
+     <form method="post" action="./Service">
+     	<input type="hidden" name="command" value="writeReview">
+     	<label for="rate1">⭐</label>
+     	<input type="text" name="contents" placeholder="최소 10자이상 입력해주세요" minlength="10">
+     	<button>취소</button>
+     	<input type="submit" value="등록">
+     </form>
+     </div>
+         	
+    </div>
+    <%}%>
 </body>
 </html>

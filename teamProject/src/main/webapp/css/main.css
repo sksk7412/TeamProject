@@ -24,6 +24,7 @@
     justify-content: space-between;
     
 }
+
 #logo img{
     font-weight: 700;
     font-size: 35pt;
@@ -125,5 +126,3 @@
 .txt .btn1:hover{
     opacity: 0.6;
 }
-
-

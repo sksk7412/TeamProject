@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
 import util.DBManager;
 
 
@@ -80,6 +85,7 @@ public class UserDAO {
 	return false;
 	}
 	
+	
 	public String getName(int log) {
 		conn = DBManager.getConnection("book");
 		String name="";
@@ -109,6 +115,7 @@ public class UserDAO {
 		System.out.println("실패");
 		return null;
 	}
+	
 	public String getMobile(int log) {
 		conn = DBManager.getConnection("book");
 		String mobile="";
@@ -169,6 +176,7 @@ public class UserDAO {
 		System.out.println("실패");
 		return null;
 	}
+	
 	public int getId(String id) {
 		conn = DBManager.getConnection("book");
 		
@@ -181,11 +189,7 @@ public class UserDAO {
 			if(rs.next()) {
 				log = rs.getInt(1);
 			}
-
-			System.out.println("�α��Է¼���");
-
 			System.out.println("로그입력성공");
-
 			return log;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -200,11 +204,7 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
-
-		System.out.println("�α��Է½���");
-
 		System.out.println("로그인 실패");
-
 		return log;
 	}
 	
@@ -240,5 +240,18 @@ public class UserDAO {
 		}
 		return true;
 	}
+	
+	public String getUserId() {
+		String id = null;
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+	
+	
 
 }

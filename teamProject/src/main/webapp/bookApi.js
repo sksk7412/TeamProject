@@ -90,7 +90,6 @@ function getBookForIsbn(isbn) {
 		.done(data => {
 			const result = data.documents;
 		result.forEach(book=>{
-			console.log(book.valueOf());
 			let html = `<div class="bookInfo">
 							<div class="img"><img src="${book.thumbnail}"></div>
 							<div class="info">
@@ -149,46 +148,71 @@ function getDibs(isbns) {
 		})
 	}
 }
+/*	let ib =isbn[i];*/
+	console.log(isbns[i]);
+	let isbn = isbns[i].split(" ");
 
 // isbn을 이용하여 나의 서재에 값 가져오기
 function getLibraryForIsbn(isbn){
 	
-	let isbns = isbn.split(" ");
-	
 	$.ajax({
-        method : 'get',
-        url :`https://dapi.kakao.com//v3/search/book`,
-        headers: {
-            Authorization : 'KakaoAK 7209aad7048422200f37096c1bdde36e'
-        },
-        data: {
-           query: isbns[0],
-           target: 'isbn'
-        },
-        encoding: 'UTF-8',
-    })
-    .done(data =>{
-        const result = data.documents;
-
+		method: 'get',
+		url: `https://dapi.kakao.com//v3/search/book`,
+		headers: {
+			Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+		},
+		data: {
+			query: isbn,
+			target: 'isbn'
+		},
+		encoding: 'UTF-8',
+	})
+	
+		.done(data => {
+			const result = data.documents;
 		result.forEach(book=>{
+			console.log(book.valueOf());
 			
-			// 김나연이 쓰는 부분
-			let html = `<tr><td class="bookThumnail"><img src = "${book.thumbnail}"></td>`;
-			 html+= `<td class="bookTitle">${book.title}</td>`;
-			 html+= `<td class="bookAuthor">${book.authors}</td>`;
-			 html+= `<td class="bookContent">${book.contents}</td>`;
-			 html+=`<td class="delete"><input type="button" value="삭제" onclick=""></td></tr>`
-			$('tbody').append(html);
+			let html2 = `<a class='thumbnail'><img src='${book.thumbnail}'></a>`;
+			html2 += `<a class='${book.title}'></a>`;
+			html2 += `<a class='${book.authors}'></a>`;
+			html2 += `<input type="hidden" name="isbn" value="${isbn}">`;
+			let html = `<div class="bookInfo">
+							<div class="img" onclick="view()"><img src="${book.thumbnail}"></div>
+							<div class="info">
+							<input type="hidden" value="${isbn}" name="isbn">
+								<div class="title">${book.title}</div>
+								<div class="authors">${book.authors}</div>
+								<div class="publisher">${book.publisher}</div>
+								<input type="submit" class="delete" value="삭제">
+							</div>
+						</div>`;
+			let html2 = `<tr>
+							<td class="bookThumbnail"><img src = "${book.thumbnail}"></td>
+							<td class="bookTitle">${book.title}</td>
+							<td class="bookAuthor">${book.authors}</td>
+							<td class="bookContent">${book.contents}</td>
+							<input type="hidden" value=${book.isbn} name="isbn">
+							<td class="delete"><input type="submit" value="삭제"></td>
+						</tr>
+						`;
 			
-			// 김동호가 쓰는 부분
-			let html2 = "<div class='book'>";
-			html2 += `<p class='thumbnail'><img src='${book.isbn}'></p>`;
-			html2 += `<p class='${book.title}'></p>`;
-			html2 += `<p class='${book.authors}'></p></div>`;
-			
-			$('')
+			$('.bookInfo').append(html2);
         })
     })
+			$('.main').append(html);
+			$('.results').append(html);
+			$('.LibraryList').append(html2);
+			})
+		})
+	}
+}
+
+
+function view(){
+	$('.del').prop('value','addLibrary');
+	$('.results').submit();
+
 }
 
 // best_seller / new 책
@@ -221,9 +245,9 @@ function getBookstoArray(bestSeller) {
 			})
 		})
 	}
-
-
 }
+
+
 
 ///나의 라이브러리 테이블 값 가져오기
 function getMyLb(myLb) {
@@ -252,12 +276,13 @@ function getMyLb(myLb) {
 					html += `<td class='thumbnail'><img src=${thumbnail}></td>`
 					html += `<td class='title'>${title}</td>`
 					html += `<td class='authors'>'${authors}'</td>`
-					html += `<td><a href= './write?isbn=${book.isbn}' target="_top"> <button class="writeBtn">리뷰쓰기</button></a></td></tr></tbody>`;
+					html += `<td><a href= './write?isbn=${targetIsbn}' target="_top"> <button class="writeBtn">리뷰쓰기</button></a></td></tr></tbody>`;
 				
 				$('.reviewTable').append(html);
 			})
 		})
 	}
 }
+
 
 

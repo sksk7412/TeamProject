@@ -1,0 +1,168 @@
+@charset "UTF-8";
+.pop1{
+	width:400px;
+	height:500px;
+	position:absolute;
+	top:10px;
+	left:100px;
+	display:none;
+	border:2px solid #1b0f04;
+	background-color:white;
+	color:#1b0f04;
+}
+.black{
+	position: fixed;
+	left: 0;top: 0;
+	background: black;
+	opacity:0.7;
+	width: 100%;height: 100vh;
+	display: none;
+}
+.subs{
+	width:60vw;
+	margin:auto;
+}
+
+.pop1 h4{
+	font-weight:500;
+	font-size:13pt;
+	letter-spacing:5pt;
+	color:white;
+	margin-left:10px;
+}
+.popTop{
+	width:100%;
+	height:30px;
+	background-color:#1b0f04;
+}
+#cancle{
+	width:20px;
+	height:20px;
+	border:none;
+	text-align:center;
+	float:right;
+	margin-right:8px;
+	margin-top:5px;
+	background-color:#1b0f04;
+	color:white;
+}
+.title{
+	margin-top:50px;
+	color:#1b0f04;
+	padding-bottom:15px;
+	border:1px bottom solid #69615b;
+	font-size:20pt;
+}
+.subsBtn{	
+	width:240px;
+	height:40px;
+	text-decoration:none;
+	color:black;
+	border: none;
+	cursor:pointer;
+	background-color:#edeae3;
+	margin-top:15px;
+	box-shadow:1px 1px #434240;
+	font-weight:700;
+	color:#1b0f04;
+}
+
+.subsBtn:hover{
+	background-color:#d7cbb3;
+}
+.txtBox{
+	height:130px;
+	display:flex;
+	flex-direction: column;
+	margin-top:10px;
+	margin-left:30px;
+	text-align: left;
+	justify-content: space-evenly;
+	color:#69615b;
+}
+.box{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+.box div{
+    width:300px;
+    height: 360px;
+   /*  border: solid 1px #838383; */
+    text-align:center;
+    background-color:white;
+    box-shadow:2px 2px 6px #cecece ;
+    
+}
+.box p{
+	margin-top:8px;
+}
+.box h2{
+    padding:20px 0 20px 0;
+    color:white;
+}
+.box h2 p{
+	font-size:12pt;
+	font-weight:400;
+}
+.box h2 .price{
+	font-size:16pt;
+}
+.basic h2{
+	width:300px;
+	background-color:#d0c09e;
+}
+
+.standard h2{
+	width:300px;
+	background-color:#af9a6d;
+}
+.premium h2{
+	width:300px;
+	background-color:#4f3f1c;
+}
+
+.account{
+	display:none;
+}
+.money{
+	display:flex;
+	font-size:16pt;
+	font-weight:700;
+	color:#2c2c2c;
+	padding-bottom:35px;
+}
+.popCont{
+	width:80%;
+	margin:auto;
+	margin-top:20px;
+}
+
+.popCont input{
+	border:none;
+	background-color:white;
+	margin-top:10px;
+	margin-right:5px;
+	
+}
+.pTxt{
+	font-size:14pt;
+	color:#847d77;
+	margin-bottom:5px;
+	cursor:pointer;
+}
+#cancleBtn{
+	position:fixed;
+	top:60%;
+	width:240px;
+	height:40px;
+	text-decoration:none;
+	color:black;
+	border: none;
+	cursor:pointer;
+	background-color:#edeae3;
+	box-shadow:1px 1px #434240;
+	font-weight:700;
+	color:#1b0f04;
+	margin-left:40px;
+}

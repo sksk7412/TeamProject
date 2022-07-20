@@ -18,17 +18,22 @@ public class WriteReviewAction implements Action{
 			
 			HttpSession session = request.getSession();
 			int log = (int)session.getAttribute("log");
-			int isbn=0;
+			String isbn = null;
+			int userId = (int)session.getAttribute("log");
+			
+			isbn = request.getParameter("isbn");
 			String contents = request.getParameter("contents");
+			
 			Long date = System.currentTimeMillis();
 			
 			Timestamp createdAt=new Timestamp(date);
 			
-			BoardDTO board = new BoardDTO(log, isbn, contents, createdAt);
+			BoardDTO board = new BoardDTO(userId, isbn, contents, createdAt);
 			String url="";
 			
 			if(dao.addReview(board)) {
 				url="review.jsp";
+				url="myReview.jsp";
 				System.out.println(contents);
 				System.out.println("글쓰기 완료");
 			}else {

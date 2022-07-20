@@ -3,73 +3,151 @@ package teamProject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.util.Random;
+import java.sql.SQLException;
+
 import util.DBManager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MyLibraryDAO {
 	
+<<<<<<< HEAD
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
 	private String database = "book";
 	
+=======
+>>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
 	private MyLibraryDAO() {}
 	private static MyLibraryDAO instance = new MyLibraryDAO();
 	
 	public static MyLibraryDAO getInstance() {
 		return instance;
 	}
+	private Connection conn = null;
+	private ResultSet rs = null;
+	private PreparedStatement pstmt = null;
+	private String database = "book";
 	
 	private ArrayList<MyLibraryDTO> lis;
 	
-	// DB�� �� �ֱ�
-	public int addBook(MyLibraryDTO LibraryDto) {
+	public boolean check(MyLibraryDTO LibraryDto) {
 		conn = DBManager.getConnection(database);
-		System.out.println("conn: " + conn);
-		String SQL = "INSERT INTO board VALUES (?,?,?)";
+		String sql = "select * from myLibrary where isbn = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, LibraryDto.getIsbn());
+			rs = pstmt.executeQuery();
+			
+			String id= "";
+			
+			while(rs.next()) {
+				id = rs.getString(2);
+			}
+			
+					
+			if(id.equals("")) {
+				return false;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return true;
+	}
+	
+	// DB 값 넣기
+	public boolean addBook(MyLibraryDTO LibraryDto) {
+		if(check(LibraryDto))
+			return false;
+		
+		conn = DBManager.getConnection(database);
+		String sql = "INSERT INTO myLibrary VALUES (?,?,?)";
 		
 		try {
-			pstmt = conn.prepareStatement(SQL);
+			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, 1);
+			pstmt.setString(1, LibraryDto.getUserId());
 			pstmt.setString(2, LibraryDto.getIsbn());
-			Timestamp modifiedAt = new Timestamp(System.currentTimeMillis());
-			pstmt.setTimestamp(3, modifiedAt);
+			pstmt.setInt(3, LibraryDto.getIsReviewed());
 			
-			return pstmt.executeUpdate();
+			pstmt.executeUpdate();
+			return true;
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
-		return -1;
+		return false;
 	}
 	
-	// DB���� �� �ҷ�����
-	public ArrayList<MyLibraryDTO> getMyLibraryDTO(int log){
-		lis = new ArrayList<>();
-		conn = DBManager.getConnection("book");
-		String sql = String.format("select * from myLibrary where id = %d", log);
-		
+	// DB 값 삭제
+	public boolean deleteBook(MyLibraryDTO LibraryDto) {
+		conn = DBManager.getConnection(database);
+		String[] isbn = LibraryDto.getIsbn().split(",");
+		String sql = String.format("DELETE FROM myLibrary where isbn = '%s'", isbn[0]);
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.executeUpdate();
+			
+			return true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return false;
+	}
+	
+	// DB 값 불러오기
+	public ArrayList<MyLibraryDTO> getLi(int log){
+		lis = new ArrayList<>();
+		String idForLog = getUserlog(log);
+		
+		conn = DBManager.getConnection(database);
+		String sql = "select * from myLibrary where userId = ?";
+		
+		try {
+			pstmt= conn.prepareStatement(sql);
+			pstmt.setString(1, idForLog);
 			rs = pstmt.executeQuery();
 			
-			int id;
-			String isbn;
-			Timestamp modifiedAt;
+			
+			String userId, isbn;
+			int isReviewed;
+			
 			
 			while(rs.next()) {
-				id = rs.getInt(1);
+				userId = rs.getString(1);
 				isbn = rs.getString(2);
-				modifiedAt = rs.getTimestamp(3);
+				isReviewed = rs.getInt(3);
 				
-				MyLibraryDTO myLibraryDto = new MyLibraryDTO(id, isbn, modifiedAt);
+				MyLibraryDTO myLibraryDto = new MyLibraryDTO(userId, isbn, isReviewed);
 				lis.add(myLibraryDto);
 			}
 			
@@ -78,6 +156,7 @@ public class MyLibraryDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			System.out.println("라이브러리 오류");
 		} finally {
 			try {
 				pstmt.close();
@@ -90,16 +169,17 @@ public class MyLibraryDAO {
 		return null;
 	}
 	
-	public int getSize() {
-		conn = DBManager.getConnection("book");
-		String sql = "select count(*) from myLibrary";
+	public int getSize(int log) {
+		conn = DBManager.getConnection(database);
+		String sql = String.format("select count(*) from myLibrary where userId = %d", log);
+		int size = -1;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			rs.next();
-			int size = rs.getInt(1);
+			size = rs.getInt(1);
 			
 			return size;
 		} catch (Exception e) {
@@ -114,8 +194,36 @@ public class MyLibraryDAO {
 				// TODO: handle exception
 			}
 		}
-		return -1;
+		return size;
 	}
+	
+	public String getUserlog(int log) {
+		String userId;
+		conn = DBManager.getConnection("book");
+		String sql = String.format("select * from users where id = '%d';",log);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				userId = rs.getString(2);
+				return userId;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return null;
+	} 
 	
 	
 

@@ -16,7 +16,7 @@
 	%>
 		<div class="header">
 			<a href="index.jsp" id="logo">
-			<img src="./image/logo.png"></a>
+			<img src="image/logo.png"></a>
 			<div class="topMenu">
 				<%
 				if (session.getAttribute("log") != null) {
@@ -50,19 +50,17 @@
 				<p class="login" onclick="location.href='./loginPage'">LOGIN</p>
 				<%
 				}
-				
-				if (session.getAttribute("log") == null) {%>
+				%>
 				<p class="join" onclick="location.href='./join'">JOIN</p>
-				<%} %>
 			</div>
 		</div>
 
 		<div class="nav">
 			<div>
-				<p class="menu1" onclick="location.href='bestBook.jsp'">BEST</p>
-				<p class="menu2" onclick="location.href='newPage.jsp'">NEW</p>
+				<p class="menu1" onclick="location.href='./bestBook'">BEST</p>
+				<p class="menu2" onclick="location.href='./newpage'">NEW</p>
 				<p class="menu3" onclick ="location.href='./subscription'">HOW TO</p>
-				<p class="menu4">ABOUT</p>
+				<p class="menu4" onclick ="location.href='./about'">ABOUT</p>
 			</div>
 		</div>
 		<script type="text/javascript">
@@ -72,7 +70,6 @@
 		hiddenIn.setAttribute('value','logout');
 		log.submit();
 	}
-	
 	$('.mypage2').on('click', e=>{
 		alert("로그인 후 이용 가능합니다.");
 	})

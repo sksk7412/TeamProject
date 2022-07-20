@@ -3,37 +3,45 @@ package teamProject;
 import java.sql.Timestamp;
 
 public class BoardDTO {
-	
 	private int log;
-	private int isbn;
+	private String userId;
+	private String isbn;
 	private String contents;
 	private Timestamp createdAt;
 	
-	public BoardDTO(int log, int isbn, String contents, Timestamp createdAt) {
+	public BoardDTO(String userId, String isbn, String contents, Timestamp createdAt) {
+		this.userId = userId;
+		this.isbn = isbn;
+		this.contents = contents;
+		this.createdAt = createdAt;
+	}
+	
+	public BoardDTO(String userId, String contents, Timestamp createdAt) {
+		this.userId = userId;
+		this.contents = contents;
+		this.createdAt = createdAt;
+	}
+	
+	public BoardDTO(int log, String isbn, String contents, Timestamp createdAt) {
 		this.log = log;
 		this.isbn = isbn;
 		this.contents = contents;
 		this.createdAt = createdAt;
 	}
-	public BoardDTO(int log, String contents, Timestamp createdAt) {
-		this.log = log;
-		this.contents = contents;
-		this.createdAt = createdAt;
-	}
-
+	
 	public int getLog() {
 		return log;
 	}
-
-	public void setLog(int log) {
-		this.log = log;
+	
+	public String getUserId() {
+		return userId;
 	}
-
-	public int getIsbn() {
+	
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
