@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.wrap{
+	width:100vw;
+}
+.container{
+	width:80vw;
+	margin:auto;
+	background-color:#f8f8f8;
+}
+img{
+	width:300px;
+}
+
+.team {
+	display:flex;
+	margin-top:50px;
+}
+hr{
+	margin:20px 0 20px 0;
+}
+#t2 img{
+	float:right;
+}
+
+.team2 {
+	display:flex;
+	margin-top:50px;
+	justify-content: flex-end;
+}
+
+h3{
+	font-size:28pt;
+	color:#4b4b4b;
+}
