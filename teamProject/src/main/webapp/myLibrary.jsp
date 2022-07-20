@@ -26,13 +26,6 @@
 			
 			ArrayList<MyLibraryDTO> lis = dao.getLi(log);
 			
-			for(int i=0; i<lis.size(); i++){
-				System.out.println("isbn:-----------"+lis.get(i).getIsbn());
-			}
-			System.out.println("log: " + log);
-			
-			System.out.println("size: " + lis.size());
-
 	%>
 	<div class="boardListContainer">
 		<form method="post" action="./Service">
@@ -67,7 +60,7 @@
 	</script>
 	<%
 	    }
-		}
+	}
 	%>
 </body>
 </html>
