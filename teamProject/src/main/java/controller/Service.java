@@ -22,7 +22,7 @@ public class Service extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**¾È´¨~ ³­ ¹ÎÆ®Çâ ÀÌÅ¬¸³½º ¶ó°íÇØ ¸¸³ª¼­ ¹Ý°¡¿ö ÇÏÇÖ
+	/**ï¿½È´ï¿½~ ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

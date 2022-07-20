@@ -53,6 +53,8 @@
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 	
+	System.out.println(isbn);
+	String isbns[] = isbn.split(" ");
 %>
 <body>
 
@@ -70,6 +72,10 @@
 				<form method="post" action="./Service">
 					<input type="hidden" name="command" value="DibsBook"> <input
 						type="hidden" value="<%=isbns[0]%>" name="isbn">
+    	 	
+			<form method="post" action="./Service">
+				<input type="hidden" name="command" value="DibsBook" >
+				<input type="hidden" value="<%=isbns[0]%>" name="isbn">
 					<div class="buttons">
 						<!-- <input type="submit" value="♡ 찜하기" id="submit_btn"> -->
 						<input type="submit" value="" id="submit_btn">

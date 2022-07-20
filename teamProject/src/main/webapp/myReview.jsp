@@ -30,6 +30,22 @@
 		<a href='./review' target="_top"> <input type="button"
 			class="allView" value="전체보기">
 		</a>
+		<input type="button" class="allView" value="전체보기" onclick="location.href='./review'">
+		</div>
+		<table class="reviewTable">
+            <tbody>
+            <tr>
+                <td>image</td>
+                <td>title</td>
+                <td>author</td>
+                <td>
+                <a href= './write' target="_top">
+                <button class="writeBtn">리뷰쓰기</button></a>
+                </td>
+            </tr>                    
+        
+          </tbody>
+		</table>
 	</div>
 	<div class="wrap">
 		<table class="reviewTable"></table>

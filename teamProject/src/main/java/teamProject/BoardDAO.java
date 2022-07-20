@@ -81,6 +81,7 @@ public class BoardDAO {
 		}
 		return null;
 	}
+<<<<<<< HEAD
 	
 		// DB값 불러오기
 		public ArrayList<BoardDTO> getBoardDto(String isbn) {
@@ -131,3 +132,6 @@ public class BoardDAO {
 		
 		
 }
+=======
+}
+>>>>>>> refs/remotes/origin/nnnayeon
