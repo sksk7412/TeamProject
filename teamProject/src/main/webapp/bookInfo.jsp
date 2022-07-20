@@ -12,6 +12,7 @@
 <head>
 <link rel="stylesheet" href="css/library.css">
 <link rel="stylesheet" href="css/bookInfo.css">
+ <link rel="stylesheet" href="css/board.css">
 <meta charset="UTF-8">
 <title>BookInfo</title>
 <script
@@ -75,7 +76,6 @@
 						<label for="submit_btn" class="heart_wrap">♡ 찜하기</label>
 					</div>
 				</form>
-				<button onclick="location.href='index.jsp'">바로 보기</button>
 				<%
 				
 				if(check == true){
@@ -150,7 +150,6 @@
 	}
 	 %>
 				</table>
-
 
 				<input type="hidden" value="<%=isbn%>" id="isbn">
 			</div>

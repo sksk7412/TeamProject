@@ -87,6 +87,7 @@
             
         </div>
     </div>
+<script src="./js/validation.js"></script>
 	<script type="text/javascript">
 	jQuery.fn.center = function () {
 	    this.css("position","absolute");
@@ -101,6 +102,5 @@
 	}
 
 	</script>
-<script src="./js/validation.js"></script>
 </body>
 </html>
