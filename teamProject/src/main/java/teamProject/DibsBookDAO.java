@@ -36,7 +36,6 @@ public class DibsBookDAO {
 			
 			conn = DBManager.getConnection(database);
 			System.out.println("conn: "+ conn);	
-		//	String sql = "INSERT INTO dibsBook VALUES (?,?,?)";
 					
 			String sql = String.format("insert into dibsbook values('%s','%s','%s')", BoardDto.getId(), BoardDto.getIsbn(), BoardDto.getCreatedAt());
 			
@@ -128,16 +127,37 @@ public class DibsBookDAO {
 			}
 			return -1;
 		}
-		public boolean getdibs(int log) {
-			
-			
-			
-			
-			
-			
-			
+		
+		
+		// 찜 확인 클래스
+		public boolean getdibs(int log,String isbn) {
+			conn = DBManager.getConnection(database);
+		//	String sql = "select * from dibsbook where id=";
+			String sql = String.format("select * from dibsbook where id ='%d' AND isbn = '%s';", log, isbn);
+					
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					return true;
+				}
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				try {
+					pstmt.close();
+					rs.close();
+					conn.close();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+			}
 			return false;
-		}
-		
-		
+		}	
+				
 }
+
+

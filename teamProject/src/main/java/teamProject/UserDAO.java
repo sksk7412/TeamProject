@@ -240,5 +240,16 @@ public class UserDAO {
 		}
 		return true;
 	}
+	
+	public String getUserId() {
+		String id = null;
+		
+		
+		
+		
+		
+		
+		return null;
+	}
 
 }
