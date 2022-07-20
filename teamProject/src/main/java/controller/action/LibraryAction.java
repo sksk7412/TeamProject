@@ -19,10 +19,13 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	MyLibraryDTO book = null;
 	MyLibraryDAO dao = MyLibraryDAO.getInstance();
 	
-	String userId = (String) session.getAttribute("log");
+	int log = (int) session.getAttribute("log");
 	String isbn = request.getParameter("isbn");
 	
+	String userId = dao.getUserlog(log);
+	
 	book = new MyLibraryDTO(userId, isbn, 0);
+	
 	
 	String url = "";
 	if(dao.addBook(book)){

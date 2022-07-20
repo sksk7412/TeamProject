@@ -209,6 +209,7 @@ function getDibs(isbns) {
 function view(){
 	alert();
 	$('.del').prop('value','addLibrary');
+	$('.results').submit();
 
 }
 

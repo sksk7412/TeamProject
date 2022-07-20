@@ -87,19 +87,26 @@ public class MyLibraryDAO {
 		lis = new ArrayList<>();
 		conn = DBManager.getConnection(database);
 		System.out.println("log: " + log);
-		String sql = String.format("select * from myLibrary where userId = %d", log);
+		String sql = String.format("select * from myLibrary where userId = '%s'", getUserlog(log));
+		System.out.println(sql);
 		
 		try {
+			System.out.println("getUserlog : " + getUserlog(log));
+			
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
+			System.out.println(rs.next());
 			
 			String userId, isbn;
 			int isReviewed;
+			
 			
 			while(rs.next()) {
 				userId = rs.getString(1);
 				isbn = rs.getString(2);
 				isReviewed = rs.getInt(3);
+				
+				System.out.println("999999999999");
 				
 				MyLibraryDTO myLibraryDto = new MyLibraryDTO(userId, isbn, isReviewed);
 				lis.add(myLibraryDto);
@@ -149,6 +156,34 @@ public class MyLibraryDAO {
 			}
 		}
 		return size;
+	}
+	
+	public String getUserlog(int log) {
+		String userId;
+		conn = DBManager.getConnection("book");
+		String sql = String.format("select * from users where id = '%d';",log);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				userId = rs.getString(2);
+				return userId;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return null;
 	}
 	
 	

@@ -19,7 +19,6 @@
 			int log = (int)session.getAttribute("log");
 			DibsBookDAO dao = DibsBookDAO.getInstance();
 			ArrayList<DibsBookDTO> dibs = dao.getDibsBookDto(log);
-			
 	%>
 	<div class="wrap">
 		<div class="dibsBook">

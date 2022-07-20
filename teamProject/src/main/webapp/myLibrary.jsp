@@ -25,7 +25,9 @@
 			MyLibraryDAO dao = MyLibraryDAO.getInstance();
 			UserDAO udao = UserDAO.getInstance();
 			udao.getUserId(log);
+			System.out.println("111111111111111111 : " + udao.getUserId(log));
 			ArrayList<MyLibraryDTO> lis = dao.getMyLibraryDto(log);
+
 	%>
 	<div class="boardListContainer">
 		<form method="post" action="./Service">
