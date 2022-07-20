@@ -201,3 +201,66 @@ function getBookstoArray(bestSeller) {
 	}
 
 }
+
+// review페이지 책 하나 불러오기 
+function bookForReview(isbn) {
+		$.ajax({
+			method: 'get',
+			url: `https://dapi.kakao.com//v3/search/book`,
+			headers: {
+				Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+			},
+			data: {
+				query: isbn,
+				target: 'isbn'
+			},
+			encoding: 'UTF-8',
+		}).done(data => {
+			const result = data.documents;
+			result.forEach(book => {
+				let reviewForm = `
+								<input type="hidden" value='${isbn}' name='isbn'>
+								<a class="img"><img src="${book.thumbnail}"></a>
+								<a class="title">${book.title}</a>
+								<a class="authors">${book.authors}</a>
+								<a class="publisher">${book.publisher}</a>
+								`;
+				$('.bookInfo').append(reviewForm);
+			})
+		})
+}
+
+///나의 라이브러리 테이블 값 가져오기 my review
+function getMyLb(myLb) {
+
+	for (let i = 0; i < myLb.length; i++) {
+		let targetIsbn = myLb[i];
+		$.ajax({
+			method: 'get',
+			url: `https://dapi.kakao.com//v3/search/book`,
+			headers: {
+				Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+			},
+			data: {
+				query: targetIsbn,
+				target: 'isbn'
+			},
+			encoding: 'UTF-8',
+		}).done(data => {
+			const result = data.documents;
+			result.forEach(book => {
+				let thumbnail = book.thumbnail;
+				let title = book.title;
+				let authors = book.authors;
+
+				let html = "<div clss='bookInfo'>"
+				html += `<a class='thumbnail'><img src=${thumbnail}></a>`
+				html += `<a class='title'>${title}</a>`
+				html += `<a class='authors'>'${authors}'</a>`
+				html += `<a><a href= './write?isbn=${targetIsbn}' target="_top"> <button class="writeBtn">리뷰쓰기</button></a></a></div>`;
+
+				$('.reviewTable').append(html);
+			})
+		})
+	}
+}

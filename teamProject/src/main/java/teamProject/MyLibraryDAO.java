@@ -11,24 +11,17 @@ import java.util.ArrayList;
 
 public class MyLibraryDAO {
 	
-<<<<<<< HEAD
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
 	private String database = "book";
 	
-=======
->>>>>>> branch 'master' of https://github.com/sksk7412/TeamProject.git
 	private MyLibraryDAO() {}
 	private static MyLibraryDAO instance = new MyLibraryDAO();
 	
 	public static MyLibraryDAO getInstance() {
 		return instance;
 	}
-	private Connection conn = null;
-	private ResultSet rs = null;
-	private PreparedStatement pstmt = null;
-	private String database = "book";
 	
 	private ArrayList<MyLibraryDTO> lis;
 	

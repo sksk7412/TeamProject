@@ -20,7 +20,7 @@
 
 	int log = (int) session.getAttribute("log");
 	MyLibraryDAO dao = MyLibraryDAO.getInstance();
-	ArrayList<MyLibraryDTO> lbry = dao.getMyLibraryDTO(log);
+	ArrayList<MyLibraryDTO> lbry = dao.getLi(log);
 	
 	if(lbry != null){
 		
@@ -29,7 +29,8 @@
 		<p class="title"></p>
 		<a href='./review' target="_top"> <input type="button"
 			class="allView" value="전체보기">
-		</a>
+		</a> <input type="button" class="allView" value="전체보기"
+			onclick="location.href='./review'">
 	</div>
 	<div class="wrap">
 		<table class="reviewTable"></table>
