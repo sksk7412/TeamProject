@@ -53,8 +53,6 @@
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 	
-	System.out.println(isbn);
-	String isbns[] = isbn.split(" ");
 %>
 <body>
 
@@ -68,10 +66,6 @@
 				<%
 			if(id != -1){
 		%>
-
-				<form method="post" action="./Service">
-					<input type="hidden" name="command" value="DibsBook"> <input
-						type="hidden" value="<%=isbns[0]%>" name="isbn">
     	 	
 			<form method="post" action="./Service">
 				<input type="hidden" name="command" value="DibsBook" >
