@@ -19,14 +19,9 @@ public class DibsBookDTO {
 	public int getId() {
 		return id;
 	}
-
-
 	public String getIsbn() {
 		return isbn;
 	}
-
-
-
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}

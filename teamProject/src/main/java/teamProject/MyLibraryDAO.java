@@ -56,10 +56,11 @@ public class MyLibraryDAO {
 	}
 	
 	// DB���� �� �ҷ�����
-	public ArrayList<MyLibraryDTO> getMyLibraryDto(){
-		conn = DBManager.getConnection("book");
-		String sql = "select * from myLibrary";
+	public ArrayList<MyLibraryDTO> getMyLibraryDTO(int log){
 		lis = new ArrayList<>();
+		conn = DBManager.getConnection("book");
+		String sql = String.format("select * from myLibrary where id = %d", log);
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

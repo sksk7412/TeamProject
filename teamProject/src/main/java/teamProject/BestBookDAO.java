@@ -24,7 +24,7 @@ public class BestBookDAO {
 	private ArrayList<BestBookDTO> new_books;
 	
 	
-	// best_seller isbn ºÒ·¯¿À±â
+	// best_seller isbn ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 		public ArrayList<BestBookDTO> getBestBooks() {
 			conn = DBManager.getConnection("book");
 			String sql = "select * from best_book";
@@ -63,7 +63,7 @@ public class BestBookDAO {
 		}
 		
 		
-		// new_books isbn ºÒ·¯¿À±â
+		// new_books isbn ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 		public ArrayList<BestBookDTO> getNewBooks() {
 			conn = DBManager.getConnection("book");
 			String sql = "select * from new_book";

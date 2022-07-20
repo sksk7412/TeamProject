@@ -27,8 +27,6 @@ public class DibsBookDAO {
 	private String log;
 	private String url = "jdbc:mysql://localhost:3306/";
 	private String database = "book";
-	private String user = "root";
-	private String password = "root";
 	Random ran = new Random();
 	
 	private ArrayList<DibsBookDTO> dibs = new ArrayList<>();
@@ -37,10 +35,9 @@ public class DibsBookDAO {
 		public boolean addWrite(DibsBookDTO BoardDto) { 
 			
 			conn = DBManager.getConnection(database);
-			System.out.println("conn: "+conn);	
-		//	String sql = "INSERT INTO dibsBook VALUES (?,?,?)";
+			System.out.println("conn: "+ conn);	
 					
-			String sql = String.format("insert into dibsBook values('%s','%s','%s')", BoardDto.getId(), BoardDto.getIsbn(), BoardDto.getCreatedAt());
+			String sql = String.format("insert into dibsbook values('%s','%s','%s')", BoardDto.getId(), BoardDto.getIsbn(), BoardDto.getCreatedAt());
 			
 			// 아이디 정보 찜 날짜~	
 			try {
@@ -66,8 +63,8 @@ public class DibsBookDAO {
 
 	// DB값 불러오기
 	public ArrayList<DibsBookDTO> getDibsBookDto(int log) {
-		conn = DBManager.getConnection("book");
-		String sql = "select * from dibsBook";
+		conn = DBManager.getConnection(database);
+		String sql = "select * from dibsbook";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -105,8 +102,8 @@ public class DibsBookDAO {
 	
 	// 책 불러올떄
 		public int getSize(int log) {
-			conn = DBManager.getConnection("book");
-			String sql = "select count(*) from dibsBook";
+			conn = DBManager.getConnection(database);
+			String sql = "select count(*) from dibsbook";
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -130,5 +127,37 @@ public class DibsBookDAO {
 			}
 			return -1;
 		}
+		
+		
+		// 찜 확인 클래스
+		public boolean getdibs(int log,String isbn) {
+			conn = DBManager.getConnection(database);
+		//	String sql = "select * from dibsbook where id=";
+			String sql = String.format("select * from dibsbook where id ='%d' AND isbn = '%s';", log, isbn);
+					
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					return true;
+				}
 
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				try {
+					pstmt.close();
+					rs.close();
+					conn.close();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+			}
+			return false;
+		}	
+				
 }
+
+

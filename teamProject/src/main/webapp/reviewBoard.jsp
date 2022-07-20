@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,20 +8,21 @@
 <title>Review Board</title>
 </head>
 <body>
-<%
+	<%
 if(session.getAttribute("log")!=null) {
 	int log = (int)session.getAttribute("log");
+	String isbn = request.getParameter("isbn");
 %>
 	<div class="wrap">
-	<div class="container">
-	<table>
-		<div>
-		<br>
-			<h2>coming soon</h2>
-		</div>
-	</table>
+		<div class="container"></div>
 	</div>
-	</div>
-	<%} %>
+	
+	
+	
+	<script src=bookApi.js></script>
+	<script>getLibraryForIsbn(<%=isbn%>)</script>
+	<%
+	}
+	%>
 </body>
 </html>

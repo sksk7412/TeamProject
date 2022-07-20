@@ -21,7 +21,7 @@ public class ActionFactory {
 		else if(command.equals("login")) action = new LoginAction();
 		else if(command.equals("logout")) action = new LogoutAction();
 		else if(command.equals("writeReview")) action = new WriteReviewAction();
-		else if(command.equals("Dibsbook")) action = new DibsAction();
+		else if(command.equals("DibsBook")) action = new DibsAction();
 		else if(command.equals("updateUser")) action = new UpdateAction();
 		
 		return action;
