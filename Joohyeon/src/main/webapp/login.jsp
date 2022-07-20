@@ -53,7 +53,7 @@ alert("회원정보를 확인하세요.");
       
       <script type="text/javascript">
 if(sessionStorage.getItem("user_info") != null){
-	let id = sessionStorage.getItem("user_info").substr(1,18);
+	let id = sessionStorage.getItem("user_info").substr(2,18);
 	let pw = sessionStorage.getItem("naver_name");
 	let name = sessionStorage.getItem("naver_name"); 
 	console.log(id);
@@ -63,7 +63,6 @@ $(document).ready(function(form) {
 	$('#testId').val(id);
 	$('#testPw').val(pw);
 	
-	$('.login-btn').trigger('click');
 });
 }
 </script>

@@ -57,7 +57,7 @@ alert("이미 등록된 아이디입니다.");
       <script src="user.js"></script>
 <script type="text/javascript">
 if(sessionStorage.getItem("user_info") != null){
-	let id = sessionStorage.getItem("user_info").substr(1,18);
+	let id = sessionStorage.getItem("user_info").substr(2,18);
 	let pw = sessionStorage.getItem("naver_name");
 	let name = sessionStorage.getItem("naver_name"); 
 	
@@ -70,7 +70,7 @@ $(document).ready(function(form) {
         checkboxes.get(i)
             .checked = true;
     }
-	$('.join-btn').trigger('click');
+	/* $('.join-btn').trigger('click'); */
 });
 }
 </script>
