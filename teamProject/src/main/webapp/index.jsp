@@ -18,7 +18,6 @@
 		System.out.println(log + "##");
 	}
 	%>
-
 	<div class="wrap">
 
 	<jsp:include page="header.jsp"></jsp:include>

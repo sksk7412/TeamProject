@@ -25,7 +25,6 @@
 <div class="container">
 <form action="./Service" metohd="post">
 <input type="hidden" name="command" value="updateUser">
-
 	<div class="update">
 	<h3 class="title">회원정보 수정</h3><hr>
 	<div class="info">
@@ -45,7 +44,6 @@
 	<span class="inputName">연락처</span>
 	<input type="text" value="<%=mobile%>" name="mobile"><Br>
 	</div>
-	
 	<input type="submit" value="수정하기" class="btn"><br>
 	</div>
 	</div>

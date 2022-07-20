@@ -18,6 +18,7 @@
   	<servlet-name>login</servlet-name>
   	<url-pattern>/login</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   	<servlet-name>logout</servlet-name>
   	<servlet-class>controller.LogoutAction</servlet-class>
@@ -123,6 +124,7 @@
   	<servlet-name>BestBook</servlet-name>
   	<url-pattern>/bestBook</url-pattern>
   </servlet-mapping>
+  
   
    <servlet>
   	<servlet-name>About</servlet-name>

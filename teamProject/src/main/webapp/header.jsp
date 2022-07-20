@@ -72,7 +72,6 @@
 		hiddenIn.setAttribute('value','logout');
 		log.submit();
 	}
-	
 	$('.mypage2').on('click', e=>{
 		alert("로그인 후 이용 가능합니다.");
 	})

@@ -12,7 +12,6 @@
 <body>
 	<div class="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
-
 		<div class="container">
 		<div class="project">
 		<div class="who">
