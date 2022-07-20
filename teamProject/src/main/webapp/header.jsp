@@ -59,7 +59,7 @@
 
 		<div class="nav">
 			<div>
-				<p class="menu1" onclick="location.href='./bestbook'">BEST</p>
+				<p class="menu1" onclick="location.href='./bestBook'">BEST</p>
 				<p class="menu2" onclick="location.href='./newpage'">NEW</p>
 				<p class="menu3" onclick ="location.href='./subscription'">HOW TO</p>
 				<p class="menu4" onclick ="location.href='./about'">ABOUT</p>
