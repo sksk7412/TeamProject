@@ -218,6 +218,48 @@ public class MyLibraryDAO {
 		return null;
 	} 
 	
-	
+	// 리뷰 작성 안된 애들 가져오기
+	// DB 값 불러오기
+	public ArrayList<MyLibraryDTO> getUnReviewed(int log){
+		lis = new ArrayList<>();
+		
+		conn = DBManager.getConnection(database);
+		String sql = "select * from myLibrary where isReviewed = ?";
+		
+		try {
+			pstmt= conn.prepareStatement(sql);
+			pstmt.setInt(1, 1);
+			rs = pstmt.executeQuery();
+			
+			String userId, isbn;
+			int isReviewed;
+			
+			
+			while(rs.next()) {
+				userId = rs.getString(1);
+				isbn = rs.getString(2);
+				isReviewed = rs.getInt(3);
+				
+				MyLibraryDTO myLibraryDto = new MyLibraryDTO(userId, isbn, isReviewed);
+				lis.add(myLibraryDto);
+			}
+			
+			return lis;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println("라이브러리 오류");
+		} finally {
+			try {
+				pstmt.close();
+				rs.close();
+				conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return null;
+	}
 
 }

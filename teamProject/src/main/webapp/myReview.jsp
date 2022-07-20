@@ -20,7 +20,7 @@
 	<%
 	int log = (int) session.getAttribute("log");
 	MyLibraryDAO dao = MyLibraryDAO.getInstance();
-	ArrayList<MyLibraryDTO> lbry = dao.getLi(log);
+	ArrayList<MyLibraryDTO> lbry = dao.getUnReviewed(log);
 
 	if (lbry != null) {
 	%>

@@ -27,7 +27,8 @@
 				<input type="hidden" name="command" value="writeReview">
 				<div class="reviewContents">
 					<div class="bookInfo"></div>
-					<input type="text" name="contents" placeholder="최소 10자이상 입력해주세요" minlength="10" id="texts">
+					<!-- <input type="text" name="contents" placeholder="최소 10자이상 입력해주세요" minlength="10" id="texts"> -->
+				  	<textarea name="contents" placeholder="최소 10자이상 입력해주세요" minlength="10" id="texts"></textarea>
 					<div class="buttons">
 						<button>취소</button>
 						<input type="submit" value="등록">
@@ -37,8 +38,12 @@
 		</div>
 
 	</div>
-	<script src=bookApi.js></script>
-	<script>bookForReview(<%=isbn%>)</script>
+	<script src="bookApi.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		bookForReview(<%=isbn%>);
+	})
+	</script>
 	<%
 	}
 	%>

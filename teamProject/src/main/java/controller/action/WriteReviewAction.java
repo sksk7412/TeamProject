@@ -32,8 +32,7 @@ public class WriteReviewAction implements Action{
 			String url="";
 			
 			if(dao.addReview(board)) {
-				url="review.jsp";
-				url="myReview.jsp";
+				url="myPage.jsp";
 				System.out.println(contents);
 				System.out.println("글쓰기 완료");
 			}else {
