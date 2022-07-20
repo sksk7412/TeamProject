@@ -35,7 +35,9 @@
 		$(document).ready(function() {
 		const myLb = [
 		<%for (int i = 0; i < lbry.size(); i++) {%>"<%=lbry.get(i).getIsbn()%>"<%=i + 1 < lbry.size() ? "," : ""%><%}%>];
+		console.log(myLb);
 		getMyLb(myLb);
+		
 		});
 	</script>
 	<%

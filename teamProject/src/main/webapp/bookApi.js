@@ -198,7 +198,6 @@ function bookForReview(isbn) {
 
 // my review
 function getMyLb(myLb) {
-
 	for (let i = 0; i < myLb.length; i++) {
 		let targetIsbn = myLb[i];
 		$.ajax({
