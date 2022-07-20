@@ -30,7 +30,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	String url = "";
 	if(dao.addBook(book)){
 		System.out.println("읽기 성공");
-		url = "myLibrary.jsp";
+		url = "dibs.jsp";
 	}
 	else{
 		System.out.println("읽기 실패");

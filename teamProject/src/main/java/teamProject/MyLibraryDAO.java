@@ -3,6 +3,8 @@ package teamProject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import util.DBManager;
 
 import java.util.ArrayList;
@@ -18,16 +20,49 @@ public class MyLibraryDAO {
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
-	private String log;
-	private String url = "jdbc:mysql://localhost:3306/";
 	private String database = "book";
-	private String user = "root";
-	private String password = "root";
 	
 	private ArrayList<MyLibraryDTO> lis;
 	
+	public boolean check(MyLibraryDTO LibraryDto) {
+		conn = DBManager.getConnection(database);
+		String sql = "select * from myLibrary where isbn = ?";
+		System.out.println(LibraryDto.getIsbn());
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, LibraryDto.getIsbn());
+			rs = pstmt.executeQuery();
+			
+			String id= "";
+			
+			while(rs.next()) {
+				id = rs.getString(2);
+			}
+			
+					
+			if(id.equals("")) {
+				return false;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return true;
+	}
+	
 	// DB 값 넣기
 	public boolean addBook(MyLibraryDTO LibraryDto) {
+		if(check(LibraryDto))
+			return false;
 		
 		conn = DBManager.getConnection(database);
 		String sql = "INSERT INTO myLibrary VALUES (?,?,?)";
@@ -83,19 +118,18 @@ public class MyLibraryDAO {
 	}
 	
 	// DB 값 불러오기
-	public ArrayList<MyLibraryDTO> getMyLibraryDto(int log){
+	public ArrayList<MyLibraryDTO> getLi(int log){
 		lis = new ArrayList<>();
+		String idForLog = getUserlog(log);
+		
 		conn = DBManager.getConnection(database);
-		System.out.println("log: " + log);
-		String sql = String.format("select * from myLibrary where userId = '%s'", getUserlog(log));
-		System.out.println(sql);
+		String sql = "select * from myLibrary where userId = ?";
 		
 		try {
-			System.out.println("getUserlog : " + getUserlog(log));
-			
-			pstmt = conn.prepareStatement(sql);
+			pstmt= conn.prepareStatement(sql);
+			pstmt.setString(1, idForLog);
 			rs = pstmt.executeQuery();
-			System.out.println(rs.next());
+			
 			
 			String userId, isbn;
 			int isReviewed;
@@ -105,8 +139,6 @@ public class MyLibraryDAO {
 				userId = rs.getString(1);
 				isbn = rs.getString(2);
 				isReviewed = rs.getInt(3);
-				
-				System.out.println("999999999999");
 				
 				MyLibraryDTO myLibraryDto = new MyLibraryDTO(userId, isbn, isReviewed);
 				lis.add(myLibraryDto);
@@ -184,7 +216,7 @@ public class MyLibraryDAO {
 			}
 		}
 		return null;
-	}
+	} 
 	
 	
 

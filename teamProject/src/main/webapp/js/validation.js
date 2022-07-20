@@ -27,8 +27,7 @@ $('.dibs').on('click', e=>{
 
 $('.write').on('click', e=>{
 	console.log("2");
-	$('iframe').prop('src','myReview.jsp');
-	
+	$('iframe').prop('src','myReview.jsp');	
 })
 
 $('.wrote').on('click', e=>{
