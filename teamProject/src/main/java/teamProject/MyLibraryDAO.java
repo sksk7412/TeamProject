@@ -27,7 +27,7 @@ public class MyLibraryDAO {
 	public boolean check(MyLibraryDTO LibraryDto) {
 		conn = DBManager.getConnection(database);
 		String sql = "select * from myLibrary where isbn = ?";
-		System.out.println(LibraryDto.getIsbn());
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			

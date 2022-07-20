@@ -141,7 +141,7 @@ function getDibs(isbns) {
 								<div class="title">${book.title}</div>
 								<div class="authors">${book.authors}</div>
 								<div class="publisher">${book.publisher}</div>
-								<input type="submit" class="delete" value="삭제">
+								<input type="submit" class="delbtn" value="삭제">
 							</div>
 						</div>`;
 			let html2 = `<tr>
