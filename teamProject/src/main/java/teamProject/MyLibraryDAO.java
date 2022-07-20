@@ -16,12 +16,7 @@ public class MyLibraryDAO {
 	private Connection conn = null;
 	private ResultSet rs = null;
 	private PreparedStatement pstmt = null;
-	private String log;
-	private String url = "jdbc:mysql://localhost:3306/";
 	private String database = "book";
-	private String user = "root";
-	private String password = "root";
-	private Random ran = new Random();
 	
 	private MyLibraryDAO() {}
 	private static MyLibraryDAO instance = new MyLibraryDAO();
