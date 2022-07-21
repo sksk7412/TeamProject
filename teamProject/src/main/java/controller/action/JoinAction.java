@@ -30,7 +30,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	if(!temp.addUser(user)){
 		
 		System.out.println("회원가입 실패!");
-		url = "join.jsp";
+		url = "join.jsp?check=check";
 	}
 	else{
 		System.out.println("회원가입 성공!");
