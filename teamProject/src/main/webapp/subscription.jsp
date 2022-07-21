@@ -1,3 +1,4 @@
+<%@page import="teamProject.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +12,7 @@
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <title>Subscription</title>
 </head>
+
 <body>
 	<div class="wrap">
 
@@ -29,7 +31,7 @@
                     <span class="txtBox">
                     <p>· 매 달 eBook 5권 무료이용</p>
                     </span>
-                    <a href="javascript:;" onclick="javascript:showPopup()" >
+                    <a class="link" href="javascript:;" onclick="javascript:showPopup()" >
                     <button class="subsBtn">구독하기</button>
                     </a>                            
                 </div>
@@ -100,7 +102,14 @@
 		$(".pop1").show();
 		$(".pop1").center();
 	}
-
+	
+	<% if(session.getAttribute("log")==null){ %>
+		$('.subsBtn').on('click', e=>{
+			alert("로그인 후 이용 가능합니다.");
+			$('a').prop("href","./loginPage")
+		})
+	<%}%>
+	
 	</script>
 </body>
 </html>

@@ -59,7 +59,7 @@ public class UserDAO {
 		conn = DBManager.getConnection("book");
 		System.out.println(userDto.getUserId());
 		try {
-			String sql = String.format("update users set userPw='%s',`name` = '%s' ,mobile=%s where id=%d", userDto.getUserPw(), userDto.getName(),userDto.getMobile(), log);
+			String sql = String.format("update users set userPw=%s,`name` = %s ,mobile=%s where id=%d", userDto.getUserPw(), userDto.getName(),userDto.getMobile(), log);
 			pstmt = conn.prepareStatement(sql);
 			
 			/*
