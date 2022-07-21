@@ -47,6 +47,7 @@
 	<input type="submit" value="수정하기" class="btn"><br>
 	</div>
 	</div>
+	
 </form>	
 </div>
 </div>

@@ -19,6 +19,7 @@
 				<img src="./image/teamname2.png">
 			</h1>
 			<p class="text"></p>
+			
 		</div>
 		<div class="who">
 		<div class="team" id="t1">
