@@ -1,48 +1,54 @@
 @charset "UTF-8";
-.search_wrap{
+.searchWrap{
 	display: flex;
-    justify-content: center;
-    padding-top: 50px;
-    width: fit_content;
-    border-radius:16px;
-    padding:4px 20px;
+    padding: 4px 20px;
+    height: 16%;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction:column;
 }
 .search_wrap input[type="text"]:focus{
 	outline:0;
-}
-.search_wrap input[type="submit"]{
-	border:0;
-	background-color: transparent;
 }
 #input{
 	width:600px;
 	height:50px;
 	border-radius:14px;
-	font-size:18px;
-	margin-top:20px;
+	font-size:24px;
 }
-#submit{
+#button{
 	position: relative;
-	left:20px;
+	left:270px;
 	width:80px;
 	height:50px;
-	top:2px;
+	bottom:52px;
+	border:0;
+	background-color: transparent;
+}
+#searchIcon{
+	width:28px;
+}
+.section{
+	display:flex;
+	align-items : center;
+	height : 490px;
 }
 .book{
 	text-align:center;
-	padding-top:30px;
 	width:20%;
 }
 .result{
 	margin: 0;
-	padding-top:100px;
 	width:100%;
 	display:flex;
 	flex-wrap:wrap;
 	justify-content: center;
 	
 }
-#title{
+.title{
+	text-align: center;
+    font-size: 18px;
+    font-weight: 600;
 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
@@ -50,12 +56,25 @@
     margin: 0 auto;
     padding:20px 0;
 }
+
+#arrow{
+	height:160px;
+}
 #thumbnail{
 	border-radius:18px;
 	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
 }
 
-
+.page_buttons{
+	display:flex;
+	justify-content: center;
+}
+.page_buttons>*{
+	margin: 0 10px;
+}
+.section > img{
+	height : 170px;
+}
 @media (max-width:720px) {
 	.book{
 		width:50%;

@@ -223,15 +223,18 @@ public class MyLibraryDAO {
 	public ArrayList<MyLibraryDTO> getUnReviewed(int log){
 		lis = new ArrayList<>();
 		
+		String userId = getUserlog(log);
+		
 		conn = DBManager.getConnection(database);
-		String sql = "select * from myLibrary where isReviewed = ?";
+		String sql = "select * from myLibrary where isReviewed = ? and userId = ?";
 		
 		try {
 			pstmt= conn.prepareStatement(sql);
-			pstmt.setInt(1, 1);
+			pstmt.setInt(1, 0);
+			pstmt.setString(2, userId);
 			rs = pstmt.executeQuery();
 			
-			String userId, isbn;
+			String isbn;
 			int isReviewed;
 			
 			

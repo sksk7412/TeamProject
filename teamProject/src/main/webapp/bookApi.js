@@ -198,7 +198,6 @@ function bookForReview(isbn) {
 
 // my review
 function getMyLb(myLb) {
-
 	for (let i = 0; i < myLb.length; i++) {
 		let targetIsbn = myLb[i];
 		$.ajax({
@@ -229,4 +228,38 @@ function getMyLb(myLb) {
 			})
 		})
 	}
+}
+
+// best_seller / new 책
+function getBookstoArray(bestSeller) {
+	for (let i = 0; i < bestSeller.length; i++) {
+		let num = bestSeller[i];
+		num = num.split(" ");
+
+		$.ajax({
+			method: 'get',
+			url: `https://dapi.kakao.com//v3/search/book`,
+			headers: {
+				Authorization: 'KakaoAK 7209aad7048422200f37096c1bdde36e'
+			},
+			data: {
+				query: num,
+				target: 'isbn'
+			},
+			encoding: 'UTF-8',
+		}).done(data => {
+			const result = data.documents;
+			result.forEach(book => {
+				let isbns = book.isbn;
+				
+				let url = `bookInfo.jsp?isbn=${isbns}`;
+				
+				let html = `<div class="bookInfo" onclick="location.href='${url}'"><div class="img"><img id="thumbnail" src="${book.thumbnail}"></div><div class="info"><div class="title">${book.title}</div></div></div>`;
+
+				$('.book').append(html);
+			})
+		})
+	}
+
+
 }
