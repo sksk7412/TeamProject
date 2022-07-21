@@ -91,7 +91,7 @@ function kakaoLogin2() {
   var naverLogin = new naver.LoginWithNaverId({
         clientId: '8Y65VuJ4FktggRb3Yxgs',
         callbackUrl: 'http://localhost:8081/teamProject/naver_callback.jsp',
-        isPopup: false /* 팝업을 통한 연동처리 여부 */,
+        isPopup: true /* 팝업을 통한 연동처리 여부 */,
         loginButton: { color: 'green', type: 3, height: 44 } /* 로그인 버튼의 타입을 지정 */,
       });
 
