@@ -57,7 +57,7 @@ public class UserDAO {
 	public boolean updateUser(UserDTO userDto, int log) {
 
 		conn = DBManager.getConnection("book");
-		System.out.println( userDto.getUserId());
+		System.out.println(userDto.getUserId());
 		try {
 			String sql = String.format("update users set userPw='%s',`name` = '%s' ,mobile=%s where id=%d", userDto.getUserPw(), userDto.getName(),userDto.getMobile(), log);
 			pstmt = conn.prepareStatement(sql);
@@ -158,7 +158,7 @@ public class UserDAO {
 			if(rs.next()) {
 				userId = rs.getString(1);
 			}
-			System.out.println("성공");
+			System.out.println("성공?");
 			return userId;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -173,7 +173,7 @@ public class UserDAO {
 				// TODO: handle exception
 			}
 		}
-		System.out.println("실패");
+		System.out.println("실패?");
 		return null;
 	}
 	

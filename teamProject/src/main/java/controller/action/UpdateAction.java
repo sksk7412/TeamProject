@@ -20,15 +20,16 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	
 	HttpSession session = request.getSession();
 	int log = (int)session.getAttribute("log");
-	String UserPw = request.getParameter("UserPw");
+	String userPw = request.getParameter("userPw");
 	String name = request.getParameter("name");
 	String mobile = request.getParameter("mobile");
 	
-	user = new UserDTO(UserPw,name,mobile);	
+	user = new UserDTO(userPw,name,mobile);	
 	
 	String url = "";
 	
-	System.out.println(UserPw);
+	System.out.println(userPw +"//");
+	System.out.println(mobile +"%%");
 		
 	if(!temp.updateUser(user, log)){
 		

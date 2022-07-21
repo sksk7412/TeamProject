@@ -18,3 +18,16 @@ $('.t2Name').hover(function(){
 		$('.t2Name').html('김동호');
 	}
 );
+
+$('.t1Name').hover(function(){
+	$('.t1Name').html('어디갔나연?');
+	},function(){
+		$('.t2Name').html('김나연');
+	}
+);
+$('.t4Name').hover(function(){
+	$('.t1Name').html('뉘신지');
+	},function(){
+		$('.t2Name').html('박시연');
+	}
+);
