@@ -26,8 +26,8 @@
 		<div class="main">
 			<div class="txt">
 				<p class="txt1">세계 최대 온라인 공유도서관</p>
-				<p class="txt2">2011년 시작된 세계 최초의 공유도서관인 국민도서관 책꽂이는 책주인이 공유를 전제로
-					책을 보관하고, 다른 많은 사람들이</p>
+				<p class="txt2">2011년 시작된 세계 최초의 공유도서관인 Rona's Books는 GoogleGoogle에서 만든
+				온라인 구독 서비스입니다</p>
 				<button class="btn1" onclick="location.href='./subscription'">정기구독 신청하기</button>
 			</div>
 		</div>
