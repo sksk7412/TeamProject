@@ -1,13 +1,14 @@
 @charset "UTF-8";
 .wrap{
 	width:100vw;
+	height:100%;
 }
 .container{
 	width:80vw;
 	margin:auto;
 	background-color:#f8f8f8;
 }
-img{
+.who img{
 	width:300px;
 }
 
@@ -52,3 +53,13 @@ a{
 	padding-top:20px;
 	margin-left:5px;
 }
+.boogle {
+	width:80vw;
+	margin:auto;
+	margin-top:30px;
+	text-align:center;
+}
+.boogle img{
+	width:700px;
+}
+

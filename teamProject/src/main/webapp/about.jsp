@@ -14,6 +14,12 @@
 		<jsp:include page="header.jsp"></jsp:include>
 		<div class="container">
 		<div class="project">
+		<div class="boogle">
+			<h1>
+				<img src="./image/teamname2.png">
+			</h1>
+			<p class="text"></p>
+		</div>
 		<div class="who">
 		<div class="team" id="t1">
 				<img src="./image/t5.jpg">
@@ -58,7 +64,7 @@
 						<a href="mailto:siyeonz@naver.com">
 						<p>siyeonz@naver.com</p></a>
 						<p>Position: 둘째 형</p>
-						<p>Function: 메인페이지 / 구독페이지(결제) / ABOUT</p>
+						<p>Function: 메인페이지 / 구독페이지(API 사용) / ABOUT</p>
 					</span>
 				</div>
 				<img src="./image/t2.jpg">
@@ -71,7 +77,7 @@
 						<a href="mailto:wngusl1380@gmail.com">
 						<p>wngusl1380@gmail.com</p></a>
 						<p>Position: 첫째</p>
-						<p>Function: 회원가입 / 로그인(카카오API 사용)</p>
+						<p>Function: 회원가입 / 로그인(카카오API, 네이버API 사용)</p>
 					</span>
 				</div>
 			</div><hr>		

@@ -69,11 +69,11 @@ public class UserDAO {
 			 */
 			
 			pstmt.execute();
-			System.out.println("insert done");
+			System.out.println("update done");
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("insert fail");
+			System.out.println("update fail");
 		} finally {
 			try {
 				conn.close();

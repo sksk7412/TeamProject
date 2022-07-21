@@ -32,7 +32,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 		
 	if(!temp.updateUser(user, log)){
 		
-		System.out.println("띠로리~");
+		System.out.println("수정 실패");
 		url = "userInfo.jsp";
 	}
 	else{

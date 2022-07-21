@@ -104,7 +104,7 @@ function requestPay() {
 	    if (rsp.success) {
 	      var msg = '결제가 완료되었습니다.';
 	      alert(msg);
-	      location.href = "결제 완료 후 이동할 페이지 url"
+	      location.href = "./mypage"
 	    } else { 
 	      var msg = '결제에 실패하였습니다.';
 	      msg += '에러내용 : ' + rsp.error_msg;
@@ -112,5 +112,47 @@ function requestPay() {
 	    }
   });
 }
+
+function monthly(){
+	IMP.init('iamport'); 
+	IMP.request_pay({
+	merchant_uid: "order_monthly_0001", // 상점에서 관리하는 주문 번호
+	name : '최초인증결제',
+	amount : 0, // 빌링키 발급만 진행하며 결제승인을 하지 않습니다.
+	customer_uid : 'TCSUBSCRIP', // 필수 입력
+	buyer_email : 'iamport@siot.do',
+	buyer_name : '아임포트',
+	buyer_tel : '02-1234-1234'
+}, function(rsp) {
+	if ( rsp.success ) {
+		alert('빌링키 발급 성공');
+	} else {
+		alert('빌링키 발급 실패');
+	}
+});
+	}
+	
+function test(){
+	IMP.init('iamport');	
+	IMP.request_pay({
+	pg : 'danal_tpay',
+	pay_method : 'card', // 'card'만 지원됩니다.
+	merchant_uid: "order_monthly_0001", // 상점에서 관리하는 주문 번호
+	name : '최초인증결제',
+	amount : 0, // 빌링키 발급만 진행하며 결제승인을 하지 않습니다.
+	customer_uid : '9810030929', // 필수 입력.
+	buyer_email : 'iamport@siot.do',
+	buyer_name : '아임포트',
+	buyer_tel : '02-1234-1234'
+}, function(rsp) {
+	if ( rsp.success ) {
+		alert('빌링키 발급 성공');
+	} else {
+		alert('빌링키 발급 실패');
+	}
+});
+	}
+	
+	
 
 
