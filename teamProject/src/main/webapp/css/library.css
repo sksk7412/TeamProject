@@ -292,6 +292,7 @@
 	display: flex;
 	flex-wrap: wrap;
 }
+
 .boardListContainer, formContainer {
     width: 80vw;
     margin: auto;
