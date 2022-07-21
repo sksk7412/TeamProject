@@ -20,7 +20,7 @@
 	%>
 <body>
 	<div class="wrap">
-           <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="header.jsp"></jsp:include>
         <p class="mainContents">BEST SELLER</p>
         <div class="best_seller">
 	    	<div class = "book"></div>
