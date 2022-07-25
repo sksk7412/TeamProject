@@ -5,13 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/form.css">
-<<<<<<< HEAD
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
 <title>JOIN</title>
-=======
 <link rel="stylesheet" href="css/library.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -19,11 +17,9 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Song+Myung&display=swap"
 	rel="stylesheet">
 <title>Insert title here</title>
->>>>>>> branch 'nnnayeon' of https://github.com/sksk7412/TeamProject.git
 </head>
 <body>
 	<div class="wrap">
-<<<<<<< HEAD
        <jsp:include page="header.jsp"></jsp:include>
 		<form method="post" action="./Service">
 					<input type="hidden" name="command" value="join">
@@ -54,7 +50,6 @@
     	 </form>
       </div>
       <script src="user.js"></script>
-=======
 		<jsp:include page="header.jsp"></jsp:include>
 		<div class="joinbox">
 			<h3>간편 회원가입</h3>
@@ -106,6 +101,5 @@
 		</div>
 	</div>
 	<script src="user.js"></script>
->>>>>>> branch 'nnnayeon' of https://github.com/sksk7412/TeamProject.git
 </body>
 </html>
