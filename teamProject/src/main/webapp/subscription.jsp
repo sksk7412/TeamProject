@@ -12,7 +12,6 @@
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <title>Subscription</title>
 </head>
-
 <body>
 	<div class="wrap">
 
@@ -91,6 +90,15 @@
     </div>
 <script src="./js/validation.js"></script>
 	<script type="text/javascript">
+	<% if(session.getAttribute("log")==null){ %>
+	$('.subsBtn').on('click', e=>{
+		$(".pop1").hide();
+		alert("로그인 후 이용 가능합니다.");
+		$('a').prop("href","./loginPage")
+		$('a').prop("onclick","")
+	})
+<%}else{%>
+
 	jQuery.fn.center = function () {
 	    this.css("position","absolute");
 	    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()-60) + "px");
@@ -103,11 +111,6 @@
 		$(".pop1").center();
 	}
 	
-	<% if(session.getAttribute("log")==null){ %>
-		$('.subsBtn').on('click', e=>{
-			alert("로그인 후 이용 가능합니다.");
-			$('a').prop("href","./loginPage")
-		})
 	<%}%>
 	
 	</script>
